@@ -12,6 +12,8 @@ import { VistaInicioComponent } from './pages/paginaPrincipal/vista-inicio/vista
 import { VistaContactanosComponent } from './pages/paginaPrincipal/vista-contactanos/vista-contactanos.component';
 import { VistaRegistrarseComponent } from './pages/paginaPrincipal/vista-registrarse/vista-registrarse.component';
 import { VistaInicioSesionComponent } from './pages/paginaPrincipal/vista-inicio-sesion/vista-inicio-sesion.component';
+import { NabvarPerfilMecanicoComponent } from './components/perfilMecanico/nabvar-perfil-mecanico/nabvar-perfil-mecanico.component';
+import { NabvarDerechoPerfilMecanicoComponent } from './components/perfilMecanico/nabvar-derecho-perfil-mecanico/nabvar-derecho-perfil-mecanico.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +26,9 @@ import { VistaInicioSesionComponent } from './pages/paginaPrincipal/vista-inicio
     VistaInicioComponent,
     VistaContactanosComponent,
     VistaRegistrarseComponent,
-    VistaInicioSesionComponent
+    VistaInicioSesionComponent,
+    NabvarPerfilMecanicoComponent,
+    NabvarDerechoPerfilMecanicoComponent
   ],
   imports: [
     BrowserModule,
