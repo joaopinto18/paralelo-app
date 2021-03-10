@@ -5,8 +5,8 @@ import { VistaDatosPerfilMecanicoComponent } from './pages/perfilMecanico/vista-
 
 const routes: Routes = [
   {path:'vista-inicio', component:VistaInicioComponent},
-  {path:'vista-perfil-mecanico', component:VistaDatosPerfilMecanicoComponent}
-];
+  {path:'vista-perfil-mecanico', component:VistaDatosPerfilMecanicoComponent},
+]
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
