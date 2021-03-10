@@ -14,6 +14,7 @@ import { VistaRegistrarseComponent } from './pages/paginaPrincipal/vista-registr
 import { VistaInicioSesionComponent } from './pages/paginaPrincipal/vista-inicio-sesion/vista-inicio-sesion.component';
 import { NabvarPerfilMecanicoComponent } from './components/perfilMecanico/nabvar-perfil-mecanico/nabvar-perfil-mecanico.component';
 import { NabvarDerechoPerfilMecanicoComponent } from './components/perfilMecanico/nabvar-derecho-perfil-mecanico/nabvar-derecho-perfil-mecanico.component';
+import { NavbarDerechoPaginaPrincipalComponent } from './components/paginaPrincipal/navbar-derecho-pagina-principal/navbar-derecho-pagina-principal.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { NabvarDerechoPerfilMecanicoComponent } from './components/perfilMecanic
     VistaRegistrarseComponent,
     VistaInicioSesionComponent,
     NabvarPerfilMecanicoComponent,
-    NabvarDerechoPerfilMecanicoComponent
+    NabvarDerechoPerfilMecanicoComponent,
+    NavbarDerechoPaginaPrincipalComponent
   ],
   imports: [
     BrowserModule,
