@@ -18,23 +18,30 @@
     color: rgb(255, 201, 51);
 }
 
-.form-square{
-    display: flex;
-    justify-content: center;
-}
-
 //------------> form
 
-.form-square .form-square-background{
+.form-square{
+    height: 95%;
+    width: 100%;
     display: flex;
     justify-content: center;
-    height: 410px;
-    width: 400px;
+    background-color: rgb(66, 66, 66);
+}
+
+.form-square .form-square-background{
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
+    height: 80%;
+    width: 70%;
     padding: 20px;
-    background-color: rgb(128, 128, 128);
-    margin-bottom: 50px;
-    border-radius: 10px;
-    box-shadow: 0 0 6px 0 rgba(225, 225, 225, 0.8);
+    background-color: rgb(255, 201, 51);
+}
+
+.form-square .form-square-background .form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 .form-square .form-square-background .form-tittle{
@@ -47,7 +54,7 @@
 }
 
 .form-square .form-square-background .send-button{
-    height: 40px;
+    height: 170px;
     width: 100%;
     font-family: Arial, Helvetica, sans-serif;
     font-size: 15px; 
@@ -60,7 +67,8 @@
 }
 
 input{
-    width: 300px;
+    width: 600px;
+    height: 10px;
     border-radius: 5px;                      
     font-size: 15px;            
     margin: 10px 10px 10px 5px; 
