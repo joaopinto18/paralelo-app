@@ -16,6 +16,8 @@ import { NabvarPerfilMecanicoComponent } from './components/perfilMecanico/nabva
 import { NabvarDerechoPerfilMecanicoComponent } from './components/perfilMecanico/nabvar-derecho-perfil-mecanico/nabvar-derecho-perfil-mecanico.component';
 import { NavbarDerechoPaginaPrincipalComponent } from './components/paginaPrincipal/navbar-derecho-pagina-principal/navbar-derecho-pagina-principal.component';
 import { VistaDatosPerfilMecanicoComponent } from './pages/perfilMecanico/vista-datos-perfil-mecanico/vista-datos-perfil-mecanico.component';
+import { VistaRegistroVehiculoMecanicoComponent } from './pages/perfilMecanico/vista-registro-vehiculo-mecanico/vista-registro-vehiculo-mecanico.component';
+import { VistaVehiculosRegistradosComponent } from './pages/perfilMecanico/vista-vehiculos-registrados/vista-vehiculos-registrados.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +34,9 @@ import { VistaDatosPerfilMecanicoComponent } from './pages/perfilMecanico/vista-
     NabvarPerfilMecanicoComponent,
     NabvarDerechoPerfilMecanicoComponent,
     NavbarDerechoPaginaPrincipalComponent,
-    VistaDatosPerfilMecanicoComponent
+    VistaDatosPerfilMecanicoComponent,
+    VistaRegistroVehiculoMecanicoComponent,
+    VistaVehiculosRegistradosComponent
   ],
   imports: [
     BrowserModule,
