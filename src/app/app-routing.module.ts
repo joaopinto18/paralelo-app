@@ -5,15 +5,19 @@ import { VistaDatosPerfilMecanicoComponent } from './pages/perfilMecanico/vista-
 import { VistaRegistroVehiculoMecanicoComponent } from './pages/perfilMecanico/vista-registro-vehiculo-mecanico/vista-registro-vehiculo-mecanico.component';
 import { VistaVehiculosRegistradosComponent } from './pages/perfilMecanico/vista-vehiculos-registrados/vista-vehiculos-registrados.component';
 
+
 const routes: Routes = [
   {path:'vista-inicio', component:VistaInicioComponent},
   {path:'vista-perfil-mecanico', component:VistaDatosPerfilMecanicoComponent},
   {path:'vista-registrar-vehiculo-mecanico', component:VistaRegistroVehiculoMecanicoComponent},
   {path:'vista-vehiculos-rehistrados-mecanicos', component:VistaVehiculosRegistradosComponent}
-];
+]
+
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {
+
+ }
