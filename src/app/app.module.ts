@@ -16,6 +16,19 @@ import { NabvarPerfilMecanicoComponent } from './components/perfilMecanico/nabva
 import { NabvarDerechoPerfilMecanicoComponent } from './components/perfilMecanico/nabvar-derecho-perfil-mecanico/nabvar-derecho-perfil-mecanico.component';
 import { NavbarDerechoPaginaPrincipalComponent } from './components/paginaPrincipal/navbar-derecho-pagina-principal/navbar-derecho-pagina-principal.component';
 import { VistaDatosPerfilMecanicoComponent } from './pages/perfilMecanico/vista-datos-perfil-mecanico/vista-datos-perfil-mecanico.component';
+import { VistaRegistroVehiculoMecanicoComponent } from './pages/perfilMecanico/vista-registro-vehiculo-mecanico/vista-registro-vehiculo-mecanico.component';
+import { VistaVehiculosRegistradosComponent } from './pages/perfilMecanico/vista-vehiculos-registrados/vista-vehiculos-registrados.component';
+
+
+
+//insertado de modulos para el tema de firebase
+import { AngularFireModule } from '@angular/fire';
+import {AngularFireStorageModule} from '@angular/fire/storage';
+import {AngularFireAuthModule} from '@angular/fire/auth';
+import {AngularFirestoreModule} from '@angular/fire/firestore';
+import { environment } from 'src/environments/environment';
+//insertado de modulos para el tema de los forms
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -32,11 +45,21 @@ import { VistaDatosPerfilMecanicoComponent } from './pages/perfilMecanico/vista-
     NabvarPerfilMecanicoComponent,
     NabvarDerechoPerfilMecanicoComponent,
     NavbarDerechoPaginaPrincipalComponent,
-    VistaDatosPerfilMecanicoComponent
+    VistaDatosPerfilMecanicoComponent,
+    VistaRegistroVehiculoMecanicoComponent,
+    VistaVehiculosRegistradosComponent,
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    //insertado de modulos de firebase
+    AngularFireModule.initializeApp(environment.firebaseConfig),
+    AngularFireStorageModule,
+    AngularFireAuthModule,
+    AngularFirestoreModule,
+    //modulos para crear formularios
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
