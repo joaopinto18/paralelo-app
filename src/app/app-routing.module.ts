@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { VistaAboutUsComponent } from './pages/paginaPrincipal/vista-about-us/vista-about-us.component';
+import { VistaContactanosComponent } from './pages/paginaPrincipal/vista-contactanos/vista-contactanos.component';
 import { VistaInicioSesionComponent } from './pages/paginaPrincipal/vista-inicio-sesion/vista-inicio-sesion.component';
 import { VistaInicioComponent } from './pages/paginaPrincipal/vista-inicio/vista-inicio.component';
 import { VistaRegistrarseComponent } from './pages/paginaPrincipal/vista-registrarse/vista-registrarse.component';
@@ -11,7 +12,8 @@ const routes: Routes = [
   {path:'inicio', component:VistaInicioSesionComponent},
   {path:'vista-perfil-mecanico', component:VistaDatosPerfilMecanicoComponent},
   {path:'registro', component:VistaRegistrarseComponent},
-  {path:'about-us', component:VistaAboutUsComponent}
+  {path:'about-us', component:VistaAboutUsComponent},
+  {path:'contactanos', component:VistaContactanosComponent}
 ];
 
 @NgModule({
