@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-vista-registro-vehiculo-mecanico',
@@ -7,9 +9,31 @@ import { Component, OnInit } from '@angular/core';
 })
 export class VistaRegistroVehiculoMecanicoComponent implements OnInit {
 
-  constructor() { }
+  public postForm!: FormGroup;
+
+  constructor(private fb: FormBuilder, private route: Router) { }
 
   ngOnInit(): void {
+  }
+
+  createForm(): void{
+    this.postForm=this.fb.group({
+      año:'',
+      cauchoDeRepuesto:false,
+      color:'',
+      daños:'',
+      gato:false,
+      herramientas:false,
+      kilometraje:'',
+      llaves:false,
+      marca:'',
+      modelo:'',
+      nivelDeCombustible:'',
+      otros:'',
+      placa:'',
+      reproductor:false,
+      requerimientos:""
+    });
   }
 
 }

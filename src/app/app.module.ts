@@ -18,6 +18,8 @@ import { NavbarDerechoPaginaPrincipalComponent } from './components/paginaPrinci
 import { VistaDatosPerfilMecanicoComponent } from './pages/perfilMecanico/vista-datos-perfil-mecanico/vista-datos-perfil-mecanico.component';
 import { VistaRegistroVehiculoMecanicoComponent } from './pages/perfilMecanico/vista-registro-vehiculo-mecanico/vista-registro-vehiculo-mecanico.component';
 import { VistaVehiculosRegistradosComponent } from './pages/perfilMecanico/vista-vehiculos-registrados/vista-vehiculos-registrados.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
 
 @NgModule({
   declarations: [
@@ -36,7 +38,10 @@ import { VistaVehiculosRegistradosComponent } from './pages/perfilMecanico/vista
     NavbarDerechoPaginaPrincipalComponent,
     VistaDatosPerfilMecanicoComponent,
     VistaRegistroVehiculoMecanicoComponent,
-    VistaVehiculosRegistradosComponent
+    VistaVehiculosRegistradosComponent,
+    //modulos para crear formularios
+    FormsModule,
+    ReactiveFormsModule
   ],
   imports: [
     BrowserModule,
