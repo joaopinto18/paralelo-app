@@ -32,6 +32,14 @@
     padding-right: 2px;
     width: 50%;
 }
+.right-navbar .iniciar-sesion .cuadro1 a{
+    color: white;
+    text-decoration: none;
+}
+.right-navbar .iniciar-sesion .cuadro1 a:hover{
+    color: white;
+    text-decoration: underline;
+}
 
 .right-navbar .buttons .registrase{
     height: 20px;
@@ -47,6 +55,18 @@
     padding-left: 2px;
     padding-right: 2px;
     width: 50%;
+    
+}
+
+.right-navbar .buttons .registrase .cuadro2 a{
+    color: white;
+    text-decoration: none;
+    
+}
+.right-navbar .buttons .registrase .cuadro2 a:hover{
+    color: white;
+    text-decoration: underline;
+    
 }
 
 .right-navbar .fotos{

@@ -5,10 +5,10 @@
     </div>
     
     <div class="contenedor">
-        <div class="botones">INICIO</div>
-        <div class="botones">ACERCA DE NOSOTROS</div>
-        <div class="botones">CONTACTO</div>
-        <div class="botones">UBICACIÓN</div>
+        <a [routerLink]="['']"><div class="botones">INICIO</div></a>
+        <a [routerLink]="['/about-us']"><div class="botones">ACERCA DE NOSOTROS</div></a>
+        <a [routerLink]="['/contactanos']"><div class="botones">CONTACTO</div></a>
+        <a [routerLink]="['/contactanos']"><div class="botones">UBICACIÓN</div></a>
     </div>
 </div>
 
