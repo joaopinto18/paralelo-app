@@ -9,15 +9,16 @@ import { Router } from '@angular/router';
 })
 export class VistaRegistroVehiculoMecanicoComponent implements OnInit {
 
-  public postForm!: FormGroup;
+  public registroVehiculoForm!: FormGroup;
 
   constructor(private fb: FormBuilder, private route: Router) { }
 
   ngOnInit(): void {
+    this.createForm();
   }
 
   createForm(): void{
-    this.postForm=this.fb.group({
+    this.registroVehiculoForm=this.fb.group({
       año:'',
       cauchoDeRepuesto:false,
       color:'',
@@ -32,8 +33,10 @@ export class VistaRegistroVehiculoMecanicoComponent implements OnInit {
       otros:'',
       placa:'',
       reproductor:false,
-      requerimientos:""
+      requerimientos:''
     });
   }
+
+
 
 }
