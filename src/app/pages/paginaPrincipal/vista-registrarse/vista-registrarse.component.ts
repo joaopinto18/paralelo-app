@@ -8,36 +8,12 @@ import { ServicioService } from 'src/app/services/servicio.service';
   styleUrls: ['./vista-registrarse.component.scss']
 })
 export class VistaRegistrarseComponent implements OnInit {
-  authForm: FormGroup;
-  @Input() withDisplayName: boolean = true;
-  @Output() sendFormEvent=new EventEmitter<{
-    email: string,
-    password: string,
-    displayname:string,
-  }>();
-  constructor(private fb: FormBuilder,private authService: ServicioService) { }
+  
+  constructor() { }
 
   ngOnInit(): void {
-    this.createAuthForm();
+    
   }
-  createAuthForm(): void{
-    this.authForm = this.fb.group({
-      displayname: '',
-      email: '',
-      passwprd: '',
-    });
-  }
-  onSubmit(): void{
-    console.log('enviando form');
-    const formData={
-      email: 'gabriel@gmail.com',
-      password: 'password',
-      displayname: '',
-    };
-    this.sendFormEvent.emit(formData);
-  }
-  handleGoogleLogin(){
-    this.authService.loginWithGoogle();
+ 
 
-  }
 }

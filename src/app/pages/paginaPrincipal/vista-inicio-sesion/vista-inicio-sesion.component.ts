@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Console } from 'node:console';
 
 @Component({
   selector: 'app-vista-inicio-sesion',

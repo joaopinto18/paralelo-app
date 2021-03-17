@@ -29,6 +29,7 @@ import {AngularFirestoreModule} from '@angular/fire/firestore';
 import { environment } from 'src/environments/environment';
 //insertado de modulos para el tema de los forms
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { AuthformComponent } from './components/paginaPrincipal/authform/authform.component';
 
 @NgModule({
   declarations: [
@@ -48,6 +49,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     VistaDatosPerfilMecanicoComponent,
     VistaRegistroVehiculoMecanicoComponent,
     VistaVehiculosRegistradosComponent,
+    AuthformComponent,
   ],
   imports: [
     BrowserModule,
