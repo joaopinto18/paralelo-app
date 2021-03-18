@@ -9,71 +9,71 @@
     </div>
     <div class='form-square'>
         <div class='form-square-background'>
-            <form [formGroup]="registroVehiculoForm" class='form'>
+            <form [formGroup]="registroVehiculoForm" (ngSubmit)='onSubmit()' class='form'>
                 <div class='columnas'>
                     <div class='columna1'>
                         <div class='group1'>
-                            <input type="text" required><span class='bar'></span>
+                            <input type="text" formControlName="marca" required><span class='bar'></span>
                             <label for=''>MARCA</label>
                         </div>
                         <div class='group2'>
-                            <input type="text" required><span class='bar'></span>
+                            <input type="text" formControlName="modelo" required><span class='bar'></span>
                             <label for=''>MODELO</label>
                         </div>
                         <div class='group3'>
-                            <input type="text" required><span class='bar'></span>
+                            <input type="text" formControlName="año" required><span class='bar'></span>
                             <label for=''>AÑO</label>
                         </div>
                         <div class='group4'>
-                            <input type="text" required><span class='bar'></span>
+                            <input type="text" formControlName="placa" required><span class='bar'></span>
                             <label for=''>PLACA</label>
                         </div>
                         <div class='group11'>
-                            <input type="text" required><span class='bar'></span>
+                            <input type="text" formControlName="otros" required><span class='bar'></span>
                             <label for=''>OTROS</label>
                         </div>
                     </div>
                     <div class=columna2>
                         <div class='group5'>
-                            <input type="text" required><span class='bar'></span>
+                            <input type="text" formControlName="color" required><span class='bar'></span>
                             <label for=''>COLOR</label>
                         </div>
                         <div class='group6'>
-                            <input type="text" required><span class='bar'></span>
+                            <input type="text" formControlName="kilometraje_ingreso" required><span class='bar'></span>
                             <label for=''>KILOMETRAJE DE INGRESO</label>
                         </div>
                         <div class='group7'>
-                            <input type="text" required><span class='bar'></span>
+                            <input type="text" formControlName="tanque_gasolina" required><span class='bar'></span>
                             <label for=''>NIVEL DEL TANQUE DE GASOLINA</label>
                         </div>
                         <div class='group8'>
-                            <input type="text" required><span class='bar'></span>
+                            <input type="text" formControlName="daños" required><span class='bar'></span>
                             <label for=''>DAÑOS</label>
                         </div>
                         <div class='group10'>
-                            <input type="text" required><span class='bar'></span>
+                            <input type="text" formControlName="requerimientos" required><span class='bar'></span>
                             <label for=''>REQUERIMIENTOS DEL CLIENTE</label>
                         </div>
                     </div>
                     <div class=columna3>
                         <div class='group5'>
-                            <input type="checkbox" required><span class='bar'></span>
+                            <input type="checkbox" formControlName="caucho_respuesto" required><span class='bar'></span>
                             <label for=''>CAUCHO DE REPUESTO</label>
                         </div>
                         <div class='group6'>
-                            <input type="checkbox" required><span class='bar'></span>
+                            <input type="checkbox" formControlName="llaves" required><span class='bar'></span>
                             <label for=''>LLAVES</label>
                         </div>
                         <div class='group7'>
-                            <input type="checkbox" required><span class='bar'></span>
+                            <input type="checkbox" formControlName="gato" required><span class='bar'></span>
                             <label for=''>GATO</label>
                         </div>
                         <div class='group8'>
-                            <input type="checkbox" required><span class='bar'></span>
+                            <input type="checkbox" formControlName="herramientas" required><span class='bar'></span>
                             <label for=''>HERRAMIENTAS</label>
                         </div>
                         <div class='group9'>
-                            <input type="checkbox" required><span class='bar'></span>
+                            <input type="checkbox" formControlName="reproductor" required><span class='bar'></span>
                             <label for=''>REPRODUCTOR</label>
                         </div>
                     </div>

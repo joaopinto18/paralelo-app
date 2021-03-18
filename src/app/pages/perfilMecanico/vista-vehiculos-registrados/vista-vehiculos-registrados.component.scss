@@ -26,6 +26,12 @@
     display: flex;
 }
 
+.wrapper .input-section .input-form{
+    height: 20%;
+    width: 100%;
+    display: flex;
+}
+
 .wrapper .input-section .input{
     height: 65%;
     width: 55%;
@@ -72,11 +78,11 @@
     background-color: rgb(255, 201, 51);
 }
 
-.form-square .form-square-background .form{
+.form-square .form-square-background .cahnges-form{
     justify-content: center;
 }
 
-.form-square .form-square-background .form .identificador{
+.form-square .form-square-background .cahnges-form .identificador{
     display: flex;
     justify-content: center;
     height: 10%;
@@ -85,31 +91,31 @@
     font-weight: bold;
 }
 
-.form-square .form-square-background .form .columnas{
+.form-square .form-square-background .cahnges-form .columnas{
     display: flex;
     justify-content: space-between;
     height: 80%;
 }
 
-.form-square .form-square-background .form .columna1{
+.form-square .form-square-background .cahnges-form .columna1{
     display: flex;
     flex-direction: column;
     justify-content: center;
 }
 
-.form-square .form-square-background .form .columna2{
+.form-square .form-square-background .cahnges-form .columna2{
     display: flex;
     flex-direction: column;
     justify-content: center;
 }
 
-.form-square .form-square-background .form .columna3{
+.form-square .form-square-background .cahnges-form .columna3{
     display: flex;
     flex-direction: column;
     justify-content: center;
 }
 
-.form-square .form-square-background .form-tittle{
+.form-square .form-square-background .cahnges-form-tittle{
     text-align: center;
     font-family: Arial, Helvetica, sans-serif;
     font-size: 40px;
@@ -118,12 +124,19 @@
     margin-bottom: 20px;
 }
 
-.form-square .form-square-background .send-button{
-    height: 35px;
+.form-square .form-square-background .botones{
+    display: flex;
+    justify-content: space-around;
     width: 100%;
+    height: 35px;
+}
+
+.form-square .form-square-background .botones .send-button{
     font-family: Arial, Helvetica, sans-serif;
     font-size: 15px; 
     font-weight: bold;
+    padding-left: 5px;
+    padding-right: 5px;
     margin-top: 7px;
     border-radius: 5px;
     background-color: white;

@@ -9,7 +9,7 @@ export interface AddCarModel {
     llaves:boolean;
     marca:String;
     modelo:String;
-    nivel_talque_gasolina:String;
+    tanque_gasolina:String;
     otros:String;
     placa:String;
     reproductor:boolean;
