@@ -44,4 +44,39 @@ export class ServicioService {
 
     
   }
+  /*Registrar usuario*/
+  async registerNewUSer(
+    email: string,
+    password:  string, 
+    displayName: string,
+    ): Promise<firebase.User>{
+      try {
+       const response = await this.afAuth.createUserWithEmailAndPassword(email,password);
+      if (response.user) {
+        localStorage.setItem('user',response.user.uid);
+        response.user.updateProfile({displayName,photoURL: 'https://www.pavilionweb.com/wp-content/uploads/2017/03/man-300x300.png',});
+        return response.user;
+      }
+      } catch (error) {
+        console.log(error);
+        localStorage.removeItem('user');
+      }
+      
+
+  }
+  async loginWithEmail(
+    email: string,
+    password:  string,
+  ): Promise<firebase.User>{
+    try {
+      const response = await this.afAuth.signInWithEmailAndPassword(email,password);
+      if (response.user) {
+        localStorage.setItem('user',response.user.uid);
+        return response.user;
+      }
+    } catch (error) {
+      console.log(error);
+      localStorage.removeItem('user');
+    }
+  }
 }

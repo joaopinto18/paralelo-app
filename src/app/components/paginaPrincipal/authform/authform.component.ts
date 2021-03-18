@@ -10,11 +10,7 @@ import { ServicioService } from 'src/app/services/servicio.service';
 export class AuthformComponent implements OnInit {
   authForm: FormGroup;
   @Input() withDisplayName: boolean = true;
-  @Output() sendFormEvent=new EventEmitter<{
-    email: string,
-    password: string,
-    displayname:string,
-  }>();
+  @Output() sendFormEvent=new EventEmitter();
   constructor(private fb: FormBuilder,private authService: ServicioService) { }
 
   ngOnInit(): void {
@@ -23,16 +19,16 @@ export class AuthformComponent implements OnInit {
   createAuthForm(): void{
     this.authForm = this.fb.group({
       email: '',
-      passwprd: '',
+      password: '',
       displayname: '',
     });
   }
   onSubmit(): void{
     console.log('enviando form');
     const formData={
-      email: 'gabriel@gmail.com',
-      password: 'password',
-      displayname: '',
+      email: this.authForm.get('email').value,
+      password: this.authForm.get('password').value,
+      displayname: this.authForm.get('displayname').value,
     };
     this.sendFormEvent.emit(formData);
   }

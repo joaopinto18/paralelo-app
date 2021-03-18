@@ -1,6 +1,7 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { Router } from '@angular/router';
 import { ServicioService } from 'src/app/services/servicio.service';
+
 
 @Component({
   selector: 'app-vista-registrarse',
@@ -9,11 +10,18 @@ import { ServicioService } from 'src/app/services/servicio.service';
 })
 export class VistaRegistrarseComponent implements OnInit {
   
-  constructor() { }
+  constructor(private authService: ServicioService,private router: Router) { }
 
   ngOnInit(): void {
     
   }
- 
+  handleRegister(formData){
+    console.log(formData);
+    this.authService.registerNewUSer(formData.email,formData.password,formData.displayName).then((user)=>{
+      if (user) {
+        this.router.navigate(['/']);
+      }
+    });
+  }
 
 }
