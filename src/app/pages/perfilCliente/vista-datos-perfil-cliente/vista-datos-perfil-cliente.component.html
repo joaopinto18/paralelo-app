@@ -1,0 +1,57 @@
+<app-navbar-derecho-cliente></app-navbar-derecho-cliente>
+<app-navbar-perfil-cliente></app-navbar-perfil-cliente>
+
+<div class='wrapper'>
+    <div class='title-box'>
+        <div class='title'>
+            <span>DATOS DEL CLIENTE</span>
+        </div>
+    </div>
+    <div class="space">
+        <div class='form-square'>
+            <div class='form-square-background'>
+                <form class='form' [formGroup]="datosform" (submit)="saveUser()">
+                    <div class='group1'>
+                        <input type="text" required id="nombre" formControlName="nombre_apellido"><span class='bar'></span>
+                        <label for=''>NOMBRE Y APELLIDO</label>
+                    </div>
+                    <div class='group2'>
+                        <input type="text" required id="cedula" formControlName="cedula" required maxlength="8"><span class='bar'></span>
+                        <label for=''>CÉDULA DE IDENTIDAD</label>
+                    </div>
+                    <div class='group3'>
+                        <input type="text" required id="fecha" formControlName="fecha"><span class='bar'></span>
+                        <label for=''>FECHA DE NACIMIENTO</label>
+                    </div>
+                    <div class='group4'>
+                        <input type="text" required id="lugar" formControlName="lugar"><span class='bar'></span>
+                        <label for=''>LUGAR DE RESIDENCIA</label>
+                    </div>
+                    <div class='group4'>
+                        <input type="text" required id="numero" formControlName="numero"><span class='bar'></span>
+                        <label for=''>NÚMERO DE TELÉFONO</label>
+                    </div>
+                    <div>
+                        <button (onclick)="modificarInfoUsuario()">GUARDAR CAMBIOS</button>
+                        <button>EDITAR</button>
+                    </div> 
+                </form>
+            </div>
+        </div>
+        <div class="administrar">
+            <div class="texto1">
+                <span>ADMINISTRAR VEHÍCULOS</span>
+            </div>
+            <div class="btn">
+                <button [routerLink]="['/vista-registrar-vehiculo1']">VEHÍCULO 1</button>
+            </div> 
+            <div class="btn">
+                <button [routerLink]="['/vista-registrar-vehiculo2']">VEHÍCULO 2</button>
+            </div> 
+            <div class="btn">
+                <button [routerLink]="['/vista-registrar-vehiculo3']">VEHÍCULO 3</button>
+            </div>  
+        </div>
+    </div>
+    
+</div>

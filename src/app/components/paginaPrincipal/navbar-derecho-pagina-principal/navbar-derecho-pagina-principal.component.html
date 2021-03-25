@@ -1,13 +1,24 @@
 <div class='right-navbar'>
     <div class='buttons'>
         <div class='iniciar-sesion'>
-            <div class='cuadro1'>
+            <div class='cuadro1' *ngIf="!user">
                <a [routerLink]="['/inicio']">INICIAR SESIÓN</a> 
             </div>
         </div>
-        <div class='registrase'>
+        <div class='registrase' *ngIf="!user">
             <div class='cuadro2'>
                 <a [routerLink]="['/registro']">REGISTRARSE</a> 
+            </div>
+        </div>
+        <div class='registrase' *ngIf="user">
+            <div class='cuadro2'>
+            <p>{{user.displayName}}</p>
+            <img [src]="user.photoURL" alt="">
+            </div>
+        </div>
+        <div class='registrase' *ngIf="user">
+            <div class='cuadro2'>
+            <button type="button" (click)="handleLogout()" class="cuadro2"><p>LOGOUT</p></button>
             </div>
         </div>
     </div>

@@ -1,0 +1,63 @@
+<app-navbar-derecho-cliente></app-navbar-derecho-cliente>
+<app-navbar-perfil-cliente></app-navbar-perfil-cliente>
+
+<div class='wrapper'>
+    <div class='title-box'>
+        <div class='title'>
+            <span>REGISTRO DE VEHÍCULOS</span>
+        </div>
+    </div>
+    <div class="space">
+        <div class='form-square'>
+            <div class='form-square-background'>
+                <form class='form'>
+                    <div class='group1'>
+                        <input type="text" required><span class='bar'></span>
+                        <label for=''>SERIAL DEL MOTOR</label>
+                    </div>
+                    <div class='group2'>
+                        <input type="text" required><span class='bar'></span>
+                        <label for=''>MODELO</label>
+                    </div>
+                    <div class='group3'>
+                        <input type="text" required><span class='bar'></span>
+                        <label for=''>AÑO</label>
+                    </div>
+                    <div class='group4'>
+                        <input type="text" required><span class='bar'></span>
+                        <label for=''>PLACA</label>
+                    </div>
+                    <div class='group4'>
+                        <input type="file" accept="image/jpeg" (change)="onSelectFile($event)" required><span class='bar'></span>
+                        <label for=''>FOTO DE REFERENCIA</label>
+                    </div>
+                    <div class='group4'>
+                        <input type="date" required><span class='bar'></span>
+                        <label for=''>FECHA</label>
+                    </div>
+                    <div>
+                        <button>GUARDAR CAMBIOS</button>
+                        <button>DESACTIVAR</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="citas">
+            <div class='title-box'>
+                <div class='title2'>
+                    <span>VEHÍCULO 3</span>
+                </div>
+            </div>
+            <div class="foto" *ngIf="montarFoto()">
+                <img [src]="url" alt="fotovehiculo">
+            </div>
+            <div class="btn1">
+                <button>SOLICITAR CITA</button>
+            </div> 
+            <div class="btn2">
+                <button [routerLink]="['/vista-registrar-vehiculo1']">VEHÍCULO 1</button>
+            </div>  
+        </div>
+    </div>
+    
+</div>

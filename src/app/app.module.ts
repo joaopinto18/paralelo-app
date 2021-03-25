@@ -29,6 +29,17 @@ import {AngularFirestoreModule} from '@angular/fire/firestore';
 import { environment } from 'src/environments/environment';
 //insertado de modulos para el tema de los forms
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { AuthformComponent } from './components/paginaPrincipal/authform/authform.component';
+
+//modulos de perfil cliente
+import { NavbarDerechoClienteComponent } from './components/perfilCliente/navbar-derecho-cliente/navbar-derecho-cliente.component';
+import { NavbarPerfilClienteComponent } from './components/perfilCliente/navbar-perfil-cliente/navbar-perfil-cliente.component';
+import { VistaDatosPerfilClienteComponent } from './pages/perfilCliente/vista-datos-perfil-cliente/vista-datos-perfil-cliente.component';
+import { VistaCitasClienteComponent } from './pages/perfilCliente/vista-citas-cliente/vista-citas-cliente.component';
+import { VistaRegistroVehiculo1Component } from './pages/perfilCliente/vista-registro-vehiculo1/vista-registro-vehiculo1.component';
+import { VistaRegistroVehiculo2Component } from './pages/perfilCliente/vista-registro-vehiculo2/vista-registro-vehiculo2.component';
+import { VistaRegistroVehiculo3Component } from './pages/perfilCliente/vista-registro-vehiculo3/vista-registro-vehiculo3.component';
+
 
 @NgModule({
   declarations: [
@@ -48,6 +59,14 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     VistaDatosPerfilMecanicoComponent,
     VistaRegistroVehiculoMecanicoComponent,
     VistaVehiculosRegistradosComponent,
+    NavbarDerechoClienteComponent,
+    NavbarPerfilClienteComponent,
+    VistaDatosPerfilClienteComponent,
+    VistaRegistroVehiculo1Component,
+    VistaRegistroVehiculo2Component,
+    VistaRegistroVehiculo3Component,
+    VistaCitasClienteComponent,
+    AuthformComponent,
   ],
   imports: [
     BrowserModule,

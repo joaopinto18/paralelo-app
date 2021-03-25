@@ -1,18 +1,1 @@
-<app-navbar-derecho-pagina-principal></app-navbar-derecho-pagina-principal>
-<app-navbar-pagina-principal></app-navbar-pagina-principal>
-<div class="ventana">
-        <div class="espacio"></div>
-        <div class="inicio">
-            <span>REGISTRO DE USUARIO</span>
-        </div>
-        <div class="cuadros">
-            <form action="" class="form-square">
-                <div class="info"><label for="">EMAIL</label><input type="email" placeholder="correo" required></div>
-                <div class="info"><label for="">CONTRASEÑA<input type="password" placeholder="contraseña" required></label></div>
-                <div class="info"><label for="">VERIFIQUE CONTRASEÑA<input type="password" placeholder="verifique contraseña" required></label></div>
-                <div class="enviar"><button class='send-button' type='button'>REGISTRARSE</button></div>
-            </form>
-        </div>
-   
-
-</div>
+<app-authform (sendFormEvent)="handleRegister($event)"></app-authform>
