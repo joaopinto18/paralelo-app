@@ -49,19 +49,13 @@ export class VistaVehiculosRegistradosComponent implements OnInit {
         propiedades.ref.update({ diagnostico: "QQQ", procedimientoAplicado: "QQQ", repuestosNecesarios: "QQQ" })
       })
     })*/
-
-    this.vehiculoBuscadoCambiar.onSnapshot(function(result){
-      result.forEach((propiedades)=>{
-        propiedades.ref.update({ diagnostico: "QQQ", procedimientoAplicado: "QQQ", repuestosNecesarios: "QQQ" })
-      })
-    })
   }
 
   async search():Promise<void>{
     const newCar: any={
       placa:this.registroVehiculoForm.get('placa')?.value
     }
-    this.vehiculoBuscadoCambiar = await this.carService.BuscarVehiculo(newCar.placa);
+    
     const car = await this.carService.BuscarVehiculo(newCar.placa).valueChanges().pipe( take(1) ).toPromise();
     console.log(car);
     this.vehiculoBuscado = car;
