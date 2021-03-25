@@ -1,0 +1,115 @@
+@import url('https://fonts.googleapis.com/css2?family=Audiowide&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Athiti:wght@700&display=swap');
+
+
+.wrapper{
+    height: 80%;
+    width: 75%;
+    background-color: rgb(66, 66, 66);
+}
+
+.space{
+    display: flex;
+    justify-content: space-between;
+    padding: 0px;
+    height: 95%;
+}
+
+.wrapper .title-box{
+    height: 5%;
+    display: flex;
+    justify-content: center;
+}
+
+.wrapper .title-box .title{
+    font-family: 'Audiowide', cursive;
+    font-size: 25px;
+    color: rgb(255, 201, 51);
+}
+
+.form-square{
+    height: 85%;
+    width: 35%;
+    margin-top: 10px;
+    display: flex;
+    justify-content: left;
+    margin-left: 30px;
+}
+
+.form-square .form-square-background{
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    height: 87%;
+    width: 90%;
+    padding: 35px;
+    background-color: rgb(255, 201, 51);
+}
+
+.form-square .form-square-background .form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.form-square .form-square-background .form-tittle{
+    text-align: center;
+    font-family: 'Athiti', sans-serif;
+    font-size: 40px;
+    color: black;
+    font-weight: bold;
+    margin-bottom: 20px;
+    margin-left: 40px;
+}
+
+input{
+    width: 300px;
+    height: 10px;
+    border-radius: 36px 12px;                      
+    font-size: 15px;            
+    margin: 5px 10px 10px 1px; 
+    margin-left: 10px;
+    padding: 10px 10px 10px 5px;
+    display: block;             
+    border: none;
+}
+
+label{
+    font-family: 'Athiti', sans-serif;
+    font-size: 14px; 
+    font-weight: bold;
+    margin-left: 20px;
+}
+
+.texto1{
+    margin-right: 165px;
+    margin-top: 120px;
+    font-family: 'Audiowide', cursive;
+    color: white;
+    text-align: center;
+}
+
+.administrar{
+    height: 10px;
+}
+
+.btn{
+    margin: 30px;
+    color: black;
+    width: 150px;
+    height: 30px;
+    border: 0ch;
+    font-family: 'Athiti', sans-serif ;
+    font-size: 15px;
+    text-align: center;
+}
+
+button{
+    width: 150px;
+    height: 30px;
+    border: 0ch;
+    font-family: 'Athiti', sans-serif ;
+    font-size: 15px;
+    text-align: center;
+    margin: 5px;
+}

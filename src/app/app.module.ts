@@ -39,6 +39,10 @@ import { VistaCitasClienteComponent } from './pages/perfilCliente/vista-citas-cl
 import { VistaRegistroVehiculo1Component } from './pages/perfilCliente/vista-registro-vehiculo1/vista-registro-vehiculo1.component';
 import { VistaRegistroVehiculo2Component } from './pages/perfilCliente/vista-registro-vehiculo2/vista-registro-vehiculo2.component';
 import { VistaRegistroVehiculo3Component } from './pages/perfilCliente/vista-registro-vehiculo3/vista-registro-vehiculo3.component';
+import { VistaDatosPerfilAdminComponent } from './pages/perfilAdmin/vista-datos-perfil-admin/vista-datos-perfil-admin.component';
+import { VistaAdminRolesComponent } from './pages/perfilAdmin/vista-admin-roles/vista-admin-roles.component';
+import { NavbarPerfilAdminComponent } from './components/perfilAdmin/navbar-perfil-admin/navbar-perfil-admin.component';
+import { NavbarDerechoAdminComponent } from './components/perfilAdmin/navbar-derecho-admin/navbar-derecho-admin.component';
 
 
 @NgModule({
@@ -67,6 +71,10 @@ import { VistaRegistroVehiculo3Component } from './pages/perfilCliente/vista-reg
     VistaRegistroVehiculo3Component,
     VistaCitasClienteComponent,
     AuthformComponent,
+    VistaDatosPerfilAdminComponent,
+    VistaAdminRolesComponent,
+    NavbarPerfilAdminComponent,
+    NavbarDerechoAdminComponent,
   ],
   imports: [
     BrowserModule,
