@@ -21,9 +21,9 @@
 
     <div class='form-square'>
         <div class='form-square-background'>
-            <form [formGroup]="infoVehiculo" class='cahnges-form'>  <!--este es el form-->
+            <form [formGroup]="infoVehiculo" class='cahnges-form' >  <!--este es el form-->
                 <div class='identificador'>
-                    <span *ngIf="placa">{{placa}}</span>
+                    <span *ngIf="placa">VEHICULO ENCONTRADO DE PLACA {{placa}} ENCONTRADO</span>
                     <span *ngIf="!placa">SIN RESULTADOS</span>
                 </div>
                 <div class='columnas'>
@@ -43,7 +43,7 @@
                     </div>
                 </div>
                 <div class='botones'>
-                    <button class='send-button' type='submit'>GUARDAR ORDEN</button>
+                    <button class='send-button' (click)='modify()'>GUARDAR ORDEN</button>
                     <button class='send-button' type='submit'>CERRAR ORDEN</button>
                     <button class='send-button' type='submit'>ELIMINAR ORDEN</button>
                 </div>

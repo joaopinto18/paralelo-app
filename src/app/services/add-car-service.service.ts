@@ -11,12 +11,10 @@ import { AddCarModel } from '../models/add-car-model';
 export class AddCarServiceService {
 
   private CarsCollection: AngularFirestoreCollection<AddCarModel>
-  private CarsCollectionObtener:AngularFirestoreCollection
 
   constructor(private firestore: AngularFirestore) { 
     /**CarsCollection hace referencia a la coleccion de la bd llamada VEHICULOS.... */
     this.CarsCollection=this.firestore.collection<AddCarModel>('VEHICULOS REGISTRADOS PARA ORDENES');
-    this.CarsCollectionObtener=this.firestore.collection('VEHICULOS REGISTRADOS PARA ORDENES');
   }
 
   /**
@@ -33,7 +31,11 @@ export class AddCarServiceService {
 
   BuscarVehiculo(placa: string): any{
 
-    return this.CarsCollectionObtener.ref.where('placa','==',placa)
+    return this.firestore.collection('VEHICULOS REGISTRADOS PARA ORDENES' ,  ref => (
+      ref.where('placa', '==', placa)
+    ))
+
+    // return this.CarsCollectionObtener.ref.where('placa','==',placa).snapshotChanges()
       
     /*this.CarsCollectionObtener.doc(nombreDeColeccion).ref.onSnapshot(function(result) {
       var data = result.get('placa')
