@@ -14,4 +14,7 @@ export interface AddCarModel {
     placa:String;
     reproductor:boolean;
     requerimientos: String;
+    diagnostico?:String;
+    procedimiento?:String;
+    repuestos?:String;
 }

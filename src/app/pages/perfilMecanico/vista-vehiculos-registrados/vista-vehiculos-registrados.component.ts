@@ -37,19 +37,25 @@ export class VistaVehiculosRegistradosComponent implements OnInit {
     })
   }
 
+  /**
+   * FUNCION PARA MODIFICAR LA INFO DE REPARACION DE UN VEHICULO
+   */
+
   modify():void{
     
-    //this.vehiculoBuscado.ref.update({ diagnostico: "QQQ", procedimientoAplicado: "QQQ", repuestosNecesarios: "QQQ" });
-    /*const newCar: any={
-      placa:this.registroVehiculoForm.get('placa')?.value
-    }
-    
-    this.carService.BuscarVehiculo(newCar.placa).onSnapshot(function(result){
-      result.forEach((propiedades)=>{
-        propiedades.ref.update({ diagnostico: "QQQ", procedimientoAplicado: "QQQ", repuestosNecesarios: "QQQ" })
-      })
-    })*/
+    console.log("actualizando info de reparación");
+    const repuestos = this.infoVehiculo.get('repuestos').value
+    const diagnostico = this.infoVehiculo.get('diagnostico').value
+    const procedimiento = this.infoVehiculo.get('procedimiento').value
+
+    this.carService.modificarInfoVehiculo(repuestos,procedimiento,diagnostico,this.placa);
+
+    alert('Se ha modificado la información del vehiculo');
   }
+
+  /**
+   * FUNCION PARA BUSCAR UN VEHICULO
+   */
 
   async search():Promise<void>{
     const newCar: any={
@@ -60,7 +66,7 @@ export class VistaVehiculosRegistradosComponent implements OnInit {
     console.log(car);
     this.vehiculoBuscado = car;
     this.placa = car[0].placa;
-    console.log(car[0].placa);
+    console.log(car[0].color);
     
     // this.carService.BuscarVehiculo(newCar.placa).onSnapshot(function(result) {
     //   result.forEach((propiedades)=> {

@@ -19,18 +19,18 @@
                     <label for=''>CEDULA DE IDENTIDAD</label>
                 </div>
                 <div class='group3'>
-                    <input type="text" formControlName="fecha_nacimiento" required><span class='bar'></span>
+                    <input type="text" formControlName="fecha" required><span class='bar'></span>
                     <label for=''>FECHA DE NACIMIENTO</label>
                 </div>
                 <div class='group4'>
-                    <input type="text" formControlName="lugar_residencia" required><span class='bar'></span>
+                    <input type="text" formControlName="lugar" required><span class='bar'></span>
                     <label for=''>LUGAR DE RESIDENCIA</label>
                 </div>
                 <div class='group4'>
-                    <input type="text" formControlName="numero_telefono" required><span class='bar'></span>
+                    <input type="text" formControlName="numero" required><span class='bar'></span>
                     <label for=''>NUMERO DE TELÉFONO</label>
                 </div>
-                <button class='send-button' type='submit'>GUARDAR</button>
+                <button class='send-button' (click)="modify()">GUARDAR DATOS</button>
             </form>
         </div>
     </div>

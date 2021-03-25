@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
+import { AddInfoUserServicesService } from 'src/app/services/add-info-user-services.service';
 
 @Component({
   selector: 'app-vista-datos-perfil-mecanico',
@@ -10,7 +11,9 @@ export class VistaDatosPerfilMecanicoComponent implements OnInit {
 
   public datosMecanico!:FormGroup;
 
-  constructor(private fb: FormBuilder) { }
+  constructor(private fb: FormBuilder, private infoUserService: AddInfoUserServicesService) { 
+    this.createInputForm1();
+  }
 
   ngOnInit(): void {
   }
@@ -23,18 +26,30 @@ export class VistaDatosPerfilMecanicoComponent implements OnInit {
 
 
   /**
-   * SUPONEMOS QUE YA TENEMOS EL DOCUMENTO 
+   * SUPONEMOS QUE YA TENEMOS EL DOCUMENTO ----> colocado en el servicio
    */
 
-  idDeelDocumento: string = "4f7W3m6obhvEwykOxsTw";
 
    createInputForm1(): void{
     this.datosMecanico=this.fb.group({
       nombre_apellido:'',
       cedula:'',
-      fecha_nacimiento:'',
-      
+      fecha:'',
+      lugar:'',
+      numero:'',
     });
+  }
+
+  modify():void{
+    const newCar: any={
+      nombre_apellido:this.datosMecanico.get('nombre_apellido').value,
+      cedula:this.datosMecanico.get('cedula').value,
+      fecha:this.datosMecanico.get('fecha').value,
+      lugar:this.datosMecanico.get('lugar').value,
+      numero:this.datosMecanico.get('numero').value,
+    }
+
+    this.infoUserService.modificarInfoUsuario(newCar);
   }
 
 }

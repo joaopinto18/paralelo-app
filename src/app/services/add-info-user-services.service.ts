@@ -14,11 +14,17 @@ export class AddInfoUserServicesService {
   }
 
   /**
-   * Funcion para mandar la informacion de usuarios a la base de datos
+   * FUNCION PARA MODIFICAR DATOS DE LA BD 
    */
   
-  modificarInfoUsuario(data:ModeloDatosUsuario):Promise<DocumentReference>{
-    return this.usersCollection.add(data);
+  modificarInfoUsuario(data:ModeloDatosUsuario):any{
+    this.usersCollection.doc("4f7W3m6obhvEwykOxsTw").ref.onSnapshot(function(result) {
+      result.ref.update({cedula: data.cedula, fecha: data.fecha, lugar: data.lugar, 
+      nombre_apellido: data.nombre_apellido, numero: data.numero });
+  })
   }
+
+   
+  
 
 }

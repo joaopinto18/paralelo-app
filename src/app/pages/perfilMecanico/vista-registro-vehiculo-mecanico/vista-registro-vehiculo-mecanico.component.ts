@@ -60,6 +60,9 @@ export class VistaRegistroVehiculoMecanicoComponent implements OnInit {
       reproductor:this.registroVehiculoForm.get('reproductor').value,
       requerimientos:this.registroVehiculoForm.get('requerimientos').value,
       tanque_gasolina:this.registroVehiculoForm.get('tanque_gasolina').value,
+      diagnostico:"vacio",
+      procedimiento:"vacio",
+      repuestos:"vacio"
     }
 
     console.log(newCar);
