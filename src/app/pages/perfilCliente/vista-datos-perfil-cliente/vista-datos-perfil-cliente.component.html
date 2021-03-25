@@ -10,7 +10,7 @@
     <div class="space">
         <div class='form-square'>
             <div class='form-square-background'>
-                <form class='form' [formGroup]="datosform" (submit)="saveUser()">
+                <form class='form' [formGroup]="datosform">
                     <div class='group1'>
                         <input type="text" required id="nombre" formControlName="nombre_apellido"><span class='bar'></span>
                         <label for=''>NOMBRE Y APELLIDO</label>
@@ -32,7 +32,7 @@
                         <label for=''>NÚMERO DE TELÉFONO</label>
                     </div>
                     <div>
-                        <button (click)="modificarInfoUsuario(); saveUser()">GUARDAR CAMBIOS</button>
+                        <button (click)="modificarInfoUsuario()">GUARDAR CAMBIOS</button>
                         <button>EDITAR</button>
                     </div> 
                 </form>

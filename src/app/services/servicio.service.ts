@@ -1,14 +1,16 @@
 import { Injectable } from '@angular/core';
 import {AngularFireAuth} from '@angular/fire/auth';
+import { Router } from '@angular/router';
 import firebase from 'firebase';
 import { Observable } from 'rxjs';
+import { AddInfoUserServicesService } from './add-info-user-services.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ServicioService {
 
-  constructor(private afAuth: AngularFireAuth) { }
+  constructor(private afAuth: AngularFireAuth, private addInfoService: AddInfoUserServicesService, private router: Router) { }
   async loginWithGoogle(): Promise<firebase.User>{
     try {
       const provider = new firebase.auth.GoogleAuthProvider();
@@ -16,6 +18,21 @@ export class ServicioService {
       console.log(JSON.stringify(response));
       if (response.user) {
         localStorage.setItem('user',response.user.uid);
+        const datosUsuario={
+          nombre_apellido: response.user.displayName,
+          cedula: 0,
+          fecha: "vacio",
+          lugar: "vacio",
+          numero: 0,
+          acceso: "cliente",
+          correo: response.user.email
+          } 
+    
+          console.log('---------------------------------------------->');
+          console.log('---------------------------------------------->');
+      
+          this.addInfoService.RegistrarUsuario(datosUsuario);
+          this.router.navigate(['/vista-datos-perfil-cliente']);
         return response.user;
       }
       
@@ -27,7 +44,10 @@ export class ServicioService {
     
 
   }
-  /*Usuario actual*/
+  /**
+   *  FUNCION PARA OBTENER EL USUARIO
+   */
+
   getCurrentUser(): Observable<firebase.User>{
     return this.afAuth.user;
 
@@ -41,10 +61,12 @@ export class ServicioService {
       console.log(error);
       localStorage.removeItem('user');
     }
-
-    
   }
-  /*Registrar usuario*/
+  
+  /**
+   *  FUNCION PARA REGISTRAR EL USUARIO
+   */
+
   async registerNewUSer(
     email: string,
     password:  string, 
@@ -64,10 +86,7 @@ export class ServicioService {
       
 
   }
-  async loginWithEmail(
-    email: string,
-    password:  string,
-  ): Promise<firebase.User>{
+  async loginWithEmail(email: string, password:  string,): Promise<firebase.User>{
     try {
       const response = await this.afAuth.signInWithEmailAndPassword(email,password);
       if (response.user) {
@@ -79,4 +98,5 @@ export class ServicioService {
       localStorage.removeItem('user');
     }
   }
+
 }
