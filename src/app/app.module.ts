@@ -19,6 +19,8 @@ import { VistaDatosPerfilMecanicoComponent } from './pages/perfilMecanico/vista-
 import { VistaRegistroVehiculoMecanicoComponent } from './pages/perfilMecanico/vista-registro-vehiculo-mecanico/vista-registro-vehiculo-mecanico.component';
 import { VistaVehiculosRegistradosComponent } from './pages/perfilMecanico/vista-vehiculos-registrados/vista-vehiculos-registrados.component';
 
+//codigo qr
+import { NgxQRCodeModule } from 'ngx-qrcode2';
 
 
 //insertado de modulos para el tema de firebase
@@ -39,6 +41,7 @@ import { VistaCitasClienteComponent } from './pages/perfilCliente/vista-citas-cl
 import { VistaRegistroVehiculo1Component } from './pages/perfilCliente/vista-registro-vehiculo1/vista-registro-vehiculo1.component';
 import { VistaRegistroVehiculo2Component } from './pages/perfilCliente/vista-registro-vehiculo2/vista-registro-vehiculo2.component';
 import { VistaRegistroVehiculo3Component } from './pages/perfilCliente/vista-registro-vehiculo3/vista-registro-vehiculo3.component';
+import { CodigoQrComponent } from './components/codigo-qr/codigo-qr.component';
 
 
 @NgModule({
@@ -67,6 +70,7 @@ import { VistaRegistroVehiculo3Component } from './pages/perfilCliente/vista-reg
     VistaRegistroVehiculo3Component,
     VistaCitasClienteComponent,
     AuthformComponent,
+    CodigoQrComponent,
   ],
   imports: [
     BrowserModule,
@@ -78,7 +82,8 @@ import { VistaRegistroVehiculo3Component } from './pages/perfilCliente/vista-reg
     AngularFirestoreModule,
     //modulos para crear formularios
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    NgxQRCodeModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

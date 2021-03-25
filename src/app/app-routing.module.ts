@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { CodigoQrComponent } from './components/codigo-qr/codigo-qr.component';
 import { VistaAboutUsComponent } from './pages/paginaPrincipal/vista-about-us/vista-about-us.component';
 import { VistaContactanosComponent } from './pages/paginaPrincipal/vista-contactanos/vista-contactanos.component';
 import { VistaInicioSesionComponent } from './pages/paginaPrincipal/vista-inicio-sesion/vista-inicio-sesion.component';
@@ -17,7 +18,7 @@ import { VistaVehiculosRegistradosComponent } from './pages/perfilMecanico/vista
 
 const routes: Routes = [
 
-  {path:'', component:VistaDatosPerfilClienteComponent},
+  {path:'', component:VistaInicioComponent},
   {path:'inicio', component:VistaInicioSesionComponent},
   {path:'registro', component:VistaRegistrarseComponent},
   {path:'about-us', component:VistaAboutUsComponent},
