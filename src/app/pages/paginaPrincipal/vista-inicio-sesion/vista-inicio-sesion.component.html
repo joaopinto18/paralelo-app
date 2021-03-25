@@ -1,6 +1,5 @@
-<app-navbar-derecho-pagina-principal></app-navbar-derecho-pagina-principal>
-<app-navbar-pagina-principal></app-navbar-pagina-principal>
-<div class="ventana">
+<app-authform [withDisplayName]="false" (sendFormEvent)="handleLogin($event)"></app-authform>
+<!-- class="ventana">
         <div class="espacio"></div>
         <div class="inicio">
             <span>INICIO DE SESIÓN</span>
@@ -14,4 +13,4 @@
         </div>
    
 
-</div>
+-->

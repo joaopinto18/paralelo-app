@@ -29,6 +29,7 @@ import {AngularFirestoreModule} from '@angular/fire/firestore';
 import { environment } from 'src/environments/environment';
 //insertado de modulos para el tema de los forms
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { AuthformComponent } from './components/paginaPrincipal/authform/authform.component';
 
 //modulos de perfil cliente
 import { NavbarDerechoClienteComponent } from './components/perfilCliente/navbar-derecho-cliente/navbar-derecho-cliente.component';
@@ -65,6 +66,7 @@ import { VistaRegistroVehiculo3Component } from './pages/perfilCliente/vista-reg
     VistaRegistroVehiculo2Component,
     VistaRegistroVehiculo3Component,
     VistaCitasClienteComponent,
+    AuthformComponent,
   ],
   imports: [
     BrowserModule,

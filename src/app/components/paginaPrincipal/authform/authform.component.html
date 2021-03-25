@@ -1,0 +1,46 @@
+<app-navbar-derecho-pagina-principal></app-navbar-derecho-pagina-principal>
+<app-navbar-pagina-principal></app-navbar-pagina-principal>
+<div class="ventana">
+        <div class="espacio"></div>
+        <div class="inicio">
+            <span>ENTRAR AL SISTEMA</span>
+        </div>
+        <div class="cuadros">
+            <form 
+             [formGroup]="authForm"
+             (ngSubmit)="onSubmit()"
+             class="form-square">
+             <div class="info" *ngIf="withDisplayName">
+                <label for="passwordbien">NOMBRE</label>
+                    <input
+                      type="text"
+                      id="name"
+                      formControlName="displayname"
+                      placeholder="Escriba su nombre"
+                      required></div>
+                <div class="info">
+                    <label for="email">EMAIL</label>
+                    <input
+                     type="email"
+                     id="email"
+                     formControlName="email"
+                     placeholder="correo"
+                     required></div>
+                <div class="info"> 
+                    <label for="password">CONTRASEÑA</label>
+                        <input 
+                         type="password" 
+                         id="password"
+                         formControlName="password"
+                         placeholder="contraseña"
+                         required></div>
+                
+                <div class="enviar">
+                    <button class='send-button' type='submit'>SEND</button></div>
+                <div class="enviar"><button type="button" (click)="handleGoogleLogin()" class='send-button'>Sign up with Google</button></div>    
+            </form>
+            
+        </div>
+   
+
+</div>
