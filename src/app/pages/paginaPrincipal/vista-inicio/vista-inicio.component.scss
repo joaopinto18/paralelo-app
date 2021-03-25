@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Athiti:wght@700&display=swap');
+
 .ventana{
     width: 75%;
     height: 100%;
@@ -49,7 +51,8 @@ a:hover{
     border-radius: 8px;
     text-align: center;
     font-weight: bold;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: 'Athiti', sans-serif;
+    font-style: normal;
 }
 
 .ventana .contenedor .botones:hover{

@@ -1,0 +1,148 @@
+@import url('https://fonts.googleapis.com/css2?family=Audiowide&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Athiti:wght@700&display=swap');
+
+
+.wrapper{
+    height: 80%;
+    width: 75%;
+    background-color: rgb(66, 66, 66);
+}
+
+.wrapper .title-box{
+    height: 5%;
+    display: flex;
+    justify-content: center;
+}
+
+.wrapper .title-box .title{
+    font-family: 'Audiowide', cursive;
+    font-size: 25px;
+    color: rgb(255, 201, 51);
+}
+
+.title1{
+    height: 0px;
+    font-family: 'Audiowide', cursive;
+    color: white;
+    margin-left: 40px;
+    font-size: 20px;
+    margin-top: 20px;
+}
+
+.title2{
+    height: 0px;
+    font-family: 'Audiowide', cursive;
+    color: white;
+    margin-left: 40px;
+    font-size: 20px;
+    margin-top: 50px;
+}
+
+.title3{
+    height: 0px;
+    font-family: 'Audiowide', cursive;
+    color: white;
+    margin-left: 40px;
+    font-size: 20px;
+    margin-top: 50px;
+}
+
+.estatus{
+    height: 0px;
+}
+
+.estatus .cajas{
+    display: flex;
+    justify-content: space-around;
+}
+
+.cajas{
+    padding: 0px;
+    height: 83%;
+    margin-top: 30px;
+    font-family: 'Athiti', sans-serif;
+}
+
+.caja1{
+    background-color: rgb(255, 201, 51);
+    height: 50px;
+    width: 150px;
+    text-align: center;
+    border-radius: 36px 12px;  
+    margin-left: 10px;
+}
+
+.caja1 p{
+    margin-top: 15px;
+    font-size: 14px;
+}
+
+.caja2{
+    background-color: rgb(255, 201, 51);
+    height: 50px;
+    width: 150px;
+    text-align: center;
+    border-radius: 36px 12px;  
+}
+
+.caja2 p{
+    margin-top: 15px;
+    font-size: 14px;
+}
+
+.caja3{
+    background-color: rgb(255, 201, 51);
+    height: 50px;
+    width: 150px;
+    text-align: center;
+    border-radius: 36px 12px;  
+}
+
+.caja3 p{
+    margin-top: 5px;
+    font-size: 14px;
+}
+
+.caja4{
+    background-color: rgb(255, 201, 51);
+    height: 50px;
+    width: 150px;
+    text-align: center;
+    border-radius: 36px 12px;  
+}
+
+.caja4 p{
+    margin-top: 5px;
+    font-size: 14px;
+}
+
+.caja5{
+    background-color: rgb(255, 201, 51);
+    height: 50px;
+    width: 150px;
+    text-align: center;
+    border-radius: 36px 12px;  
+    margin-right: 10px;
+}
+
+.caja5 p{
+    margin-top: 5px;
+    font-size: 14px;
+}
+
+.triangulo{
+	width: 0;
+	height: 0;
+	border-top: 20px solid transparent;
+	border-left: 35px solid white;
+	border-bottom: 25px solid transparent;
+}
+
+.info-caja{
+    margin-left: 20px;
+    margin-top: 60px;
+    width: 80;
+    color:white;
+    font-family: 'Athiti', sans-serif;
+}
+
