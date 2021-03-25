@@ -1,5 +1,8 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
+import { Router } from '@angular/router';
+import { ModeloDatosUsuario } from 'src/app/models1/modelo-datos-usuario';
+import { AddInfoUserServicesService } from 'src/app/services/add-info-user-services.service';
 import { ServicioService } from 'src/app/services/servicio.service';
 
 @Component({
@@ -11,7 +14,9 @@ export class AuthformComponent implements OnInit {
   authForm: FormGroup;
   @Input() withDisplayName: boolean = true;
   @Output() sendFormEvent=new EventEmitter();
-  constructor(private fb: FormBuilder,private authService: ServicioService) { }
+  usernavbar: any;
+  usernavbarData: ModeloDatosUsuario;
+  constructor(private fb: FormBuilder,private authService: ServicioService, private addInfoService: AddInfoUserServicesService,private router: Router) { }
 
   ngOnInit(): void {
     this.createAuthForm();
@@ -30,11 +35,28 @@ export class AuthformComponent implements OnInit {
       password: this.authForm.get('password').value,
       displayname: this.authForm.get('displayname').value,
     };
+    
+   const datosUsuario={
+    nombre_apellido: this.authForm.get('displayname').value,
+    cedula: 0,
+    fecha: "vacio",
+    lugar: "vacio",
+    numero: 0,
+    acceso: "cliente",
+    correo: this.authForm.get('email').value
+    } 
+    
+    this.addInfoService.RegistrarUsuario(datosUsuario);
+
     this.sendFormEvent.emit(formData);
+    this.router.navigate(['/vista-datos-perfil-cliente']);
+
+    //se guarda una variable con el id del documento del usuario en cuestion que se acaba de crear
   }
     
   handleGoogleLogin(){
     this.authService.loginWithGoogle();
 
+    //se guarda una variable con el id del documento del usuario en cuestion que se acaba de crear
   }
 }

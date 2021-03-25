@@ -3,13 +3,10 @@
 <div class="ventana">
         <div class="espacio"></div>
         <div class="inicio">
-            <span>ENTRAR AL SISTEMA</span>
+            <span>REGÍSTRATE</span>
         </div>
         <div class="cuadros">
-            <form 
-             [formGroup]="authForm"
-             (ngSubmit)="onSubmit()"
-             class="form-square">
+            <form [formGroup]="authForm" (ngSubmit)="onSubmit()" class="form-square">
              <div class="info" *ngIf="withDisplayName">
                 <label for="passwordbien">NOMBRE</label>
                     <input
