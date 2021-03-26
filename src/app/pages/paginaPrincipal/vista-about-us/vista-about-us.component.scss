@@ -24,7 +24,7 @@
     margin: auto;
     display: flex;
     justify-content: center;
-    background-color: white;
+    background-image: url("https://static.straitstimes.com.sg/s3fs-public/styles/article_pictrure_780x520_/public/articles/2020/12/08/ST_20201208_VNCAR_6174629.jpg?itok=NBJ_ss3A&timestamp=1607366678");
 }
 
 .ventana .cuadros{
@@ -52,7 +52,7 @@
     font-size: 24px;
     font-weight: bold;
     font-size: 24px;
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-family: 'Athiti', sans-serif;
     
    
 }
@@ -74,9 +74,10 @@
 .ventana .cuadros .info p{
     font-size: 16px;
     margin-left: 5%;
-    padding-top: 5%;
+    padding-top: 1%;
     font-family: 'Athiti', sans-serif;
     font-style: normal;
     line-height: 20px;
+    text-align: justify;
 }
 

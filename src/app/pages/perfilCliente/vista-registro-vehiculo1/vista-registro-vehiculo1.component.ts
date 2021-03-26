@@ -9,7 +9,6 @@ export class VistaRegistroVehiculo1Component implements OnInit {
 
   url: any;
   prueba:boolean = false;
-  toggle:boolean = false;
   clicked = false;
 
   constructor() { }
@@ -33,8 +32,10 @@ export class VistaRegistroVehiculo1Component implements OnInit {
     return this.prueba;
   }
 
-  pruebas(){
-    this.toggle = true;
-  }
+  saveUser() {
+      alert(
+        `Sus cambios han sidos guardados`
+      );
+    }
 
 }

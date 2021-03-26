@@ -12,4 +12,14 @@ export class VistaContactanosComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  position ={
+    lat: -34.681,
+    lng: -58.371
+  };
+
+  label ={
+    color: "red",
+    text: "Paralelo",
+  }
+
 }
