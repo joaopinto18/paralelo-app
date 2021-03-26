@@ -83,18 +83,25 @@ export class ServicioService {
         console.log(error);
         localStorage.removeItem('user');
       }
-      
-
   }
+
+  /**
+   * HACIENDO LOGIN MANUAL
+   */
+
   async loginWithEmail(email: string, password:  string,): Promise<firebase.User>{
     try {
       const response = await this.afAuth.signInWithEmailAndPassword(email,password);
       if (response.user) {
         localStorage.setItem('user',response.user.uid);
         return response.user;
+      }else{
+        alert('no se encontro el usuario')
       }
+
     } catch (error) {
       console.log(error);
+      alert('correo o contraseña incorrecta, intente de nuevo')
       localStorage.removeItem('user');
     }
   }

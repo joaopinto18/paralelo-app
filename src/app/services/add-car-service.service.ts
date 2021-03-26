@@ -14,8 +14,8 @@ export class AddCarServiceService {
   private CarsCollection: AngularFirestoreCollection<AddCarModel>
   private CarsCollectionObtener: AngularFirestoreCollection;
   constructor(private firestore: AngularFirestore) { 
-    this.CarsCollection=this.firestore.collection<AddCarModel>('VEHICULOS REGISTRADOS PARA ORDENES');
-    this.CarsCollectionObtener=firestore.collection('VEHICULOS REGISTRADOS PARA ORDENES');
+    this.CarsCollection=this.firestore.collection<AddCarModel>('ORDENES-REPA_MODIFICA');
+    this.CarsCollectionObtener=firestore.collection('ORDENES-REPA_MODIFICA');
   }
 
   /**
@@ -32,25 +32,8 @@ export class AddCarServiceService {
 
   BuscarVehiculo(placa: string): any{
 
-    return this.firestore.collection('VEHICULOS REGISTRADOS PARA ORDENES' ,  ref => (
+    return this.firestore.collection('ORDENES-REPA_MODIFICA' ,  ref => (
       ref.where('placa', '==', placa)))
-
-      
-    /*this.CarsCollectionObtener.doc(nombreDelDoc).ref.onSnapshot(function(result) {
-      var data = result.get('placa')
-      console.log(data);
-      })*/
-    
-    
-    /*this.CarsCollectionObtener.ref.where('placa','==',placa)
-    .get().then((querySnapshot) => {
-        querySnapshot.forEach((carro) => {
-           console.log(carro.id);
-        });
-    })
-    .catch((error) => {
-        console.log("Error getting documents: ", error);
-    });*/
   
   }  
 
@@ -62,7 +45,7 @@ export class AddCarServiceService {
     modificarInfoVehiculo(respuestos: String, procedimiento: String, diagnostico: String, placa: string):any{
 
       
-      this.firestore.collection('VEHICULOS REGISTRADOS PARA ORDENES').ref.where('placa','==',placa).
+      this.firestore.collection('ORDENES-REPA_MODIFICA').ref.where('placa','==',placa).
       get().then((querysnapshot)=>{
         querysnapshot.forEach((carro)=>{
           //obtenemos el id en cuestion

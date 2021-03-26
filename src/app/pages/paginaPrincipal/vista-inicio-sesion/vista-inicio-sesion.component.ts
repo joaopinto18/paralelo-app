@@ -13,6 +13,7 @@ export class VistaInicioSesionComponent implements OnInit {
 
   ngOnInit(): void {
   }
+  
   handleLogin(formData){
     const {email,password}= formData;
     this.authService.loginWithEmail(email,password).then((user)=>{
