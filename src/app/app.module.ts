@@ -22,6 +22,9 @@ import { VistaVehiculosRegistradosComponent } from './pages/perfilMecanico/vista
 //codigo qr
 import { NgxQRCodeModule } from 'ngx-qrcode2';
 
+//ubicacion google
+import {GoogleMapsModule} from '@angular/google-maps';
+
 
 //insertado de modulos para el tema de firebase
 import { AngularFireModule } from '@angular/fire';
@@ -84,6 +87,7 @@ import { CodigoQrComponent } from './components/codigo-qr/codigo-qr.component';
     FormsModule,
     ReactiveFormsModule,
     NgxQRCodeModule,
+    GoogleMapsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

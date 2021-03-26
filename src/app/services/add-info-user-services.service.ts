@@ -27,11 +27,7 @@ export class AddInfoUserServicesService {
    */
 
   modificarInfoUsuario(data:ModeloDatosUsuario):any{
-<<<<<<< HEAD
-    this.usersCollection.doc("xe3HBRUNGZStmqzwgIRa").ref.onSnapshot(function(result) {
-=======
     this.usersCollection.doc("IA7y5m5Jw6lOaBKHlMpM").ref.onSnapshot(function(result) {
->>>>>>> 52920536fec99c08f412b029a0f30184f130e1d2
       result.ref.update({cedula: data.cedula, fecha: data.fecha, lugar: data.lugar, 
       nombre_apellido: data.nombre_apellido, numero: data.numero });
   })

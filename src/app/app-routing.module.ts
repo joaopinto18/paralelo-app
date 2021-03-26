@@ -19,7 +19,8 @@ import { VistaVehiculosRegistradosComponent } from './pages/perfilMecanico/vista
 const routes: Routes = [
 
   {path:'vista-perfil-cliente', component:VistaDatosPerfilClienteComponent},
-  {path:'', component:VistaInicioSesionComponent},
+  {path:'', component:VistaInicioComponent},
+  {path:'inicio-sesion', component:VistaInicioSesionComponent},
   {path:'registro', component:VistaRegistrarseComponent},
   {path:'about-us', component:VistaAboutUsComponent},
   {path:'contactanos', component:VistaContactanosComponent},
