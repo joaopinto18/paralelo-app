@@ -18,18 +18,6 @@ export class VistaDatosPerfilMecanicoComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  /**
-   * OBTENEMOS EL CORREO CON EL QUE SE LOGUEO EL USUARIO Y APARTIR DE ESTE, BUSCAMOS SU RESPECTIVO DOCUMENTO
-   * DENTRO DE LA BD Y UNA VEZ CON EL DOCUMENTO, PODEMOS COMENZAR A REALIZAR OPERACIONES CON SUS DATOS-- POR HACER
-   */
-
-
-
-  /**
-   * SUPONEMOS QUE YA TENEMOS EL DOCUMENTO ----> colocado en el servicio
-   */
-
-
    createInputForm1(): void{
     this.datosMecanico=this.fb.group({
       nombre_apellido:'',
@@ -41,7 +29,8 @@ export class VistaDatosPerfilMecanicoComponent implements OnInit {
   }
 
   modify():void{
-    const newCar: any={
+    console.log("Modificando la info del usuario");
+    const usuarioModificado: any={
       nombre_apellido:this.datosMecanico.get('nombre_apellido').value,
       cedula:this.datosMecanico.get('cedula').value,
       fecha:this.datosMecanico.get('fecha').value,
@@ -49,7 +38,8 @@ export class VistaDatosPerfilMecanicoComponent implements OnInit {
       numero:this.datosMecanico.get('numero').value,
     }
 
-    this.infoUserService.modificarInfoUsuario(newCar);
+    this.infoUserService.modificarInfoUsuario(usuarioModificado);
+    console.log('datos actualizados');
   }
 
 }

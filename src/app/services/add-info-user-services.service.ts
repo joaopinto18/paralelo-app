@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { AngularFirestore, AngularFirestoreCollection, DocumentReference } from '@angular/fire/firestore';
 import { Router } from '@angular/router';
+import { AddUserCarModel } from '../models/add-user-car-model';
 import { ModeloDatosUsuario } from '../models1/modelo-datos-usuario';
 
 @Injectable({
@@ -8,60 +9,57 @@ import { ModeloDatosUsuario } from '../models1/modelo-datos-usuario';
 })
 export class AddInfoUserServicesService {
   private usersCollection: AngularFirestoreCollection<ModeloDatosUsuario>;
-  public IDusuarioService:any;
+  private carsCollection: AngularFirestoreCollection<AddUserCarModel>
+  private UsersCarCollection: AngularFirestoreCollection;
   constructor(private Firestore:AngularFirestore, private router: Router) {
     this.usersCollection = this.Firestore.collection<ModeloDatosUsuario>("DATOS-USUARIOS");
-
+    this.carsCollection = this.Firestore.collection<AddUserCarModel>("VEHICULOS-REGISTRADOS")
+    this.UsersCarCollection= this.Firestore.collection('VEHICULOS-REGISTRADOS');
   }
-
-  /**
-   * FUNCION PARA AGREGAR UN USUARIO A LA BASE DE DATOS
-   */
-
-   RegistrarUsuario(data:ModeloDatosUsuario): Promise<DocumentReference>{
-    return this.usersCollection.add(data);
-  }
-   
 
   /**
    * FUNCION PARA MODIFICAR DATOS DE LA BD 
    */
 
   modificarInfoUsuario(data:ModeloDatosUsuario):any{
-    console.log(this.IDusuarioService);
-    
-    this.usersCollection.doc(this.IDusuarioService).ref.onSnapshot(function(result) {
+
+    //BUSCAR EL ID DEL USUARIO EN EL LOCAL STORAGE, DONDE ESTARÁ CARGADO EL USUARIO
+    this.usersCollection.doc(localStorage.getItem('iduser')).ref.onSnapshot(function(result) {
       result.ref.update({cedula: data.cedula, fecha: data.fecha, lugar: data.lugar, 
       nombre_apellido: data.nombre_apellido, numero: data.numero });
+      alert('Se han modificado sus datos personales')
   })
   }
 
   /**
-   * OBTENER EL ID DEL DOCUMENTO EN EL QUE SE ENCUENTRA LA INFO DEL 
+   * AGREGAR/MODIFICAR VEHICULOS DE USUARIO
    */
 
-  ObtenerIDDocumentoUsuario(email: string): any{
-
-    this.Firestore.collection('DATOS-USUARIOS').ref.where('correo','==',email).
-    get().then((querysnapshot)=>{
+  async AgregarVehiculoUsuario(data:AddUserCarModel): Promise<any>{
+    let encontrado: boolean = false;
+    //antes evaluamos si vehiculo 1 esta registrado
+    await this.Firestore.collection('VEHICULOS-REGISTRADOS').ref.where('IdDocDueno','==', localStorage.getItem('iduser')).
+    get().then((querysnapshot)=>{ //este await hace que primero se tenga que resolver esta promesa antes de proseguir con el codigo
         querysnapshot.forEach((usuario)=>{
-          //obtenemos el id en cuestion
-          this.IDusuarioService=usuario.id.valueOf();
-          console.log(this.IDusuarioService);
-          //utilizamos el id para evaluar que acceso tiene y hacer los tramites respectivos
-          if(usuario.get('acceso')=='cliente'){
-            this.router.navigate(['/vista-datos-perfil-cliente']);
-            //restringir las demas rutas 
-          }else if(usuario.get('acceso')=='mecanico'){
-            this.router.navigate(['/vista-perfil-mecanico']);
-            //restringir las demas rutas 
+          if(usuario.get('nroVheiculo')==data.nroVheiculo){
+            //verificamos que el doc de info de este vehiculo ya existe, la modificamos
+            alert('se ha registrado nueva información para esta plaza de vehículo')
+            encontrado=true;
+            this.ModificarVehiculoUsuario(usuario.id.valueOf(), data);
           }
         })
-      })
-    return this.IDusuarioService;
+    })
+    if(!encontrado){
+      //si el vehiculo no fue encontrado, quiere decir que no ha sido registrado, por lo tanto, procedemos a registrarlo
+      alert('su vehículo ha sido registrado')
+      this.carsCollection.add(data);
+    }  
   }
 
-  /**
-   * AGREGAR VEHICULOS DE USUARIO
-   */
+  ModificarVehiculoUsuario(valor: string, data: AddUserCarModel){
+    this.UsersCarCollection.doc(valor).ref.onSnapshot(function(result) {
+    result.ref.update({ anno: data.anno, fecha: data.fecha, modelo: data.modelo, placa: data.placa,
+    serial_motor: data.serial_motor })});
+  }
 }
+

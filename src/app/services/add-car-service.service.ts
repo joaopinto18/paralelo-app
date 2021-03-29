@@ -5,6 +5,8 @@ import * as firebase from 'firebase';
 import { Observable } from 'rxjs';
 import { take } from 'rxjs/operators';
 import { AddCarModel } from '../models/add-car-model';
+import { AddUserCarModel } from '../models/add-user-car-model';
+import { AddInfoUserServicesService } from './add-info-user-services.service';
 
 @Injectable({
   providedIn: 'root'
@@ -13,7 +15,8 @@ export class AddCarServiceService {
 
   private CarsCollection: AngularFirestoreCollection<AddCarModel>
   private CarsCollectionObtener: AngularFirestoreCollection;
-  constructor(private firestore: AngularFirestore) { 
+  
+  constructor(private firestore: AngularFirestore, private addedUser: AddInfoUserServicesService) { 
     this.CarsCollection=this.firestore.collection<AddCarModel>('ORDENES-REPA_MODIFICA');
     this.CarsCollectionObtener=firestore.collection('ORDENES-REPA_MODIFICA');
   }

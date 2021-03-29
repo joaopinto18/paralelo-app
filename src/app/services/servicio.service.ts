@@ -1,23 +1,31 @@
 import { Injectable } from '@angular/core';
 import {AngularFireAuth} from '@angular/fire/auth';
+import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/firestore';
 import { Router } from '@angular/router';
 import firebase from 'firebase';
-import { Observable } from 'rxjs';
-import { AddInfoUserServicesService } from './add-info-user-services.service';
+import { ModeloDatosUsuario } from '../models1/modelo-datos-usuario';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ServicioService {
+  private usersCollection: AngularFirestoreCollection<ModeloDatosUsuario>;
+  constructor(private afAuth: AngularFireAuth, private router: Router, private Firestore:AngularFirestore) {
+    this.usersCollection = this.Firestore.collection<ModeloDatosUsuario>("DATOS-USUARIOS");
+   }
+  
 
-  constructor(private afAuth: AngularFireAuth, private addInfoService: AddInfoUserServicesService, private router: Router) { }
+  /**
+   * FUNCION PARA HACER LOGIN CON GOOGLE 
+   */
+
   async loginWithGoogle(): Promise<firebase.User>{
+    let registrado: boolean = false;
     try {
       const provider = new firebase.auth.GoogleAuthProvider();
       const response = await this.afAuth.signInWithPopup(provider);
       console.log(JSON.stringify(response));
       if (response.user) {
-        localStorage.setItem('user',response.user.uid);
         const datosUsuario={
           nombre_apellido: response.user.displayName,
           cedula: 0,
@@ -27,44 +35,107 @@ export class ServicioService {
           acceso: "cliente",
           correo: response.user.email
           } 
-    
-          console.log('---------------------------------------------->');
-          console.log('---------------------------------------------->');
-      
-          this.addInfoService.RegistrarUsuario(datosUsuario);
+
+        await this.Firestore.collection('DATOS-USUARIOS').ref.where('correo','==',datosUsuario.correo).
+        get().then((querysnapshot)=>{
+          querysnapshot.forEach((usuario)=>{
+            //si hay un resultado es porque el usuario ya esta registrado 
+            registrado = true;
+            localStorage.setItem('iduser',usuario.id.valueOf());
+            //utilizamos el id para evaluar que acceso tiene y hacer los tramites respectivos
+            if(usuario.get('acceso')=='cliente'){
+              this.router.navigate(['/vista-datos-perfil-cliente']);
+            }else if(usuario.get('acceso')=='mecanico'){
+              this.router.navigate(['/vista-perfil-mecanico']);
+            }
+            //FALTA ADMIN Y GERENTE
+
+          })
+        })
+        
+        if(!registrado){
+          //registramos al usuario
+          this.RegistrarUsuario(datosUsuario);
+          //lo redirigimos a la vista de cliente
           this.router.navigate(['/vista-datos-perfil-cliente']);
+        }
+        
         return response.user;
       }
-      
-      
+
     } catch (error) {
       console.log(error);
-      localStorage.removeItem('user');
+      localStorage.removeItem('iduser');
     }
-    
-
   }
+
   /**
-   *  FUNCION PARA OBTENER EL USUARIO
+   * FUNCION PARA REGISTRAR USUARIO
    */
 
-  getCurrentUser(): Observable<firebase.User>{
-    return this.afAuth.user;
-
+  RegistrarUsuario(data:ModeloDatosUsuario): any{
+  this.usersCollection.add(data);
+  
+  this.Firestore.collection('DATOS-USUARIOS').ref.where('correo','==',data.correo).
+  get().then((querysnapshot)=>{
+      querysnapshot.forEach((usuario)=>{
+        //mandamos el id del user al local storage
+        localStorage.setItem('iduser',usuario.id.valueOf());
+        //utilizamos el id para evaluar que acceso tiene y hacer los tramites respectivos
+        this.router.navigate(['/vista-datos-perfil-cliente']);
+        //restringir las demas rutas 
+        
+      })
+    })
   }
+
+  /**
+   * INICIAR SESIÓN Y REDIRIGIR A LA VISTA CORRESPONDIENTE
+   */
+
+   Iniciar(email: string): any{
+
+    this.Firestore.collection('DATOS-USUARIOS').ref.where('correo','==',email).
+    get().then((querysnapshot)=>{
+        querysnapshot.forEach((usuario)=>{
+          //guardamos al user en el localStorage
+          localStorage.setItem('iduser',usuario.id.valueOf());
+          //utilizamos el id para evaluar que acceso tiene y hacer los tramites respectivos
+          if(usuario.get('acceso')=='cliente'){
+            this.router.navigate(['/vista-datos-perfil-cliente']);
+            //restringir las demas rutas 
+          }else if(usuario.get('acceso')=='mecanico'){
+            this.router.navigate(['/vista-perfil-mecanico']);
+            //restringir las demas rutas 
+          }
+        })
+      })
+  }
+
+  /**
+   * FUNCION PARA CAPTAR SI HAY UN USUARIO LOGEADO
+   */
+
+  getCurrentUser(): string{
+    return localStorage.getItem('iduser');
+  }
+
+  /**
+   * FUNCION PARA HACER LOG OUT
+   */
 
   async logout(): Promise<void>{
     try {
       await this.afAuth.signOut();
-      localStorage.removeItem('user');
+      localStorage.removeItem('iduser');
     } catch (error) {
       console.log(error);
-      localStorage.removeItem('user');
+      localStorage.removeItem('iduser');
     }
   }
   
   /**
-   *  FUNCION PARA REGISTRAR EL USUARIO
+   *  FUNCION PARA REGISTRAR EL USUARIO // NO SE USA
    */
 
   async registerNewUSer(
@@ -86,7 +157,7 @@ export class ServicioService {
   }
 
   /**
-   * HACIENDO LOGIN MANUAL
+   * HACIENDO LOGIN MANUAL // NO SE USA
    */
 
   async loginWithEmail(email: string, password:  string,): Promise<firebase.User>{

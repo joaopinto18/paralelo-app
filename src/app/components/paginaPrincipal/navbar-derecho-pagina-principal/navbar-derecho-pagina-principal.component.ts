@@ -8,13 +8,11 @@ import { ServicioService } from 'src/app/services/servicio.service';
   styleUrls: ['./navbar-derecho-pagina-principal.component.scss']
 })
 export class NavbarDerechoPaginaPrincipalComponent implements OnInit {
-  user: firebase.User = null;
+  user: any;
   constructor(private authService: ServicioService,private router: Router) { }
 
   ngOnInit(): void {
-    this.authService.getCurrentUser().subscribe((user)=>{
-      this.user=user;
-    });
+    this.user = this.authService.getCurrentUser();
   }
   handleLogout(){
     this.authService.logout().then(()=>{
