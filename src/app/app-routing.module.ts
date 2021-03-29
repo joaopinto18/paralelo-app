@@ -8,9 +8,11 @@ import { VistaInicioComponent } from './pages/paginaPrincipal/vista-inicio/vista
 import { VistaRegistrarseComponent } from './pages/paginaPrincipal/vista-registrarse/vista-registrarse.component';
 import { VistaCitasClienteComponent } from './pages/perfilCliente/vista-citas-cliente/vista-citas-cliente.component';
 import { VistaDatosPerfilClienteComponent } from './pages/perfilCliente/vista-datos-perfil-cliente/vista-datos-perfil-cliente.component';
+import { VistaFaqComponent } from './pages/perfilCliente/vista-faq/vista-faq.component';
 import { VistaRegistroVehiculo1Component } from './pages/perfilCliente/vista-registro-vehiculo1/vista-registro-vehiculo1.component';
 import { VistaRegistroVehiculo2Component } from './pages/perfilCliente/vista-registro-vehiculo2/vista-registro-vehiculo2.component';
 import { VistaRegistroVehiculo3Component } from './pages/perfilCliente/vista-registro-vehiculo3/vista-registro-vehiculo3.component';
+import { VistaSolicitarCitasComponent } from './pages/perfilCliente/vista-solicitar-citas/vista-solicitar-citas.component';
 import { VistaDatosPerfilMecanicoComponent } from './pages/perfilMecanico/vista-datos-perfil-mecanico/vista-datos-perfil-mecanico.component';
 import { VistaRegistroVehiculoMecanicoComponent } from './pages/perfilMecanico/vista-registro-vehiculo-mecanico/vista-registro-vehiculo-mecanico.component';
 import { VistaVehiculosRegistradosComponent } from './pages/perfilMecanico/vista-vehiculos-registrados/vista-vehiculos-registrados.component';
@@ -20,6 +22,8 @@ const routes: Routes = [
 
   {path:'vista-perfil-cliente', component:VistaDatosPerfilClienteComponent},
   {path:'', component:VistaInicioComponent},
+  {path:'faq', component:VistaFaqComponent},
+  {path:'solicitar-cita', component:VistaSolicitarCitasComponent},
   {path:'inicio-sesion', component:VistaInicioSesionComponent},
   {path:'registro', component:VistaRegistrarseComponent},
   {path:'about-us', component:VistaAboutUsComponent},

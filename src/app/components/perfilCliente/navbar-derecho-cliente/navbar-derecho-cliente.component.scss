@@ -18,39 +18,25 @@
     padding-top: 10%;
 }
 
-.right-navbar .buttons .iniciar-sesion{
-    height: 20px;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    margin-bottom: 10%;
-}
 
-.right-navbar .iniciar-sesion .cuadro1{
+
+.right-navbar .buttons .registrase .cuadro1{
     background-color: rgb(73, 73, 73);
     padding-top: 2px;
     padding-bottom: 2px;
     padding-left: 2px;
     padding-right: 2px;
     width: 50%;
+    margin-bottom: 20px;
+    margin-top: 30px;
+    margin-left: 70px;
 }
 
 .right-navbar .buttons .registrase{
     height: 20px;
     width: 100%;
-    display: flex;
-    justify-content: center;
 }
 
-.right-navbar .buttons .registrase .cuadro2{
-    background-color: rgb(73, 73, 73);
-    padding-top: 2px;
-    padding-bottom: 2px;
-    padding-left: 2px;
-    padding-right: 2px;
-    width: 50%;
-    margin-top: 17%;
-}
 
 .right-navbar .fotos{
     width: 100%;
@@ -64,15 +50,17 @@
 .right-navbar .fotos .foto1{
     height: 40%;
     width: 80%;
-    background-color: black;
+    background-image: url(https://static.straitstimes.com.sg/s3fs-public/articles/2017/12/11/bp_car_111217_94.jpg);
     margin-bottom: 10px;
+    background-size: 260px;
     margin: auto;
 }
 
 .right-navbar .fotos .foto2{
     height: 40%;
     width: 80%;
-    background-color: black;
+    background-image: url(https://upload.wikimedia.org/wikipedia/commons/1/13/TE71_2T-GEU.jpg);
     margin: auto;
+    background-size: 260px;
 }
 

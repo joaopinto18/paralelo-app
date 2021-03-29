@@ -1,43 +1,44 @@
 <app-navbar-derecho-pagina-principal></app-navbar-derecho-pagina-principal>
 <app-navbar-pagina-principal></app-navbar-pagina-principal>
-<div class="ventana">
-        <div class="espacio"></div>
-        <div class="inicio">
+
+<div class='wrapper'>
+    <div class='title-box'>
+        <div class='title'>
             <span>REGÍSTRATE</span>
         </div>
-        <div class="cuadros">
-            <form [formGroup]="authForm" class="form-square">
-             <div class="info" *ngIf="withDisplayName">
-                <label for="passwordbien">NOMBRE</label>
-                    <input
-                      type="text"
-                      id="name"
-                      formControlName="displayname"
-                      placeholder="Escriba su nombre"
-                      required></div>
-                <div class="info">
+    </div>
+    <div class='form-square'>
+        <div class='form-square-background'>
+            <form class='form' [formGroup]="authForm" (ngSubmit)="onSubmit()" >
+                <div class='group1' *ngIf="withDisplayName">
+                    <input type="text"
+                    id="name"
+                    formControlName="displayname"
+                    placeholder="   Ingrese su nombre"
+                    required><span class='bar'></span>
+                    <label for='passwordbien'>NOMBRE</label>
+                </div>
+                <div class='group2' *ngIf="withDisplayName">
+                    <input type="email"
+                    id="email"
+                    formControlName="email"
+                    placeholder="   Ingrese su correo"
+                    required><span class='bar'></span>
                     <label for="email">EMAIL</label>
-                    <input
-                     type="email"
-                     id="email"
-                     formControlName="email"
-                     placeholder="correo"
-                     required></div>
-                <div class="info"> 
+                </div>
+                <div class='group3'*ngIf="withDisplayName">
+                    <input type="password" 
+                    id="password"
+                    formControlName="password"
+                    placeholder="   Ingrese su contraseña"
+                    required><span class='bar'></span>
                     <label for="password">CONTRASEÑA</label>
-                        <input 
-                         type="password" 
-                         id="password"
-                         formControlName="password"
-                         placeholder="contraseña"
-                         required></div>
-                
-                <div class="enviar">
-                    <button class='send-button' type='submit' (click)="onSubmit()">SEND</button></div>
-                <div class="enviar"><button type="button" (click)="handleGoogleLogin()" class='send-button'>Sign up with Google</button></div>    
+                </div>
+                <div *ngIf="withDisplayName">
+                    <button type="submit">SEND</button>
+                    <button type="button" (click)="handleGoogleLogin()">SIGN UP WITH GOOGLE</button>
+                </div> 
             </form>
-            
         </div>
-   
-
+    </div>
 </div>

@@ -22,8 +22,6 @@ import { VistaVehiculosRegistradosComponent } from './pages/perfilMecanico/vista
 //codigo qr
 import { NgxQRCodeModule } from 'ngx-qrcode2';
 
-//ubicacion google
-import {GoogleMapsModule} from '@angular/google-maps';
 
 //insertado de modulos para el tema de firebase
 import { AngularFireModule } from '@angular/fire';
@@ -45,6 +43,8 @@ import { VistaRegistroVehiculo2Component } from './pages/perfilCliente/vista-reg
 import { VistaRegistroVehiculo3Component } from './pages/perfilCliente/vista-registro-vehiculo3/vista-registro-vehiculo3.component';
 import { AuthformInicioSesionComponent } from './components/paginaPrincipal/authform-inicio-sesion/authform-inicio-sesion.component';
 import { CodigoQrComponent } from './components/codigo-qr/codigo-qr.component';
+import { VistaSolicitarCitasComponent } from './pages/perfilCliente/vista-solicitar-citas/vista-solicitar-citas.component';
+import { VistaFaqComponent } from './pages/perfilCliente/vista-faq/vista-faq.component';
 
 
 @NgModule({
@@ -75,6 +75,8 @@ import { CodigoQrComponent } from './components/codigo-qr/codigo-qr.component';
     AuthformComponent,
     AuthformInicioSesionComponent,
     CodigoQrComponent,
+    VistaSolicitarCitasComponent,
+    VistaFaqComponent,
 
   ],
   imports: [
@@ -89,7 +91,6 @@ import { CodigoQrComponent } from './components/codigo-qr/codigo-qr.component';
     FormsModule,
     ReactiveFormsModule,
     NgxQRCodeModule,
-    GoogleMapsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
