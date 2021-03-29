@@ -1,0 +1,44 @@
+<app-navbar-derecho-cliente></app-navbar-derecho-cliente>
+<app-navbar-perfil-cliente></app-navbar-perfil-cliente>
+
+
+<div class="wrapper">
+  <div class="cajas">
+    <div class="caja">
+      <label for="title1">¿Cuánto dura la reparación de mi automóvil?</label>
+      <div class="btn1">
+        <button class="btn" *ngIf="plus1"(click)="showingBox1()"><i class="fa fa-plus" aria-hidden="true"></i></button>
+        <button class="btn" *ngIf= "showBox1"(click)="hidingBox1()"><i class="fa fa-minus" aria-hidden="true"></i></button>
+      </div> 
+    </div>
+    <div class="caja1">
+      <div class="content" *ngIf="showBox1" >
+        <p >hola</p>
+      </div>
+    </div>
+    <div class="caja">
+      <label for="title1">¿Cuánto dura la reparación de mi automóvil?</label>
+      <div class="btn1">
+        <button class="btn" *ngIf="plus2"(click)="showingBox2()"><i class="fa fa-plus" aria-hidden="true"></i></button>
+        <button class="btn" *ngIf= "showBox2"(click)="hidingBox2()"><i class="fa fa-minus" aria-hidden="true"></i></button>
+      </div> 
+    </div>
+    <div class="caja1">
+      <div class="content" *ngIf="showBox2" >
+        <p >hola</p>
+      </div>
+    </div>
+    <div class="caja">
+      <label for="title1">¿Cuánto dura la reparación de mi automóvil?</label>
+      <div class="btn1">
+        <button class="btn" *ngIf="plus3"(click)="showingBox3()"><i class="fa fa-plus" aria-hidden="true"></i></button>
+        <button class="btn" *ngIf= "showBox3"(click)="hidingBox3()"><i class="fa fa-minus" aria-hidden="true"></i></button>
+      </div> 
+    </div>
+    <div class="caja1">
+      <div class="content" *ngIf="showBox3" >
+        <p >hola</p>
+      </div>
+    </div>
+  </div>
+</div>

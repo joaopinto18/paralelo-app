@@ -1,0 +1,76 @@
+@import url('https://fonts.googleapis.com/css2?family=Athiti:wght@700&display=swap');
+@import "node_modules/font-awesome/scss/font-awesome.scss";
+
+.wrapper{
+    height: 80%;
+    width: 75%;
+    background-color: rgb(66, 66, 66);
+    float: left;
+}
+.titulo{
+    height: 20px;
+    font-family:'Athiti', sans-serif;
+    color: white;
+    font-size: 20px;
+}
+
+.caja{
+    height: 40px;
+    display: flex;
+    justify-content: space-evenly;
+    margin-top: 25px;
+    background-color:  rgb(255, 201, 51);
+    width: 70%;
+    margin-left: 150px;
+}
+
+.mayortit{
+    height: 20px;
+    font-family:'Athiti', sans-serif;
+    color: white;
+    margin-left: 30px;
+    font-size: 25px;
+    padding: 12px;
+}
+
+.fa-check{
+    color: yellowgreen;
+    font-size: 30px;
+}
+
+.fa-trash{
+    color: white;
+    font-size: 30px;
+}
+
+.fa-times{
+    color:red;
+    font-size: 30px;
+}
+
+.btn-1{
+    border:none;
+    height: 30px;
+    margin: 6px;
+    background-color:  rgb(255, 201, 51);
+    cursor: pointer;
+    outline: none;
+}
+
+.btn-2{
+    border:none;
+    height: 30px;
+    margin: 6px;
+    background-color:  rgb(255, 201, 51);
+    cursor: pointer;
+    outline: none;
+}
+
+.btn-3{
+    border:none;
+    height: 30px;
+    margin: 6px;
+    background-color:  rgb(255, 201, 51);
+    cursor: pointer;
+    outline: none;
+}

@@ -1,0 +1,81 @@
+@import url('https://fonts.googleapis.com/css2?family=Athiti:wght@700&display=swap');
+@import "node_modules/font-awesome/scss/font-awesome.scss";
+
+.wrapper{
+    height: 80%;
+    width: 75%;
+    background-color: rgb(66, 66, 66);
+    float: left;
+}
+
+.cajas{
+  background-color: aqua;
+  height: 0px;
+}
+
+.caja{
+  height: 50px;
+  display: flex;
+  justify-content: space-evenly;
+  background-color: rgb(255, 201, 51);
+  width: 45%;
+  margin-top: 7%;
+  margin-left: 25%;
+  border-radius: 6px;
+  margin-bottom: 0%;
+  cursor: pointer;
+  transition: ease .5s;
+}
+
+.btn{
+  background-color: none;
+  width: 30px;
+}
+
+label{
+  margin-right: 20px;
+  margin-top: 10px;
+  font-family: "Athiti",sans-serif;
+  color: white;
+  padding-left: 7px;
+  cursor: pointer;
+}
+
+.content{
+  height: 50px;
+  background-color: white;
+  width: 45%;
+  margin-top: 7px;
+  margin-left: 25%;
+  border-radius: 6px;
+  margin-bottom: -5px;
+}
+
+i{
+  padding: 5px;
+  color: white;
+}
+
+
+.caja:hover {
+  background:  lightgrey;
+  font-family: 'Athiti', sans-serif;
+}
+
+
+p{
+  font-family: 'Athiti', sans-serif;
+  margin-left: 6px;
+}
+
+button{
+  margin-left: 30px;
+  background-color: rgb(255, 201, 51);
+  border: none;
+  outline: none;
+  height: 30px;
+  cursor: pointer;
+  border-radius: 2px;
+}
+
+

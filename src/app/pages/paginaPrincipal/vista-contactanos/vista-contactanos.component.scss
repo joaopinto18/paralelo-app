@@ -97,7 +97,7 @@
     width: 80%;
     height: 100%;
     float: right;
-    
+    text-decoration: none;
 }
 .ventana .contenedor .cuadros .redes .arroba span{
     font-size: 16px;
@@ -111,6 +111,7 @@
     justify-content: center;
     letter-spacing: 2px;
     margin-left: 9%;
+    text-decoration: none;
 }
 .ventana .contenedor .cuadros .contacto span{
     margin-top: 7%;
@@ -121,6 +122,7 @@
     font-size: 24px;
     font-family: 'Athiti', sans-serif;
     font-weight: bold;
+    text-decoration: none;
     
    
 }
@@ -133,6 +135,7 @@
     font-size: 24px;
     font-family: 'Athiti', sans-serif;
     font-weight: bold;
+    text-decoration: none;
     
    
 }
@@ -144,3 +147,6 @@
    
 }
 
+a{
+    text-decoration: none;
+}
