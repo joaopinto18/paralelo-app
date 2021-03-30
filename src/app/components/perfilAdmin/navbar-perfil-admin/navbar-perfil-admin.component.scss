@@ -34,34 +34,27 @@
 }
 
 .navbar .options-menu .incio-button{
+    position: relative;
     background-color: rgb(255, 201, 51);
     height: 20px;
     padding-top: 2px;
     padding-bottom: 2px;
-    width: 30%;
+    width: 40%;
     display: flex;
     justify-content: center;
     margin-left: 20px;
 }
 
-.navbar .options-menu .contacto-button{
+.navbar .options-menu .role-button{
+    position: relative;
     background-color: rgb(255, 201, 51);
     height: 20px;
     padding-top: 2px;
     padding-bottom: 2px;
-    width: 30%;
-    display: flex;
-    justify-content: center;
-}
-
-.navbar .options-menu .about-button{
-    background-color: rgb(255, 201, 51);
-    height: 20px;
-    padding-top: 2px;
-    padding-bottom: 2px;
-    width: 30%;
+    width: 40%;
     display: flex;
     justify-content: center;
     margin-right: 20px;
 }
+
 

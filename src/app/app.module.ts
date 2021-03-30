@@ -43,6 +43,8 @@ import { VistaDatosPerfilAdminComponent } from './pages/perfilAdmin/vista-datos-
 import { VistaAdminRolesComponent } from './pages/perfilAdmin/vista-admin-roles/vista-admin-roles.component';
 import { NavbarPerfilAdminComponent } from './components/perfilAdmin/navbar-perfil-admin/navbar-perfil-admin.component';
 import { NavbarDerechoAdminComponent } from './components/perfilAdmin/navbar-derecho-admin/navbar-derecho-admin.component';
+import { FormAdminRoleComponent } from './components/perfilAdmin/form-admin-role/form-admin-role.component';
+import { SearchBarUserComponent } from './components/perfilAdmin/search-bar-user/search-bar-user.component';
 
 
 @NgModule({
@@ -75,6 +77,8 @@ import { NavbarDerechoAdminComponent } from './components/perfilAdmin/navbar-der
     VistaAdminRolesComponent,
     NavbarPerfilAdminComponent,
     NavbarDerechoAdminComponent,
+    FormAdminRoleComponent,
+    SearchBarUserComponent,
   ],
   imports: [
     BrowserModule,
