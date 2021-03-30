@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { AngularFirestoreCollection } from '@angular/fire/firestore';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ModeloDatosUsuario } from 'src/app/models1/modelo-datos-usuario';
@@ -16,7 +17,7 @@ export class AuthformComponent implements OnInit {
   @Output() sendFormEvent=new EventEmitter();
   usernavbar: any;
   usernavbarData: ModeloDatosUsuario;
-  constructor(private fb: FormBuilder,private authService: ServicioService, private addInfoService: AddInfoUserServicesService,private router: Router) { }
+  constructor(private fb: FormBuilder,private authService: ServicioService, private router: Router) { }
 
   ngOnInit(): void {
     this.createAuthForm();
@@ -46,17 +47,15 @@ export class AuthformComponent implements OnInit {
     correo: this.authForm.get('email').value
     } 
     
-    this.addInfoService.RegistrarUsuario(datosUsuario);
+    this.authService.RegistrarUsuario(datosUsuario);
 
     this.sendFormEvent.emit(formData);
     this.router.navigate(['/vista-datos-perfil-cliente']);
-
-    //se guarda una variable con el id del documento del usuario en cuestion que se acaba de crear
   }
     
   handleGoogleLogin(){
     this.authService.loginWithGoogle();
-
+    
     //se guarda una variable con el id del documento del usuario en cuestion que se acaba de crear
   }
 }

@@ -19,7 +19,7 @@ export class VistaRegistrarseComponent implements OnInit {
     console.log(formData);
     this.authService.registerNewUSer(formData.email,formData.password,formData.displayName).then((user)=>{
       if (user) {
-        this.router.navigate(['/']);
+        
       }
     });
   }

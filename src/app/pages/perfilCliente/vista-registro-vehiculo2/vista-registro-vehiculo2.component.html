@@ -10,21 +10,21 @@
     <div class="space">
         <div class='form-square'>
             <div class='form-square-background'>
-                <form class='form'>
+                <form class='form' [formGroup]="form">
                     <div class='group1'>
-                        <input type="text" required><span class='bar'></span>
+                        <input type="text" formControlName="serial_motor" required><span class='bar'></span>
                         <label for=''>SERIAL DEL MOTOR</label>
                     </div>
                     <div class='group2'>
-                        <input type="text" required><span class='bar'></span>
+                        <input type="text" formControlName="modelo" required><span class='bar'></span>
                         <label for=''>MODELO</label>
                     </div>
                     <div class='group3'>
-                        <input type="text" required><span class='bar'></span>
+                        <input type="text" formControlName="anno" required><span class='bar'></span>
                         <label for=''>AÑO</label>
                     </div>
                     <div class='group4'>
-                        <input type="text" required><span class='bar'></span>
+                        <input type="text" formControlName="placa" required><span class='bar'></span>
                         <label for=''>PLACA</label>
                     </div>
                     <div class='group4'>
@@ -32,11 +32,11 @@
                         <label for=''>FOTO DE REFERENCIA</label>
                     </div>
                     <div class='group4'>
-                        <input type="date" required><span class='bar'></span>
+                        <input type="date" formControlName="fecha" required><span class='bar'></span>
                         <label for=''>FECHA</label>
                     </div>
                     <div>
-                        <button>GUARDAR CAMBIOS</button>
+                        <button (click)="RegistrarVehiculo()">GUARDAR CAMBIOS</button>
                         <button>DESACTIVAR</button>
                     </div>
                 </form>

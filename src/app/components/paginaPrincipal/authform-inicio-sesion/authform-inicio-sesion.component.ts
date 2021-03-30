@@ -14,7 +14,7 @@ export class AuthformInicioSesionComponent implements OnInit {
 
   authForm!: FormGroup;
   IDusuario:any;
-  constructor(private fb: FormBuilder, private authService: ServicioService, private userSerice: AddInfoUserServicesService) { }
+  constructor(private fb: FormBuilder, private authService: ServicioService) { }
 
   ngOnInit(): void {
     this.createAuthForm();
@@ -30,9 +30,9 @@ export class AuthformInicioSesionComponent implements OnInit {
   iniciarSinGoogle(): void{
     console.log("iniciando sesión....");
     const user = this.authService.loginWithEmail(this.authForm.get('email').value,this.authForm.get('password').value);
-    user.then(async res=>{              //agarramos el user y, si no es undefined le sacamos su id y lo guardamos en user services
+    user.then(async res=>{  //agarramos el user y, si no es undefined le sacamos su id y lo guardamos en user services
       if(res){
-        this.userSerice.ObtenerIDDocumentoUsuario(res.email);
+        this.authService.Iniciar(res.email);
       }else{
         console.log('no hay user');
       }
