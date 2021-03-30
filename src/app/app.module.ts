@@ -21,7 +21,7 @@ import { VistaVehiculosRegistradosComponent } from './pages/perfilMecanico/vista
 
 //codigo qr
 import { NgxQRCodeModule } from 'ngx-qrcode2';
-
+import { HttpClientModule } from '@angular/common/http';
 
 //insertado de modulos para el tema de firebase
 import { AngularFireModule } from '@angular/fire';
@@ -32,6 +32,8 @@ import { environment } from 'src/environments/environment';
 //insertado de modulos para el tema de los forms
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AuthformComponent } from './components/paginaPrincipal/authform/authform.component';
+
+
 
 //modulos de perfil cliente
 import { NavbarDerechoClienteComponent } from './components/perfilCliente/navbar-derecho-cliente/navbar-derecho-cliente.component';
@@ -91,6 +93,7 @@ import { VistaFaqComponent } from './pages/perfilCliente/vista-faq/vista-faq.com
     FormsModule,
     ReactiveFormsModule,
     NgxQRCodeModule,
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
