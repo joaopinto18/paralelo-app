@@ -47,6 +47,7 @@ import { AuthformInicioSesionComponent } from './components/paginaPrincipal/auth
 import { CodigoQrComponent } from './components/codigo-qr/codigo-qr.component';
 import { VistaSolicitarCitasComponent } from './pages/perfilCliente/vista-solicitar-citas/vista-solicitar-citas.component';
 import { VistaFaqComponent } from './pages/perfilCliente/vista-faq/vista-faq.component';
+import { AngularFireFunctionsModule } from '@angular/fire/functions';
 
 
 @NgModule({
@@ -89,11 +90,13 @@ import { VistaFaqComponent } from './pages/perfilCliente/vista-faq/vista-faq.com
     AngularFireStorageModule,
     AngularFireAuthModule,
     AngularFirestoreModule,
+    AngularFireFunctionsModule,
     //modulos para crear formularios
     FormsModule,
     ReactiveFormsModule,
     NgxQRCodeModule,
     HttpClientModule,
+
   ],
   providers: [],
   bootstrap: [AppComponent]
