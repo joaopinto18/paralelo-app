@@ -4,8 +4,8 @@ const nodemailer = require('nodemailer');
 var transporter = nodemailer.createTransport({
  service: 'gmail',
  auth: {
- user: 'v.rujana@correo.unimet.edu.ve', // Cambialo por tu email
- pass: '' // Cambialo por tu password
+ user: 'joaopintotovar2000@gmail.com', // Cambialo por tu email
+ pass: 'travys12345' // Cambialo por tu password
  }
  });
 

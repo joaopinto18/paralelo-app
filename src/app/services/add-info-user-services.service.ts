@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { AngularFirestore, AngularFirestoreCollection, DocumentReference } from '@angular/fire/firestore';
 import { Router } from '@angular/router';
 import { AddUserCarModel } from '../models/add-user-car-model';
+import { GestionCitasModel } from '../models/gestion-citas-model';
 import { ModeloDatosUsuario } from '../models1/modelo-datos-usuario';
 
 @Injectable({
@@ -11,10 +12,20 @@ export class AddInfoUserServicesService {
   private usersCollection: AngularFirestoreCollection<ModeloDatosUsuario>;
   private carsCollection: AngularFirestoreCollection<AddUserCarModel>
   private UsersCarCollection: AngularFirestoreCollection;
+  private citasCollection: AngularFirestoreCollection;
   constructor(private Firestore:AngularFirestore, private router: Router) {
     this.usersCollection = this.Firestore.collection<ModeloDatosUsuario>("DATOS-USUARIOS");
     this.carsCollection = this.Firestore.collection<AddUserCarModel>("VEHICULOS-REGISTRADOS")
     this.UsersCarCollection= this.Firestore.collection('VEHICULOS-REGISTRADOS');
+    this.citasCollection= this.Firestore.collection('GESTION-CITAS');
+  }
+  
+  /**
+   * FUNCION PARA SOLICITAR UNA CITA
+   */
+
+  SolicitarCitax(data: GestionCitasModel): void{
+    this.citasCollection.add(data);
   }
 
   /**
@@ -28,7 +39,7 @@ export class AddInfoUserServicesService {
       result.ref.update({cedula: data.cedula, fecha: data.fecha, lugar: data.lugar, 
       nombre_apellido: data.nombre_apellido, numero: data.numero });
       alert('Se han modificado sus datos personales')
-  })
+    })
   }
 
   /**
@@ -48,6 +59,110 @@ export class AddInfoUserServicesService {
         })
     })
     return encontrado
+  }
+  
+  /**
+   * FUNCION PARA OBTENER LA FECHA DE UNA CITA
+   */
+
+  async fecha(nroVehiculo: number): Promise<string>{
+    let fecha: 'sin asignar'
+    await this.Firestore.collection('GESTION-CITAS').ref.where('CorreoSolicitante','==', localStorage.getItem('correouser')).
+    get().then((querysnapshot)=>{ //este await hace que primero se tenga que resolver esta promesa antes de proseguir con el codigo
+    querysnapshot.forEach((cita)=>{
+        if(nroVehiculo==cita.get('nroVehiculo')){
+          fecha = cita.get('fechaTentativa');
+        }
+      })
+    })
+    return fecha
+  }
+
+  /**
+   * FUNCION PARA OBTENER EL ESTADO DE UNA CITA
+   */
+
+   async estadoCita(nroVehiculo: number): Promise<string>{
+    let fecha: 'sin asignar'
+    await this.Firestore.collection('GESTION-CITAS').ref.where('CorreoSolicitante','==', localStorage.getItem('correouser')).
+    get().then((querysnapshot)=>{ //este await hace que primero se tenga que resolver esta promesa antes de proseguir con el codigo
+    querysnapshot.forEach((cita)=>{
+        if(nroVehiculo==cita.get('nroVehiculo')){
+          fecha = cita.get('estatus');
+        }
+      })
+    })
+    return fecha
+  }
+
+  /**
+   * SOLICITAR OTRA FECHA PARA LA CITA
+   */
+
+  async nuevaFecha(nrovehiculo: number): Promise<void>{
+    await this.Firestore.collection('GESTION-CITAS').ref.where('CorreoSolicitante','==', localStorage.getItem('correouser')).
+    get().then((querysnapshot)=>{ //este await hace que primero se tenga que resolver esta promesa antes de proseguir con el codigo
+    querysnapshot.forEach((cita)=>{
+        if(nrovehiculo==cita.get('nroVehiculo')){
+          //si el documento se encuentra, entonces 
+          this.citasCollection.doc(cita.id.valueOf().toString()).ref.onSnapshot(function(result) {
+          result.ref.update({ estatus:'Cita solicitada', fechaTentativa:'En espera por fecha' })});
+        }
+      })
+    })
+  }
+
+  /**
+   * FUNCION PARA ELIMINAR DE CITAS
+   */
+
+  async eliminarCita(nrovehiculo: number): Promise<void>{
+    
+    await this.Firestore.collection('GESTION-CITAS').ref.where('CorreoSolicitante','==', localStorage.getItem('correouser')).
+    get().then((querysnapshot)=>{ //este await hace que primero se tenga que resolver esta promesa antes de proseguir con el codigo
+    querysnapshot.forEach((cita)=>{
+        if(nrovehiculo==cita.get('nroVehiculo')){
+          this.Firestore.collection('GESTION-CITAS').doc(cita.id.valueOf().toString()).delete()
+        }
+      })
+    })
+  }
+
+  /**
+   * FUNCION PARA CONFIRMAR CITA
+   */
+
+  async confirmar(nroVehiculo: number): Promise<void>{
+
+    await this.Firestore.collection('GESTION-CITAS').ref.where('CorreoSolicitante','==', localStorage.getItem('correouser')).
+    get().then((querysnapshot)=>{ //este await hace que primero se tenga que resolver esta promesa antes de proseguir con el codigo
+    querysnapshot.forEach((cita)=>{
+        if(nroVehiculo==cita.get('nroVehiculo')){
+          //si el documento se encuentra, entonces 
+          this.citasCollection.doc(cita.id.valueOf().toString()).ref.onSnapshot(function(result) {
+          result.ref.update({ estatus:'confirmada' })});
+        }
+      })
+    })
+  }
+
+  /**
+   * FUNCION PARA COMPROBAR SI SE HA SOLICITADO CITA
+   */
+
+  async comprobarCita(nroVehiculo: number): Promise<boolean>{
+    let encontrado: boolean = false;
+    await this.Firestore.collection('GESTION-CITAS').ref.where('CorreoSolicitante','==', localStorage.getItem('correouser')).
+    get().then((querysnapshot)=>{ //este await hace que primero se tenga que resolver esta promesa antes de proseguir con el codigo
+    querysnapshot.forEach((cita)=>{
+        console.log(cita.data());
+        if(cita.get('nroVehiculo')==nroVehiculo){
+          encontrado = true;
+        }
+      })
+    })
+    console.log(encontrado);
+    return encontrado;
   }
 
   /**
