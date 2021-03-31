@@ -1,0 +1,136 @@
+@import url('https://fonts.googleapis.com/css2?family=Audiowide&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Athiti:wght@700&display=swap');
+
+
+.space{
+    position: relative;
+    top: 10%;
+    justify-content: center;
+    display: flex;
+    padding: 0px;
+    height: 75%;
+}
+
+.form-square{
+    height: 70%;
+    width: 70%;
+    margin-top: 10px;
+    display: flex;
+    justify-content: left;
+    margin-left: 30px;
+}
+
+.form-square .form-square-background{
+    margin-top: 0;
+    display: flex;
+    justify-content: center;
+    height: 87%;
+    width: 90%;
+    padding: 35px;
+    background-color: rgb(255, 201, 51);
+}
+
+.form-square .form-square-background .form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.form-square .form-square-background .form .columns{
+    display: flex;
+    justify-content: center;
+}
+
+
+.form-square .form-square-background .form .column1{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.form-square .form-square-background .form .column2{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.form-square .form-square-background .form-tittle{
+    text-align: center;
+    font-family: 'Athiti', sans-serif;
+    font-size: 40px;
+    color: black;
+    font-weight: bold;
+    margin-bottom: 20px;
+    margin-left: 40px;
+}
+
+input{
+    width: 300px;
+    height: 10px;
+    border-radius: 36px 12px;                      
+    font-size: 15px;            
+    margin: 5px 10px 10px 1px; 
+    margin-left: 10px;
+    padding: 10px 10px 10px 5px;
+    display: block;             
+    border: none;
+}
+
+select{
+    width: 300px;
+    height: 30px;
+    border-radius: 36px 12px;                                
+    margin: 5px 10px 10px 1px; 
+    margin-left: 10px;
+    display: block;             
+    border: none;
+    font-size: 15px;  
+}
+
+label{
+    font-family: 'Athiti', sans-serif;
+    font-size: 14px; 
+    font-weight: bold;
+    margin-left: 20px;
+}
+
+.btn{
+    margin: 30px;
+    color: black;
+    width: 150px;
+    height: 30px;
+    border: 0ch;
+    font-family: 'Athiti', sans-serif ;
+    font-size: 15px;
+    text-align: center;
+}
+
+.submit-btn{
+    align-items: center;
+    text-align: center;
+}
+
+.btns{
+    margin-top:1% ;
+    position: relative;
+    display: flex;
+    
+}
+
+.btn{
+    position: relative;
+    width: 35%;
+    height: 30px;
+    border: 0ch;
+    border-radius: 0; 
+    font-family: 'Athiti', sans-serif ;
+    font-size: 15px;
+    text-align: center;
+    margin: 5px 0px 0px 0px;
+    margin-left: 10%;
+    padding: 0;
+    display: block;             
+    border: none;
+}
+
+

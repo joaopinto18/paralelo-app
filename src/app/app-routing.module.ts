@@ -16,6 +16,8 @@ import { VistaSolicitarCitasComponent } from './pages/perfilCliente/vista-solici
 import { VistaDatosPerfilMecanicoComponent } from './pages/perfilMecanico/vista-datos-perfil-mecanico/vista-datos-perfil-mecanico.component';
 import { VistaRegistroVehiculoMecanicoComponent } from './pages/perfilMecanico/vista-registro-vehiculo-mecanico/vista-registro-vehiculo-mecanico.component';
 import { VistaVehiculosRegistradosComponent } from './pages/perfilMecanico/vista-vehiculos-registrados/vista-vehiculos-registrados.component';
+import { VistaDatosPerfilAdminComponent } from './pages/perfilAdmin/vista-datos-perfil-admin/vista-datos-perfil-admin.component';
+import {  VistaAdminRolesComponent } from './pages/perfilAdmin/vista-admin-roles/vista-admin-roles.component';
 
 
 const routes: Routes = [
@@ -36,6 +38,9 @@ const routes: Routes = [
   {path: 'vista-registrar-vehiculo3',component: VistaRegistroVehiculo3Component},
   {path: 'vista-citas-cliente',component: VistaCitasClienteComponent},
   {path: 'vista-datos-perfil-cliente',component: VistaDatosPerfilClienteComponent},
+  {path: 'vista-datos-perfil-admin',component: VistaDatosPerfilAdminComponent},
+  {path: 'vista-admin-roles',component: VistaAdminRolesComponent},
+
 ];
 
 
