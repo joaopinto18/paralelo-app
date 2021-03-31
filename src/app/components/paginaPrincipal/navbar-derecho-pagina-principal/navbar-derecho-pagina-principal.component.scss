@@ -35,6 +35,8 @@
     padding-right: 2px;
     width: 50%;
 }
+
+
 .right-navbar .iniciar-sesion .cuadro1 a{
     color: white;
     text-decoration: none;
@@ -58,8 +60,19 @@
     padding-left: 2px;
     padding-right: 2px;
     width: 50%;
-    
+    display: flex;
+    justify-content: center;
+    height: 20px;
 }
+
+.btn-logout{
+    margin-bottom: 200px;
+    background-color: rgb(73, 73, 73);
+    font-family: 'Athiti', sans-serif;
+    color: white;
+    border: none;
+}
+
 
 .right-navbar .buttons .registrase .cuadro2 a{
     color: white;

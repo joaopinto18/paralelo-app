@@ -5,9 +5,9 @@
                 <span><a [routerLink]="['/vista-datos-perfil-admin']" style="color: white; text-decoration: none;">VALERIA RUJANA</a></span>
             </div>
         </div>
-        <div class='registrase'>
+        <div class='registrase' *ngIf="user">
             <div class='cuadro2'>
-                <span>CERRAR SESIÓN</span>
+            <button type="button" (click)="handleLogout()" class="btn-logout"><p>LOG OUT</p></button>
             </div>
         </div>
     </div>

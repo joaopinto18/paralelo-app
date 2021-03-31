@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Athiti:wght@700&display=swap');
+
 .right-navbar{
     float: right;
     width: 25%;
@@ -9,7 +11,7 @@
     height: 24.8%;
     background-color: rgb(255, 201, 51);
     text-align: center;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: 'Athiti', sans-serif;
     font-size: 15px;
     font-weight: bold;
     color: white;
@@ -61,7 +63,8 @@
 .right-navbar .fotos .foto1{
     height: 40%;
     width: 80%;
-    background-color: black;
+    background-image: url(https://static.straitstimes.com.sg/s3fs-public/articles/2017/12/11/bp_car_111217_94.jpg);
+    background-size: 260px;
     margin-bottom: 10px;
     margin: auto;
 }
@@ -69,7 +72,21 @@
 .right-navbar .fotos .foto2{
     height: 40%;
     width: 80%;
-    background-color: black;
+    background-image: url(https://upload.wikimedia.org/wikipedia/commons/1/13/TE71_2T-GEU.jpg);
+    background-size: 260px;
     margin: auto;
 }
 
+.btn-logout{
+    margin-bottom: 200px;
+    background-color: rgb(73, 73, 73);
+    font-family: 'Athiti', sans-serif;
+    color: white;
+    border: none;
+    width: 50%;
+    padding-top: 2px;
+    padding-bottom: 2px;
+    padding-left: 2px;
+    padding-right: 2px;
+    margin-right: 17px;
+}

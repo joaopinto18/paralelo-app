@@ -2,10 +2,12 @@
     <div class='buttons'>
         <div class='registrase'>
             <div class='cuadro1'>
-                <span><a [routerLink]="['/vista-datos-perfil-cliente']" style="color:white; text-decoration: none;">VALERIA RUJANA</a></span>
+                <span><a [routerLink]="['/vista-datos-perfil-cliente']" style="color:white; text-decoration: none;">Valeria</a></span>
             </div>
-            <div class='cuadro1'>
-                <button type="button" class="btn-logout"><p>LOG OUT</p></button>
+            <div class='registrase' *ngIf="user">
+                <div class='cuadro2'>
+                <button type="button" (click)="handleLogout()" class="btn-logout"><p>LOG OUT</p></button>
+                </div>
             </div>
         </div>
     </div>
