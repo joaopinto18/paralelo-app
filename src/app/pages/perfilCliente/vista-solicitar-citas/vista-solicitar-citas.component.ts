@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AddCarServiceService } from 'src/app/services/add-car-service.service';
 import { AddInfoUserServicesService } from 'src/app/services/add-info-user-services.service';
-import { EmailService } from 'src/app/services/email.service';
+
 
 
 @Component({
@@ -19,7 +19,7 @@ export class VistaSolicitarCitasComponent implements OnInit {
   confirmada2: string;
   confirmada3: string;
 
-  constructor(private infoUser: AddInfoUserServicesService, private email: EmailService) { }
+  constructor(private infoUser: AddInfoUserServicesService) { }
 
   async ngOnInit(): Promise<void> {
     for (let index = 1; index <= 3; index++) {

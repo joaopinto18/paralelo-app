@@ -1,8 +1,15 @@
-
+@import url('https://fonts.googleapis.com/css2?family=Athiti:wght@700&display=swap');
 .wrapper{
     height: 80%;
     width: 75%;
     background-color: rgb(66, 66, 66);
+}
+
+.space{
+    display: flex;
+    justify-content: space-between;
+    padding: 0px;
+    height: 95%;
 }
 
 .wrapper .title-box{
@@ -12,20 +19,18 @@
 }
 
 .wrapper .title-box .title{
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    font-style: italic;
+    font-family: 'Athiti', sans-serif ;
     font-size: 25px;
     color: rgb(255, 201, 51);
 }
 
-//------------> form
-
 .form-square{
-    height: 95%;
-    width: 100%;
+    height: 85%;
+    width: 70%;
+    margin-top: 10px;
     display: flex;
-    justify-content: center;
-    background-color: rgb(66, 66, 66);
+    justify-content: left;
+    margin-left: 140px;
 }
 
 .form-square .form-square-background{
@@ -33,8 +38,8 @@
     display: flex;
     justify-content: center;
     height: 80%;
-    width: 70%;
-    padding: 20px;
+    width: 85%;
+    padding: 35px;
     background-color: rgb(255, 201, 51);
 }
 
@@ -46,39 +51,64 @@
 
 .form-square .form-square-background .form-tittle{
     text-align: center;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: 'Athiti', sans-serif;
     font-size: 40px;
     color: black;
     font-weight: bold;
     margin-bottom: 20px;
-}
-
-.form-square .form-square-background .send-button{
-    height: 170px;
-    width: 100%;
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 15px; 
-    font-weight: bold;
-    margin-top: 15px;
-    border-radius: 5px;
-    background-color: white;
-    border-color: black;
-    
+    margin-left: 40px;
 }
 
 input{
-    width: 600px;
     height: 10px;
-    border-radius: 5px;                      
+    border-radius: 36px 12px;                      
     font-size: 15px;            
-    margin: 10px 10px 10px 5px; 
+    margin: 5px 10px 10px 1px; 
+    margin-left: 10px;
     padding: 10px 10px 10px 5px;
     display: block;             
     border: none;
+    width: 530px;
 }
 
 label{
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 12px; 
+    font-family: 'Athiti', sans-serif;
+    font-size: 14px; 
     font-weight: bold;
+    margin-left: 20px;
+}
+
+.texto1{
+    margin-right: 165px;
+    margin-top: 120px;
+    font-family: 'Athiti', sans-serif ;
+    color: white;
+    text-align: center;
+    font-size: 20px;
+}
+
+.administrar{
+    height: 10px;
+}
+
+.btn{
+    margin: 30px;
+    color: black;
+    width: 150px;
+    height: 30px;
+    border: 0ch;
+    font-family: 'Athiti', sans-serif ;
+    font-size: 15px;
+    text-align: center;
+}
+
+button{
+    width: 150px;
+    height: 30px;
+    border: 0ch;
+    font-family: 'Athiti', sans-serif ;
+    font-size: 15px;
+    text-align: center;
+    margin: 5px;
+    margin-left: 200px;
 }

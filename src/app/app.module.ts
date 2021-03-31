@@ -47,6 +47,10 @@ import { AuthformInicioSesionComponent } from './components/paginaPrincipal/auth
 import { CodigoQrComponent } from './components/codigo-qr/codigo-qr.component';
 import { VistaSolicitarCitasComponent } from './pages/perfilCliente/vista-solicitar-citas/vista-solicitar-citas.component';
 import { VistaFaqComponent } from './pages/perfilCliente/vista-faq/vista-faq.component';
+<<<<<<< HEAD
+=======
+import { AngularFireFunctionsModule } from '@angular/fire/functions';
+>>>>>>> 886aff962e347082f832d204f9a9a3454205ad97
 import { VistaDatosPerfilAdminComponent } from './pages/perfilAdmin/vista-datos-perfil-admin/vista-datos-perfil-admin.component';
 import { VistaAdminRolesComponent } from './pages/perfilAdmin/vista-admin-roles/vista-admin-roles.component';
 import { NavbarPerfilAdminComponent } from './components/perfilAdmin/navbar-perfil-admin/navbar-perfil-admin.component';
@@ -85,6 +89,10 @@ import { SearchBarUserComponent } from './components/perfilAdmin/search-bar-user
     CodigoQrComponent,
     VistaSolicitarCitasComponent,
     VistaFaqComponent,
+<<<<<<< HEAD
+=======
+
+>>>>>>> 886aff962e347082f832d204f9a9a3454205ad97
     VistaDatosPerfilAdminComponent,
     VistaAdminRolesComponent,
     NavbarPerfilAdminComponent,
@@ -100,11 +108,13 @@ import { SearchBarUserComponent } from './components/perfilAdmin/search-bar-user
     AngularFireStorageModule,
     AngularFireAuthModule,
     AngularFirestoreModule,
+    AngularFireFunctionsModule,
     //modulos para crear formularios
     FormsModule,
     ReactiveFormsModule,
     NgxQRCodeModule,
     HttpClientModule,
+
   ],
   providers: [],
   bootstrap: [AppComponent]
