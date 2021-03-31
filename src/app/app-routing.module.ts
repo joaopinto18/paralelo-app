@@ -23,12 +23,10 @@ import {  VistaAdminRolesComponent } from './pages/perfilAdmin/vista-admin-roles
 const routes: Routes = [
 
   {path:'vista-perfil-cliente', component:VistaDatosPerfilClienteComponent},
-  {path:'', component:VistaInicioComponent},
   {path:'faq', component:VistaFaqComponent},
   {path:'solicitar-cita', component:VistaSolicitarCitasComponent},
   {path:'inicio-sesion', component:VistaInicioSesionComponent},
   {path:'', component:VistaInicioComponent},
-  {path:'vista-inicio', component:VistaInicioComponent},
   {path:'registro', component:VistaRegistrarseComponent},
   {path:'about-us', component:VistaAboutUsComponent},
   {path:'contactanos', component:VistaContactanosComponent},
