@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { AngularFireFunctions } from '@angular/fire/functions';
+import { AddCarServiceService } from 'src/app/services/add-car-service.service';
+import { AddInfoUserServicesService } from 'src/app/services/add-info-user-services.service';
+
+
 
 @Component({
   selector: 'app-vista-solicitar-citas',
@@ -7,50 +10,175 @@ import { AngularFireFunctions } from '@angular/fire/functions';
   styleUrls: ['./vista-solicitar-citas.component.scss']
 })
 export class VistaSolicitarCitasComponent implements OnInit {
+  
+  fecha1: any;
+  fecha2: any;
+  fecha3: any;
 
+  confirmada1: string;
+  confirmada2: string;
+  confirmada3: string;
 
-  constructor(private fun: AngularFireFunctions){}
+  constructor(private infoUser: AddInfoUserServicesService) { }
 
-  ngOnInit(): void {
+  async ngOnInit(): Promise<void> {
+    for (let index = 1; index <= 3; index++) {
+      if(await this.infoUser.comprobarCita(index)){
+
+        if(index==1 && await this.infoUser.estadoCita(1) == 'cita solicitada'){
+          this.clicked=true;
+          this.fecha1= await this.infoUser.fecha(index);
+          this.confirmada1='cita solicitada';
+        }else if(index==1 && await this.infoUser.estadoCita(1) == 'confirmada'){
+          this.clicked=true;
+          this.confirmada1='confirmada';
+        }else if(index==1 && await this.infoUser.estadoCita(1) == 'En espera de confirmación'){
+          this.clicked=true;
+          this.fecha1= await this.infoUser.fecha(index);
+          this.confirmada1='En espera de confirmación';
+        }
+
+        if(index==2 && await this.infoUser.estadoCita(2) == 'cita solicitada'){
+          this.clicked2=true;
+          this.fecha2= await this.infoUser.fecha(index);
+          this.confirmada2='cita solicitada';
+        }else if(index==2 && await this.infoUser.estadoCita(2) == 'confirmada'){
+          this.clicked2=true;
+          this.confirmada2='confirmada';
+        }else if(index==2 && await this.infoUser.estadoCita(2) == 'En espera de confirmación'){
+          this.clicked2=true;
+          this.fecha2= await this.infoUser.fecha(index);
+          this.confirmada2='En espera de confirmación';
+        }
+
+        if(index==3 && await this.infoUser.estadoCita(3) == 'cita solicitada'){
+          this.clicked3=true;
+          this.fecha3= await this.infoUser.fecha(index);
+          this.confirmada3='cita solicitada';
+        }else if(index==3 && await this.infoUser.estadoCita(3) == 'confirmada'){
+          this.clicked3=true;
+          this.confirmada3='confirmada';
+        }else if(index==2 && await this.infoUser.estadoCita(3) == 'En espera de confirmación'){
+          this.clicked3=true;
+          this.fecha3= await this.infoUser.fecha(index);
+          this.confirmada3='En espera de confirmación';
+        }
+      }
+    }
   }
 
-  
   clicked = false;
   clicked2 = false;
   clicked3 = false;
 
   trash1(){
     this.clicked = false;
+    this.infoUser.eliminarCita(1);
   }
 
   trash2(){
     this.clicked2 = false;
+    this.infoUser.eliminarCita(2);
   }
 
   trash3(){
     this.clicked3 = false;
+    this.infoUser.eliminarCita(3);
   }
 
-  
-
- /* API_KEY = "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";
-  TEMPLATE_ID = "d-1adad623ca9d42b2a2adf445f94cdebd";
-  */
-
-  /*sendEmail(){
-
-    SendGrid.setApiKey(this.API_KEY);
-
-    const msg = {
-      to: "v.rujana@correo.unimet.edu.ve",
-      from: 'v.rujana@correo.unimet.edu.ve',
-      templateId: this.TEMPLATE_ID,
-      dynamic_template_data: {
-          subject: 'Welcome to my awesome app!',
-          name: "Hola",
-      },
-  };
-  return SendGrid.send(msg);
+  confirmar2(): void{
+    //se le envia correo de confirmacion de cita al gerente al gerente
+    this.infoUser.confirmar(2);
+    this.confirmada2 = 'confirmada';
+    this.fecha2 = 'Cita en progreso, para ver estado revisa "Reparaciones"'
+    alert('se ha confirmado su cita');
   }
-  */
+
+  confirmar3(): void{
+    //se le envia correo de confirmacion de cita al gerente al gerente
+    this.infoUser.confirmar(3);
+    this.confirmada3 = 'confirmada';
+    this.fecha3 = 'Cita en progreso, para ver estado revisa "Reparaciones"'
+    alert('se ha confirmado su cita');
+  }
+
+  confirmar1(): void{
+    //se le envia correo de confirmacion de cita al gerente al gerente
+    this.infoUser.confirmar(1);
+    this.confirmada1 = 'confirmada';
+    this.fecha1 = 'Cita en progreso, para ver estado revisa "Reparaciones"'
+    alert('se ha confirmado su cita');
+  }
+
+  pedirOtraFecha1(): void{
+    this.infoUser.nuevaFecha(1);
+    this.fecha1='En espera por fecha';
+    this.confirmada1='cita solicitada';
+    //el gerente debe proponer una nueva fecha para la cita
+  }
+
+  pedirOtraFecha2(): void{
+    this.infoUser.nuevaFecha(2);
+    this.fecha2='En espera por fecha';
+    this.confirmada2='cita solicitada';
+    //el gerente debe proponer una nueva fecha para la cita
+  }
+
+  pedirOtraFecha3(): void{
+    this.infoUser.nuevaFecha(3);
+    this.fecha3='En espera por fecha';
+    this.confirmada3='cita solicitada';
+    //el gerente debe proponer una nueva fecha para la cita
+  }
+
+  async clickedx(): Promise<void>{
+    /*llamamos a solicitar cita con el nro de vehiculo que va a solicitar la cita, la condicion es que el 
+    vehiculo este registrado*/ 
+    if(await this.infoUser.VerificarVehiculo(1) == 'no encontrado'){
+      alert('Debe agregar un vehiculo en el campo VEHICULO 1 para solicitar esta cita')
+    }else{
+      this.clicked = true;
+      this.solicitarCita((await this.infoUser.VerificarVehiculo(1)).valueOf(), 1);
+    }
+  }
+
+  async clickedx2(): Promise<void>{
+
+    if(await this.infoUser.VerificarVehiculo(2) == 'no encontrado'){
+      alert('Debe agregar un vehiculo en el campo VEHICULO 2 para solicitar esta cita')
+    }else{
+      this.clicked2 = true;
+      this.solicitarCita((await this.infoUser.VerificarVehiculo(2)), 2);
+    }
+  }
+
+  async clickedx3(): Promise<void>{
+
+    if(await this.infoUser.VerificarVehiculo(3) == 'no encontrado'){
+      alert('Debe agregar un vehiculo en el campo VEHICULO 3 para solicitar esta cita')
+    }else{
+      this.clicked3 = true;
+      this.solicitarCita((await this.infoUser.VerificarVehiculo(3)), 3);
+    }
+  }
+
+  solicitarCita(idDocVehiculo: string, nroVehiculo: number): void{
+    const datosCita={
+      fechaTentativa: 'En espera por fecha',
+      IdDocVehiculo: idDocVehiculo,
+      CorreoSolicitante: localStorage.getItem('correouser'),
+      estatus: 'cita solicitada',
+      nroVehiculo: nroVehiculo
+    } 
+    console.log(datosCita);
+    this.infoUser.SolicitarCitax(datosCita);
+    if(nroVehiculo==1){
+      this.fecha1=datosCita.fechaTentativa;
+    }else if(nroVehiculo==1){
+      this.fecha2=datosCita.fechaTentativa;
+    }else{
+      this.fecha3=datosCita.fechaTentativa;
+    }
+    alert('cita solicitada')
+  }
 }

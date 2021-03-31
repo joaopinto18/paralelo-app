@@ -42,6 +42,7 @@ export class ServicioService {
             //si hay un resultado es porque el usuario ya esta registrado 
             registrado = true;
             localStorage.setItem('iduser',usuario.id.valueOf());
+            localStorage.setItem('correouser', datosUsuario.correo.valueOf());
             //utilizamos el id para evaluar que acceso tiene y hacer los tramites respectivos
             if(usuario.get('acceso')=='cliente'){
               this.router.navigate(['/vista-datos-perfil-cliente']);
@@ -81,13 +82,14 @@ export class ServicioService {
       querysnapshot.forEach((usuario)=>{
         //mandamos el id del user al local storage
         localStorage.setItem('iduser',usuario.id.valueOf());
+        localStorage.setItem('correouser', data.correo);
         //utilizamos el id para evaluar que acceso tiene y hacer los tramites respectivos
         this.router.navigate(['/vista-datos-perfil-cliente']);
         //restringir las demas rutas 
         
       })
     })
-  }
+  } 
 
   /**
    * INICIAR SESIÓN Y REDIRIGIR A LA VISTA CORRESPONDIENTE
@@ -100,6 +102,7 @@ export class ServicioService {
         querysnapshot.forEach((usuario)=>{
           //guardamos al user en el localStorage
           localStorage.setItem('iduser',usuario.id.valueOf());
+          localStorage.setItem('correouser', email);
           //utilizamos el id para evaluar que acceso tiene y hacer los tramites respectivos
           if(usuario.get('acceso')=='cliente'){
             this.router.navigate(['/vista-datos-perfil-cliente']);
@@ -128,9 +131,11 @@ export class ServicioService {
     try {
       await this.afAuth.signOut();
       localStorage.removeItem('iduser');
+      localStorage.removeItem('correouser');
     } catch (error) {
       console.log(error);
       localStorage.removeItem('iduser');
+      localStorage.removeItem('correouser');
     }
   }
   
