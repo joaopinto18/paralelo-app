@@ -48,6 +48,12 @@ import { CodigoQrComponent } from './components/codigo-qr/codigo-qr.component';
 import { VistaSolicitarCitasComponent } from './pages/perfilCliente/vista-solicitar-citas/vista-solicitar-citas.component';
 import { VistaFaqComponent } from './pages/perfilCliente/vista-faq/vista-faq.component';
 import { AngularFireFunctionsModule } from '@angular/fire/functions';
+import { VistaDatosPerfilAdminComponent } from './pages/perfilAdmin/vista-datos-perfil-admin/vista-datos-perfil-admin.component';
+import { VistaAdminRolesComponent } from './pages/perfilAdmin/vista-admin-roles/vista-admin-roles.component';
+import { NavbarPerfilAdminComponent } from './components/perfilAdmin/navbar-perfil-admin/navbar-perfil-admin.component';
+import { NavbarDerechoAdminComponent } from './components/perfilAdmin/navbar-derecho-admin/navbar-derecho-admin.component';
+import { FormAdminRoleComponent } from './components/perfilAdmin/form-admin-role/form-admin-role.component';
+import { SearchBarUserComponent } from './components/perfilAdmin/search-bar-user/search-bar-user.component';
 
 
 @NgModule({
@@ -81,6 +87,12 @@ import { AngularFireFunctionsModule } from '@angular/fire/functions';
     VistaSolicitarCitasComponent,
     VistaFaqComponent,
 
+    VistaDatosPerfilAdminComponent,
+    VistaAdminRolesComponent,
+    NavbarPerfilAdminComponent,
+    NavbarDerechoAdminComponent,
+    FormAdminRoleComponent,
+    SearchBarUserComponent,
   ],
   imports: [
     BrowserModule,
