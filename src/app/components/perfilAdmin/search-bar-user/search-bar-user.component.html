@@ -1,7 +1,9 @@
 <div class = "bar"> 
-    <form class = 'search' >
-        <input type="text" class = "search-text">
-        <input type="submit" class = "btn" value= "Buscar">
+    <form class = 'search' [formGroup]="form">
+        <div class='input'>
+            <input type="text" formControlName="correo" required><span class='bar'></span>
+            <span>INGRESA EL CORREO DEL USUARIO</span>
+        </div>
+        <button class='input-button' (click)='search()'>BUSCAR</button>
     </form>
-
 </div>
