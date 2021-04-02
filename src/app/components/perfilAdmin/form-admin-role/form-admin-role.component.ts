@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
 import { AddInfoUserServicesService } from 'src/app/services/add-info-user-services.service';
+import { SearchBarUserComponent } from '../search-bar-user/search-bar-user.component';
 
 @Component({
   selector: 'app-form-admin-role',
@@ -12,7 +12,7 @@ export class FormAdminRoleComponent implements OnInit {
 
   public postForm!: FormGroup;
 
-  constructor(private fb: FormBuilder, private route: Router, private serviceUser: AddInfoUserServicesService) { }
+  constructor(private fb: FormBuilder, private serviceUser: AddInfoUserServicesService) { }
 
   ngOnInit(): void {
   }
@@ -23,6 +23,7 @@ export class FormAdminRoleComponent implements OnInit {
     fecha: ["", Validators.required],
     lugar: ["", Validators.required],
     numero: ["", Validators.required],
+    acceso: ["", Validators.required]
   });
 
   saveUser() {
@@ -40,9 +41,15 @@ export class FormAdminRoleComponent implements OnInit {
       fecha: this.datosform.get("fecha").value,
       lugar: this.datosform.get("lugar").value,
       numero: this.datosform.get("numero").value,
+      acceso: this.datosform.get('acceso').value
     }
-
-    this.serviceUser.modificarInfoUsuario(usuarioModificado);
+    if(this.serviceUser.estadoRespuesta=='no se ha realizado búsqueda'){
+      alert('debe buscar primero el correo del usuario a quien desea modificar sus datos');
+    }else if(this.serviceUser.estadoRespuesta=='sin resultados'){
+      alert('no se encontró el usuario buscado, vuelve a intentar');
+    }else{
+      this.serviceUser.modificarInfoUsuarioAdmin(usuarioModificado, this.serviceUser.estadoRespuesta);
+    }
   }
 
 

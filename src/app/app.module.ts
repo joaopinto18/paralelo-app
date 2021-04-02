@@ -86,7 +86,6 @@ import { SearchBarUserComponent } from './components/perfilAdmin/search-bar-user
     CodigoQrComponent,
     VistaSolicitarCitasComponent,
     VistaFaqComponent,
-
     VistaDatosPerfilAdminComponent,
     VistaAdminRolesComponent,
     NavbarPerfilAdminComponent,

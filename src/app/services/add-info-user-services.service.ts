@@ -13,6 +13,8 @@ export class AddInfoUserServicesService {
   private carsCollection: AngularFirestoreCollection<AddUserCarModel>
   private UsersCarCollection: AngularFirestoreCollection;
   private citasCollection: AngularFirestoreCollection;
+  
+  public estadoRespuesta: string;
   constructor(private Firestore:AngularFirestore, private router: Router) {
     this.usersCollection = this.Firestore.collection<ModeloDatosUsuario>("DATOS-USUARIOS");
     this.carsCollection = this.Firestore.collection<AddUserCarModel>("VEHICULOS-REGISTRADOS")
@@ -29,6 +31,16 @@ export class AddInfoUserServicesService {
   }
 
   /**
+   * FUNCION PARA OBTENER LA INFORMACIÓN DE VEHÍCULO
+   */
+
+   BuscarUsuario(correo: string): any{
+
+    return this.Firestore.collection('DATOS-USUARIOS' ,  ref => (
+      ref.where('correo', '==', correo)))
+  } 
+
+  /**
    * FUNCION PARA MODIFICAR DATOS DE LA BD 
    */
 
@@ -39,6 +51,25 @@ export class AddInfoUserServicesService {
       result.ref.update({cedula: data.cedula, fecha: data.fecha, lugar: data.lugar, 
       nombre_apellido: data.nombre_apellido, numero: data.numero });
       alert('Se han modificado sus datos personales')
+    })
+  }
+
+  /**
+   * FUNCION PARA QUE EL ADMIN MODIFIQUE EL USUARIO
+   */
+
+  async modificarInfoUsuarioAdmin(data:any, correoUser:string):Promise<void>{
+
+    //BUSCAR EL ID DEL USUARIO EN EL LOCAL STORAGE, DONDE ESTARÁ CARGADO EL USUARIO
+    await this.Firestore.collection('DATOS-USUARIOS').ref.where('correo','==', correoUser).
+    get().then((querysnapshot)=>{ //este await hace que primero se tenga que resolver esta promesa antes de proseguir con el codigo
+    querysnapshot.forEach((usuario)=>{
+        //si el documento se encuentra, entonces 
+        console.log(usuario.id.valueOf().toString());
+        this.usersCollection.doc(usuario.id.valueOf().toString()).ref.onSnapshot(function(result) {
+        result.ref.update({ acceso: data.acceso, cedula: data.cedula, fecha: data.fecha, 
+        lugar: data.lugar, nombre_apellido: data.nombre_apellido, numero:data.numero })});
+      })
     })
   }
 

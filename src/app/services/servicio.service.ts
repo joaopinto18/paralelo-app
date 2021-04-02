@@ -110,6 +110,8 @@ export class ServicioService {
           }else if(usuario.get('acceso')=='mecanico'){
             this.router.navigate(['/vista-perfil-mecanico']);
             //restringir las demas rutas 
+          }else if(usuario.get('acceso')=='admin'){
+            this.router.navigate(['/vista-datos-perfil-admin']);
           }
         })
       })

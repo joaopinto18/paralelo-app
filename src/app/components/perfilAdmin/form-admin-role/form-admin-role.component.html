@@ -5,57 +5,29 @@
         <div class="columns">
           <div class="column1">
             <div class="group1">
-              <input
-                type="text"
-                required
-                id="nombre"
-                value = 'Pedro Perez'
-              /><span class="bar"></span>
+              <input type="text" required id="nombre" formControlName="nombre_apellido"/><span class="bar"></span>
               <label for="">NOMBRE Y APELLIDO</label>
             </div>
             <div class="group2">
-              <input
-                type="number"
-                required
-                id="cedula"
-                value = '123456'
-                required
-                maxlength="8"
-              /><span class="bar"></span>
+              <input type="number" required id="cedula" formControlName="cedula" required maxlength="8"/><span class="bar"></span>
               <label for="">CÉDULA DE IDENTIDAD</label>
             </div>
             <div class="group3">
-              <input
-                type="date"
-                required
-                id="fecha"
-                formControlName="fecha"
-              /><span class="bar"></span>
+              <input type="date" required id="fecha" formControlName="fecha"/><span class="bar"></span>
               <label for="">FECHA DE NACIMIENTO</label>
             </div>
           </div>
           <div class="column2">
             <div class="group4">
-              <input
-                type="text"
-                required
-                id="lugar"
-                formControlName="lugar"
-              /><span class="bar"></span>
+              <input type="text" required id="lugar" formControlName="lugar"/><span class="bar"></span>
               <label for="">LUGAR DE RESIDENCIA</label>
             </div>
             <div class="group5">
-              <input
-                type="tel"
-                pattern="[0-9]{4}-[0-9]{7}"
-                required
-                id="numero"
-                formControlName="numero"
-              /><span class="bar"></span>
+              <input type="tel" required id="numero" formControlName="numero"/><span class="bar"></span>
               <label for="">NÚMERO DE TELÉFONO</label>
             </div>
             <div class="group6">
-             <select id = "roles" name='roles'>
+             <select id = "roles" formControlName="acceso" name='roles'>
                  <option value = "gerente">Gerente</option>
                  <option value = "mecanico">Mecanico</option>
                  <option value = "cliente">Cliente</option>
@@ -65,7 +37,7 @@
           </div>
         </div>
         <div class="btns">
-          <button class = "btn" (onclick)="modificarInfoUsuario()">GUARDAR CAMBIOS</button>
+          <button class = "btn" (click)="modificarInfoUsuario()">GUARDAR CAMBIOS</button>
           <input class = "btn"  type = "reset" value = "RESTABLECER">
         </div>        
       </form>
