@@ -9,6 +9,7 @@ import { ModeloDatosUsuario } from '../models1/modelo-datos-usuario';
   providedIn: 'root'
 })
 export class AddInfoUserServicesService {
+  [x: string]: any;
   private usersCollection: AngularFirestoreCollection<ModeloDatosUsuario>;
   private carsCollection: AngularFirestoreCollection<AddUserCarModel>
   private UsersCarCollection: AngularFirestoreCollection;
@@ -72,6 +73,8 @@ export class AddInfoUserServicesService {
       })
     })
   }
+
+
 
   /**
    * FUNCIÓN PARA VERIFICAR SI UN VEHÍCULO ESTÁ REGISTRADO
@@ -211,6 +214,7 @@ export class AddInfoUserServicesService {
             alert('se ha registrado nueva información para esta plaza de vehículo')
             encontrado=true;
             this.ModificarVehiculoUsuario(usuario.id.valueOf(), data);
+            
           }
         })
     })
@@ -220,6 +224,8 @@ export class AddInfoUserServicesService {
       this.carsCollection.add(data);
     }  
   }
+
+  
 
   ModificarVehiculoUsuario(valor: string, data: AddUserCarModel){
     this.UsersCarCollection.doc(valor).ref.onSnapshot(function(result) {

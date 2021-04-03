@@ -81,6 +81,9 @@
             <div class="fecha">
                 <label *ngIf="confirmada3!='confirmada'">Fecha: {{fecha3}}</label>
                 <label *ngIf="confirmada3=='confirmada'">Cita en progreso, para ver estado revisa "Reparaciones"</label>
+                <ngx-qrcode type='file' name='file' (change)="onSelectFile($event)" 
+                (change)="upload($event)" [elementType]="elementType" [errorCorrectionLevel]="correctionLevel" 
+                [value]="value" cssClass="bshadow"></ngx-qrcode>
             </div>
             <div class="iconos" *ngIf="confirmada3=='En espera de confirmación'">
                 <button class="btn-1" (click)="confirmar3()"><i class="fa fa-check" aria-hidden="true"></i></button>

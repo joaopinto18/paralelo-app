@@ -54,6 +54,7 @@ import { NavbarPerfilAdminComponent } from './components/perfilAdmin/navbar-perf
 import { NavbarDerechoAdminComponent } from './components/perfilAdmin/navbar-derecho-admin/navbar-derecho-admin.component';
 import { FormAdminRoleComponent } from './components/perfilAdmin/form-admin-role/form-admin-role.component';
 import { SearchBarUserComponent } from './components/perfilAdmin/search-bar-user/search-bar-user.component';
+import { PruebaComponent } from './paginaPrincipal/prueba/prueba.component';
 
 
 @NgModule({
@@ -92,6 +93,7 @@ import { SearchBarUserComponent } from './components/perfilAdmin/search-bar-user
     NavbarDerechoAdminComponent,
     FormAdminRoleComponent,
     SearchBarUserComponent,
+    PruebaComponent,
   ],
   imports: [
     BrowserModule,
