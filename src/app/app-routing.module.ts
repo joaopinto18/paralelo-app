@@ -19,6 +19,7 @@ import { VistaVehiculosRegistradosComponent } from './pages/perfilMecanico/vista
 import { VistaDatosPerfilAdminComponent } from './pages/perfilAdmin/vista-datos-perfil-admin/vista-datos-perfil-admin.component';
 import {  VistaAdminRolesComponent } from './pages/perfilAdmin/vista-admin-roles/vista-admin-roles.component';
 import { PerfilGerenteComponent } from './pages/perfil-gerente/perfil-gerente.component';
+import { PruebaComponent } from './paginaPrincipal/prueba/prueba.component';
 
 
 const routes: Routes = [

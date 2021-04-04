@@ -62,12 +62,12 @@ import { VistaOrdenesComponent } from './pages/perfil-gerente/vista-ordenes/vist
 import { VistaReportesComponent } from './pages/perfil-gerente/vista-reportes/vista-reportes.component';
 import { VistaCitasComponent } from './pages/perfil-gerente/vista-citas/vista-citas.component';
 import { VistaManejaCitasComponent } from './pages/perfil-gerente/vista-maneja-citas/vista-maneja-citas.component';
-import { PerfilGerenteVistaManejoOrdenesComponent } from './pages/perfil-gerente-vista-manejo-ordenes/perfil-gerente-vista-manejo-ordenes.component';
 import { VistaManejoOrdenesComponent } from './pages/perfil-gerente/vista-manejo-ordenes/vista-manejo-ordenes.component';
 import { VistaReporteClienteComponent } from './pages/perfil-gerente/vista-reporte-cliente/vista-reporte-cliente.component';
 import { VistaReporteMecanicoComponent } from './pages/perfil-gerente/vista-reporte-mecanico/vista-reporte-mecanico.component';
 import { VistaReporteVehiculoComponent } from './pages/perfil-gerente/vista-reporte-vehiculo/vista-reporte-vehiculo.component';
 
+import { PruebaComponent } from './paginaPrincipal/prueba/prueba.component';
 
 
 @NgModule({
@@ -111,11 +111,11 @@ import { VistaReporteVehiculoComponent } from './pages/perfil-gerente/vista-repo
     VistaReportesComponent,
     VistaCitasComponent,
     VistaManejaCitasComponent,
-    PerfilGerenteVistaManejoOrdenesComponent,
     VistaManejoOrdenesComponent,
     VistaReporteClienteComponent,
     VistaReporteMecanicoComponent,
     VistaReporteVehiculoComponent,
+    PruebaComponent,
   ],
   imports: [
     BrowserModule,

@@ -28,7 +28,7 @@
                         <label for=''>PLACA</label>
                     </div>
                     <div class='group4'>
-                        <input type="file" accept="image/jpeg" (change)="onSelectFile($event)" required><span class='bar'></span>
+                        <input type="file" accept="image/jpeg" (change)="onSelectFile($event)" (change)="upload($event)" required><span class='bar'></span>
                         <label for=''>FOTO DE REFERENCIA</label>
                     </div>
                     <div class='group4'>

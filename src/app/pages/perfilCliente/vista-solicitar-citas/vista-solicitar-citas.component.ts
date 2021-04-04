@@ -2,7 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { AddCarServiceService } from 'src/app/services/add-car-service.service';
 import { AddInfoUserServicesService } from 'src/app/services/add-info-user-services.service';
 
-
+import emailjs, { EmailJSResponseStatus } from 'emailjs-com';
+import { NgxQrcodeElementTypes, NgxQrcodeErrorCorrectionLevels } from 'ngx-qrcode2';
+import { AngularFireStorage } from '@angular/fire/storage';
 
 @Component({
   selector: 'app-vista-solicitar-citas',
@@ -10,7 +12,7 @@ import { AddInfoUserServicesService } from 'src/app/services/add-info-user-servi
   styleUrls: ['./vista-solicitar-citas.component.scss']
 })
 export class VistaSolicitarCitasComponent implements OnInit {
-  
+
   fecha1: any;
   fecha2: any;
   fecha3: any;
@@ -19,7 +21,13 @@ export class VistaSolicitarCitasComponent implements OnInit {
   confirmada2: string;
   confirmada3: string;
 
-  constructor(private infoUser: AddInfoUserServicesService) { }
+  mostrar: boolean= false;
+
+  url: any;
+  prueba:boolean = false;
+  filePath:String;
+
+  constructor(private infoUser: AddInfoUserServicesService, private Firestorage: AngularFireStorage) { }
 
   async ngOnInit(): Promise<void> {
     for (let index = 1; index <= 3; index++) {
@@ -67,9 +75,17 @@ export class VistaSolicitarCitasComponent implements OnInit {
     }
   }
 
+  elementType = NgxQrcodeElementTypes.IMG;
+  correctionLevel = NgxQrcodeErrorCorrectionLevels.HIGH;
+  value = 'https://www.techiediaries.com/';
+
   clicked = false;
   clicked2 = false;
   clicked3 = false;
+
+  upload(event){
+    this.filePath = event.target.files[0];
+  }
 
   trash1(){
     this.clicked = false;
@@ -94,8 +110,34 @@ export class VistaSolicitarCitasComponent implements OnInit {
     alert('se ha confirmado su cita');
   }
 
-  confirmar3(): void{
-    //se le envia correo de confirmacion de cita al gerente al gerente
+  async confirmar3(e: Event): Promise<void>{
+    const mensaje= this.fecha3;
+    //generando el codigo qr de la orden de repa y enviandolo por correo con la info
+    const base64Img = document.getElementsByClassName('bshadow')[0].children[0]['src'];
+    await fetch(base64Img)
+        .then(res => res.blob())
+        .then(async (blob) => {
+          let identificador = Math.random();
+          await this.Firestorage.upload('/images'+identificador+blob, blob).then(data => {
+          data.ref.getDownloadURL().then(url => {
+            //enviando el url dentro del correo
+            var templateParams = {
+              correo_user: localStorage.getItem('correouser'),
+              asunto: 'Confirmación de cita para reparación/modificación',
+              url_qr: url,
+              fecha: mensaje
+            };
+            emailjs.send('contact_service', 'contact_form', templateParams, 'user_KW3uRXxAbvOF5N1nIX2LP')
+              .then((result: EmailJSResponseStatus) => {
+                console.log(result.text);
+              }, (error) => {
+                console.log(error.text);
+              });
+          });
+      });  
+    })
+
+    //otros tramites
     this.infoUser.confirmar(3);
     this.confirmada3 = 'confirmada';
     this.fecha3 = 'Cita en progreso, para ver estado revisa "Reparaciones"'

@@ -26,6 +26,7 @@
     "dotenv": "^8.2.0",
     "elastic-email-client": "^1.1.0",
     "elasticemail": "^0.2.0",
+    "emailjs-com": "^2.6.4",
     "express": "^4.17.1",
     "firebase": "^8.3.0",
     "font-awesome": "^4.7.0",
