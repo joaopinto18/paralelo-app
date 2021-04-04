@@ -68,7 +68,17 @@ import { VistaReporteMecanicoComponent } from './pages/perfil-gerente/vista-repo
 import { VistaReporteVehiculoComponent } from './pages/perfil-gerente/vista-reporte-vehiculo/vista-reporte-vehiculo.component';
 
 import { PruebaComponent } from './paginaPrincipal/prueba/prueba.component';
+import { NavbarPerfilGerenteComponent } from './components/perfilGerente/navbar-perfil-gerente/navbar-perfil-gerente.component';
+import { NavbarDerechoGerenteComponent } from './components/perfilGerente/navbar-derecho-gerente/navbar-derecho-gerente.component';
+import { VistaReporteExtrasComponent } from './pages/perfil-gerente/vista-reporte-extras/vista-reporte-extras.component';
+import { FullCalendarModule } from '@fullcalendar/angular';
+import dayGridPlugin from '@fullcalendar/daygrid'; // a plugin
 
+
+
+FullCalendarModule.registerPlugins([ // register FullCalendar plugins
+  dayGridPlugin,
+]);
 
 @NgModule({
   declarations: [
@@ -116,6 +126,9 @@ import { PruebaComponent } from './paginaPrincipal/prueba/prueba.component';
     VistaReporteMecanicoComponent,
     VistaReporteVehiculoComponent,
     PruebaComponent,
+    NavbarPerfilGerenteComponent,
+    NavbarDerechoGerenteComponent,
+    VistaReporteExtrasComponent,
   ],
   imports: [
     BrowserModule,
@@ -131,6 +144,7 @@ import { PruebaComponent } from './paginaPrincipal/prueba/prueba.component';
     ReactiveFormsModule,
     NgxQRCodeModule,
     HttpClientModule,
+    FullCalendarModule
 
   ],
   providers: [],

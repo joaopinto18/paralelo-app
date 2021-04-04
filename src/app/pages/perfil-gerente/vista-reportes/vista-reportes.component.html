@@ -1,1 +1,14 @@
-<p>vista-reportes works!</p>
+<app-navbar-derecho-gerente></app-navbar-derecho-gerente>
+<app-navbar-perfil-gerente></app-navbar-perfil-gerente>
+
+<div class='wrapper'>
+  <div class="title">
+    <label>REPORTES</label>
+  </div>
+    <div class="botones">
+        <button class="btn"[routerLink]="['/vista-reporte-cliente']">CLIENTE</button>
+        <button class="btn" [routerLink]="['/vista-reporte-vehiculo']">VEHICULO</button>
+        <button class="btn" [routerLink]="['/vista-reporte-mecanico']">MECANICO</button>
+        <button class="btn" [routerLink]="['/vista-reporte-extras']">EXTRAS</button>
+    </div>
+</div>

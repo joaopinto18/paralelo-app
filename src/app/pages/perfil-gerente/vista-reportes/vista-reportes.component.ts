@@ -12,4 +12,5 @@ export class VistaReportesComponent implements OnInit {
   ngOnInit(): void {
   }
 
+
 }

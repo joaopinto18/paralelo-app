@@ -1,0 +1,82 @@
+@import url('https://fonts.googleapis.com/css2?family=Athiti:wght@700&display=swap');
+@import "node_modules/font-awesome/scss/font-awesome.scss";
+
+.wrapper{
+    height: 80%;
+    width: 75%;
+    background-color: rgb(66, 66, 66);
+    float: left;
+}
+
+.btn-ir-calendario{
+    height: 30px;
+    width: 200px;
+    margin-top: 30px;
+    margin-left: 20px;
+    border: none;
+    font-family: 'Athiti', sans-serif;
+    cursor: pointer;
+}
+
+.btn-ir-calendario:hover {
+    background:  lightgrey;
+    font-family: 'Athiti', sans-serif;
+    background-color: yellowgreen;
+  }
+
+.caja{
+    height: 40px;
+    display: flex;
+    justify-content: space-between;
+    background-color:  rgb(255, 201, 51);
+    width: 80%;
+    margin-left: 120px;
+}
+
+label{
+    margin-left: 20px;
+}
+
+.tit{
+    color: white;
+    font-family:'Athiti', sans-serif;
+    font-size: 15px;
+    margin-top: 8px;
+}
+
+.titulo{
+    height: 20px;
+    font-family:'Athiti', sans-serif;
+    color: rgb(255, 201, 51);
+    font-size: 20px;
+    margin: 30px;
+}
+
+.calendario{
+    height: -200px;
+}
+
+.inicio-orden{
+    cursor: pointer;
+    border: none;
+    height: 0px;
+}
+
+.btn-orden{
+    height: 30px;
+    border: none;
+    font-family:'Athiti', sans-serif;
+    cursor: pointer;
+    margin: 5px;
+}
+
+.hora{
+    height: 20px;
+    margin: 5px;
+    border: none;
+    width: 100px;
+}
+
+.btn-asignar{
+    width: 100px;
+}
