@@ -39,6 +39,25 @@ export class AddCarServiceService {
       ref.where('placa', '==', placa)))
   }  
 
+  /**
+   * FUNCION PARA CERRAR LA ORDEN
+   */
+
+  cerrarOrdenRepa(placa:string): void{
+
+    this.firestore.collection('ORDENES-REPA_MODIFICA').ref.where('placa','==',placa).
+      get().then((querysnapshot)=>{
+        querysnapshot.forEach((carro)=>{
+          //obtenemos el id en cuestion
+          let id = carro.id;
+          //utilizamos el id para buscar el documento y hacer los cambios
+          this.CarsCollectionObtener.doc(id).ref.onSnapshot(function(result) {
+            result.ref.update({estado:'orden cerrada por mecanico'});
+          })
+        })
+      })
+  }
+
    /**
    * FUNCION PARA MODIFICAR LA INFORMACIÓN DE REPARACIÓN DE UN VEHÍCULO
    */

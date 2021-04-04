@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { take } from 'rxjs/operators';
 import { AddInfoUserServicesService } from 'src/app/services/add-info-user-services.service';
 import { SearchBarUserComponent } from '../search-bar-user/search-bar-user.component';
 
@@ -14,7 +15,17 @@ export class FormAdminRoleComponent implements OnInit {
 
   constructor(private fb: FormBuilder, private serviceUser: AddInfoUserServicesService) { }
 
-  ngOnInit(): void {
+  async ngOnInit(): Promise<void> {
+    if(this.serviceUser.estadoRespuesta=='no se ha realizado búsqueda'){
+      
+    }else if(this.serviceUser.estadoRespuesta=='sin resultados'){
+      
+    }else{
+      const user = await this.serviceUser.BuscarUsuario(this.serviceUser.estadoRespuesta).
+      valueChanges().pipe( take(1) ).toPromise()
+      this.datosform.setValue({nombre_apellido: user[0].nombre_apellido, 
+      cedula:user[0].cedula, fecha:user[0].fecha, lugar:user[0].lugar, numero:user[0].numero});
+    }
   }
 
   datosform = this.fb.group({

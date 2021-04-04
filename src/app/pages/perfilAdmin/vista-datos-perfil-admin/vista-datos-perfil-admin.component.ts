@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
+import { take } from 'rxjs/operators';
 import { AddInfoUserServicesService } from 'src/app/services/add-info-user-services.service';
 
 @Component({
@@ -16,7 +17,12 @@ export class VistaDatosPerfilAdminComponent implements OnInit {
     this.createInputForm1();
   }
 
-  ngOnInit(): void {
+  async ngOnInit(): Promise<void> {
+    const user = await this.serviceUser.BuscarUsuario(localStorage.getItem('correouser')).
+    valueChanges().pipe( take(1) ).toPromise()
+
+    this.form.setValue({nombre_apellido: user[0].nombre_apellido, 
+      cedula:user[0].cedula, fecha:user[0].fecha, lugar:user[0].lugar, numero:user[0].numero});
   }
 
   createInputForm1(): void{
