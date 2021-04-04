@@ -19,28 +19,31 @@ import { VistaVehiculosRegistradosComponent } from './pages/perfilMecanico/vista
 import { VistaDatosPerfilAdminComponent } from './pages/perfilAdmin/vista-datos-perfil-admin/vista-datos-perfil-admin.component';
 import {  VistaAdminRolesComponent } from './pages/perfilAdmin/vista-admin-roles/vista-admin-roles.component';
 import { PruebaComponent } from './paginaPrincipal/prueba/prueba.component';
+import { GuardClienteService } from './guards/guard-cliente.service';
+import { GuardAdminService } from './guards/guard-admin.service';
+import { GuardMecanicoService } from './guards/guard-mecanico.service';
 
 
 const routes: Routes = [
 
-  {path:'vista-perfil-cliente', component:VistaDatosPerfilClienteComponent},
+  {path:'vista-perfil-cliente', component:VistaDatosPerfilClienteComponent, canActivate: [GuardClienteService]},  
   {path:'faq', component:VistaFaqComponent},
-  {path:'solicitar-cita', component:VistaSolicitarCitasComponent},
+  {path:'solicitar-cita', component:VistaSolicitarCitasComponent, canActivate: [GuardClienteService]},            
   {path:'inicio-sesion', component:VistaInicioSesionComponent},
   {path:'', component:VistaInicioComponent},
   {path:'registro', component:VistaRegistrarseComponent},
   {path:'about-us', component:VistaAboutUsComponent},
   {path:'contactanos', component:VistaContactanosComponent},
-  {path:'vista-perfil-mecanico', component:VistaDatosPerfilMecanicoComponent},
-  {path:'vista-registrar-vehiculo-mecanico', component:VistaRegistroVehiculoMecanicoComponent},
-  {path:'vista-vehiculos-rehistrados-mecanicos', component:VistaVehiculosRegistradosComponent},
-  {path: 'vista-registrar-vehiculo1',component: VistaRegistroVehiculo1Component},
-  {path: 'vista-registrar-vehiculo2',component: VistaRegistroVehiculo2Component},
-  {path: 'vista-registrar-vehiculo3',component: VistaRegistroVehiculo3Component},
-  {path: 'vista-citas-cliente',component: VistaCitasClienteComponent},
-  {path: 'vista-datos-perfil-cliente',component: VistaDatosPerfilClienteComponent},
-  {path: 'vista-datos-perfil-admin',component: VistaDatosPerfilAdminComponent},
-  {path: 'vista-admin-roles',component: VistaAdminRolesComponent},
+  {path:'vista-perfil-mecanico', component:VistaDatosPerfilMecanicoComponent, canActivate: [GuardMecanicoService]},
+  {path:'vista-registrar-vehiculo-mecanico', component:VistaRegistroVehiculoMecanicoComponent, canActivate: [GuardMecanicoService]},
+  {path:'vista-vehiculos-rehistrados-mecanicos', component:VistaVehiculosRegistradosComponent, canActivate: [GuardMecanicoService]},
+  {path: 'vista-registrar-vehiculo1',component: VistaRegistroVehiculo1Component, canActivate: [GuardClienteService]},
+  {path: 'vista-registrar-vehiculo2',component: VistaRegistroVehiculo2Component, canActivate: [GuardClienteService]},
+  {path: 'vista-registrar-vehiculo3',component: VistaRegistroVehiculo3Component, canActivate: [GuardClienteService]},
+  {path: 'vista-citas-cliente',component: VistaCitasClienteComponent, canActivate: [GuardClienteService]},
+  {path: 'vista-datos-perfil-cliente',component: VistaDatosPerfilClienteComponent, canActivate: [GuardClienteService]}, 
+  {path: 'vista-datos-perfil-admin',component: VistaDatosPerfilAdminComponent, canActivate: [GuardAdminService]},
+  {path: 'vista-admin-roles',component: VistaAdminRolesComponent, canActivate: [GuardAdminService]},
   {path: 'prueba', component: PruebaComponent}
 
 ];

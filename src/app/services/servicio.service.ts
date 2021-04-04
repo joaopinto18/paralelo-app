@@ -43,6 +43,9 @@ export class ServicioService {
             registrado = true;
             localStorage.setItem('iduser',usuario.id.valueOf());
             localStorage.setItem('correouser', datosUsuario.correo.valueOf());
+            localStorage.setItem('accesouser', usuario.get('acceso'));
+            console.log(usuario.get('acceso'));
+            
             //utilizamos el id para evaluar que acceso tiene y hacer los tramites respectivos
             if(usuario.get('acceso')=='cliente'){
               this.router.navigate(['/vista-datos-perfil-cliente']);
@@ -51,7 +54,7 @@ export class ServicioService {
             }else if(usuario.get('acceso')=='admin'){
               this.router.navigate(['/vista-datos-perfil-admin']);
             }
-            //FALTA ADMIN Y GERENTE
+            //GERENTE
 
           })
         })
@@ -85,6 +88,7 @@ export class ServicioService {
         //mandamos el id del user al local storage
         localStorage.setItem('iduser',usuario.id.valueOf());
         localStorage.setItem('correouser', data.correo);
+        localStorage.setItem('accesouser', 'cliente');
         //utilizamos el id para evaluar que acceso tiene y hacer los tramites respectivos
         this.router.navigate(['/vista-datos-perfil-cliente']);
         //restringir las demas rutas 
@@ -105,6 +109,7 @@ export class ServicioService {
           //guardamos al user en el localStorage
           localStorage.setItem('iduser',usuario.id.valueOf());
           localStorage.setItem('correouser', email);
+          localStorage.setItem('accesouser', usuario.get('acceso'));
           //utilizamos el id para evaluar que acceso tiene y hacer los tramites respectivos
           if(usuario.get('acceso')=='cliente'){
             this.router.navigate(['/vista-datos-perfil-cliente']);
@@ -135,11 +140,13 @@ export class ServicioService {
     try {
       await this.afAuth.signOut();
       localStorage.removeItem('iduser');
-      localStorage.removeItem('correouser');
+      localStorage.removeItem('correouser'); 
+      localStorage.removeItem('accesouser');
     } catch (error) {
       console.log(error);
       localStorage.removeItem('iduser');
       localStorage.removeItem('correouser');
+      localStorage.removeItem('accesouser');
     }
   }
   
