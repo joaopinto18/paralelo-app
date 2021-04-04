@@ -23,6 +23,9 @@ import { VistaVehiculosRegistradosComponent } from './pages/perfilMecanico/vista
 import { NgxQRCodeModule } from 'ngx-qrcode2';
 import { HttpClientModule } from '@angular/common/http';
 
+
+
+
 //insertado de modulos para el tema de firebase
 import { AngularFireModule } from '@angular/fire';
 import {AngularFireStorageModule} from '@angular/fire/storage';
@@ -54,6 +57,17 @@ import { NavbarPerfilAdminComponent } from './components/perfilAdmin/navbar-perf
 import { NavbarDerechoAdminComponent } from './components/perfilAdmin/navbar-derecho-admin/navbar-derecho-admin.component';
 import { FormAdminRoleComponent } from './components/perfilAdmin/form-admin-role/form-admin-role.component';
 import { SearchBarUserComponent } from './components/perfilAdmin/search-bar-user/search-bar-user.component';
+import { PerfilGerenteComponent } from './pages/perfil-gerente/perfil-gerente.component';
+import { VistaOrdenesComponent } from './pages/perfil-gerente/vista-ordenes/vista-ordenes.component';
+import { VistaReportesComponent } from './pages/perfil-gerente/vista-reportes/vista-reportes.component';
+import { VistaCitasComponent } from './pages/perfil-gerente/vista-citas/vista-citas.component';
+import { VistaManejaCitasComponent } from './pages/perfil-gerente/vista-maneja-citas/vista-maneja-citas.component';
+import { PerfilGerenteVistaManejoOrdenesComponent } from './pages/perfil-gerente-vista-manejo-ordenes/perfil-gerente-vista-manejo-ordenes.component';
+import { VistaManejoOrdenesComponent } from './pages/perfil-gerente/vista-manejo-ordenes/vista-manejo-ordenes.component';
+import { VistaReporteClienteComponent } from './pages/perfil-gerente/vista-reporte-cliente/vista-reporte-cliente.component';
+import { VistaReporteMecanicoComponent } from './pages/perfil-gerente/vista-reporte-mecanico/vista-reporte-mecanico.component';
+import { VistaReporteVehiculoComponent } from './pages/perfil-gerente/vista-reporte-vehiculo/vista-reporte-vehiculo.component';
+
 
 
 @NgModule({
@@ -92,6 +106,16 @@ import { SearchBarUserComponent } from './components/perfilAdmin/search-bar-user
     NavbarDerechoAdminComponent,
     FormAdminRoleComponent,
     SearchBarUserComponent,
+    PerfilGerenteComponent,
+    VistaOrdenesComponent,
+    VistaReportesComponent,
+    VistaCitasComponent,
+    VistaManejaCitasComponent,
+    PerfilGerenteVistaManejoOrdenesComponent,
+    VistaManejoOrdenesComponent,
+    VistaReporteClienteComponent,
+    VistaReporteMecanicoComponent,
+    VistaReporteVehiculoComponent,
   ],
   imports: [
     BrowserModule,

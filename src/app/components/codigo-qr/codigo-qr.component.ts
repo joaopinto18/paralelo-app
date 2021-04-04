@@ -13,7 +13,6 @@ export class CodigoQrComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  elementType = NgxQrcodeElementTypes.URL;
-  correctionLevel = NgxQrcodeErrorCorrectionLevels.HIGH;
+  ngxQrcode2 = 'https://www.npmjs.com/package/ngx-qrcode2';
 
 }
