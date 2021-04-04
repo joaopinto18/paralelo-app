@@ -18,10 +18,20 @@ import { VistaRegistroVehiculoMecanicoComponent } from './pages/perfilMecanico/v
 import { VistaVehiculosRegistradosComponent } from './pages/perfilMecanico/vista-vehiculos-registrados/vista-vehiculos-registrados.component';
 import { VistaDatosPerfilAdminComponent } from './pages/perfilAdmin/vista-datos-perfil-admin/vista-datos-perfil-admin.component';
 import {  VistaAdminRolesComponent } from './pages/perfilAdmin/vista-admin-roles/vista-admin-roles.component';
+import { PerfilGerenteComponent } from './pages/perfil-gerente/perfil-gerente.component';
 import { PruebaComponent } from './paginaPrincipal/prueba/prueba.component';
 import { GuardClienteService } from './guards/guard-cliente.service';
 import { GuardAdminService } from './guards/guard-admin.service';
 import { GuardMecanicoService } from './guards/guard-mecanico.service';
+import { VistaReportesComponent } from './pages/perfil-gerente/vista-reportes/vista-reportes.component';
+import { VistaCitasComponent } from './pages/perfil-gerente/vista-citas/vista-citas.component';
+import { VistaOrdenesComponent } from './pages/perfil-gerente/vista-ordenes/vista-ordenes.component';
+import { VistaReporteClienteComponent } from './pages/perfil-gerente/vista-reporte-cliente/vista-reporte-cliente.component';
+import { VistaReporteMecanicoComponent } from './pages/perfil-gerente/vista-reporte-mecanico/vista-reporte-mecanico.component';
+import { VistaReporteVehiculoComponent } from './pages/perfil-gerente/vista-reporte-vehiculo/vista-reporte-vehiculo.component';
+import { VistaReporteExtrasComponent } from './pages/perfil-gerente/vista-reporte-extras/vista-reporte-extras.component';
+import { VistaManejaCitasComponent } from './pages/perfil-gerente/vista-maneja-citas/vista-maneja-citas.component';
+
 
 
 const routes: Routes = [
@@ -44,8 +54,27 @@ const routes: Routes = [
   {path: 'vista-datos-perfil-cliente',component: VistaDatosPerfilClienteComponent, canActivate: [GuardClienteService]}, 
   {path: 'vista-datos-perfil-admin',component: VistaDatosPerfilAdminComponent, canActivate: [GuardAdminService]},
   {path: 'vista-admin-roles',component: VistaAdminRolesComponent, canActivate: [GuardAdminService]},
-  {path: 'prueba', component: PruebaComponent}
-
+  {path: 'prueba', component: PruebaComponent},
+  {path:'vista-perfil-mecanico', component:VistaDatosPerfilMecanicoComponent},
+  {path:'vista-registrar-vehiculo-mecanico', component:VistaRegistroVehiculoMecanicoComponent},
+  {path:'vista-vehiculos-rehistrados-mecanicos', component:VistaVehiculosRegistradosComponent},
+  {path: 'vista-registrar-vehiculo1',component: VistaRegistroVehiculo1Component},
+  {path: 'vista-registrar-vehiculo2',component: VistaRegistroVehiculo2Component},
+  {path: 'vista-registrar-vehiculo3',component: VistaRegistroVehiculo3Component},
+  {path: 'vista-citas-cliente',component: VistaCitasClienteComponent},
+  {path: 'vista-datos-perfil-cliente',component: VistaDatosPerfilClienteComponent},
+  {path: 'vista-datos-perfil-admin',component: VistaDatosPerfilAdminComponent},
+  {path: 'vista-admin-roles',component: VistaAdminRolesComponent},
+  {path: 'codigo',component: CodigoQrComponent},
+  {path: 'gerente',component: PerfilGerenteComponent},
+  {path: 'reportes',component: VistaReportesComponent},
+  {path: 'citas-gerente',component: VistaCitasComponent},
+  {path: 'ordenes-gerente',component: VistaOrdenesComponent},
+  {path: 'vista-reporte-cliente',component: VistaReporteClienteComponent},
+  {path: 'vista-reporte-mecanico',component: VistaReporteMecanicoComponent},
+  {path: 'vista-reporte-vehiculo',component: VistaReporteVehiculoComponent},
+  {path: 'vista-reporte-extras',component: VistaReporteExtrasComponent},
+  {path: 'calendario',component: VistaManejaCitasComponent},
 ];
 
 

@@ -23,6 +23,9 @@ import { VistaVehiculosRegistradosComponent } from './pages/perfilMecanico/vista
 import { NgxQRCodeModule } from 'ngx-qrcode2';
 import { HttpClientModule } from '@angular/common/http';
 
+
+
+
 //insertado de modulos para el tema de firebase
 import { AngularFireModule } from '@angular/fire';
 import {AngularFireStorageModule} from '@angular/fire/storage';
@@ -54,8 +57,28 @@ import { NavbarPerfilAdminComponent } from './components/perfilAdmin/navbar-perf
 import { NavbarDerechoAdminComponent } from './components/perfilAdmin/navbar-derecho-admin/navbar-derecho-admin.component';
 import { FormAdminRoleComponent } from './components/perfilAdmin/form-admin-role/form-admin-role.component';
 import { SearchBarUserComponent } from './components/perfilAdmin/search-bar-user/search-bar-user.component';
-import { PruebaComponent } from './paginaPrincipal/prueba/prueba.component';
+import { PerfilGerenteComponent } from './pages/perfil-gerente/perfil-gerente.component';
+import { VistaOrdenesComponent } from './pages/perfil-gerente/vista-ordenes/vista-ordenes.component';
+import { VistaReportesComponent } from './pages/perfil-gerente/vista-reportes/vista-reportes.component';
+import { VistaCitasComponent } from './pages/perfil-gerente/vista-citas/vista-citas.component';
+import { VistaManejaCitasComponent } from './pages/perfil-gerente/vista-maneja-citas/vista-maneja-citas.component';
+import { VistaManejoOrdenesComponent } from './pages/perfil-gerente/vista-manejo-ordenes/vista-manejo-ordenes.component';
+import { VistaReporteClienteComponent } from './pages/perfil-gerente/vista-reporte-cliente/vista-reporte-cliente.component';
+import { VistaReporteMecanicoComponent } from './pages/perfil-gerente/vista-reporte-mecanico/vista-reporte-mecanico.component';
+import { VistaReporteVehiculoComponent } from './pages/perfil-gerente/vista-reporte-vehiculo/vista-reporte-vehiculo.component';
 
+import { PruebaComponent } from './paginaPrincipal/prueba/prueba.component';
+import { NavbarPerfilGerenteComponent } from './components/perfilGerente/navbar-perfil-gerente/navbar-perfil-gerente.component';
+import { NavbarDerechoGerenteComponent } from './components/perfilGerente/navbar-derecho-gerente/navbar-derecho-gerente.component';
+import { VistaReporteExtrasComponent } from './pages/perfil-gerente/vista-reporte-extras/vista-reporte-extras.component';
+import { FullCalendarModule } from '@fullcalendar/angular';
+import dayGridPlugin from '@fullcalendar/daygrid'; // a plugin
+
+
+
+FullCalendarModule.registerPlugins([ // register FullCalendar plugins
+  dayGridPlugin,
+]);
 
 @NgModule({
   declarations: [
@@ -93,7 +116,19 @@ import { PruebaComponent } from './paginaPrincipal/prueba/prueba.component';
     NavbarDerechoAdminComponent,
     FormAdminRoleComponent,
     SearchBarUserComponent,
+    PerfilGerenteComponent,
+    VistaOrdenesComponent,
+    VistaReportesComponent,
+    VistaCitasComponent,
+    VistaManejaCitasComponent,
+    VistaManejoOrdenesComponent,
+    VistaReporteClienteComponent,
+    VistaReporteMecanicoComponent,
+    VistaReporteVehiculoComponent,
     PruebaComponent,
+    NavbarPerfilGerenteComponent,
+    NavbarDerechoGerenteComponent,
+    VistaReporteExtrasComponent,
   ],
   imports: [
     BrowserModule,
@@ -109,6 +144,7 @@ import { PruebaComponent } from './paginaPrincipal/prueba/prueba.component';
     ReactiveFormsModule,
     NgxQRCodeModule,
     HttpClientModule,
+    FullCalendarModule
 
   ],
   providers: [],
