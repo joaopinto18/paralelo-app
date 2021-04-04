@@ -32,6 +32,14 @@ export class AddInfoUserServicesService {
   }
 
   /**
+   * FUNCION PARA CANCELAR UNA ORDEN DE REPARACION
+   */
+
+  cancelarOrdenRepa(){
+
+  }
+
+  /**
    * FUNCION PARA OBTENER LA INFORMACIÓN DE VEHÍCULO
    */
 
@@ -53,7 +61,7 @@ export class AddInfoUserServicesService {
       nombre_apellido: data.nombre_apellido, numero: data.numero });
       alert('Se han modificado sus datos personales')
     })
-  }
+  } 
 
   /**
    * FUNCION PARA QUE EL ADMIN MODIFIQUE EL USUARIO
@@ -73,8 +81,6 @@ export class AddInfoUserServicesService {
       })
     })
   }
-
-
 
   /**
    * FUNCIÓN PARA VERIFICAR SI UN VEHÍCULO ESTÁ REGISTRADO
@@ -224,8 +230,6 @@ export class AddInfoUserServicesService {
       this.carsCollection.add(data);
     }  
   }
-
-  
 
   ModificarVehiculoUsuario(valor: string, data: AddUserCarModel){
     this.UsersCarCollection.doc(valor).ref.onSnapshot(function(result) {

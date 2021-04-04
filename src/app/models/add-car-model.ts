@@ -17,4 +17,5 @@ export interface AddCarModel {
     diagnostico?:String;
     procedimiento?:String;
     repuestos?:String;
+    estado:String;
 }

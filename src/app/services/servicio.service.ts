@@ -48,6 +48,8 @@ export class ServicioService {
               this.router.navigate(['/vista-datos-perfil-cliente']);
             }else if(usuario.get('acceso')=='mecanico'){
               this.router.navigate(['/vista-perfil-mecanico']);
+            }else if(usuario.get('acceso')=='admin'){
+              this.router.navigate(['/vista-datos-perfil-admin']);
             }
             //FALTA ADMIN Y GERENTE
 
