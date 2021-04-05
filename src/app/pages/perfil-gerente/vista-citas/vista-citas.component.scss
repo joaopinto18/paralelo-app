@@ -8,75 +8,42 @@
     float: left;
 }
 
-.btn-ir-calendario{
-    height: 30px;
-    width: 200px;
-    margin-top: 30px;
-    margin-left: 20px;
-    border: none;
-    font-family: 'Athiti', sans-serif;
-    cursor: pointer;
-}
-
-.btn-ir-calendario:hover {
-    background:  lightgrey;
-    font-family: 'Athiti', sans-serif;
-    background-color: yellowgreen;
-  }
-
-.caja{
-    height: 40px;
-    display: flex;
-    justify-content: space-between;
-    background-color:  rgb(255, 201, 51);
-    width: 80%;
-    margin-left: 120px;
-}
-
-label{
-    margin-left: 20px;
-}
-
-.tit{
-    color: white;
-    font-family:'Athiti', sans-serif;
-    font-size: 15px;
-    margin-top: 8px;
-}
-
-.titulo{
-    height: 20px;
-    font-family:'Athiti', sans-serif;
+.wrapper .title{
+    font-family: 'Athiti', sans-serif ;
+    font-size: 25px;
     color: rgb(255, 201, 51);
-    font-size: 20px;
-    margin: 30px;
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+    margin-bottom: 30px;
 }
 
-.calendario{
-    height: -200px;
-}
-
-.inicio-orden{
-    cursor: pointer;
-    border: none;
+.botones{
     height: 0px;
 }
 
-.btn-orden{
-    height: 30px;
+button{
+    display: flex;
+    justify-items: normal;
+    margin-top: 50px;
+    align-items: center;
+    margin-left: 340px;
+    height: 50px;
+    font-family: 'Athiti', sans-serif ;
+    font-size: 25px;
     border: none;
-    font-family:'Athiti', sans-serif;
+    width: 280px;
     cursor: pointer;
-    margin: 5px;
+    text-align: center;
 }
 
-.hora{
-    height: 20px;
-    margin: 5px;
-    border: none;
-    width: 100px;
+.title{
+    height: 0px;
 }
 
-.btn-asignar{
-    width: 100px;
+.btn{
+    text-align: center;
+    display: inline-block;
 }
+
+

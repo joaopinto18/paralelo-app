@@ -1,6 +1,26 @@
+@import url('https://fonts.googleapis.com/css2?family=Athiti:wght@700&display=swap');
+
+
 .wrapper{
     height: 80%;
     width: 75%;
     background-color: rgb(66, 66, 66);
     float: left;
+}
+
+.botones{
+    height: 30px;
+    margin-top: 30px;
+    margin-left: 50px;
+}
+
+.cosas{
+    font-family: 'Athiti', sans-serif ;
+    width: 300px;
+}
+
+.grafico{
+    margin-left: 250px;
+    margin-top: 30px;
+    height: 20px;
 }

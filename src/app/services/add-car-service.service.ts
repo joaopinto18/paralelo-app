@@ -53,6 +53,14 @@ export class AddCarServiceService {
   }   
 
   /**
+   * OBTENER TODOS LOS DOCUMENTOS DE GESTION DE CITAS
+   */
+
+  obtenerCitas(): any{
+    return this.firestore.collection("GESTION-CITAS").get()
+  }
+
+  /**
    * FUNCION PARA CERRAR LA ORDEN
    */
 

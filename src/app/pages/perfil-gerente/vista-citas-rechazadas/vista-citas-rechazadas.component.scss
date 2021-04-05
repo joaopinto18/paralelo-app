@@ -1,0 +1,83 @@
+@import url('https://fonts.googleapis.com/css2?family=Athiti:wght@700&display=swap');
+@import "node_modules/font-awesome/scss/font-awesome.scss";
+
+.wrapper{
+    height: 80%;
+    width: 75%;
+    background-color: rgb(66, 66, 66);
+    float: left;
+}
+
+.contenedor{
+    width: 70%;
+    background-color: rgb(255, 201, 51);
+    margin: 20px;
+    margin-left: 150px;
+    height: 80%;
+    margin-top: 60px;
+    border-radius: 12px;
+}
+
+.titulo{
+    font-family: "Athiti",sans-serif;
+    font-size: 20px;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    height: 30px;
+}
+
+.flechas{
+    height: 30px;
+    text-align: center;
+}
+
+.btn{
+    border: none;
+    margin-right: 9px;
+    width: 200px;
+}
+
+.fa-arrow-left{
+    font-size: 26px;
+}
+
+.fa-arrow-right{
+    font-size: 26px;
+}
+
+.cajas{
+    background-color: white;
+    height: 15%;
+    margin-top: 15px;
+    width: 93%;
+    margin-left: 20px;
+    font-family: "Athiti",sans-serif;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.identificador{
+    margin-top: 10px;
+    margin-right: 100px;
+}
+
+.fechi{
+    width: 80px;
+    height: 30px;
+    border-color: black;
+    margin-top: 10px;
+}
+
+.btn-asignar{
+    height: 35px;
+    margin-top: 10px;
+}
+
+.asignar{
+    font-family: "Athiti",sans-serif;
+    border-color: black;
+    background-color: white;
+    cursor: pointer;
+    width: 100px;
+}

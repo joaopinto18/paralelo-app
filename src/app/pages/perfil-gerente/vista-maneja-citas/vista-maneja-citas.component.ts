@@ -16,16 +16,19 @@ export class VistaManejaCitasComponent implements OnInit {
   calendarOptions: CalendarOptions = {
     initialView: 'dayGridMonth',
     events: [
-      { title: 'Cita: Ana/ hora: 2:00pm', date: '2021-04-04' },
-      { title: 'event 2', date: '2019-04-02' }
+      { title: 'Cita: Ana', date: '2021-04-04' },
+      { title: 'Cita: Peter', date: '2021-04-05' },
     ],
-    eventColor: '#378006',
+    eventColor: 'rgb(255, 201, 51);',
     titleFormat: { // will produce something like "Tuesday, September 18, 2018"
     month: 'long',
     year: 'numeric',
     day: '2-digit',
     },
     handleWindowResize: true,
+    expandRows: true,
+    height: 300,
+    //contentHeight: "auto",
     buttonText: {
       today:    'today',
       month:    'month',
@@ -33,10 +36,17 @@ export class VistaManejaCitasComponent implements OnInit {
       day:      'day',
       list:     'list'
     },
-    height: 300
+    //aspectRatio: 1.8,
+    eventClick: function(info) {
+      alert(info.event.title);
+      // change the border color just for fun
+      //info.el.style.borderColor = 'red';
+    },
   };
 
   handleDateClick(arg) {
     alert('date click! ' + arg.dateStr)
   }
+
+  
 }
