@@ -11,10 +11,10 @@ import { AddCarServiceService } from 'src/app/services/add-car-service.service';
 export class VistaCitasAsignadasComponent implements OnInit {
 
   public registroVehiculoForm!:FormGroup;
-  public infoVehiculo!:FormGroup;
+  public fechaForm!:FormGroup;
   vehiculoBuscado:any;
   vehiculoBuscadoCambiar:any;
-  placa:any;
+  correo:any;
 
   data:Array<string>=[];
 
@@ -27,15 +27,13 @@ export class VistaCitasAsignadasComponent implements OnInit {
 
   createInputForm1(): void{
     this.registroVehiculoForm=this.fb.group({
-      placa:''
+      correo:''
     });
   }
 
   createInputForm2(): void{
-    this.infoVehiculo=this.fb.group({
-      repuestos:'',
-      procedimiento:'',
-      diagnostico:''
+    this.fechaForm=this.fb.group({
+      fechax:''
     })
   }
 
@@ -49,10 +47,10 @@ export class VistaCitasAsignadasComponent implements OnInit {
       alert('no se encontró la orden')
     }else{
       console.log("actualizando info de reparación");
-      const repuestos = this.infoVehiculo.get('repuestos').value
+      /*const repuestos = this.infoVehiculo.get('repuestos').value
       const diagnostico = this.infoVehiculo.get('diagnostico').value
       const procedimiento = this.infoVehiculo.get('procedimiento').value
-      this.carService.modificarInfoVehiculo(repuestos,procedimiento,diagnostico,this.placa);
+      this.carService.modificarInfoVehiculo(repuestos,procedimiento,diagnostico,this.placa);*/
       alert('Se ha modificado la información del vehiculo');
     }
   }
@@ -62,15 +60,14 @@ export class VistaCitasAsignadasComponent implements OnInit {
    */
 
   cerrarOrden(): void{
-  if(this.placa==undefined){
-    alert('no se encontró la orden')
-  }else{
-    this.carService.cerrarOrdenRepa(this.placa);
-    this.placa=undefined;
-    this.registroVehiculoForm.reset();
-    this.infoVehiculo.reset();
-    alert('la orden se ha cancelado, se notificará al gerente')
-  }
+    if(this.correo==undefined){
+      alert('no se encontró la orden')
+    }else{
+      this.carService.cerrarOrdenRepa(this.placa);
+      this.correo=undefined;
+      this.registroVehiculoForm.reset();
+      alert('la orden se ha cancelado, se notificará al gerente')
+    }
   }
 
   /**
@@ -79,20 +76,20 @@ export class VistaCitasAsignadasComponent implements OnInit {
 
   async search():Promise<void>{
     const newCar: any={
-      placa:this.registroVehiculoForm.get('placa')?.value
+      correo:this.registroVehiculoForm.get('placa')?.value
     }
     
-    const car = await this.carService.BuscarVehiculo(newCar.placa).valueChanges().pipe( take(1) ).toPromise();
+    const car = await this.carService.BuscarVehiculo(newCar.correo).valueChanges().pipe( take(1) ).toPromise();
     this.vehiculoBuscado = car;
     if(car[0]==undefined){
       alert('sin resultados para esta búsqueda')
     }else if(car[0].estado=='orden cerrada por mecanico'){
       alert('la orden de reparación de este vehículo ya fue cerrada');
     }else{
-      this.placa = car[0].placa;
+      this.correo = car[0].correo;
       //buscamos los datos de esta orden y llenamos los campos 
-      this.infoVehiculo.setValue({repuestos: car[0].repuestos, 
-      procedimiento:car[0].procedimiento, diagnostico:car[0].diagnostico});
+      /*this.infoVehiculo.setValue({repuestos: car[0].repuestos, 
+      procedimiento:car[0].procedimiento, diagnostico:car[0].diagnostico});*/
     }
   }
 

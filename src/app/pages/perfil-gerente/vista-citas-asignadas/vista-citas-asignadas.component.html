@@ -10,7 +10,7 @@
   <div class='input-section'>
       <form [formGroup]="registroVehiculoForm" (ngSubmit)='search()' class='input-form'>
           <div class='input'>
-              <input type="text" formControlName="placa" required><span class='bar'></span>
+              <input type="text" formControlName="correo" required><span class='bar'></span>
               <span>INGRESA LEL CORREO DEL USUARIO AL QUE ASIGNAR UNA CITA</span>
           </div>
           <button class='input-button' type="submit">BUSCAR</button>
@@ -21,22 +21,22 @@
 
   <div class='form-square'>
       <div class='form-square-background'>
-          <form [formGroup]="infoVehiculo" class='cahnges-form' >  <!--este es el form-->
-              <div class='identificador'>
-                  <span *ngIf="placa">USUARIO DE CORREO {{placa}} ESPERANDO POR CITA</span>
-                  <span *ngIf="!placa">SIN RESULTADOS</span>
-              </div>
-              <div class='columnas'>
-                <div class="cajas">
-                  <div class="identificador">
-                      <label>Correo: </label>
-                  </div>
-                  <div class="fecha">
-                      <input class="fechi" type="datetime-local">
-                  </div>
-                  <div class="btn-asignar">
-                      <button class="asignar">ASIGNAR</button>
-                  </div>
+            <div class='identificador'>
+                <span *ngIf="correo">USUARIO DE CORREO {{correo}} ESPERANDO POR CITA</span>
+                <span *ngIf="!correo">SIN RESULTADOS</span>
+            </div>
+          <form [formGroup]="fechaForm" class='fechaForm'>
+            <div class='columnas'>
+              <div class="cajas">
+                <div class="identificador">
+                    <label>nombre: </label>
+                </div>
+                <div class="fecha">
+                    <input class="fechi" type="datetime-local" formControlName="fechax">
+                </div>
+                <div class="btn-asignar">
+                    <button class="asignar">ASIGNAR</button>
+                </div>
               </div>
             </div>
           </form>
