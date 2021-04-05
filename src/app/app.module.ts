@@ -74,7 +74,8 @@ import { VistaReporteExtrasComponent } from './pages/perfil-gerente/vista-report
 import { FullCalendarModule } from '@fullcalendar/angular';
 import dayGridPlugin from '@fullcalendar/daygrid';
 import { VistaCitasAsignadasComponent } from './pages/perfil-gerente/vista-citas-asignadas/vista-citas-asignadas.component';
-import { VistaCitasRechazadasComponent } from './pages/perfil-gerente/vista-citas-rechazadas/vista-citas-rechazadas.component'; // a plugin
+import { VistaCitasRechazadasComponent } from './pages/perfil-gerente/vista-citas-rechazadas/vista-citas-rechazadas.component';
+import { VistaCerrarOrdenesComponent } from './pages/perfil-gerente/vista-cerrar-ordenes/vista-cerrar-ordenes.component'; // a plugin
 
 
 
@@ -133,6 +134,7 @@ FullCalendarModule.registerPlugins([ // register FullCalendar plugins
     VistaReporteExtrasComponent,
     VistaCitasAsignadasComponent,
     VistaCitasRechazadasComponent,
+    VistaCerrarOrdenesComponent,
   ],
   imports: [
     BrowserModule,

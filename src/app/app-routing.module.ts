@@ -30,6 +30,7 @@ import { VistaReporteExtrasComponent } from './pages/perfil-gerente/vista-report
 import { VistaManejaCitasComponent } from './pages/perfil-gerente/vista-maneja-citas/vista-maneja-citas.component';
 import { VistaCitasAsignadasComponent } from './pages/perfil-gerente/vista-citas-asignadas/vista-citas-asignadas.component';
 import { VistaCitasRechazadasComponent } from './pages/perfil-gerente/vista-citas-rechazadas/vista-citas-rechazadas.component';
+import { VistaCerrarOrdenesComponent } from './pages/perfil-gerente/vista-cerrar-ordenes/vista-cerrar-ordenes.component';
 
 
 const routes: Routes = [
@@ -64,6 +65,7 @@ const routes: Routes = [
   {path: 'calendario',component: VistaManejaCitasComponent},
   {path: 'citas-asignadas',component: VistaCitasAsignadasComponent},
   {path: 'citas-rechazadas',component: VistaCitasRechazadasComponent},
+  {path: 'cerrar-ordenes',component: VistaCerrarOrdenesComponent},
 
 ];
 
