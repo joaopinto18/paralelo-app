@@ -29,7 +29,12 @@ export class VistaSolicitarCitasComponent implements OnInit {
 
   constructor(private infoUser: AddInfoUserServicesService, private Firestorage: AngularFireStorage) { }
 
+  value3:any;
+
   async ngOnInit(): Promise<void> {
+
+    this.value3 = await this.infoUser.VerificarVehiculo(3);
+
     for (let index = 1; index <= 3; index++) {
       if(await this.infoUser.comprobarCita(index)){
 
@@ -76,8 +81,8 @@ export class VistaSolicitarCitasComponent implements OnInit {
   }
 
   elementType = NgxQrcodeElementTypes.IMG;
-  correctionLevel = NgxQrcodeErrorCorrectionLevels.HIGH;
-  value = 'https://www.techiediaries.com/';
+  correctionLevel = NgxQrcodeErrorCorrectionLevels.HIGH; 
+  
 
   clicked = false;
   clicked2 = false;
@@ -102,7 +107,8 @@ export class VistaSolicitarCitasComponent implements OnInit {
     this.infoUser.eliminarCita(3);
   }
 
-  confirmar2(): void{
+  async confirmar2(): Promise<void>{
+
     //se le envia correo de confirmacion de cita al gerente al gerente
     this.infoUser.confirmar(2);
     this.confirmada2 = 'confirmada';
@@ -111,9 +117,10 @@ export class VistaSolicitarCitasComponent implements OnInit {
   }
 
   async confirmar3(e: Event): Promise<void>{
+    //asignamos el mensaje correspondiente
     const mensaje= this.fecha3;
     //generando el codigo qr de la orden de repa y enviandolo por correo con la info
-    const base64Img = document.getElementsByClassName('bshadow')[0].children[0]['src'];
+    const base64Img = document.getElementsByClassName('bshadow3')[0].children[0]['src'];
     await fetch(base64Img)
         .then(res => res.blob())
         .then(async (blob) => {

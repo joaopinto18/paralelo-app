@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
+import { take } from 'rxjs/operators';
 import { AddCarServiceService } from 'src/app/services/add-car-service.service';
 
 @Component({
@@ -14,8 +15,19 @@ export class VistaRegistroVehiculoMecanicoComponent implements OnInit {
 
   constructor(private fb: FormBuilder, private addCarService: AddCarServiceService, private router: Router) { }
 
-  ngOnInit(): void {
+  async ngOnInit(): Promise<void> {
     this.createForm();
+
+    const vehiculo = await this.addCarService.BuscarVehiculoId(this.addCarService.vehiculoID).
+    valueChanges().pipe( take(1) ).toPromise()
+
+    console.log(vehiculo);
+    console.log(vehiculo.modelo);
+    
+    this.registroVehiculoForm.setValue({ marca: vehiculo.modelo, año: vehiculo.anno, caucho_respuesto: false,
+    color: '', daños: '', gato: false, herramientas: false, kilometraje_ingreso: '', llaves: false, 
+    modelo: vehiculo.modelo, tanque_gasolina:'', otros:'', placa: vehiculo.placa, reproductor: false,
+    requerimientos: ''});
   }
 
   createForm(): void{

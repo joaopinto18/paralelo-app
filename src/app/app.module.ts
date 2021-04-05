@@ -71,12 +71,17 @@ import { PruebaComponent } from './paginaPrincipal/prueba/prueba.component';
 import { NavbarPerfilGerenteComponent } from './components/perfilGerente/navbar-perfil-gerente/navbar-perfil-gerente.component';
 import { NavbarDerechoGerenteComponent } from './components/perfilGerente/navbar-derecho-gerente/navbar-derecho-gerente.component';
 import { VistaReporteExtrasComponent } from './pages/perfil-gerente/vista-reporte-extras/vista-reporte-extras.component';
+//FULL CALENDAR
 import { FullCalendarModule } from '@fullcalendar/angular';
-import dayGridPlugin from '@fullcalendar/daygrid';
+import dayGridPlugin from '@fullcalendar/daygrid'; // a plugin
+//scanner
+import { ZXingScannerModule } from '@zxing/ngx-scanner';
 import { VistaCitasAsignadasComponent } from './pages/perfil-gerente/vista-citas-asignadas/vista-citas-asignadas.component';
 import { VistaCitasRechazadasComponent } from './pages/perfil-gerente/vista-citas-rechazadas/vista-citas-rechazadas.component';
 import { VistaCerrarOrdenesComponent } from './pages/perfil-gerente/vista-cerrar-ordenes/vista-cerrar-ordenes.component'; // a plugin
 import { GoogleChartsModule } from 'angular-google-charts';
+import { CuadritoComponent } from './components/cuadrito/cuadrito.component';
+
 
 
 FullCalendarModule.registerPlugins([ // register FullCalendar plugins
@@ -135,6 +140,7 @@ FullCalendarModule.registerPlugins([ // register FullCalendar plugins
     VistaCitasAsignadasComponent,
     VistaCitasRechazadasComponent,
     VistaCerrarOrdenesComponent,
+    CuadritoComponent,
   ],
   imports: [
     BrowserModule,
@@ -151,8 +157,8 @@ FullCalendarModule.registerPlugins([ // register FullCalendar plugins
     NgxQRCodeModule,
     HttpClientModule,
     FullCalendarModule,
+    ZXingScannerModule,
     GoogleChartsModule
-
   ],
   providers: [],
   bootstrap: [AppComponent]

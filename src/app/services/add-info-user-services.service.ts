@@ -91,10 +91,10 @@ export class AddInfoUserServicesService {
     let encontrado: string = "no encontrado";
     await this.Firestore.collection('VEHICULOS-REGISTRADOS').ref.where('IdDocDueno','==', localStorage.getItem('iduser')).
     get().then((querysnapshot)=>{ //este await hace que primero se tenga que resolver esta promesa antes de proseguir con el codigo
-        querysnapshot.forEach((usuario)=>{
-          if(usuario.get('nroVheiculo')==nroVehiculo){
+        querysnapshot.forEach((VEHICULO)=>{
+          if(VEHICULO.get('nroVheiculo')==nroVehiculo){
             //verificamos que el doc de info de este vehiculo existe
-            encontrado=usuario.id.valueOf().toString();
+            encontrado=VEHICULO.id.valueOf().toString();
           }
         })
     })
