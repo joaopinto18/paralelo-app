@@ -47,7 +47,6 @@ export class AddCarServiceService {
    */
 
    BuscarVehiculoId(id: string): any{
-    
 
     return this.firestore.collection('VEHICULOS-REGISTRADOS').doc(id)
   }   
@@ -77,6 +76,14 @@ export class AddCarServiceService {
           })
         })
       })
+  }
+
+  /**
+   * FUNCION PARA BUSCAR UNA CITA POR CORREO
+   */
+
+  buscarCita():void{
+    
   }
 
    /**
