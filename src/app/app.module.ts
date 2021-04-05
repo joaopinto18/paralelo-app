@@ -76,7 +76,7 @@ import dayGridPlugin from '@fullcalendar/daygrid';
 import { VistaCitasAsignadasComponent } from './pages/perfil-gerente/vista-citas-asignadas/vista-citas-asignadas.component';
 import { VistaCitasRechazadasComponent } from './pages/perfil-gerente/vista-citas-rechazadas/vista-citas-rechazadas.component';
 import { VistaCerrarOrdenesComponent } from './pages/perfil-gerente/vista-cerrar-ordenes/vista-cerrar-ordenes.component'; // a plugin
-
+import { GoogleChartsModule } from 'angular-google-charts';
 
 
 FullCalendarModule.registerPlugins([ // register FullCalendar plugins
@@ -150,7 +150,8 @@ FullCalendarModule.registerPlugins([ // register FullCalendar plugins
     ReactiveFormsModule,
     NgxQRCodeModule,
     HttpClientModule,
-    FullCalendarModule
+    FullCalendarModule,
+    GoogleChartsModule
 
   ],
   providers: [],
