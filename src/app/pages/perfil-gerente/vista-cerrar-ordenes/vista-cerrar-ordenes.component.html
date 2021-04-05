@@ -2,35 +2,56 @@
 <app-navbar-perfil-gerente></app-navbar-perfil-gerente>
 
 <div class='wrapper'>
+    <div class='title-box'>
+        <div class='title'>
+            <span>CERRAR ORDENES</span>
+        </div>
+    </div>
     <div class='input-section'>
-        <form class='input-form'>
+        <form  class='input-form'>
             <div class='input'>
-                <input type="text" required placeholder="Ingresa placa del vehiculo"><span class='bar'></span>
+                <input type="text" formControlName="correo" required placeholder="AB008JIK"><span class='bar'></span>
+                <span>INGRESE LA PLACA DEL VEHÍCULO</span>
             </div>
             <button class='input-button' type="submit">BUSCAR</button>
         </form>
     </div>
-    <div class="contenedor">
-        <div class="titulo">
-            <label>NO ENCONTRADO</label>
-        </div>
-        <div class="flechas">
-            <button class="btn"><i class="fa fa-arrow-left" aria-hidden="true"></i></button>
-            <button class="btn"><i class="fa fa-arrow-right" aria-hidden="true"></i></button>
-        </div>
-        <div class="cajas">
-            <div class="identificador">
-                <label>Item #: </label>
-            </div>
-            <div class="identificador">
-                <label class="precio">Precio: </label>
-            </div>
-            <div class="fecha">
-                <input class="fechi" type="text" placeholder="120$">
-            </div>
-        </div>
-        <div class="btn-cerrar">
-            <button class="asignar">CERRAR ORDEN</button>
+  
+    <!--este forma debe de ser un ng if-->
+  
+    <div class='form-square'>
+        <div class='form-square-background'>
+              <div class='identificador'>
+                  <span >VEHÍCULO DE PLACA X ENCONTRADO</span>
+              </div>
+            <form  class='fechaForm'>
+              <div class='columnas'>
+                <div class="cajas">
+                  <div class="identificador1">
+                      <div class="titulitos">
+                        <label>Repuestos utilizados: </label>
+                      </div>
+                      <div class="float">
+                        <textarea name="repuestos"cols="30" rows="10"></textarea>
+                        <input class= "precio" placeholder="Costo total: 600$" type="text">
+                      </div>
+                  </div>
+                  <div class="identificador2">
+                    <div class="titulitos">
+                      <p>Procedimientos aplicados:</p>
+                    </div>
+                    <div class="float">
+                      <textarea name="repuestos"cols="30" rows="10"></textarea>
+                      <input class= "precio" placeholder="Costo total: 600$" type="text">
+                    </div>
+                </div>
+                  <div class="btn-asignar">
+                      <button class="asignar">ASIGNAR</button>
+                  </div>
+                </div>
+              </div>
+            </form>
         </div>
     </div>
   </div>
+  

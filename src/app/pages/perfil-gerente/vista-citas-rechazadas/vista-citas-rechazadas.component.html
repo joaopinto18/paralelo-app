@@ -2,27 +2,46 @@
 <app-navbar-perfil-gerente></app-navbar-perfil-gerente>
 
 <div class='wrapper'>
-    <div class="contenedor">
-        <div class="titulo">
-            <label>CITAS RECHAZADAS</label>
-        </div>
-        <div class="flechas">
-            <button class="btn"><i class="fa fa-arrow-left" aria-hidden="true"></i></button>
-            <button class="btn"><i class="fa fa-arrow-right" aria-hidden="true"></i></button>
-        </div>
-        <div class="cajas">
-            <div class="identificador">
-                <label>Correo: </label>
-            </div>
-            <div class="identificador">
-                <label>Fecha rechazada: </label>
-            </div>
-            <div class="fecha">
-                <input class="fechi" type="datetime-local">
-            </div>
-            <div class="btn-asignar">
-                <button class="asignar">ASIGNAR</button>
-            </div>
+    <div class='title-box'>
+        <div class='title'>
+            <span>ASIGNAR CITAS</span>
         </div>
     </div>
-</div>
+    <div class='input-section'>
+        <form  class='input-form'>
+            <div class='input'>
+                <input type="text" formControlName="correo" required placeholder="nombrecliente@example.com"><span class='bar'></span>
+                <span>INGRESA LEL CORREO DEL USUARIO AL QUE ASIGNAR UNA CITA</span>
+            </div>
+            <button class='input-button' type="submit">BUSCAR</button>
+        </form>
+    </div>
+  
+    <!--este forma debe de ser un ng if-->
+  
+    <div class='form-square'>
+        <div class='form-square-background'>
+              <div class='identificador'>
+                  <span>ASIGNAR CITA A VC.RUJANA@CORREO.COM</span>
+              </div>
+            <form class='fechaForm'>
+              <div class='columnas'>
+                <div class="cajas">
+                  <div class="identificador1">
+                      <label>Nombre: </label>
+                      <p>Fecha rechazada:</p>
+                  </div>
+                  <div class="fecha">
+                      <label class="fecha-nueva">Fecha nueva: </label>
+                      <input class="fechi" type="datetime-local" formControlName="fechax">
+                  </div>
+                  <div class="btn-asignar">
+                      <button class="asignar">ASIGNAR</button>
+                  </div>
+                </div>
+              </div>
+            </form>
+        </div>
+    </div>
+  </div>
+  
