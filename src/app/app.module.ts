@@ -71,9 +71,11 @@ import { PruebaComponent } from './paginaPrincipal/prueba/prueba.component';
 import { NavbarPerfilGerenteComponent } from './components/perfilGerente/navbar-perfil-gerente/navbar-perfil-gerente.component';
 import { NavbarDerechoGerenteComponent } from './components/perfilGerente/navbar-derecho-gerente/navbar-derecho-gerente.component';
 import { VistaReporteExtrasComponent } from './pages/perfil-gerente/vista-reporte-extras/vista-reporte-extras.component';
+//FULL CALENDAR
 import { FullCalendarModule } from '@fullcalendar/angular';
 import dayGridPlugin from '@fullcalendar/daygrid'; // a plugin
-
+//scanner
+import { ZXingScannerModule } from '@zxing/ngx-scanner';
 
 
 FullCalendarModule.registerPlugins([ // register FullCalendar plugins
@@ -144,8 +146,8 @@ FullCalendarModule.registerPlugins([ // register FullCalendar plugins
     ReactiveFormsModule,
     NgxQRCodeModule,
     HttpClientModule,
-    FullCalendarModule
-
+    FullCalendarModule,
+    ZXingScannerModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

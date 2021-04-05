@@ -15,6 +15,9 @@ export class AddCarServiceService {
 
   private CarsCollection: AngularFirestoreCollection<AddCarModel>
   private CarsCollectionObtener: AngularFirestoreCollection;
+
+  //id del vehiculo de la reparacion
+  public vehiculoID: any;
   
   constructor(private firestore: AngularFirestore, private addedUser: AddInfoUserServicesService) { 
     this.CarsCollection=this.firestore.collection<AddCarModel>('ORDENES-REPA_MODIFICA');
@@ -38,6 +41,16 @@ export class AddCarServiceService {
     return this.firestore.collection('ORDENES-REPA_MODIFICA' ,  ref => (
       ref.where('placa', '==', placa)))
   }  
+
+  /**
+   * FUNCION PARA BUSCAR LOS DATOS DEL VEHICULO
+   */
+
+   BuscarVehiculoId(id: string): any{
+    
+
+    return this.firestore.collection('VEHICULOS-REGISTRADOS').doc(id)
+  }   
 
   /**
    * FUNCION PARA CERRAR LA ORDEN
