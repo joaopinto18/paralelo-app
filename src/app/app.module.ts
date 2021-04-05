@@ -47,6 +47,8 @@ import { AuthformInicioSesionComponent } from './components/paginaPrincipal/auth
 import { CodigoQrComponent } from './components/codigo-qr/codigo-qr.component';
 import { VistaSolicitarCitasComponent } from './pages/perfilCliente/vista-solicitar-citas/vista-solicitar-citas.component';
 import { VistaFaqComponent } from './pages/perfilCliente/vista-faq/vista-faq.component';
+import { TooltipModule } from 'ngx-bootstrap/tooltip';
+import { PruebaComponent } from './prueba/prueba.component';
 
 
 @NgModule({
@@ -79,6 +81,7 @@ import { VistaFaqComponent } from './pages/perfilCliente/vista-faq/vista-faq.com
     CodigoQrComponent,
     VistaSolicitarCitasComponent,
     VistaFaqComponent,
+    PruebaComponent,
 
   ],
   imports: [
@@ -94,6 +97,7 @@ import { VistaFaqComponent } from './pages/perfilCliente/vista-faq/vista-faq.com
     ReactiveFormsModule,
     NgxQRCodeModule,
     HttpClientModule,
+    TooltipModule.forRoot(),
   ],
   providers: [],
   bootstrap: [AppComponent]

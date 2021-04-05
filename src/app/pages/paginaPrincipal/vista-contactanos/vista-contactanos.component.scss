@@ -1,152 +1,110 @@
 @import url('https://fonts.googleapis.com/css2?family=Athiti:wght@700&display=swap');
 
-.ventana{
+.container-fluid{
     width: 100%;
     height: 80%;
     background-color: #494949;
     
     
 }
-.ventana .espacio{
-    width: 100%;
+.container-fluid .container-fluid{
+    width: 75%;
     height: 5%;
+    margin: 0;
 }
-.ventana .contenedor{
+
+.container-fluid .row{
+    width: 75%;
+    height: 90%;
+    margin: 0;
+    padding: 0;
+}
+.container-fluid .row .col-md-6{
+  
+    text-align: center;
+    font-weight: bold;
+    background-color: #494949;
+    
+}
+
+.container-fluid .row .col-md-6 .container-fluid{
+    width: 100%;
+    height: 100%;
+    
+    
+}
+.container-fluid .row .col-md-6 .row{
+    width: 75%;
+    height: 55%;
+    
+    
+}
+.container-fluid .row .col-md-6 .row .col-md-12 h1{
+    width: 100%;
+    height: 10%;
+    text-align: center;
+    font-size: 24px;
+    color: #F2CA63;
+    margin-top: 10%;
+    font-family: 'Athiti', sans-serif;
+}
+.container-fluid .row .col-md-6 .row .col-md-12 span{
+    width: 100%;
+    text-align: center;
+    font-size: 16px;
+    font-weight: bold;
+    font-family: 'Athiti', sans-serif;
+    color: white;
+    line-height: 30px;
+}
+.container-fluid .row .col-md-6 .row .row{
+    width: 100%;
+    height: 30%;
+    padding-top: 0;
+    margin-top: 3.55%;
+
+
+}
+.container-fluid .row .col-md-6 .row .col-sm-2{
+    height: 100%;
+    width: 30%;
+
+}
+
+
+.container-fluid .row .col-md-6 .row .col-sm-10{
+    height: 100%;
     width: 70%;
-    height: 90%;
-    margin-left: 2.5% ;
-}
-
-.ventana .contenedor .inicio{
-    float: left;
-    width: 50%;
-    height: 100%;
-    text-align: center;
-    font-weight: bold;
-    margin: auto;
-    display: flex;
-    justify-content: center;
-    background-color: white;
-    
-}
-.ventana .contenedor .inicio .imagen{
-    width: 95%;
-    height: 90%;
-    margin: auto;
-    display: flex;
-    justify-content: center;
-    
-}
-
-.ventana .cuadros{
-    float: right;
-    width: 50%;
-    height: 100%;
-   
-    
-}
-.ventana .cuadros .titulo{
-    width: 100%;
-    height: 20%;
-    text-align: center;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    
-}
-.ventana .contenedor .cuadros .ubi{
-    width: 100%;
-    height: 20%;
-    text-align: center;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    font-size: 16px;
-    font-weight: bold;
-    font-family: 'Athiti', sans-serif;
     color: white;
-    line-height: 30px;
-    
-}
-.ventana .contenedor .cuadros .contacto{
-    width: 100%;
-    height: 20%;
-    text-align: center;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    font-size: 16px;
-    font-weight: bold;
-    line-height: 30px;
-    margin-top: 10px;
-}
-.ventana .contenedor .cuadros .redes{
-    width: 60%;
-    height: 8%;
-    margin: auto;
-    
-}
-.ventana .contenedor .cuadros .redes .logoig{
-    width: 20%;
-    height: 95%;
-    float: left;
-   
-    
-}
-.ventana .contenedor .cuadros .redes .arroba{
-    width: 80%;
-    height: 100%;
-    float: right;
-    text-decoration: none;
-}
-.ventana .contenedor .cuadros .redes .arroba span{
-    font-size: 16px;
-    color: white;
-    font-weight: bold;
-    margin-left: 8%;
-    font-family: 'Athiti', sans-serif;
-    font-style: normal;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    letter-spacing: 2px;
-    margin-left: 9%;
-    text-decoration: none;
-}
-.ventana .contenedor .cuadros .contacto span{
-    margin-top: 7%;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    color: #F2CA63;
-    font-size: 24px;
-    font-family: 'Athiti', sans-serif;
-    font-weight: bold;
-    text-decoration: none;
-    
-   
-}
-.ventana .cuadros .titulo span{
-    margin-top: 7%;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    color: #F2CA63;
-    font-size: 24px;
-    font-family: 'Athiti', sans-serif;
-    font-weight: bold;
-    text-decoration: none;
-    
-   
-}
-.ventana .cuadros .titulo img{
-    width: 90%;
-    height: 90%;
-    margin: auto;
-    
-   
+    padding-left: 0;
+    margin-left: 0;
+    padding-top: 2.5%;
+ 
 }
 
-a{
-    text-decoration: none;
-}
+
+
+@media screen and (max-width: 600px) {
+    .container-fluid{
+        padding-left: 0;
+        padding-right: 0;
+        height: 100%;
+    }
+
+    .container-fluid .row{
+        width: 100%;
+        background-color: #494949;
+        
+    }
+
+    .container-fluid .row .col-md-6 .row{
+        width: 100%;
+        
+    }
+    
+    }
+    
+
+
+
+

@@ -16,10 +16,11 @@ import { VistaSolicitarCitasComponent } from './pages/perfilCliente/vista-solici
 import { VistaDatosPerfilMecanicoComponent } from './pages/perfilMecanico/vista-datos-perfil-mecanico/vista-datos-perfil-mecanico.component';
 import { VistaRegistroVehiculoMecanicoComponent } from './pages/perfilMecanico/vista-registro-vehiculo-mecanico/vista-registro-vehiculo-mecanico.component';
 import { VistaVehiculosRegistradosComponent } from './pages/perfilMecanico/vista-vehiculos-registrados/vista-vehiculos-registrados.component';
+import { PruebaComponent } from './prueba/prueba.component';
 
 
 const routes: Routes = [
-
+  {path:'prueba', component:PruebaComponent},
   {path:'vista-perfil-cliente', component:VistaDatosPerfilClienteComponent},
   {path:'', component:VistaInicioComponent},
   {path:'faq', component:VistaFaqComponent},
