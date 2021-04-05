@@ -28,6 +28,8 @@ import { VistaReporteMecanicoComponent } from './pages/perfil-gerente/vista-repo
 import { VistaReporteVehiculoComponent } from './pages/perfil-gerente/vista-reporte-vehiculo/vista-reporte-vehiculo.component';
 import { VistaReporteExtrasComponent } from './pages/perfil-gerente/vista-reporte-extras/vista-reporte-extras.component';
 import { VistaManejaCitasComponent } from './pages/perfil-gerente/vista-maneja-citas/vista-maneja-citas.component';
+import { VistaCitasAsignadasComponent } from './pages/perfil-gerente/vista-citas-asignadas/vista-citas-asignadas.component';
+import { VistaCitasRechazadasComponent } from './pages/perfil-gerente/vista-citas-rechazadas/vista-citas-rechazadas.component';
 
 
 const routes: Routes = [
@@ -60,6 +62,9 @@ const routes: Routes = [
   {path: 'vista-reporte-vehiculo',component: VistaReporteVehiculoComponent},
   {path: 'vista-reporte-extras',component: VistaReporteExtrasComponent},
   {path: 'calendario',component: VistaManejaCitasComponent},
+  {path: 'citas-asignadas',component: VistaCitasAsignadasComponent},
+  {path: 'citas-rechazadas',component: VistaCitasRechazadasComponent},
+
 ];
 
 

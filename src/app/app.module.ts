@@ -72,7 +72,9 @@ import { NavbarPerfilGerenteComponent } from './components/perfilGerente/navbar-
 import { NavbarDerechoGerenteComponent } from './components/perfilGerente/navbar-derecho-gerente/navbar-derecho-gerente.component';
 import { VistaReporteExtrasComponent } from './pages/perfil-gerente/vista-reporte-extras/vista-reporte-extras.component';
 import { FullCalendarModule } from '@fullcalendar/angular';
-import dayGridPlugin from '@fullcalendar/daygrid'; // a plugin
+import dayGridPlugin from '@fullcalendar/daygrid';
+import { VistaCitasAsignadasComponent } from './pages/perfil-gerente/vista-citas-asignadas/vista-citas-asignadas.component';
+import { VistaCitasRechazadasComponent } from './pages/perfil-gerente/vista-citas-rechazadas/vista-citas-rechazadas.component'; // a plugin
 
 
 
@@ -129,6 +131,8 @@ FullCalendarModule.registerPlugins([ // register FullCalendar plugins
     NavbarPerfilGerenteComponent,
     NavbarDerechoGerenteComponent,
     VistaReporteExtrasComponent,
+    VistaCitasAsignadasComponent,
+    VistaCitasRechazadasComponent,
   ],
   imports: [
     BrowserModule,

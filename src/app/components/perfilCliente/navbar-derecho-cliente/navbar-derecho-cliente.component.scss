@@ -1,9 +1,17 @@
 @import url('https://fonts.googleapis.com/css2?family=Athiti:wght@700&display=swap');
 
+$tablet: 800px;
+$phone: 480px;
+
 .right-navbar{
     float: right;
     width: 25%;
     height: 100%;
+    @media(max-width: $phone){
+        height: 100%;
+        width: 20%;
+        background-color: rgb(255, 201, 51);
+    }
 }
 
 .right-navbar .buttons{
@@ -29,6 +37,12 @@
     margin-bottom: 20px;
     margin-top: 30px;
     margin-left: 70px;
+    @media(max-width: $phone){
+        font-size: smaller;
+        width: 75%;
+        margin-left: 10px;
+        margin-right: 10px;
+    }
 }
 
 .btn-logout{
@@ -43,6 +57,12 @@
     padding-left: 2px;
     padding-right: 2px;
     margin-right: 17px;
+    @media(max-width: $phone){
+        font-size: smaller;
+        width: 75%;
+        margin-left: 10px;
+        margin-right: 10px;
+    }
 }
 
 

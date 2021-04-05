@@ -1,52 +1,13 @@
 <app-navbar-derecho-gerente></app-navbar-derecho-gerente>
 <app-navbar-perfil-gerente></app-navbar-perfil-gerente>
 
-<div class="wrapper">
-    <button class="btn-ir-calendario" [routerLink]="['/calendario']">CALENDARIO DE CITAS</button>
-    <div class="titulo">
-        <label>CITAS CONFIRMADAS</label>
+<div class='wrapper'>
+    <div class="title">
+      <label>GESTION DE CITAS</label>
     </div>
-    <div class="caja">
-        <div class="tit">
-            <label>Nombre:</label>
-        </div>
-        <div class="tit">
-            <label>Fecha:</label>
-        </div>
-        <div class="tit">
-            <label>Modelo:</label>
-        </div>
-        <div class="tit">
-            <label>Hora:</label>
-        </div>
-        <div class="inicio-orden">
-            <button class="btn-orden">INICIAR ORDEN DE REPARACION</button>
-        </div>
-    </div>
-    <div class="titulo">
-        <label>CITAS POR ASIGNAR</label>
-    </div>
-    <div class="caja">
-        <div class="tit">
-            <label>Nombre:</label>
-        </div>
-        <div class="tit">
-            <label>Modelo:</label>
-        </div>
-        <div class="tit">
-            <label>Fecha/Hora: </label>
-            <input type="datetime-local" class="hora">
-        </div>
-        <div class="inicio-orden">
-            <button class="btn-orden">ASIGNAR</button>
-        </div>
-    </div>
-    <div class="titulo">
-        <label>CITAS RECHAZADAS</label>
-    </div>
-    <div class="caja">
-        <div class="tit">
-            <label>Nombre:</label>
-        </div>
-    </div>
-</div>
+      <div class="botones">
+          <button class="btn"[routerLink]="['/calendario']">CALENDARIO DE CITAS</button>
+          <button class="btn" [routerLink]="['/citas-asignadas']">CITAS POR ASIGNAR</button>
+          <button class="btn" [routerLink]="['/citas-rechazadas']">CITAS RECHAZADAS</button>
+      </div>
+  </div>

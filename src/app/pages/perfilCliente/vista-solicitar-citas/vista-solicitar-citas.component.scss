@@ -1,17 +1,24 @@
 @import url('https://fonts.googleapis.com/css2?family=Athiti:wght@700&display=swap');
 @import "node_modules/font-awesome/scss/font-awesome.scss";
 
+$phone: 480px;
 .wrapper{
     height: 80%;
     width: 75%;
     background-color: rgb(66, 66, 66);
     float: left;
+    @media(max-width: $phone){
+        width: 80%;
+    }
 }
 .titulo{
     height: 20px;
     font-family:'Athiti', sans-serif;
     color: white;
     font-size: 20px;
+    @media(max-width: $phone){
+        font-size: 15px;
+    }
 }
 
 .caja{
@@ -22,10 +29,19 @@
     background-color:  rgb(255, 201, 51);
     width: 70%;
     margin-left: 150px;
+    @media(max-width: $phone){
+        margin-left: 5%;
+        width: 90%;
+        height: 5%;
+    }
 }
 
 label{
     margin-left: 20px;
+    @media(max-width: $phone){
+        margin-left: 5%;
+        font-size: 17px;
+    }
 }
 
 .fecha{
@@ -42,6 +58,11 @@ label{
     display: flex;
     float: left;
     justify-content: space-between;
+    @media(max-width: $phone){
+        margin-left: 5%;
+        width: 90%;
+        height: 5%;
+    }
 }
 
 .mayortit{
@@ -110,4 +131,8 @@ label{
     width: 200px;
     margin-top: 5px;
     margin-right: 5px;
+    @media(max-width: $phone){
+        width: 96%;
+        height: 70%;
+    }
 }
