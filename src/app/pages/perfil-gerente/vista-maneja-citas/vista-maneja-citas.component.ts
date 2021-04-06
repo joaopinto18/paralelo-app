@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CalendarOptions } from '@fullcalendar/angular';
+import { AddCarServiceService } from 'src/app/services/add-car-service.service';
 
 @Component({
   selector: 'app-vista-maneja-citas',
@@ -8,17 +9,27 @@ import { CalendarOptions } from '@fullcalendar/angular';
 })
 export class VistaManejaCitasComponent implements OnInit {
 
-  constructor() { }
+  private op: any;
+  private arr: Array<string>=[]
+  private calendarevent: Array<any>=[];
+  
+  constructor(private addCarService: AddCarServiceService) { }
 
-  ngOnInit(): void {
+  async ngOnInit(): Promise<void> {
+    const array=this.addCarService.obtenerFechaCitas().then((querySnapshot) => {
+      querySnapshot.forEach(async (doc) => {
+          // doc.data() is never undefined for query doc snapshots
+          this.calendarevent.push(await doc.get('placa'))
+          console.log(await this.calendarevent[0]);
+          console.log(await this.calendarevent[1]);
+          console.log(await this.calendarevent[2]);
+      });
+    })
   }
   
   calendarOptions: CalendarOptions = {
     initialView: 'dayGridMonth',
-    events: [
-      { title: 'Cita: Ana', date: '2021-04-04' },
-      { title: 'Cita: Peter', date: '2021-04-05' },
-    ],
+    events:  [],
     eventColor: 'rgb(255, 201, 51);',
     titleFormat: { // will produce something like "Tuesday, September 18, 2018"
     month: 'long',
@@ -48,5 +59,6 @@ export class VistaManejaCitasComponent implements OnInit {
     alert('date click! ' + arg.dateStr)
   }
 
+  
   
 }

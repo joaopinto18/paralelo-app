@@ -71,7 +71,7 @@ export class VistaSolicitarCitasComponent implements OnInit {
         }else if(index==3 && await this.infoUser.estadoCita(3) == 'confirmada'){
           this.clicked3=true;
           this.confirmada3='confirmada';
-        }else if(index==2 && await this.infoUser.estadoCita(3) == 'En espera de confirmación'){
+        }else if(index==3 && await this.infoUser.estadoCita(3) == 'En espera de confirmación'){
           this.clicked3=true;
           this.fecha3= await this.infoUser.fecha(index);
           this.confirmada3='En espera de confirmación';
@@ -126,11 +126,12 @@ export class VistaSolicitarCitasComponent implements OnInit {
         .then(async (blob) => {
           let identificador = Math.random();
           await this.Firestorage.upload('/images'+identificador+blob, blob).then(data => {
-          data.ref.getDownloadURL().then(url => {
+          data.ref.getDownloadURL().then(async url => {
             //enviando el url dentro del correo
             var templateParams = {
               correo_user: localStorage.getItem('correouser'),
               asunto: 'Confirmación de cita para reparación/modificación',
+              placa: await this.infoUser.obtenerPlaca(localStorage.getItem('iduser'), 3),
               url_qr: url,
               fecha: mensaje
             };
@@ -211,13 +212,14 @@ export class VistaSolicitarCitasComponent implements OnInit {
     }
   }
 
-  solicitarCita(idDocVehiculo: string, nroVehiculo: number): void{
+  async solicitarCita(idDocVehiculo: string, nroVehiculo: number): Promise<void>{
     const datosCita={
       fechaTentativa: 'En espera por fecha',
       IdDocVehiculo: idDocVehiculo,
       CorreoSolicitante: localStorage.getItem('correouser'),
       estatus: 'cita solicitada',
-      nroVehiculo: nroVehiculo
+      nroVehiculo: nroVehiculo, 
+      placa: await this.infoUser.obtenerPlaca(localStorage.getItem('iduser'), nroVehiculo)
     } 
     console.log(datosCita);
     this.infoUser.SolicitarCitax(datosCita);
@@ -229,5 +231,17 @@ export class VistaSolicitarCitasComponent implements OnInit {
       this.fecha3=datosCita.fechaTentativa;
     }
     alert('cita solicitada')
+
+    var templateParams = {
+      correo_user: localStorage.getItem('correouser'),
+      asunto: 'Solicitud de cita',
+      placa: await this.infoUser.obtenerPlaca(localStorage.getItem('iduser'), nroVehiculo),
+    };
+    emailjs.send('contact_service', 'contact_form2', templateParams, 'user_KW3uRXxAbvOF5N1nIX2LP')
+      .then((result: EmailJSResponseStatus) => {
+        console.log(result.text);
+      }, (error) => {
+        console.log(error.text);
+      });
   }
 }

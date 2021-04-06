@@ -15,13 +15,17 @@ export class AddCarServiceService {
 
   private CarsCollection: AngularFirestoreCollection<AddCarModel>
   private CarsCollectionObtener: AngularFirestoreCollection;
+  private citasCollection: AngularFirestoreCollection;
 
   //id del vehiculo de la reparacion
   public vehiculoID: any;
+  //cont
+  public cont: number= 0;
   
   constructor(private firestore: AngularFirestore, private addedUser: AddInfoUserServicesService) { 
     this.CarsCollection=this.firestore.collection<AddCarModel>('ORDENES-REPA_MODIFICA');
     this.CarsCollectionObtener=firestore.collection('ORDENES-REPA_MODIFICA');
+    this.citasCollection=firestore.collection('GESTION-CITAS');
   }
 
   /**
@@ -55,8 +59,10 @@ export class AddCarServiceService {
    * OBTENER TODOS LOS DOCUMENTOS DE GESTION DE CITAS
    */
 
-  obtenerCitas(): any{
-    return this.firestore.collection("GESTION-CITAS").get()
+  async obtenerFechaCitas(): Promise<any>{
+    
+    
+    return await this.firestore.collection("GESTION-CITAS").get().toPromise()
   }
 
   /**
@@ -79,11 +85,30 @@ export class AddCarServiceService {
   }
 
   /**
+   * MODIFICAR FECHA DE LA CITA
+   */
+
+  modificarFecha(fecha: any, placa: string){
+    this.firestore.collection('GESTION-CITAS').ref.where('placa','==',placa).
+      get().then((querysnapshot)=>{
+        querysnapshot.forEach((carro)=>{
+          //obtenemos el id en cuestion
+          let id = carro.id;
+          //utilizamos el id para buscar el documento y hacer los cambios
+          this.citasCollection.doc(id).ref.onSnapshot(function(result) {
+            result.ref.update({fechaTentativa:fecha, estatus:'En espera de confirmación'});
+          })
+        })
+      })
+  }
+
+  /**
    * FUNCION PARA BUSCAR UNA CITA POR CORREO
    */
 
-  buscarCita():void{
-    
+  buscarCita(placa: string): any{
+    return this.firestore.collection('GESTION-CITAS' ,  ref => (
+      ref.where('placa', '==', placa)))
   }
 
    /**
