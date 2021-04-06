@@ -38,7 +38,7 @@ export class VistaManejaCitasComponent implements OnInit {
     },
     handleWindowResize: true,
     expandRows: true,
-    height: 300,
+    //height: 300,
     //contentHeight: "auto",
     buttonText: {
       today:    'today',

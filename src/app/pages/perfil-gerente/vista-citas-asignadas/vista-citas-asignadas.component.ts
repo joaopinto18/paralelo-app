@@ -15,7 +15,7 @@ export class VistaCitasAsignadasComponent implements OnInit {
   vehiculoBuscado:any;
   vehiculoBuscadoCambiar:any;
   correo:any;
-
+  nombre:any;
   data:Array<string>=[];
 
   constructor(private fb: FormBuilder, private carService:AddCarServiceService) { }
@@ -44,13 +44,17 @@ export class VistaCitasAsignadasComponent implements OnInit {
 
     console.log(citaUser.placa);
     
-    
     const cita = await this.carService.buscarCita(citaUser.placa).valueChanges().pipe( take(1) ).toPromise();
     if(cita[0]==undefined){
       alert('sin resultados para esta búsqueda')
     }else if(cita[0].estatus=='cita solicitada'){
       this.correo = cita[0].placa;
-      console.log(this.correo);
+
+      this.nombre = await this.carService.obtenerDueno(this.registroVehiculoForm.get('placa')?.value);
+      console.log('------------------->');
+      
+      console.log(await this.carService.obtenerDueno(this.registroVehiculoForm.get('placa')?.value));
+      
     }else{
       alert('ya se ha asignado una fecha para esta cita');
     }
@@ -62,6 +66,7 @@ export class VistaCitasAsignadasComponent implements OnInit {
       this.carService.modificarFecha(this.fechaForm.get('fechax')?.value, this.registroVehiculoForm.get('placa')?.value);
       this.registroVehiculoForm.reset();
       this.fechaForm.reset();
+      this.nombre='';
     }else{
       alert('debe encontrar un vehiculo que requiera asignación de cita primero')
     }

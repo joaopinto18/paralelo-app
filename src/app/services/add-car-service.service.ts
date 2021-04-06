@@ -111,6 +111,33 @@ export class AddCarServiceService {
       ref.where('placa', '==', placa)))
   }
 
+  /**
+   * FUNCION PARA OBTENER EL NOMBRE DEL DUE;O DEL CARRO DADA LA PLACA
+   */
+
+  async obtenerDueno(placa: string): Promise<string>{
+    let cor
+    let name='no se encontro user';
+    await this.firestore.collection('GESTION-CITAS').ref.where('placa','==',placa).
+      get().then((querysnapshot)=>{
+        querysnapshot.forEach(async (carro)=>{
+          //obtenemos el id en cuestion
+          cor = carro.get('CorreoSolicitante');
+          //utilizamos el id para buscar el documento y hacer los cambios
+        })
+      })
+      await this.firestore.collection('DATOS-USUARIOS').ref.where('correo','==',cor).
+      get().then((querysnapshot)=>{
+        querysnapshot.forEach((user)=>{
+        //obtenemos el id en cuestion
+        let nombre = user.get('nombre_apellido');
+        //utilizamos el id para buscar el documento y hacer los cambios
+        name=nombre;
+        })
+      })
+      return name
+  }
+
    /**
    * FUNCION PARA MODIFICAR LA INFORMACIÓN DE REPARACIÓN DE UN VEHÍCULO
    */
