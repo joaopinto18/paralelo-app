@@ -30,10 +30,14 @@ export class VistaSolicitarCitasComponent implements OnInit {
   constructor(private infoUser: AddInfoUserServicesService, private Firestorage: AngularFireStorage) { }
 
   value3:any;
+  value2:any;
+  value1:any;
 
   async ngOnInit(): Promise<void> {
 
     this.value3 = await this.infoUser.VerificarVehiculo(3);
+    this.value2 = await this.infoUser.VerificarVehiculo(2);
+    this.value1 = await this.infoUser.VerificarVehiculo(1);
 
     for (let index = 1; index <= 3; index++) {
       if(await this.infoUser.comprobarCita(index)){
@@ -108,8 +112,35 @@ export class VistaSolicitarCitasComponent implements OnInit {
   }
 
   async confirmar2(): Promise<void>{
+    //asignamos el mensaje correspondiente
+    const mensaje= this.fecha2;
+    //generando el codigo qr de la orden de repa y enviandolo por correo con la info
+    const base64Img = document.getElementsByClassName('bshadow2')[0].children[0]['src'];
+    await fetch(base64Img)
+        .then(res => res.blob())
+        .then(async (blob) => {
+          let identificador = Math.random();
+          await this.Firestorage.upload('/images'+identificador+blob, blob).then(data => {
+          data.ref.getDownloadURL().then(async url => {
+            //enviando el url dentro del correo
+            var templateParams = {
+              correo_user: localStorage.getItem('correouser'),
+              asunto: 'Confirmación de cita para reparación/modificación',
+              placa: await this.infoUser.obtenerPlaca(localStorage.getItem('iduser'), 2),
+              url_qr: url,
+              fecha: mensaje
+            };
+            emailjs.send('contact_service', 'contact_form', templateParams, 'user_KW3uRXxAbvOF5N1nIX2LP')
+              .then((result: EmailJSResponseStatus) => {
+                console.log(result.text);
+              }, (error) => {
+                console.log(error.text);
+              });
+          });
+      });  
+    })
 
-    //se le envia correo de confirmacion de cita al gerente al gerente
+    //otros tramites
     this.infoUser.confirmar(2);
     this.confirmada2 = 'confirmada';
     this.fecha2 = 'Cita en progreso, para ver estado revisa "Reparaciones"'
@@ -152,33 +183,100 @@ export class VistaSolicitarCitasComponent implements OnInit {
     alert('se ha confirmado su cita');
   }
 
-  confirmar1(): void{
-    //se le envia correo de confirmacion de cita al gerente al gerente
+  async confirmar1(): Promise<void>{
+    //asignamos el mensaje correspondiente
+    const mensaje= this.fecha1;
+    //generando el codigo qr de la orden de repa y enviandolo por correo con la info
+    const base64Img = document.getElementsByClassName('bshadow1')[0].children[0]['src'];
+    await fetch(base64Img)
+        .then(res => res.blob())
+        .then(async (blob) => {
+          let identificador = Math.random();
+          await this.Firestorage.upload('/images'+identificador+blob, blob).then(data => {
+          data.ref.getDownloadURL().then(async url => {
+            //enviando el url dentro del correo
+            var templateParams = {
+              correo_user: localStorage.getItem('correouser'),
+              asunto: 'Confirmación de cita para reparación/modificación',
+              placa: await this.infoUser.obtenerPlaca(localStorage.getItem('iduser'), 1),
+              url_qr: url,
+              fecha: mensaje
+            };
+            emailjs.send('contact_service', 'contact_form', templateParams, 'user_KW3uRXxAbvOF5N1nIX2LP')
+              .then((result: EmailJSResponseStatus) => {
+                console.log(result.text);
+              }, (error) => {
+                console.log(error.text);
+              });
+          });
+      });  
+    })
+
+    //otros tramites
     this.infoUser.confirmar(1);
     this.confirmada1 = 'confirmada';
     this.fecha1 = 'Cita en progreso, para ver estado revisa "Reparaciones"'
     alert('se ha confirmado su cita');
   }
 
-  pedirOtraFecha1(): void{
+  async pedirOtraFecha1(): Promise<void>{
     this.infoUser.nuevaFecha(1);
     this.fecha1='En espera por fecha';
     this.confirmada1='cita solicitada';
-    //el gerente debe proponer una nueva fecha para la cita
+    //enviamos un correo al gerente para que sepa que el cliente rechazo la cita
+    var templateParams = {
+      correo_user: localStorage.getItem('correouser'),
+      asunto: 'Solicitud de Rechazada',
+      placa: await this.infoUser.obtenerPlaca(localStorage.getItem('iduser'), 1),
+      estado: 'rechazado'
+    };
+    emailjs.send('contact_service', 'contact_form2', templateParams, 'user_KW3uRXxAbvOF5N1nIX2LP')
+      .then((result: EmailJSResponseStatus) => {
+        console.log(result.text);
+      }, (error) => {
+        console.log(error.text);
+      });
+    alert('se ha solicitado otra fecha para la cita')
   }
 
-  pedirOtraFecha2(): void{
+  async pedirOtraFecha2(): Promise<void>{
     this.infoUser.nuevaFecha(2);
     this.fecha2='En espera por fecha';
     this.confirmada2='cita solicitada';
-    //el gerente debe proponer una nueva fecha para la cita
+    //enviamos un correo al gerente para que sepa que el cliente rechazo la cita
+    var templateParams = {
+      correo_user: localStorage.getItem('correouser'),
+      asunto: 'Solicitud de Rechazada',
+      placa: await this.infoUser.obtenerPlaca(localStorage.getItem('iduser'), 2),
+      estado: 'rechazado'
+    };
+    emailjs.send('contact_service', 'contact_form2', templateParams, 'user_KW3uRXxAbvOF5N1nIX2LP')
+      .then((result: EmailJSResponseStatus) => {
+        console.log(result.text);
+      }, (error) => {
+        console.log(error.text);
+      });
+      alert('se ha solicitado otra fecha para la cita')
   }
 
-  pedirOtraFecha3(): void{
+  async pedirOtraFecha3(): Promise<void>{
     this.infoUser.nuevaFecha(3);
     this.fecha3='En espera por fecha';
     this.confirmada3='cita solicitada';
-    //el gerente debe proponer una nueva fecha para la cita
+    //enviamos un correo al gerente para que sepa que el cliente rechazo la cita
+    var templateParams = {
+      correo_user: localStorage.getItem('correouser'),
+      asunto: 'Solicitud de Rechazada',
+      placa: await this.infoUser.obtenerPlaca(localStorage.getItem('iduser'), 3),
+      estado: 'rechazado'
+    };
+    emailjs.send('contact_service', 'contact_form2', templateParams, 'user_KW3uRXxAbvOF5N1nIX2LP')
+      .then((result: EmailJSResponseStatus) => {
+        console.log(result.text);
+      }, (error) => {
+        console.log(error.text);
+      });
+      alert('se ha solicitado otra fecha para la cita')
   }
 
   async clickedx(): Promise<void>{
@@ -236,6 +334,7 @@ export class VistaSolicitarCitasComponent implements OnInit {
       correo_user: localStorage.getItem('correouser'),
       asunto: 'Solicitud de cita',
       placa: await this.infoUser.obtenerPlaca(localStorage.getItem('iduser'), nroVehiculo),
+      estado: 'solicitado'
     };
     emailjs.send('contact_service', 'contact_form2', templateParams, 'user_KW3uRXxAbvOF5N1nIX2LP')
       .then((result: EmailJSResponseStatus) => {

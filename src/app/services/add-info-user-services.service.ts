@@ -79,6 +79,23 @@ export class AddInfoUserServicesService {
   }
 
   /**
+   * OBTENER ID USUARIO POR SU CORREO
+   */
+
+  async obtenerID(correo:string): Promise<string>{
+    let id='no se ha encontrado'
+    await this.Firestore.collection('DATOS-USUARIOS').ref.where('correo','==', correo).
+    get().then((querysnapshot)=>{ //este await hace que primero se tenga que resolver esta promesa antes de proseguir con el codigo
+    querysnapshot.forEach((usuario)=>{
+        //si el documento se encuentra, entonces 
+        console.log(usuario.id.valueOf().toString());
+        id=usuario.id.valueOf().toString();
+      })
+    })
+    return id;
+  }
+
+  /**
    * FUNCION PARA QUE EL ADMIN MODIFIQUE EL USUARIO
    */
 
@@ -161,7 +178,7 @@ export class AddInfoUserServicesService {
         if(nrovehiculo==cita.get('nroVehiculo')){
           //si el documento se encuentra, entonces 
           this.citasCollection.doc(cita.id.valueOf().toString()).ref.onSnapshot(function(result) {
-          result.ref.update({ estatus:'Cita solicitada', fechaTentativa:'En espera por fecha' })});
+          result.ref.update({ estatus:'cita solicitada'})});
         }
       })
     })

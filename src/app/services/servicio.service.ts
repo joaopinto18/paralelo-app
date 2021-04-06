@@ -33,7 +33,9 @@ export class ServicioService {
           lugar: "vacio",
           numero: 0,
           acceso: "cliente",
-          correo: response.user.email
+          correo: response.user.email,
+          servicios_realizados:'',
+          Vehiculos_trabados:''
           } 
 
         await this.Firestore.collection('DATOS-USUARIOS').ref.where('correo','==',datosUsuario.correo).

@@ -39,6 +39,9 @@
             <div class="fecha">
                 <label *ngIf="confirmada1!='confirmada'">Fecha: {{fecha1}}</label>
                 <label *ngIf="confirmada1=='confirmada'">Cita en progreso, para ver estado revisa "Reparaciones"</label>
+                <ngx-qrcode type='file' name='file' (change)="onSelectFile($event)" 
+                (change)="upload($event)" [elementType]="elementType" [errorCorrectionLevel]="correctionLevel" 
+                [value]="value1" cssClass="bshadow1"></ngx-qrcode>
             </div>
             <div class="iconos" *ngIf="confirmada1=='En espera de confirmación'">
                 <button class="btn-1" (click)="confirmar1()"><i class="fa fa-check" aria-hidden="true"></i></button>
@@ -60,6 +63,9 @@
             <div class="fecha">
                 <label *ngIf="confirmada2!='confirmada'">Fecha: {{fecha2}}</label>
                 <label *ngIf="confirmada2=='confirmada'">Cita en progreso, para ver estado revisa "Reparaciones"</label>
+                <ngx-qrcode type='file' name='file' (change)="onSelectFile($event)" 
+                (change)="upload($event)" [elementType]="elementType" [errorCorrectionLevel]="correctionLevel" 
+                [value]="value2" cssClass="bshadow2"></ngx-qrcode>
             </div>
             <div class="iconos" *ngIf="confirmada2=='En espera de confirmación'">
                 <button class="btn-1" (click)="confirmar2()"><i class="fa fa-check" aria-hidden="true"></i></button>
