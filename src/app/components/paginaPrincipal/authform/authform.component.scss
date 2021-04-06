@@ -87,6 +87,8 @@
     text-align: center;
     margin: auto;
     margin-bottom: 2.5%;
+    background-color: #EFEFEF;
+    color: black;
 }
 @media screen and (max-width: 600px) {
  
@@ -114,6 +116,26 @@
         height: 15%;
         margin-bottom: 1%;
     }
+    }
+    @media screen and (max-width: 1024px) {
+        .container-fluid .row{
+            width: 80%;        
+            margin: auto;
+        }
+        .container-fluid  .row .col-md-12 .form-group{
+           height: 20%;
+           margin-bottom: 0%;
+            
+        }
+        .container-fluid  .row .col-md-12 .form-group .form-control{
+            height: 30%;
+            
+           
+        }
+        .container-fluid  .row .col-md-12  .btn-primary{
+            height: 15%;
+            margin-bottom: 1%;
+        }
     }
 /*
 label{

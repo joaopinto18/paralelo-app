@@ -151,3 +151,33 @@
     }
 
     }
+    @media screen and (max-width: 1024px) {
+        .container-fluid{
+            padding-bottom: 0;
+            margin-bottom: 0;
+            background-color: #494949;
+            height: 150%;
+        }
+    
+    
+        .container-fluid .row{
+            width: 100%;
+            margin-bottom: 0;
+            margin: auto;
+        }
+    
+        .container-fluid .row .col-md-5{
+            width: 100%;
+            height: 65%;
+        }
+        .container-fluid .row .col-md-7{
+            width: 100%;
+            height: 35%;
+        }    
+        .btn-default{
+            width: 80%;
+            height: 22%;
+            margin-left: 10%; 
+        }
+       
+        }

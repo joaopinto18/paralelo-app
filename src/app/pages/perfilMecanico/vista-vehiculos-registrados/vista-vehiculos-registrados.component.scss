@@ -24,6 +24,7 @@
     height: 20%;
     width: 100%;
     display: flex;
+   
 }
 
 .wrapper .input-section .input-form{
@@ -41,6 +42,15 @@
     font-weight: bold;
     margin-top: 20px;
     color: white;
+}
+.wrapper .input-section .input .busca{
+    height: 10px;
+    border-radius: 5px;                      
+    font-size: 15px;            
+    margin: 10px 10px 10px 5px; 
+    padding: 10px 10px 10px 5px;
+    display: block;             
+    border: none;
 }
 
 .wrapper .input-section .input-button{
@@ -95,12 +105,14 @@
     display: flex;
     justify-content: space-between;
     height: 80%;
+   
 }
 
 .form-square .form-square-background .cahnges-form .columna1{
     display: flex;
     flex-direction: column;
     justify-content: center;
+    
 }
 
 .form-square .form-square-background .cahnges-form .columna2{
@@ -160,3 +172,64 @@ label{
     font-weight: bold;
 }
 
+.form-square .form-square-background{
+        width: 80%;
+        height: 90%;
+        margin-bottom: 0;
+    }
+    @media screen and (max-width: 600px) {
+        .wrapper{
+            width: 100%;
+            height: 100%;
+            padding-bottom: 0;
+            margin-bottom: 0;
+        }
+       
+        .wrapper .input-section .input .busca{
+            width: 80%;
+           
+        }
+        input{
+            width: 100%;
+            margin-left: 35%;
+      
+        }
+        label{
+           margin-left: 35%;
+           width: 100%;
+        }
+        .form-square .form-square-background{
+            width: 80%;
+            height: 90%;
+            margin-bottom: 0;
+        }
+        .form-square .form-square-background .botones{
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+        }
+        .form-square .form-square-background .botones .send-button{
+            width: 30%;
+            height: 100%;
+            font-size: 12px;
+        }
+        .citas{
+            height: 35%;
+        }
+        .wrapper .space .citas .btn2{
+            margin-top: 60px;
+           
+        }
+    }
+    @media screen and (max-width: 1024px) {
+        .wrapper{
+            width: 100%;
+            height: 100%;
+            padding-bottom: 0;
+            margin-bottom: 0;
+        }
+        .wrapper .input-section .input .busca{
+            width: 80%;
+           
+        }
+        }

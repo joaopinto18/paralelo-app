@@ -109,3 +109,27 @@ button{
 
   }
 
+  @media screen and (max-width: 1024px) {
+    .container-fluid{
+      padding-bottom: 0;
+      margin-bottom: 0;
+      background-color: #494949;
+      height: 100%;
+  }
+
+
+  .container-fluid .row .container-fluid{
+    width: 80%;
+    margin: auto;
+    margin-bottom: 5%;
+  }
+  .caja1{
+    width: 80%;
+    height: 50px;
+  }
+  .content{
+    width: 80%;
+    margin-bottom: 5%;
+  }
+   
+    }

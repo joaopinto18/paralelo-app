@@ -64,3 +64,9 @@
     display: none;
   }
 
+  @media screen and (max-width: 1024px) {
+    
+    .container-fluid .collapse .navbar-nav .nav-item{
+        width: 30%;
+    }
+    }
