@@ -102,6 +102,7 @@ button{
 
 .citas{
     height: 0px;
+ 
 }
 
 img{
@@ -114,8 +115,32 @@ img{
 }
 
 
-.btn2{
+.wrapper .space .citas .btn2{
     position: static;
     margin-top: 350px;
     margin-left: -350px;
+}
+@media screen and (max-width: 600px) {
+    .wrapper{
+        width: 100%;
+        height: 150%;
+        padding-bottom: 0;
+        margin-bottom: 0;
+    }
+    .wrapper .title-box .title{
+        margin: auto;
+    }
+    .form-square{
+        margin-top: 25%;
+        width: 100%;
+        height: 65%
+    }
+    
+    .citas{
+        height: 35%;
+    }
+    .wrapper .space .citas .btn2{
+        margin-top: 60px;
+       
+    }
 }

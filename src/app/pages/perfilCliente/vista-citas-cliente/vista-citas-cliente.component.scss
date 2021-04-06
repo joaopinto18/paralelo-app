@@ -146,3 +146,56 @@
     font-family: 'Athiti', sans-serif;
 }
 
+@media screen and (max-width: 600px) {
+    .wrapper{
+        width: 100%;
+        height: 100%;
+    }
+    caja1{
+        width: 120px;
+        height: 40px;
+        font-size: 10px;
+    }
+    .caja1 p{
+        font-size: 10px;
+        margin-top: 11%;
+    }
+    .caja2 p{
+        font-size: 10px;
+        margin-top: 11%;
+    }
+    
+    caja3{
+        width: 120px;
+        height: 40px;
+        font-size: 10px;
+    }
+    .caja3 p{
+        font-size: 10px;
+        margin-top: 11%;
+    }
+    caja4{
+        width: 120px;
+        height: 40px;
+        font-size: 10px;
+    }
+    .caja4 p{
+        font-size: 10px;
+        margin-top: 11%;
+    }
+    caja5{
+        width: 120px;
+        height: 40px;
+        font-size: 10px;
+    }
+    .caja5 p{
+        font-size: 10px;
+        margin-top: 11%;
+    }
+    .triangulo{
+        margin-top: 2.5%;
+        border-top: 10px solid transparent;
+        border-left: 20px solid white;
+        border-bottom: 10px solid transparent;
+    }
+}
