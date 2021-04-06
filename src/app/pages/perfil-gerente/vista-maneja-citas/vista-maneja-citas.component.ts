@@ -12,36 +12,24 @@ export class VistaManejaCitasComponent implements OnInit {
 
   ngOnInit(): void {
   }
+
+
   
+
+
   calendarOptions: CalendarOptions = {
     initialView: 'dayGridMonth',
-    events: [
-      { title: 'Cita: Ana', date: '2021-04-04' },
-      { title: 'Cita: Peter', date: '2021-04-05' },
-    ],
-    eventColor: 'rgb(255, 201, 51);',
-    titleFormat: { // will produce something like "Tuesday, September 18, 2018"
-    month: 'long',
-    year: 'numeric',
-    day: '2-digit',
+    dateClick: this.handleDateClick.bind(this), // bind is important!
+    eventClick: function(info){
+      alert(info.event.title)
     },
-    handleWindowResize: true,
-    expandRows: true,
-    //height: 300,
-    //contentHeight: "auto",
-    buttonText: {
-      today:    'today',
-      month:    'month',
-      week:     'week',
-      day:      'day',
-      list:     'list'
-    },
-    //aspectRatio: 1.8,
-    eventClick: function(info) {
-      alert(info.event.title);
-      // change the border color just for fun
-      //info.el.style.borderColor = 'red';
-    },
+    contentHeight: 4000,
+    aspectRatio: 1.8,
+    handleWindowResize:true,
+    titleFormat:{ year: 'numeric', month: 'long', day: 'numeric' },
+    eventColor: "rgb(255, 201, 51)",
+    eventDisplay: "auto",
+    editable: false,
   };
 
   handleDateClick(arg) {
