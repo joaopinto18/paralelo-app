@@ -81,4 +81,14 @@ export class VistaRegistroVehiculo1Component implements OnInit {
     this.Firestorage.upload('/images'+Math.random()+this.filePath, this.filePath);
     }
 
+  async desactivar(){
+    const user = await this.addCar.BuscarVehiculoIdxx(localStorage.getItem('correouser'),1).valueChanges().pipe( take(1) ).toPromise()
+    this.addCar.liberarEspacioNuevoVehiculo(user[0].placa);
+
+    this.form.setValue({serial_motor: '',
+      modelo:'', anno:'', placa:'', fecha:''});
+
+      alert('se ha liberado este espacio para registrar vehiculo')
+  }
+
 }

@@ -373,16 +373,19 @@ export class VistaSolicitarCitasComponent implements OnInit {
       estatus: 'cita solicitada',
       nroVehiculo: nroVehiculo, 
       placa: await this.infoUser.obtenerPlaca(localStorage.getItem('iduser'), nroVehiculo), 
-      HoraTentativa:''
+      HoraTentativa:'En espera por hora'
     } 
     console.log(datosCita);
     this.infoUser.SolicitarCitax(datosCita);
     if(nroVehiculo==1){
       this.fecha1=datosCita.fechaTentativa;
+      this.hora1=datosCita.HoraTentativa;
     }else if(nroVehiculo==1){
       this.fecha2=datosCita.fechaTentativa;
+      this.hora2=datosCita.HoraTentativa;
     }else{
       this.fecha3=datosCita.fechaTentativa;
+      this.hora3=datosCita.HoraTentativa;
     }
     alert('cita solicitada')
 

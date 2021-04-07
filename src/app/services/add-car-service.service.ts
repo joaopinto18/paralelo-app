@@ -52,6 +52,16 @@ export class AddCarServiceService {
   }  
 
   /**
+   * FUNCION PARA OBTENER LA INFORMACIÓN DE VEHÍCULO EN VEHICULOS REGISTRADOS
+   */
+
+   BuscarVehiculoRegistrado(placa: string): any{
+
+    return this.firestore.collection('VEHICULOS-REGISTRADOS' ,  ref => (
+      ref.where('placa', '==', placa)))
+  }  
+
+  /**
    * FUNCION PARA OBTENER LA INFORMACIÓN DEL VEHICULO DE UN USUARIO CON ID
    */
 
@@ -305,6 +315,25 @@ export class AddCarServiceService {
           //utilizamos el id para buscar el documento y hacer los cambios
           this.vehiculosRegistradosCollection.doc(idx).ref.onSnapshot(function(result) {
             result.ref.update({historial_procedimientos: respuesta});
+          })
+        })
+      })
+    }
+
+    /**
+     * LIBERAR ESPACIO PARA REGISTRAR NUEVO VEHICULO
+     */
+
+     async liberarEspacioNuevoVehiculo(placa: string): Promise<void>{
+      await this.firestore.collection('VEHICULOS-REGISTRADOS').ref.where('placa','==',placa).
+      get().then((querysnapshot)=>{
+        querysnapshot.forEach((carro)=>{
+          //obtenemos el id en cuestion
+          let idx = carro.id.valueOf();
+          //utilizamos el id para buscar el documento y hacer los cambios
+          this.vehiculosRegistradosCollection.doc(idx).ref.onSnapshot(function(result) {
+            result.ref.update({historial_procedimientos: '', anno:'', fecha:'', modelo:'',
+            placa:'', serial_motor:''});
           })
         })
       })
