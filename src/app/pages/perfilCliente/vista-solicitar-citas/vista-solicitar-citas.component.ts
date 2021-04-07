@@ -17,6 +17,10 @@ export class VistaSolicitarCitasComponent implements OnInit {
   fecha2: any;
   fecha3: any;
 
+  hora1: any;
+  hora2: any;
+  hora3: any;
+
   confirmada1: string;
   confirmada2: string;
   confirmada3: string;
@@ -45,6 +49,7 @@ export class VistaSolicitarCitasComponent implements OnInit {
         if(index==1 && await this.infoUser.estadoCita(1) == 'cita solicitada'){
           this.clicked=true;
           this.fecha1= await this.infoUser.fecha(index);
+          this.hora1= await this.infoUser.hora(index);
           this.confirmada1='cita solicitada';
         }else if(index==1 && await this.infoUser.estadoCita(1) == 'confirmada'){
           this.clicked=true;
@@ -52,12 +57,29 @@ export class VistaSolicitarCitasComponent implements OnInit {
         }else if(index==1 && await this.infoUser.estadoCita(1) == 'En espera de confirmación'){
           this.clicked=true;
           this.fecha1= await this.infoUser.fecha(index);
+          this.hora1= await this.infoUser.hora(index);
           this.confirmada1='En espera de confirmación';
+        }else if(index==1 && await this.infoUser.estadoCita(1) == 'incio de reparacion'){
+          this.clicked=true;
+          this.fecha1= await this.infoUser.fecha(index);
+          this.hora1= await this.infoUser.hora(index);
+          this.confirmada1='confirmada';
+        }else if(index==1 && await this.infoUser.estadoCita(1) == 'reparacion en proceso'){
+          this.clicked=true;
+          this.fecha1= await this.infoUser.fecha(index);
+          this.hora1= await this.infoUser.hora(index);
+          this.confirmada1='confirmada';
+        }else if(index==1 && await this.infoUser.estadoCita(1) == 'reparacion finalizada'){
+          this.clicked=true;
+          this.fecha1= await this.infoUser.fecha(index);
+          this.hora1= await this.infoUser.hora(index);
+          this.confirmada1='confirmada';
         }
 
         if(index==2 && await this.infoUser.estadoCita(2) == 'cita solicitada'){
           this.clicked2=true;
           this.fecha2= await this.infoUser.fecha(index);
+          this.hora2= await this.infoUser.hora(index);
           this.confirmada2='cita solicitada';
         }else if(index==2 && await this.infoUser.estadoCita(2) == 'confirmada'){
           this.clicked2=true;
@@ -65,12 +87,29 @@ export class VistaSolicitarCitasComponent implements OnInit {
         }else if(index==2 && await this.infoUser.estadoCita(2) == 'En espera de confirmación'){
           this.clicked2=true;
           this.fecha2= await this.infoUser.fecha(index);
+          this.hora2= await this.infoUser.hora(index);
           this.confirmada2='En espera de confirmación';
+        }else if(index==2 && await this.infoUser.estadoCita(2) == 'incio de reparacion'){
+          this.clicked2=true;
+          this.fecha2= await this.infoUser.fecha(index);
+          this.hora2= await this.infoUser.hora(index);
+          this.confirmada2='confirmada';
+        }else if(index==2 && await this.infoUser.estadoCita(2) == 'reparacion en proceso'){
+          this.clicked2=true;
+          this.fecha2= await this.infoUser.fecha(index);
+          this.hora2= await this.infoUser.hora(index);
+          this.confirmada2='confirmada';
+        }else if(index==2 && await this.infoUser.estadoCita(2) == 'reparacion finalizada'){
+          this.clicked2=true;
+          this.fecha2= await this.infoUser.fecha(index);
+          this.hora2= await this.infoUser.hora(index);
+          this.confirmada2='confirmada';
         }
 
         if(index==3 && await this.infoUser.estadoCita(3) == 'cita solicitada'){
           this.clicked3=true;
           this.fecha3= await this.infoUser.fecha(index);
+          this.hora3= await this.infoUser.hora(index);
           this.confirmada3='cita solicitada';
         }else if(index==3 && await this.infoUser.estadoCita(3) == 'confirmada'){
           this.clicked3=true;
@@ -78,7 +117,23 @@ export class VistaSolicitarCitasComponent implements OnInit {
         }else if(index==3 && await this.infoUser.estadoCita(3) == 'En espera de confirmación'){
           this.clicked3=true;
           this.fecha3= await this.infoUser.fecha(index);
+          this.hora3= await this.infoUser.hora(index);
           this.confirmada3='En espera de confirmación';
+        }else if(index==3 && await this.infoUser.estadoCita(3) == 'incio de reparacion'){
+          this.clicked3=true;
+          this.fecha3= await this.infoUser.fecha(index);
+          this.hora3= await this.infoUser.hora(index);
+          this.confirmada3='confirmada';
+        }else if(index==3 && await this.infoUser.estadoCita(3) == 'reparacion en proceso'){
+          this.clicked3=true;
+          this.fecha3= await this.infoUser.fecha(index);
+          this.hora3= await this.infoUser.hora(index);
+          this.confirmada3='confirmada';
+        }else if(index==3 && await this.infoUser.estadoCita(3) == 'reparacion finalizada'){
+          this.clicked3=true;
+          this.fecha3= await this.infoUser.fecha(index);
+          this.hora3= await this.infoUser.hora(index);
+          this.confirmada3='confirmada';
         }
       }
     }
@@ -317,7 +372,8 @@ export class VistaSolicitarCitasComponent implements OnInit {
       CorreoSolicitante: localStorage.getItem('correouser'),
       estatus: 'cita solicitada',
       nroVehiculo: nroVehiculo, 
-      placa: await this.infoUser.obtenerPlaca(localStorage.getItem('iduser'), nroVehiculo)
+      placa: await this.infoUser.obtenerPlaca(localStorage.getItem('iduser'), nroVehiculo), 
+      HoraTentativa:''
     } 
     console.log(datosCita);
     this.infoUser.SolicitarCitax(datosCita);
