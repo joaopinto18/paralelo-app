@@ -1,0 +1,22 @@
+<app-navbar-derecho-gerente></app-navbar-derecho-gerente>
+<app-navbar-perfil-gerente></app-navbar-perfil-gerente>
+
+<div class="wrapper">
+    <div class="contenedor">
+        <div class="search" [formGroup]="form">
+            <input type="text" placeholder="    ingresa el correo de un cliente"  formControlName="correo">
+        </div>
+        <div class="btn-search">
+            <button (click)='search()'>Buscar</button>
+        </div>
+    </div>
+    
+    <div class="container">
+        <p>Nombre: {{nombre}}</p>
+        <p>Correo: {{correo}}</p>
+        <p>Cedula: {{cedula}}</p>
+        <p>Vehiculo 1: {{vehiculo1}}</p>
+        <p>Vehiculo 2: {{vehiculo2}}</p>
+        <p>Vehiculo 3: {{vehiculo3}}</p>
+    </div>
+</div>

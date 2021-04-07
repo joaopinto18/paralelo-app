@@ -1,10 +1,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Athiti:wght@700&display=swap');
 
-
+$tablet: 800px;
+$phone: 480px;
 .wrapper{
     height: 80%;
     width: 75%;
     background-color: rgb(66, 66, 66);
+    @media(max-width: $phone){
+        width: 85%;
+    }
 }
 
 .wrapper .title-box{
@@ -17,6 +21,9 @@
     font-family: 'Athiti', sans-serif;
     font-size: 25px;
     color: rgb(255, 201, 51);
+    @media(max-width: $phone){
+        font-size: 17px;
+    }
 }
 
 .title1{
@@ -26,7 +33,9 @@
     margin-left: 40px;
     font-size: 20px;
     margin-top: 20px;
-}
+    @media(max-width: $phone){
+        font-size: 15px;
+    }}
 
 .title2{
     height: 0px;
@@ -35,6 +44,9 @@
     margin-left: 40px;
     font-size: 20px;
     margin-top: 50px;
+    @media(max-width: $phone){
+        font-size: 15px;
+    }
 }
 
 .title3{
@@ -44,6 +56,9 @@
     margin-left: 40px;
     font-size: 20px;
     margin-top: 50px;
+    @media(max-width: $phone){
+        font-size: 15px;
+    }
 }
 
 .estatus{
@@ -53,6 +68,10 @@
 .estatus .cajas{
     display: flex;
     justify-content: space-around;
+    @media(max-width: $phone){
+        width: 0%;
+        margin-left: 49%;
+    }
 }
 
 .cajas{
@@ -61,6 +80,10 @@
     margin-top: 40px;
     margin-bottom: 80px;
     font-family: 'Athiti', sans-serif;
+    @media(max-width: $phone){
+        width: 90%;
+        font-size: 10px;
+    }
 }
 
 .caja1{
@@ -75,6 +98,9 @@
 .caja1 p{
     margin-top: 15px;
     font-size: 14px;
+    @media(max-width: $phone){
+        font-size: 0.7em;
+    }
 }
 
 .caja2{
@@ -88,6 +114,9 @@
 .caja2 p{
     margin-top: 15px;
     font-size: 14px;
+    @media(max-width: $phone){
+        font-size: 0.7em;
+    }
 }
 
 .caja3{
@@ -101,6 +130,9 @@
 .caja3 p{
     margin-top: 5px;
     font-size: 14px;
+    @media(max-width: $phone){
+        font-size: 0.7em;
+    }
 }
 
 .caja4{
@@ -114,6 +146,9 @@
 .caja4 p{
     margin-top: 5px;
     font-size: 14px;
+    @media(max-width: $phone){
+        font-size: 0.7em;
+    }
 }
 
 .caja5{
@@ -128,6 +163,9 @@
 .caja5 p{
     margin-top: 5px;
     font-size: 14px;
+    @media(max-width: $phone){
+        font-size: 0.7em;
+    }
 }
 
 .triangulo{
@@ -136,6 +174,11 @@
 	border-top: 20px solid transparent;
 	border-left: 35px solid white;
 	border-bottom: 25px solid transparent;
+    @media(max-width: $phone){
+        border-top: 5px solid transparent;
+	    border-left: 15px solid white;
+	    border-bottom: 10px solid transparent;
+    }
 }
 
 .info-caja{
@@ -144,6 +187,7 @@
     width: 80;
     color:white;
     font-family: 'Athiti', sans-serif;
+    
 }
 
 @media screen and (max-width: 600px) {

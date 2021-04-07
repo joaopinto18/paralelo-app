@@ -1,0 +1,6 @@
+<app-navbar-derecho-gerente></app-navbar-derecho-gerente>
+<app-navbar-perfil-gerente></app-navbar-perfil-gerente>
+
+<div class="wrapper">
+    <zxing-scanner name='qr' [formats]="['QR_CODE', 'EAN_13', 'CODE_128', 'DATA_MATRIX']" (scanSuccess)="scanSuccessHandler($event)"></zxing-scanner>
+</div>

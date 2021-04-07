@@ -5,27 +5,27 @@
 <div class="wrapper">
     <div class="caja">
         <div class="titulo">
-            <label>VEHICULO 1</label>
+            <label>VEHÍCULO 1</label>
         </div>
         <div class="boton">
-            <button [disabled]="clicked" (click)="clicked = true;" class="btn-cita">SOLICITAR CITA</button>
+            <button [disabled]="clicked" (click)="clickedx()" class="btn-cita">SOLICITAR CITA</button>
         </div>
     </div>
 
     <div class="caja">
         <div class="titulo">
-            <label>VEHICULO 2</label>
+            <label>VEHÍCULO 2</label>
         </div>
         <div class="boton">
-            <button [disabled]="clicked2" (click)="clicked2 = true;" class="btn-cita">SOLICITAR CITA</button>
+            <button [disabled]="clicked2" (click)="clickedx2()" class="btn-cita">SOLICITAR CITA</button>
         </div>
     </div>
     <div class="caja">
         <div class="titulo">
-            <label>VEHICULO 3</label>
+            <label>VEHÍCULO 3</label>
         </div>
         <div class="boton">
-            <button [disabled]="clicked3" (click)="clicked3 = true;" class="btn-cita">SOLICITAR CITA</button>
+            <button [disabled]="clicked3" (click)="clickedx3()" class="btn-cita">SOLICITAR CITA</button>
         </div>
     </div>
     <div class="mayortit">
@@ -33,45 +33,72 @@
     </div>
     <div class="caja" *ngIf="clicked">
         <div class="titulo">
-            <label>VEHICULO 1</label>
+            <label>VEHÍCULO 1</label>
         </div>
         <div class="parte-derecha">
             <div class="fecha">
-                <label>Fecha: </label>
+                <label *ngIf="confirmada1!='confirmada'" class="fechas">Fecha: {{fecha1}}</label>
+                <label *ngIf="confirmada1=='confirmada'">Cita en progreso, para ver estado revisa "Reparaciones"</label>
+                <ngx-qrcode type='file' name='file' (change)="onSelectFile($event)" 
+                (change)="upload($event)" [elementType]="elementType" [errorCorrectionLevel]="correctionLevel" 
+                [value]="value1" cssClass="bshadow1"></ngx-qrcode>
             </div>
-            <div class="iconos">
-                <button class="btn-1" ><i class="fa fa-check" aria-hidden="true"></i></button>
-                <button class="btn-2" [disabled]="clicked"><i class="fa fa-times" aria-hidden="true"></i></button>
+            <div class="iconos" *ngIf="confirmada1=='En espera de confirmación'">
+                <button class="btn-1" (click)="confirmar1()"><i class="fa fa-check" aria-hidden="true"></i></button>
+                <button class="btn-2" (click)="pedirOtraFecha1()"><i class="fa fa-times" aria-hidden="true"></i></button>
                 <button class="btn-3"(click)="trash1()"><i class="fa fa-trash" aria-hidden="true"></i></button>
+            </div>
+            <div class="iconos" *ngIf="confirmada1=='cita solicitada'">
+                <button class="btn-1" [disabled]="clicked"><i class="fa fa-check" aria-hidden="true"></i></button>
+                <button class="btn-2" [disabled]="clicked"><i class="fa fa-times" aria-hidden="true"></i></button>
+                <button class="btn-3" (click)="trash1()"><i class="fa fa-trash" aria-hidden="true"></i></button>
             </div>
         </div>
     </div>
     <div class="caja" *ngIf="clicked2">
         <div class="titulo">
-            <label>VEHICULO 2</label>
+            <label>VEHÍCULO 2</label>
         </div>
         <div class="parte-derecha">
             <div class="fecha">
-                <label>Fecha: </label>
+                <label *ngIf="confirmada2!='confirmada'" class="fechas">Fecha: {{fecha2}}</label>
+                <label *ngIf="confirmada2=='confirmada'">Cita en progreso, para ver estado revisa "Reparaciones"</label>
+                <ngx-qrcode type='file' name='file' (change)="onSelectFile($event)" 
+                (change)="upload($event)" [elementType]="elementType" [errorCorrectionLevel]="correctionLevel" 
+                [value]="value2" cssClass="bshadow2"></ngx-qrcode>
             </div>
-            <div class="iconos">
-                <button class="btn-1" [disabled]="clicked"><i class="fa fa-check" aria-hidden="true"></i></button>
-                <button class="btn-2" [disabled]="clicked"><i class="fa fa-times" aria-hidden="true"></i></button>
-                <button class="btn-3"(click)="trash2()"><i class="fa fa-trash" aria-hidden="true"></i></button>
+            <div class="iconos" *ngIf="confirmada2=='En espera de confirmación'">
+                <button class="btn-1" (click)="confirmar2()"><i class="fa fa-check" aria-hidden="true"></i></button>
+                <button class="btn-2" (click)="pedirOtraFecha2()"><i class="fa fa-times" aria-hidden="true"></i></button>
+                <button class="btn-3" (click)="trash2()"><i class="fa fa-trash" aria-hidden="true"></i></button>
+            </div>
+            <div class="iconos" *ngIf="confirmada2=='cita solicitada'">
+                <button class="btn-1" [disabled]="clicked2"><i class="fa fa-check" aria-hidden="true"></i></button>
+                <button class="btn-2" [disabled]="clicked2"><i class="fa fa-times" aria-hidden="true"></i></button>
+                <button class="btn-3" (click)="trash2()"><i class="fa fa-trash" aria-hidden="true"></i></button>
             </div>
         </div>
     </div>
     <div class="caja" *ngIf="clicked3">
         <div class="titulo">
-            <label>VEHICULO 3</label>
+            <label>VEHÍCULO 3</label>
         </div>
         <div class="parte-derecha">
             <div class="fecha">
-                <label>Fecha: </label>
+                <label *ngIf="confirmada3!='confirmada'" class="fechas">Fecha: {{fecha3}}</label>
+                <label *ngIf="confirmada3=='confirmada'">Cita en progreso, para ver estado revisa "Reparaciones"</label>
+                <ngx-qrcode type='file' name='file' (change)="onSelectFile($event)" 
+                (change)="upload($event)" [elementType]="elementType" [errorCorrectionLevel]="correctionLevel" 
+                [value]="value3" cssClass="bshadow3"></ngx-qrcode>
             </div>
-            <div class="iconos">
-                <button class="btn-1" [disabled]="clicked"><i class="fa fa-check" aria-hidden="true"></i></button>
-                <button class="btn-2" [disabled]="clicked"><i class="fa fa-times" aria-hidden="true"></i></button>
+            <div class="iconos" *ngIf="confirmada3=='En espera de confirmación'">
+                <button class="btn-1" (click)="confirmar3()"><i class="fa fa-check" aria-hidden="true"></i></button>
+                <button class="btn-2" (click)="pedirOtraFecha3()"><i class="fa fa-times" aria-hidden="true"></i></button>
+                <button class="btn-3" (click)="trash3()"><i class="fa fa-trash" aria-hidden="true"></i></button>
+            </div>
+            <div class="iconos" *ngIf="confirmada3=='cita solicitada'">
+                <button class="btn-1" [disabled]="clicked3"><i class="fa fa-check" aria-hidden="true"></i></button>
+                <button class="btn-2" [disabled]="clicked3"><i class="fa fa-times" aria-hidden="true"></i></button>
                 <button class="btn-3" (click)="trash3()"><i class="fa fa-trash" aria-hidden="true"></i></button>
             </div>
         </div>

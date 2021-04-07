@@ -6,5 +6,7 @@ export interface ModeloDatosUsuario {
     numero: number;
     acceso: String;
     correo: any;
+    servicios_realizados: any,
+    Vehiculos_trabados: any
 }
 

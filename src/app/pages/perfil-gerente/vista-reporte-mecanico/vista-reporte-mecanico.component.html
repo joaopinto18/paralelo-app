@@ -1,0 +1,20 @@
+<app-navbar-derecho-gerente></app-navbar-derecho-gerente>
+<app-navbar-perfil-gerente></app-navbar-perfil-gerente>
+
+<div class="wrapper">
+    <div class="contenedor">
+        <div class="search" [formGroup]="form">
+            <input type="text" placeholder="  Ingrese placa del vehiculo" formControlName="correo">
+        </div>
+        <div class="btn-search">
+            <button (click)='search()'>Buscar</button>
+        </div>
+    </div>
+    
+    <div class="container">
+        <p>Nombre del Mecanico: {{nombre}}</p>
+        <p>Servicios hecho por el mecanico: {{servicios}}</p>
+        <p>Ordenes atendidas: {{ordenes}}</p>
+    </div>
+</div>
+

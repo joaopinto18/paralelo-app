@@ -33,7 +33,9 @@ export class ServicioService {
           lugar: "vacio",
           numero: 0,
           acceso: "cliente",
-          correo: response.user.email
+          correo: response.user.email,
+          servicios_realizados:'',
+          Vehiculos_trabados:''
           } 
 
         await this.Firestore.collection('DATOS-USUARIOS').ref.where('correo','==',datosUsuario.correo).
@@ -42,13 +44,19 @@ export class ServicioService {
             //si hay un resultado es porque el usuario ya esta registrado 
             registrado = true;
             localStorage.setItem('iduser',usuario.id.valueOf());
+            localStorage.setItem('correouser', datosUsuario.correo.valueOf());
+            localStorage.setItem('accesouser', usuario.get('acceso'));
+            console.log(usuario.get('acceso'));
+            
             //utilizamos el id para evaluar que acceso tiene y hacer los tramites respectivos
             if(usuario.get('acceso')=='cliente'){
               this.router.navigate(['/vista-datos-perfil-cliente']);
             }else if(usuario.get('acceso')=='mecanico'){
               this.router.navigate(['/vista-perfil-mecanico']);
+            }else if(usuario.get('acceso')=='admin'){
+              this.router.navigate(['/vista-datos-perfil-admin']);
             }
-            //FALTA ADMIN Y GERENTE
+            //GERENTE
 
           })
         })
@@ -81,13 +89,15 @@ export class ServicioService {
       querysnapshot.forEach((usuario)=>{
         //mandamos el id del user al local storage
         localStorage.setItem('iduser',usuario.id.valueOf());
+        localStorage.setItem('correouser', data.correo);
+        localStorage.setItem('accesouser', 'cliente');
         //utilizamos el id para evaluar que acceso tiene y hacer los tramites respectivos
         this.router.navigate(['/vista-datos-perfil-cliente']);
         //restringir las demas rutas 
         
       })
     })
-  }
+  } 
 
   /**
    * INICIAR SESIÓN Y REDIRIGIR A LA VISTA CORRESPONDIENTE
@@ -100,6 +110,8 @@ export class ServicioService {
         querysnapshot.forEach((usuario)=>{
           //guardamos al user en el localStorage
           localStorage.setItem('iduser',usuario.id.valueOf());
+          localStorage.setItem('correouser', email);
+          localStorage.setItem('accesouser', usuario.get('acceso'));
           //utilizamos el id para evaluar que acceso tiene y hacer los tramites respectivos
           if(usuario.get('acceso')=='cliente'){
             this.router.navigate(['/vista-datos-perfil-cliente']);
@@ -107,6 +119,8 @@ export class ServicioService {
           }else if(usuario.get('acceso')=='mecanico'){
             this.router.navigate(['/vista-perfil-mecanico']);
             //restringir las demas rutas 
+          }else if(usuario.get('acceso')=='admin'){
+            this.router.navigate(['/vista-datos-perfil-admin']);
           }
         })
       })
@@ -128,9 +142,13 @@ export class ServicioService {
     try {
       await this.afAuth.signOut();
       localStorage.removeItem('iduser');
+      localStorage.removeItem('correouser'); 
+      localStorage.removeItem('accesouser');
     } catch (error) {
       console.log(error);
       localStorage.removeItem('iduser');
+      localStorage.removeItem('correouser');
+      localStorage.removeItem('accesouser');
     }
   }
   

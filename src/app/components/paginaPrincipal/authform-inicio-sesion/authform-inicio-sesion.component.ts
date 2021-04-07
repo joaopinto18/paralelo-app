@@ -42,5 +42,4 @@ export class AuthformInicioSesionComponent implements OnInit {
   handleGoogleLogin(){
     this.authService.loginWithGoogle();
   }
-
 }

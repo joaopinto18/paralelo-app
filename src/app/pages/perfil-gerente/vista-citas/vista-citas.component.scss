@@ -1,0 +1,49 @@
+@import url('https://fonts.googleapis.com/css2?family=Athiti:wght@700&display=swap');
+@import "node_modules/font-awesome/scss/font-awesome.scss";
+
+.wrapper{
+    height: 80%;
+    width: 75%;
+    background-color: rgb(66, 66, 66);
+    float: left;
+}
+
+.wrapper .title{
+    font-family: 'Athiti', sans-serif ;
+    font-size: 25px;
+    color: rgb(255, 201, 51);
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+.botones{
+    height: 0px;
+}
+
+button{
+    display: flex;
+    justify-items: normal;
+    margin-top: 50px;
+    align-items: center;
+    margin-left: 340px;
+    height: 50px;
+    font-family: 'Athiti', sans-serif ;
+    font-size: 25px;
+    border: none;
+    width: 280px;
+    cursor: pointer;
+    text-align: center;
+}
+
+.title{
+    height: 0px;
+}
+
+.btn{
+    text-align: center;
+    display: inline-block;
+}
+
+

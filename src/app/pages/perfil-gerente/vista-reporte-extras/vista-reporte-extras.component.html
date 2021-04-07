@@ -1,0 +1,23 @@
+<app-navbar-derecho-gerente></app-navbar-derecho-gerente>
+<app-navbar-perfil-gerente></app-navbar-perfil-gerente>
+
+<div class="wrapper">
+    <div class="botones">
+        <select id = "roles" name='roles' class="cosas">
+            <option value = "marca">Marcas que mas reinciden en Paralelo 4x4</option>
+            <option value = "usuario">Datos del usuario promedio</option>
+            <option value = "herramientas">Análisis de herramientas mas utilizadas</option>
+        </select>   
+    </div>
+    <div class="grafico">
+        <google-chart #chart
+        [title]="title1"
+        [type]="type"
+        [data]="data1"
+        [options]="options"
+        [width]="width"
+        [height]="height">
+    </google-chart>
+    </div>
+    
+</div>

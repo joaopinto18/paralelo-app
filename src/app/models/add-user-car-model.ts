@@ -8,5 +8,6 @@ export interface AddUserCarModel {
     imagen?:any,
     modelo:any,
     placa:any,
-    serial_motor:any
+    serial_motor:any,
+    historial_procedimientos:any;
 }

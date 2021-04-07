@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Athiti:wght@700&display=swap');
 @import "node_modules/font-awesome/scss/font-awesome.scss";
 
+$phone: 480px;
 .wrapper{
     height: 80%;
     width: 75%;
@@ -28,10 +29,15 @@ label{
     margin-left: 20px;
 }
 
+
+.fechas{
+    margin-left: 200px;
+}
+
 .fecha{
     background-color: red;
-    margin-left: -300px;
-    width: 20px;
+    margin-left: -250px;
+    width: 450px;
     margin-top: 8px;
     height: 0px;
     color: white;

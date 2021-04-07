@@ -13,96 +13,144 @@
     </div>
     <div class="estatus">
         <div class="cajas">
-            <div class="caja1">
+            <div class="caja1" *ngIf="estado1!='cita solicitada'">
+                <p>1.CITA SOLICITADA</p>
+            </div>
+
+            <div class="caja1" *ngIf="estado1=='cita solicitada'" style="background-color:  greenyellow">
                 <p>1.CITA SOLICITADA</p>
             </div>
             <div class="triangulo">
-                
             </div>
-            <div class="caja2">
+            <!---------------------------------------------->
+            <div class="caja2" *ngIf="estado1!='confirmada'">
+                <p>2.CITA CONFIRMADA</p>
+            </div>
+
+            <div class="caja2" *ngIf="estado1=='confirmada'" style="background-color:  greenyellow">
                 <p>2.CITA CONFIRMADA</p>
             </div>
             <div class="triangulo">
-                
             </div>
-            <div class="caja3">
-                <p>3.INICIO DE REPARACION</p>
+            <!---------------------------------------------->
+            <div class="caja3" *ngIf="estado1!='incio de reparacion'">
+                <p>3.INICIO DE REPARACIÓN</p>
             </div>
-            <div class="triangulo">
-                
-            </div>
-            <div class="caja4">
-                <p>4.REPARACION EN PROCESO</p>
+            <div class="caja3" *ngIf="estado1=='incio de reparacion'" style="background-color:  greenyellow">
+                <p>3.INICIO DE REPARACIÓN</p>
             </div>
             <div class="triangulo">
-                
             </div>
-            <div class="caja5">
-                <p>5.REPARACION FINALIZADA</p>
+            <!---------------------------------------------->
+            <div class="caja4" *ngIf="estado1!='reparacion en proceso'">
+                <p>4.REPARACIÓN EN PROCESO</p>
             </div>
+            <div class="caja4" *ngIf="estado1=='reparacion en proceso'" style="background-color:  greenyellow">
+                <p>4.REPARACIÓN EN PROCESO</p>
+            </div>
+            <div class="triangulo">
+            </div>
+            <!---------------------------------------------->
+            <div class="caja5" *ngIf="estado1!='reparacion finalizada'">
+                <p>5.REPARACIÓN FINALIZADA</p>
+            </div>
+            <div class="caja5" *ngIf="estado1=='reparacion finalizada'" style="background-color:  greenyellow">
+                <p>5.REPARACIÓN FINALIZADA</p>
+            </div>
+            <!---------------------------------------------->
         </div>
         <div class="title2">
             <p>VEHÍCULO 2</p>
         </div>
         <div class="cajas">
-            <div class="caja1">
+            <div class="caja1" *ngIf="estado2!='cita solicitada'">
+                <p>1.CITA SOLICITADA</p>
+            </div>
+            <div class="caja1" *ngIf="estado2=='cita solicitada'" style="background-color:  greenyellow">
                 <p>1.CITA SOLICITADA</p>
             </div>
             <div class="triangulo">
-                
             </div>
-            <div class="caja2">
+            <!---------------------------------------------->
+            <div class="caja2" *ngIf="estado2!='confirmada'">
+                <p>2.CITA CONFIRMADA</p>
+            </div>
+            <div class="caja2" *ngIf="estado2=='confirmada'" style="background-color:  greenyellow">
                 <p>2.CITA CONFIRMADA</p>
             </div>
             <div class="triangulo">
-                
             </div>
-            <div class="caja3">
-                <p>3.INICIO DE REPARACION</p>
+            <!---------------------------------------------->
+            <div class="caja3" *ngIf="estado2!='incio de reparacion'">
+                <p>3.INICIO DE REPARACIÓN</p>
             </div>
-            <div class="triangulo">
-                
-            </div>
-            <div class="caja4">
-                <p>4.REPARACION EN PROCESO</p>
+            <div class="caja3" *ngIf="estado2=='incio de reparacion'" style="background-color:  greenyellow">
+                <p>3.INICIO DE REPARACIÓN</p>
             </div>
             <div class="triangulo">
-                
             </div>
-            <div class="caja5">
-                <p>5.REPARACION FINALIZADA</p>
+            <!---------------------------------------------->
+            <div class="caja4" *ngIf="estado2!='reparacion en proceso'">
+                <p>4.REPARACIÓN EN PROCESO</p>
+            </div>
+            <div class="caja4" *ngIf="estado2=='reparacion en proceso'" style="background-color:  greenyellow">
+                <p>4.REPARACIÓN EN PROCESO</p>
+            </div>
+            <div class="triangulo">
+            </div>
+            <!---------------------------------------------->
+            <div class="caja5" *ngIf="estado2!='reparacion finalizada'">
+                <p>5.REPARACIÓN FINALIZADA</p>
+            </div>
+            <div class="caja5" *ngIf="estado2=='reparacion finalizada'" style="background-color: greenyellow">
+                <p>5.REPARACIÓN FINALIZADA</p>
             </div>
         </div>
         <div class="title3">
             <p>VEHÍCULO 3</p>
         </div>
         <div class="cajas">
-            <div class="caja1">
+            <div class="caja1" *ngIf="estado3!='cita solicitada'">
+                <p>1.CITA SOLICITADA</p>
+            </div>
+            <div class="caja1" *ngIf="estado3=='cita solicitada'" style="background-color: greenyellow">
                 <p>1.CITA SOLICITADA</p>
             </div>
             <div class="triangulo">
-                
             </div>
-            <div class="caja2">
+            <!---------------------------------------------->
+            <div class="caja2" *ngIf="estado3!='confirmada'">
+                <p>2.CITA CONFIRMADA</p>
+            </div>
+            <div class="caja2" *ngIf="estado3=='confirmada'" style="background-color:  greenyellow">
                 <p>2.CITA CONFIRMADA</p>
             </div>
             <div class="triangulo">
-                
             </div>
-            <div class="caja3">
-                <p>3.INICIO DE REPARACION</p>
+            <!---------------------------------------------->
+            <div class="caja3" *ngIf="estado3!='incio de reparacion'">
+                <p>3.INICIO DE REPARACIÓN</p>
             </div>
-            <div class="triangulo">
-                
-            </div>
-            <div class="caja4">
-                <p>4.REPARACION EN PROCESO</p>
+            <div class="caja3" *ngIf="estado3=='incio de reparacion'" style="background-color:  greenyellow">
+                <p>3.INICIO DE REPARACIÓN</p>
             </div>
             <div class="triangulo">
-                
             </div>
-            <div class="caja5">
-                <p>5.REPARACION FINALIZADA</p>
+            <!---------------------------------------------->
+            <div class="caja4" *ngIf="estado3!='reparacion en proceso'">
+                <p>4.REPARACIÓN EN PROCESO</p>
+            </div>
+            <div class="caja4" *ngIf="estado3=='reparacion en proceso'" style="background-color:  greenyellow">
+                <p>4.REPARACIÓN EN PROCESO</p>
+            </div>
+            <div class="triangulo">
+            </div>
+            <!---------------------------------------------->
+            <div class="caja5" *ngIf="estado3!='reparacion en proceso'">
+                <p>5.REPARACIÓN FINALIZADA</p>
+            </div>
+            <div class="caja5" *ngIf="estado3=='reparacion en proceso'" style="background-color:  greenyellow">
+                <p>5.REPARACIÓN FINALIZADA</p>
             </div>
         </div>
     </div>

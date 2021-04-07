@@ -1,9 +1,17 @@
 @import url('https://fonts.googleapis.com/css2?family=Athiti:wght@700&display=swap');
 
+$tablet: 800px;
+$phone: 480px;
+
 .right-navbar{
     float: right;
     width: 25%;
     height: 100%;
+    @media(max-width: $phone){
+        height: 100%;
+        width: 20%;
+        background-color: rgb(255, 201, 51);
+    }
 }
 @media screen and (max-width: 1024px) {
     .right-navbar{
@@ -23,16 +31,6 @@
 }
 
 
-.btn-logout{
-    border: none;
-    font-family: 'Athiti', sans-serif;
-    font-size: 15px;
-    color: white;
-    background-color: rgb(73, 73, 73);
-
-
-}
-
 .right-navbar .buttons .registrase .cuadro1{
     background-color: rgb(73, 73, 73);
     padding-top: 2px;
@@ -43,7 +41,34 @@
     margin-bottom: 20px;
     margin-top: 30px;
     margin-left: 70px;
+    @media(max-width: $phone){
+        font-size: smaller;
+        width: 75%;
+        margin-left: 10px;
+        margin-right: 10px;
+    }
 }
+
+.btn-logout{
+    margin-bottom: 200px;
+    background-color: rgb(73, 73, 73);
+    font-family: 'Athiti', sans-serif;
+    color: white;
+    border: none;
+    width: 50%;
+    padding-top: 2px;
+    padding-bottom: 2px;
+    padding-left: 2px;
+    padding-right: 2px;
+    margin-right: 17px;
+    @media(max-width: $phone){
+        font-size: smaller;
+        width: 75%;
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+}
+
 
 .right-navbar .buttons .registrase{
     height: 20px;

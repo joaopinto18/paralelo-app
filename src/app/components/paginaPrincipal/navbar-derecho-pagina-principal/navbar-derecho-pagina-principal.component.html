@@ -10,15 +10,15 @@
                 <a [routerLink]="['/registro']">REGISTRARSE</a> 
             </div>
         </div>
-        <div class='registrase' *ngIf="user">
+    <!--<div class='registrase' *ngIf="!user">
             <div class='cuadro2'>
             <p>{{user.displayName}}</p>
             <img [src]="user.photoURL" alt="">
             </div>
-        </div>
+        </div>-->
         <div class='registrase' *ngIf="user">
             <div class='cuadro2'>
-            <button type="button" (click)="handleLogout()" class="cuadro2"><p>LOGOUT</p></button>
+            <button type="button" (click)="handleLogout()" class="btn-logout"><p>LOG OUT</p></button>
             </div>
         </div>
     </div>

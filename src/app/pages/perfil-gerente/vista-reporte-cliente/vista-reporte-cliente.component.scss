@@ -1,0 +1,70 @@
+@import url('https://fonts.googleapis.com/css2?family=Athiti:wght@700&display=swap');
+
+.wrapper{
+    height: 80%;
+    width: 75%;
+    background-color: rgb(66, 66, 66);
+    float: left;
+}
+
+select{
+    width: 100px;
+    height: 30px;
+    margin-left: 100px;
+    margin-top: 40px;
+    font-family: 'Athiti', sans-serif ;
+    background-color: rgb(255, 201, 51);
+}
+
+.contenedor{
+    background-color: blue;
+    display: flex;
+    justify-content: space-evenly;
+    height: 0px;
+    width: 600px;
+}
+
+.search{
+    height: 30px;
+    width: 500px;
+    margin-top: 40px;
+    margin-left: 10px;
+}
+
+input{
+    border-radius: 36px 12px; 
+    border: none;
+    width: 500px;
+}
+
+
+button{
+    width: 100px;
+    height: 30px;
+    border: none;
+    font-family: 'Athiti', sans-serif ;
+    font-size: 15px;
+    margin-top: 40px;
+    margin-right: 10px;
+    cursor: pointer;
+}
+
+.btn-search{
+    width: 0px;
+    margin-left: 10px;
+}
+
+.container{
+    height: 350px;
+    margin-top: 100px;
+    font-family: 'Athiti', sans-serif;
+    background-color: rgb(255, 201, 51);
+    width: 65%;
+    margin-left: 20%;
+}
+
+p{
+    margin-top: 25px;
+    height: 15px;
+    margin-left: 20px;
+}

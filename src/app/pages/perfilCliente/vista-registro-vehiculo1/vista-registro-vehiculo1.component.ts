@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { AngularFirestore } from '@angular/fire/firestore';
+import { AngularFireStorage } from '@angular/fire/storage';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { AddCarServiceService } from 'src/app/services/add-car-service.service';
 import { AddInfoUserServicesService } from 'src/app/services/add-info-user-services.service';
@@ -14,8 +16,9 @@ export class VistaRegistroVehiculo1Component implements OnInit {
   prueba:boolean = false;
   clicked = false;
   form!:FormGroup;
+  filePath:String;
 
-  constructor(private addedUser: AddInfoUserServicesService, private fb: FormBuilder) { }
+  constructor(private addedUser: AddInfoUserServicesService, private fb: FormBuilder, private Firestorage: AngularFireStorage) { }
 
   ngOnInit(): void {
     this.createForm1();
@@ -25,13 +28,17 @@ export class VistaRegistroVehiculo1Component implements OnInit {
     if (event.target.files && event.target.files[0]) {
       var reader = new FileReader();
       reader.readAsDataURL(event.target.files[0]); // read file as data url
-
+      this.filePath = event.target.files[0];
       reader.onload = (event) => { // called once readAsDataURL is completed
         this.url = event.target.result;
       }
       this.prueba = true;
     }
-}
+  }
+
+  upload(event){
+    this.filePath = event.target.files[0];
+  }
 
   montarFoto(): boolean{
     return this.prueba;
@@ -39,6 +46,8 @@ export class VistaRegistroVehiculo1Component implements OnInit {
 
   createForm1(): void{
     this.form = this.fb.group({
+      IdDocDueno:'',
+      nroVheiculo:'',
       serial_motor: '',
       modelo: '',
       anno: '',
@@ -56,11 +65,12 @@ export class VistaRegistroVehiculo1Component implements OnInit {
       modelo: this.form.get('modelo').value,
       anno: this.form.get('anno').value,
       fecha: this.form.get('fecha').value,
-      placa: this.form.get('placa').value
-
+      placa: this.form.get('placa').value,
+      historial_procedimientos: ""
       } 
     this.addedUser.AgregarVehiculoUsuario(datosUsuario);
-    
+    console.log(this.filePath)
+    this.Firestorage.upload('/images'+Math.random()+this.filePath, this.filePath);
     }
 
 }

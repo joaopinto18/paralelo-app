@@ -1,0 +1,20 @@
+<div class='right-navbar'>
+    <div class='buttons'>
+        <div class='iniciar-sesion'>
+            <div class='cuadro1'>
+                <span><a [routerLink]="['/vista-datos-perfil-admin']" style="color: white; text-decoration: none;">VALERIA RUJANA</a></span>
+            </div>
+        </div>
+        <div class='registrase' *ngIf="user">
+            <div class='cuadro2'>
+            <button type="button" (click)="handleLogout()" class="btn-logout"><p>LOG OUT</p></button>
+            </div>
+        </div>
+    </div>
+    <div class='fotos'>
+        <div class='foto1'></div>
+            <!--imagen-->
+        <div class='foto2'></div>
+            <!--imagen-->
+    </div>
+</div>

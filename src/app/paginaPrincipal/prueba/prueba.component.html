@@ -1,0 +1,11 @@
+<form class="contact-form" (submit)="sendEmail($event)">
+    <label>Name</label>
+    <input type="text" name="user_name">
+    <label>Email</label>
+    <input type="email" name="user_email">
+    <label>Message</label>
+    <textarea name="message"></textarea>
+    <input type="submit" value="Send">
+    <ngx-qrcode type='file' name='file' (change)="onSelectFile($event)" (change)="upload($event)" [elementType]="elementType" [errorCorrectionLevel]="correctionLevel" [value]="value" cssClass="bshadow"></ngx-qrcode>
+    <button (click)="sendqr()">GUARDAR CODIGO QR</button>
+</form>

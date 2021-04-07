@@ -15,5 +15,6 @@ export class CodigoQrComponent implements OnInit {
 
   elementType = NgxQrcodeElementTypes.URL;
   correctionLevel = NgxQrcodeErrorCorrectionLevels.HIGH;
+  value = 'https://www.techiediaries.com/';
 
 }

@@ -44,7 +44,9 @@ export class AuthformComponent implements OnInit {
     lugar: "vacio",
     numero: 0,
     acceso: "cliente",
-    correo: this.authForm.get('email').value
+    correo: this.authForm.get('email').value,
+    servicios_realizados: '',
+    Vehiculos_trabados:''
     } 
     
     this.authService.RegistrarUsuario(datosUsuario);
