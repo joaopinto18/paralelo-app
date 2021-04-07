@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import firebase from 'firebase';
 import { ServicioService } from 'src/app/services/servicio.service';
+
 @Component({
   selector: 'app-navbar-derecho-pagina-principal',
   templateUrl: './navbar-derecho-pagina-principal.component.html',
@@ -14,6 +14,7 @@ export class NavbarDerechoPaginaPrincipalComponent implements OnInit {
   ngOnInit(): void {
     this.user = this.authService.getCurrentUser();
   }
+  
   handleLogout(){
     this.authService.logout().then(()=>{
       this.router.navigate(['/']);

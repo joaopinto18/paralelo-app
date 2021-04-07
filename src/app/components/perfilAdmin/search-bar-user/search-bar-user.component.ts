@@ -33,11 +33,11 @@ export class SearchBarUserComponent implements OnInit {
     if(usuario[0]!=null){
       this.userService.estadoRespuesta=usuario[0].correo;
       console.log('se encontro el usuario');
-      alert('usuario encontrado')
+      alert('Usuario encontrado!')
     }else{
       this.userService.estadoRespuesta='sin resultados';
-      console.log('no se encontro el usuario');
-      alert('no se encontro el usuario')
+      console.log('No se encontró el usuario');
+      alert('No se encontró el usuario')
     }
   }
 }

@@ -4,7 +4,7 @@
 <div class="wrapper">
     <div class="contenedor">
         <div class="search" [formGroup]="form">
-            <input type="text" placeholder="  Ingrese placa del vehiculo" formControlName="correo">
+            <input type="text" placeholder="  Ingrese correo de mecánico" formControlName="correo">
         </div>
         <div class="btn-search">
             <button (click)='search()'>Buscar</button>
@@ -12,9 +12,9 @@
     </div>
     
     <div class="container">
-        <p>Nombre del Mecanico: {{nombre}}</p>
-        <p>Servicios hecho por el mecanico: {{servicios}}</p>
-        <p>Ordenes atendidas: {{ordenes}}</p>
+        <p>Nombre del mecánico: {{nombre}}</p>
+        <p>Servicios hecho por el mecánico: {{servicios}}</p>
+        <p>Placas de los vehículos trabajados: {{ordenes}}</p>
     </div>
 </div>
 

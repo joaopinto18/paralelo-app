@@ -101,20 +101,40 @@ button{
 }
 
 .citas{
-    height: 0px;
+    height: 400px;
+    width: 300px;
+    margin-right: 120px;
+    margin-top: 20px;
+    //background-color: red;
+    display: flex;
+    flex-direction: column;
+    font-family: 'Athiti', sans-serif ;
+    color: white;
+    text-align: center;
+}
+
+.foto{
+    width: 250px;
+    height: 250px;
+    text-align: center;
+    //background-color: rosybrown;
+    margin: 10px;
+    margin-left: 25px;
 }
 
 img{
     width: 250px;
     height: 250px;
-    margin-right: 100px;
-    margin-top: 60px;
-    margin-bottom: 0px;
-    padding: 0px;
+}
+.title2{
+    margin-top: 20px;
+    font-size: 20px;
+    //background-color: royalblue;
+    height: 40px;
 }
 
-
 .btn2{
+<<<<<<< HEAD
     position: static;
     margin-top: 350px;
     margin-left: -350px;
@@ -167,3 +187,8 @@ img{
        
     }
 }
+=======
+    height: 50px;
+    //background-color: green;
+}
+>>>>>>> 8b9474494d7031c8e124656fac41db171dcf4d47

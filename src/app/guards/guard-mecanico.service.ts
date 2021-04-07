@@ -14,9 +14,19 @@ export class GuardMecanicoService implements CanActivate{
       console.log(localStorage.getItem('accesouser'));
       return true
     }else{
-      alert('no estas registrado como mecanico')
-      this.router.navigate(['/']);
-      return false
+      alert('No estás registrado como mecánico')
+      if (localStorage.getItem('accesouser')=='cliente'){
+        this.router.navigate(['/vista-datos-perfil-cliente']);
+        return false
+      }
+      else if (localStorage.getItem('accesouser')=='admin'){
+        this.router.navigate(['/vista-admin-roles']);
+        return false
+      }
+      else{
+        this.router.navigate(['/vista-citas']);
+        return false
+      }
     }
   }
 }

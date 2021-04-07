@@ -33,7 +33,7 @@ export class VistaReporteVehiculoComponent implements OnInit {
     const newVehicle: any={
       placa:this.form.get('placa')?.value
     } 
-    const user = await this.addCarService.BuscarVehiculox(newVehicle.placa).valueChanges().pipe( take(1) ).toPromise();
+    const user = await this.addCarService.BuscarVehiculo(newVehicle.placa).valueChanges().pipe( take(1) ).toPromise();
     this.placa=user[0].placa
     this.modelo=user[0].modelo
     this.servicios=user[0].historial_procedimientos

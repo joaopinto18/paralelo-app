@@ -34,6 +34,7 @@ import { VistaManejaCitasComponent } from './pages/perfil-gerente/vista-maneja-c
 import { VistaCitasAsignadasComponent } from './pages/perfil-gerente/vista-citas-asignadas/vista-citas-asignadas.component';
 import { VistaCitasRechazadasComponent } from './pages/perfil-gerente/vista-citas-rechazadas/vista-citas-rechazadas.component';
 import { VistaCerrarOrdenesComponent } from './pages/perfil-gerente/vista-cerrar-ordenes/vista-cerrar-ordenes.component';
+import { GuardGerenteService } from './guards/guard-gerente.service';
 
 
 
@@ -59,18 +60,18 @@ const routes: Routes = [
   {path: 'vista-admin-roles',component: VistaAdminRolesComponent, canActivate: [GuardAdminService]},
   {path: 'prueba', component: PruebaComponent},
   {path: 'codigo',component: CodigoQrComponent},
-  {path: 'gerente',component: PerfilGerenteComponent},
-  {path: 'reportes',component: VistaReportesComponent},
-  {path: 'citas-gerente',component: VistaCitasComponent},
-  {path: 'ordenes-gerente',component: VistaOrdenesComponent},
-  {path: 'vista-reporte-cliente',component: VistaReporteClienteComponent},
-  {path: 'vista-reporte-mecanico',component: VistaReporteMecanicoComponent},
-  {path: 'vista-reporte-vehiculo',component: VistaReporteVehiculoComponent},
-  {path: 'vista-reporte-extras',component: VistaReporteExtrasComponent},
-  {path: 'calendario',component: VistaManejaCitasComponent},
-  {path: 'citas-asignadas',component: VistaCitasAsignadasComponent},
-  {path: 'citas-rechazadas',component: VistaCitasRechazadasComponent},
-  {path: 'cerrar-ordenes',component: VistaCerrarOrdenesComponent},
+  {path: 'gerente',component: PerfilGerenteComponent,canActivate: [GuardGerenteService],},
+  {path: 'reportes',component: VistaReportesComponent,canActivate: [GuardGerenteService],},
+  {path: 'citas-gerente',component: VistaCitasComponent,canActivate: [GuardGerenteService],},
+  {path: 'ordenes-gerente',component: VistaOrdenesComponent,canActivate: [GuardGerenteService],},
+  {path: 'vista-reporte-cliente',component: VistaReporteClienteComponent,canActivate: [GuardGerenteService],},
+  {path: 'vista-reporte-mecanico',component: VistaReporteMecanicoComponent,canActivate: [GuardGerenteService],},
+  {path: 'vista-reporte-vehiculo',component: VistaReporteVehiculoComponent,canActivate: [GuardGerenteService],},
+  {path: 'vista-reporte-extras',component: VistaReporteExtrasComponent,canActivate: [GuardGerenteService],},
+  {path: 'calendario',component: VistaManejaCitasComponent,canActivate: [GuardGerenteService],},
+  {path: 'citas-asignadas',component: VistaCitasAsignadasComponent,canActivate: [GuardGerenteService],},
+  {path: 'citas-rechazadas',component: VistaCitasRechazadasComponent,canActivate: [GuardGerenteService],},
+  {path: 'cerrar-ordenes',component: VistaCerrarOrdenesComponent,canActivate: [GuardGerenteService],},
 
 ];
 
