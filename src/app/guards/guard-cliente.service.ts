@@ -16,9 +16,19 @@ export class GuardClienteService implements CanActivate{
       console.log(localStorage.getItem('accesouser'));
       return true
     }else{
-      alert('no estas registrado como cliente')
-      this.router.navigate(['/']);
-      return false
+      alert('No estás registrado como cliente')
+      if (localStorage.getItem('accesouser')=='admin'){
+        this.router.navigate(['/vista-admin-roles']);
+        return false
+      }
+      else if (localStorage.getItem('accesouser')=='mecanico'){
+        this.router.navigate(['/vista-perfil-mecanico']);
+        return false
+      }
+      else{
+        this.router.navigate(['/vista-citas']);
+        return false
+      }
     }
   }
 }

@@ -14,9 +14,20 @@ export class GuardAdminService implements CanActivate{
       console.log(localStorage.getItem('accesouser'));
       return true
     }else{
-      alert('no estas registrado como admin')
-      this.router.navigate(['/']);
-      return false
+      alert('No estás registrado como admin')
+      if (localStorage.getItem('accesouser')=='cliente'){
+        this.router.navigate(['/vista-datos-perfil-cliente']);
+        return false
+      }
+      else if (localStorage.getItem('accesouser')=='mecanico'){
+        this.router.navigate(['/vista-perfil-mecanico']);
+        return false
+      }
+      else{
+        this.router.navigate(['/vista-citas']);
+        return false
+      }
+     
     }
   }
 }

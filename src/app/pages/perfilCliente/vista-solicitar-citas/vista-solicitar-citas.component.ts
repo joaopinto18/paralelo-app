@@ -144,7 +144,7 @@ export class VistaSolicitarCitasComponent implements OnInit {
     this.infoUser.confirmar(2);
     this.confirmada2 = 'confirmada';
     this.fecha2 = 'Cita en progreso, para ver estado revisa "Reparaciones"'
-    alert('se ha confirmado su cita');
+    alert('Se ha confirmado su cita');
   }
 
   async confirmar3(e: Event): Promise<void>{
@@ -180,7 +180,7 @@ export class VistaSolicitarCitasComponent implements OnInit {
     this.infoUser.confirmar(3);
     this.confirmada3 = 'confirmada';
     this.fecha3 = 'Cita en progreso, para ver estado revisa "Reparaciones"'
-    alert('se ha confirmado su cita');
+    alert('Se ha confirmado su cita');
   }
 
   async confirmar1(): Promise<void>{
@@ -216,7 +216,7 @@ export class VistaSolicitarCitasComponent implements OnInit {
     this.infoUser.confirmar(1);
     this.confirmada1 = 'confirmada';
     this.fecha1 = 'Cita en progreso, para ver estado revisa "Reparaciones"'
-    alert('se ha confirmado su cita');
+    alert('Se ha confirmado su cita');
   }
 
   async pedirOtraFecha1(): Promise<void>{
@@ -236,7 +236,7 @@ export class VistaSolicitarCitasComponent implements OnInit {
       }, (error) => {
         console.log(error.text);
       });
-    alert('se ha solicitado otra fecha para la cita')
+    alert('Se ha solicitado otra fecha para la cita')
   }
 
   async pedirOtraFecha2(): Promise<void>{
@@ -256,7 +256,7 @@ export class VistaSolicitarCitasComponent implements OnInit {
       }, (error) => {
         console.log(error.text);
       });
-      alert('se ha solicitado otra fecha para la cita')
+      alert('Se ha solicitado otra fecha para la cita')
   }
 
   async pedirOtraFecha3(): Promise<void>{
@@ -276,14 +276,14 @@ export class VistaSolicitarCitasComponent implements OnInit {
       }, (error) => {
         console.log(error.text);
       });
-      alert('se ha solicitado otra fecha para la cita')
+      alert('Se ha solicitado otra fecha para la cita')
   }
 
   async clickedx(): Promise<void>{
     /*llamamos a solicitar cita con el nro de vehiculo que va a solicitar la cita, la condicion es que el 
     vehiculo este registrado*/ 
     if(await this.infoUser.VerificarVehiculo(1) == 'no encontrado'){
-      alert('Debe agregar un vehiculo en el campo VEHICULO 1 para solicitar esta cita')
+      alert('Debe agregar un vehículo en el campo VEHÍCULO 1 para solicitar esta cita')
     }else{
       this.clicked = true;
       this.solicitarCita((await this.infoUser.VerificarVehiculo(1)).valueOf(), 1);
@@ -293,7 +293,7 @@ export class VistaSolicitarCitasComponent implements OnInit {
   async clickedx2(): Promise<void>{
 
     if(await this.infoUser.VerificarVehiculo(2) == 'no encontrado'){
-      alert('Debe agregar un vehiculo en el campo VEHICULO 2 para solicitar esta cita')
+      alert('Debe agregar un vehículo en el campo VEHÍCULO 2 para solicitar esta cita')
     }else{
       this.clicked2 = true;
       this.solicitarCita((await this.infoUser.VerificarVehiculo(2)), 2);
@@ -303,7 +303,7 @@ export class VistaSolicitarCitasComponent implements OnInit {
   async clickedx3(): Promise<void>{
 
     if(await this.infoUser.VerificarVehiculo(3) == 'no encontrado'){
-      alert('Debe agregar un vehiculo en el campo VEHICULO 3 para solicitar esta cita')
+      alert('Debe agregar un vehículo en el campo VEHÍCULO 3 para solicitar esta cita')
     }else{
       this.clicked3 = true;
       this.solicitarCita((await this.infoUser.VerificarVehiculo(3)), 3);

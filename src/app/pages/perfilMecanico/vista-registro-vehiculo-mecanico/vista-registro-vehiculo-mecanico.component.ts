@@ -86,7 +86,7 @@ export class VistaRegistroVehiculoMecanicoComponent implements OnInit {
 
      this.addCarService.RegistrarNuevoVehiculo(newCar);
       
-     alert('Se ha registrado el vehiculo');
+     alert('Se ha registrado el vehículo');
   }
 
 

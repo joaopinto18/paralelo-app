@@ -185,12 +185,12 @@ export class ServicioService {
         localStorage.setItem('user',response.user.uid);
         return response.user;
       }else{
-        alert('no se encontro el usuario')
+        alert('No se encontró el usuario')
       }
 
     } catch (error) {
       console.log(error);
-      alert('correo o contraseña incorrecta, intente de nuevo')
+      alert('Correo o contraseña incorrecta,por favor intente de nuevo')
       localStorage.removeItem('user');
     }
   }

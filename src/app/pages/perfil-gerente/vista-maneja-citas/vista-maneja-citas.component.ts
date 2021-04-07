@@ -26,12 +26,13 @@ export class VistaManejaCitasComponent implements OnInit {
       }
     })
 
-    this.calendarOptions.events = this.ArrayEventos;
-    console.log(this.calendarOptions.events);
+  this.calendarOptions.events = this.ArrayEventos;
+  console.log(this.calendarOptions.events);
 
 
   }
 
+  
   calendarOptions: CalendarOptions = {
     initialView: 'dayGridMonth',
     dateClick: this.handleDateClick.bind(this), // bind is important!
@@ -46,6 +47,7 @@ export class VistaManejaCitasComponent implements OnInit {
     eventColor: "rgb(255, 201, 51)",
     eventDisplay: "auto",
     editable: false,
+    nextDayThreshold: "00:00:00",
   };
 
   handleDateClick(arg) {

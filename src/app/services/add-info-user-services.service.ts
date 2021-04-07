@@ -52,7 +52,7 @@ export class AddInfoUserServicesService {
     this.usersCollection.doc(localStorage.getItem('iduser')).ref.onSnapshot(function(result) {
       result.ref.update({cedula: data.cedula, fecha: data.fecha, lugar: data.lugar, 
       nombre_apellido: data.nombre_apellido, numero: data.numero });
-      alert('Se han modificado sus datos personales')
+      alert('Se han modificado sus datos personales correctamente')
     })
   } 
 
@@ -249,7 +249,7 @@ export class AddInfoUserServicesService {
         querysnapshot.forEach((usuario)=>{
           if(usuario.get('nroVheiculo')==data.nroVheiculo){
             //verificamos que el doc de info de este vehiculo ya existe, la modificamos
-            alert('se ha registrado nueva información para esta plaza de vehículo')
+            alert('Se ha registrado nueva información para esta placa de vehículo')
             encontrado=true;
             this.ModificarVehiculoUsuario(usuario.id.valueOf(), data);
             
@@ -258,7 +258,7 @@ export class AddInfoUserServicesService {
     })
     if(!encontrado){
       //si el vehiculo no fue encontrado, quiere decir que no ha sido registrado, por lo tanto, procedemos a registrarlo
-      alert('su vehículo ha sido registrado')
+      alert('Su vehículo ha sido registrado')
       this.carsCollection.add(data);
     }  
   }
