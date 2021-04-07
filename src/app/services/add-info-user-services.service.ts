@@ -52,7 +52,7 @@ export class AddInfoUserServicesService {
     this.usersCollection.doc(localStorage.getItem('iduser')).ref.onSnapshot(function(result) {
       result.ref.update({cedula: data.cedula, fecha: data.fecha, lugar: data.lugar, 
       nombre_apellido: data.nombre_apellido, numero: data.numero });
-      alert('Se han modificado sus datos personales')
+      alert('Se han modificado sus datos personales correctamente')
     })
   } 
 
@@ -151,6 +151,23 @@ export class AddInfoUserServicesService {
   }
 
   /**
+   * FUNCION QUE NOS RETORNA LA HORA
+   */
+
+   async hora(nroVehiculo: number): Promise<string>{
+    let fecha: 'sin asignar'
+    await this.Firestore.collection('GESTION-CITAS').ref.where('CorreoSolicitante','==', localStorage.getItem('correouser')).
+    get().then((querysnapshot)=>{ //este await hace que primero se tenga que resolver esta promesa antes de proseguir con el codigo
+    querysnapshot.forEach((cita)=>{
+        if(nroVehiculo==cita.get('nroVehiculo')){
+          fecha = cita.get('HoraTentativa');
+        }
+      })
+    })
+    return fecha
+  }
+
+  /**
    * FUNCION PARA OBTENER EL ESTADO DE UNA CITA
    */
 
@@ -219,6 +236,23 @@ export class AddInfoUserServicesService {
   }
 
   /**
+   * FUNCION PARA CAMBIAR EL ESTADO DE UNA CITA
+   */
+
+   async cambiarEstadoCita(placa: string, estadoNuevo: string): Promise<void>{
+
+    await this.Firestore.collection('GESTION-CITAS').ref.where('placa','==', placa).
+    get().then((querysnapshot)=>{ //este await hace que primero se tenga que resolver esta promesa antes de proseguir con el codigo
+    querysnapshot.forEach((cita)=>{
+        //si el documento se encuentra, entonces 
+        this.citasCollection.doc(cita.id.valueOf().toString()).ref.onSnapshot(function(result) {
+        result.ref.update({ estatus: estadoNuevo })});
+        
+      })
+    })
+  }
+
+  /**
    * FUNCION PARA COMPROBAR SI SE HA SOLICITADO CITA
    */
 
@@ -249,7 +283,7 @@ export class AddInfoUserServicesService {
         querysnapshot.forEach((usuario)=>{
           if(usuario.get('nroVheiculo')==data.nroVheiculo){
             //verificamos que el doc de info de este vehiculo ya existe, la modificamos
-            alert('se ha registrado nueva información para esta plaza de vehículo')
+            alert('Se ha registrado nueva información para esta placa de vehículo')
             encontrado=true;
             this.ModificarVehiculoUsuario(usuario.id.valueOf(), data);
             
@@ -258,7 +292,7 @@ export class AddInfoUserServicesService {
     })
     if(!encontrado){
       //si el vehiculo no fue encontrado, quiere decir que no ha sido registrado, por lo tanto, procedemos a registrarlo
-      alert('su vehículo ha sido registrado')
+      alert('Su vehículo ha sido registrado')
       this.carsCollection.add(data);
     }  
   }

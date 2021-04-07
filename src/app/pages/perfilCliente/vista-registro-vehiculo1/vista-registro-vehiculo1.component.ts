@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { AngularFireStorage } from '@angular/fire/storage';
 import { FormBuilder, FormGroup } from '@angular/forms';
+import { take } from 'rxjs/operators';
 import { AddCarServiceService } from 'src/app/services/add-car-service.service';
 import { AddInfoUserServicesService } from 'src/app/services/add-info-user-services.service';
 
@@ -18,10 +19,19 @@ export class VistaRegistroVehiculo1Component implements OnInit {
   form!:FormGroup;
   filePath:String;
 
-  constructor(private addedUser: AddInfoUserServicesService, private fb: FormBuilder, private Firestorage: AngularFireStorage) { }
+  constructor(private addCar: AddCarServiceService, private addedUser: AddInfoUserServicesService, private fb: FormBuilder, private Firestorage: AngularFireStorage) { }
 
-  ngOnInit(): void {
+  async ngOnInit(): Promise<void> {
     this.createForm1();
+
+    const user = await this.addCar.BuscarVehiculoIdxx(localStorage.getItem('correouser'),1).valueChanges().pipe( take(1) ).toPromise()
+
+    try{
+      this.form.setValue({serial_motor: user[0].serial_motor,
+        modelo:user[0].modelo, anno:user[0].anno, placa:user[0].placa, fecha:user[0].fecha});
+    }catch(err){
+      console.log('no hay vehiculo registrado en esta plaza');
+    }
   }
 
   onSelectFile(event) { // called each time file input changes
@@ -46,8 +56,6 @@ export class VistaRegistroVehiculo1Component implements OnInit {
 
   createForm1(): void{
     this.form = this.fb.group({
-      IdDocDueno:'',
-      nroVheiculo:'',
       serial_motor: '',
       modelo: '',
       anno: '',

@@ -9,29 +9,33 @@ import { AddCarServiceService } from 'src/app/services/add-car-service.service';
 })
 export class VistaManejaCitasComponent implements OnInit {
   arr:Array<any>=[]
+  arri:Array<any>=[]
   ArrayEventos:Array<any>=[]
   constructor(private addCarService: AddCarServiceService) { }
 
   async ngOnInit(): Promise<void> {
 
-    await this.addCarService.obtenerFechaCitas(this.arr).then(arr1=>{
-
+    await this.addCarService.obtenerFechaCitas(this.arr).then(async arr1=>{
+      await this.addCarService.obtenerHoraCitas(this.arri).then(arr2=>{
+        
+      
       for (let index = 0; index < arr1.length; index++) {
         
         this.ArrayEventos.push({
-          title:'cita cualquiera',
-          date: arr1[index]
+          title: 'cita'+" "+arr2[index],
+          date: arr1[index],
         });
         
       }
     })
+    })
 
-    this.calendarOptions.events = this.ArrayEventos;
-    console.log(this.calendarOptions.events);
-
+  this.calendarOptions.events = this.ArrayEventos;
+  console.log(this.calendarOptions.events);
 
   }
 
+  
   calendarOptions: CalendarOptions = {
     initialView: 'dayGridMonth',
     dateClick: this.handleDateClick.bind(this), // bind is important!
@@ -46,6 +50,7 @@ export class VistaManejaCitasComponent implements OnInit {
     eventColor: "rgb(255, 201, 51)",
     eventDisplay: "auto",
     editable: false,
+    nextDayThreshold: "00:00:00",
   };
 
   handleDateClick(arg) {

@@ -11,7 +11,7 @@
       <form [formGroup]="registroVehiculoForm"  class='input-form'>
           <div class='input'>
               <input type="text" formControlName="placa" required><span class='bar'></span>
-              <span>INGRESA LEL CORREO DEL USUARIO AL QUE ASIGNAR UNA CITA</span>
+              <span>INGRESA LA PLACA DEL USUARIO AL QUE ASIGNAR UNA CITA</span>
           </div>
           <button class='input-button' (click)='search()'>BUSCAR</button>
       </form>
@@ -34,7 +34,7 @@
                 <div class="fecha">
                     <label>Fecha: </label>
                     <input class="fechi" type="date" formControlName="fechax">
-                    <input class="fechi" type="time" formControlName="fechax">
+                    <input class="fechi" type="time" formControlName="horax">
                 </div>
                 <div class="btn-asignar">
                     <button class="asignar" (click)='asignar()'>ASIGNAR</button>

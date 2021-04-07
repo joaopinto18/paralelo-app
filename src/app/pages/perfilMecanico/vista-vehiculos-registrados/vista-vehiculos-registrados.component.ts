@@ -2,6 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { AddCarServiceService } from 'src/app/services/add-car-service.service';
 import { take } from 'rxjs/operators';
+import { AddInfoUserServicesService } from 'src/app/services/add-info-user-services.service';
 
 @Component({
   selector: 'app-vista-vehiculos-registrados',
@@ -16,7 +17,7 @@ export class VistaVehiculosRegistradosComponent implements OnInit {
   vehiculoBuscadoCambiar:any;
   placa:any;
 
-  constructor(private fb: FormBuilder, private carService:AddCarServiceService) { }
+  constructor(private infoUser: AddInfoUserServicesService, private fb: FormBuilder, private carService:AddCarServiceService) { }
 
   ngOnInit(): void {
     this.createInputForm1();
@@ -44,14 +45,15 @@ export class VistaVehiculosRegistradosComponent implements OnInit {
   modify():void{
     
     if(this.placa==undefined){
-      alert('no se encontró la orden')
+      alert('No se encontró la orden')
     }else{
       console.log("actualizando info de reparación");
       const repuestos = this.infoVehiculo.get('repuestos').value
       const diagnostico = this.infoVehiculo.get('diagnostico').value
       const procedimiento = this.infoVehiculo.get('procedimiento').value
       this.carService.modificarInfoVehiculo(repuestos,procedimiento,diagnostico,this.placa);
-      alert('Se ha modificado la información del vehiculo');
+      this.infoUser.cambiarEstadoCita(this.placa, 'reparacion en proceso');
+      alert('Se ha modificado la información del vehículo');
     }
   }
 
@@ -61,7 +63,7 @@ export class VistaVehiculosRegistradosComponent implements OnInit {
 
   cerrarOrden(): void{
   if(this.placa==undefined){
-    alert('no se encontró la orden')
+    alert('No se encontró la orden')
   }else{
     const repuestos = this.infoVehiculo.get('repuestos').value
     const diagnostico = this.infoVehiculo.get('diagnostico').value
@@ -73,7 +75,7 @@ export class VistaVehiculosRegistradosComponent implements OnInit {
     this.placa=undefined;
     this.registroVehiculoForm.reset();
     this.infoVehiculo.reset();
-    alert('la orden se ha cancelado, se notificará al gerente')
+    alert('La orden se ha cancelado, se notificará al gerente')
   }
   }
 
@@ -89,9 +91,9 @@ export class VistaVehiculosRegistradosComponent implements OnInit {
     const car = await this.carService.BuscarVehiculo(newCar.placa).valueChanges().pipe( take(1) ).toPromise();
     this.vehiculoBuscado = car;
     if(car[0]==undefined){
-      alert('sin resultados para esta búsqueda')
+      alert('Sin resultados para esta búsqueda')
     }else if(car[0].estado=='orden cerrada por mecanico'){
-      alert('la orden de reparación de este vehículo ya fue cerrada');
+      alert('La orden de reparación de este vehículo ya fue cerrada');
     }else{
       this.placa = car[0].placa;
       //buscamos los datos de esta orden y llenamos los campos 

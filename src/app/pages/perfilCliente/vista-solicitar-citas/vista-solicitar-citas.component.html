@@ -37,7 +37,7 @@
         </div>
         <div class="parte-derecha">
             <div class="fecha">
-                <label *ngIf="confirmada1!='confirmada'" class="fechas">Fecha: {{fecha1}}</label>
+                <label *ngIf="confirmada1!='confirmada'" class="fechas">Fecha: {{fecha1}}   Hora: {{hora1}}</label>
                 <label *ngIf="confirmada1=='confirmada'">Cita en progreso, para ver estado revisa "Reparaciones"</label>
                 <ngx-qrcode type='file' name='file' (change)="onSelectFile($event)" 
                 (change)="upload($event)" [elementType]="elementType" [errorCorrectionLevel]="correctionLevel" 
@@ -61,7 +61,7 @@
         </div>
         <div class="parte-derecha">
             <div class="fecha">
-                <label *ngIf="confirmada2!='confirmada'" class="fechas">Fecha: {{fecha2}}</label>
+                <label *ngIf="confirmada2!='confirmada'" class="fechas">Fecha: {{fecha2}}   Hora: {{hora2}}</label>
                 <label *ngIf="confirmada2=='confirmada'">Cita en progreso, para ver estado revisa "Reparaciones"</label>
                 <ngx-qrcode type='file' name='file' (change)="onSelectFile($event)" 
                 (change)="upload($event)" [elementType]="elementType" [errorCorrectionLevel]="correctionLevel" 
@@ -85,7 +85,7 @@
         </div>
         <div class="parte-derecha">
             <div class="fecha">
-                <label *ngIf="confirmada3!='confirmada'" class="fechas">Fecha: {{fecha3}}</label>
+                <label *ngIf="confirmada3!='confirmada'" class="fechas">Fecha: {{fecha3}}   Hora: {{hora3}}</label>
                 <label *ngIf="confirmada3=='confirmada'">Cita en progreso, para ver estado revisa "Reparaciones"</label>
                 <ngx-qrcode type='file' name='file' (change)="onSelectFile($event)" 
                 (change)="upload($event)" [elementType]="elementType" [errorCorrectionLevel]="correctionLevel" 

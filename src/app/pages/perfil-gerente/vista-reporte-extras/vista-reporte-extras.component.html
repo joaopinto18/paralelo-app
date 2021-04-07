@@ -3,17 +3,37 @@
 
 <div class="wrapper">
     <div class="botones">
-        <select id = "roles" name='roles' class="cosas">
-            <option value = "marca">Marcas que mas reinciden en Paralelo 4x4</option>
-            <option value = "usuario">Datos del usuario promedio</option>
-            <option value = "herramientas">Análisis de herramientas mas utilizadas</option>
+        <select id = "extras" name='roles' class="cosas" [(ngModel)]="selectedOption" >
+            <option value = "1">Marcas que más reinciden en Paralelo 4x4</option>
+            <option value = "2">Rango de edades de los clientes en Paralelo 4x4</option>
+            <option value = "3">Análisis de herramientas mas utilizadas</option>
         </select>   
     </div>
-    <div class="grafico">
+    <div class="grafico" *ngIf="selectedOption == 1">
         <google-chart #chart
         [title]="title1"
         [type]="type"
         [data]="data1"
+        [options]="options"
+        [width]="width"
+        [height]="height">
+    </google-chart>
+    </div>
+    <div class="grafico" *ngIf="selectedOption == 2">
+        <google-chart #chart
+        [title]="title2"
+        [type]="type"
+        [data]="data2"
+        [options]="options"
+        [width]="width"
+        [height]="height">
+    </google-chart>
+    </div>
+    <div class="grafico" *ngIf="selectedOption == 3">
+        <google-chart #chart
+        [title]="title3"
+        [type]="type"
+        [data]="data3"
         [options]="options"
         [width]="width"
         [height]="height">

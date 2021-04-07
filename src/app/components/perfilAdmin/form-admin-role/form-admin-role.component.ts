@@ -55,9 +55,9 @@ export class FormAdminRoleComponent implements OnInit {
       acceso: this.datosform.get('acceso').value
     }
     if(this.serviceUser.estadoRespuesta=='no se ha realizado búsqueda'){
-      alert('debe buscar primero el correo del usuario a quien desea modificar sus datos');
+      alert('Debe de buscar primero el correo del usuario a quien desea modificar sus datos');
     }else if(this.serviceUser.estadoRespuesta=='sin resultados'){
-      alert('no se encontró el usuario buscado, vuelve a intentar');
+      alert('No se encontró el usuario buscado, por favor vuelva a intentar');
     }else{
       this.serviceUser.modificarInfoUsuarioAdmin(usuarioModificado, this.serviceUser.estadoRespuesta);
     }
