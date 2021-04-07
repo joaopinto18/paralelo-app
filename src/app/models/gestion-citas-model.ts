@@ -4,4 +4,5 @@ export interface GestionCitasModel {
     CorreoSolicitante: any,
     estatus: any;
     nroVehiculo: number;
+    placa: any;
 }

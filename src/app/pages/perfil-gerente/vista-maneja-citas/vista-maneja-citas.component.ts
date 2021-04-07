@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CalendarOptions } from '@fullcalendar/angular';
+import { AddCarServiceService } from 'src/app/services/add-car-service.service';
 
 @Component({
   selector: 'app-vista-maneja-citas',
@@ -7,15 +8,29 @@ import { CalendarOptions } from '@fullcalendar/angular';
   styleUrls: ['./vista-maneja-citas.component.scss']
 })
 export class VistaManejaCitasComponent implements OnInit {
+  arr:Array<any>=[]
+  ArrayEventos:Array<any>=[]
+  constructor(private addCarService: AddCarServiceService) { }
 
-  constructor() { }
+  async ngOnInit(): Promise<void> {
 
-  ngOnInit(): void {
+    await this.addCarService.obtenerFechaCitas(this.arr).then(arr1=>{
+
+      for (let index = 0; index < arr1.length; index++) {
+        
+        this.ArrayEventos.push({
+          title:'cita cualquiera',
+          date: arr1[index]
+        });
+        
+      }
+    })
+
+    this.calendarOptions.events = this.ArrayEventos;
+    console.log(this.calendarOptions.events);
+
+
   }
-
-
-  
-
 
   calendarOptions: CalendarOptions = {
     initialView: 'dayGridMonth',
@@ -23,6 +38,7 @@ export class VistaManejaCitasComponent implements OnInit {
     eventClick: function(info){
       alert(info.event.title)
     },
+    
     contentHeight: 4000,
     aspectRatio: 1.8,
     handleWindowResize:true,
@@ -36,5 +52,6 @@ export class VistaManejaCitasComponent implements OnInit {
     alert('date click! ' + arg.dateStr)
   }
 
+  
   
 }

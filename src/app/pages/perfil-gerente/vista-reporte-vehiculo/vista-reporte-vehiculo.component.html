@@ -2,22 +2,20 @@
 <app-navbar-perfil-gerente></app-navbar-perfil-gerente>
 
 <div class="wrapper">
-    <div class="contenedor">
+    <div class="contenedor" [formGroup]="form">
         <div class="search">
-            <input type="text" placeholder="  Ingrese placa del vehiculo">
+            <input type="text" placeholder="  Ingrese placa del vehiculo" formControlName="placa">
         </div>
         <div class="btn-search">
-            <button>Buscar</button>
+            <button (click)='search()'>Buscar</button>
         </div>
     </div>
     
     <div class="container">
-        <p>Dueño del vehículo:</p>
-        <p>Placa:</p>
-        <p>Modelo:</p>
-        <p>Servicio hecho por el mecánico:</p>
-        <p>Daños:</p>
-        <p>Nombre del mecánico:</p>
+        <p>Dueño del vehiculo: {{duenno}}</p>
+        <p>Placa: {{placa}}</p>
+        <p>Modelo: {{modelo}}</p>
+        <p>Servicios realizados en el taller: {{servicios}}</p>
     </div>
 </div>
 

@@ -10,10 +10,10 @@
   <div class='input-section'>
       <form [formGroup]="registroVehiculoForm"  class='input-form'>
           <div class='input'>
-              <input type="text" formControlName="correo" required placeholder="nombrecliente@example.com"><span class='bar'></span>
+              <input type="text" formControlName="placa" required><span class='bar'></span>
               <span>INGRESA LEL CORREO DEL USUARIO AL QUE ASIGNAR UNA CITA</span>
           </div>
-          <button class='input-button' type="submit">BUSCAR</button>
+          <button class='input-button' (click)='search()'>BUSCAR</button>
       </form>
   </div>
 
@@ -22,21 +22,21 @@
   <div class='form-square'>
       <div class='form-square-background'>
             <div class='identificador'>
-                <span *ngIf="correo">USUARIO DE CORREO {{correo}} ESPERANDO POR CITA</span>
-                <span *ngIf="!correo">ASIGNAR CITA A VC.RUJANA@CORREO.COM</span>
+                <span *ngIf="!correo">SIN RESULTADOS</span>
+                <span *ngIf="correo">ENCONTRADO USUARIO DE CORREO {{correo}}</span>
             </div>
           <form [formGroup]="fechaForm" class='fechaForm'>
             <div class='columnas'>
               <div class="cajas">
                 <div class="identificador1">
-                    <label>Nombre: </label>
+                    <label>Nombre: {{nombre}}</label>
                 </div>
                 <div class="fecha">
                     <label>Fecha: </label>
                     <input class="fechi" type="datetime-local" formControlName="fechax">
                 </div>
                 <div class="btn-asignar">
-                    <button class="asignar">ASIGNAR</button>
+                    <button class="asignar" (click)='asignar()'>ASIGNAR</button>
                 </div>
               </div>
             </div>

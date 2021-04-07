@@ -15,7 +15,7 @@ export class VistaCitasAsignadasComponent implements OnInit {
   vehiculoBuscado:any;
   vehiculoBuscadoCambiar:any;
   correo:any;
-
+  nombre:any;
   data:Array<string>=[];
 
   constructor(private fb: FormBuilder, private carService:AddCarServiceService) { }
@@ -27,7 +27,7 @@ export class VistaCitasAsignadasComponent implements OnInit {
 
   createInputForm1(): void{
     this.registroVehiculoForm=this.fb.group({
-      correo:''
+      placa:''
     });
   }
 
@@ -39,20 +39,36 @@ export class VistaCitasAsignadasComponent implements OnInit {
 
   async search():Promise<void>{
     const citaUser: any={
-      correo:this.registroVehiculoForm.get('correo')?.value
+      placa:this.registroVehiculoForm.get('placa')?.value
     }
+
+    console.log(citaUser.placa);
     
-    const cita = await this.carService.BuscarVehiculo(citaUser.correo).valueChanges().pipe( take(1) ).toPromise();
-    this.vehiculoBuscado = cita;
+    const cita = await this.carService.buscarCita(citaUser.placa).valueChanges().pipe( take(1) ).toPromise();
     if(cita[0]==undefined){
       alert('sin resultados para esta búsqueda')
-    }else if(cita[0].estado=='orden cerrada por mecanico'){
-      alert('la orden de reparación de este vehículo ya fue cerrada');
+    }else if(cita[0].estatus=='cita solicitada'){
+      this.correo = cita[0].placa;
+
+      this.nombre = await this.carService.obtenerDueno(this.registroVehiculoForm.get('placa')?.value);
+      console.log('------------------->');
+      
+      console.log(await this.carService.obtenerDueno(this.registroVehiculoForm.get('placa')?.value));
+      
     }else{
-      this.correo = cita[0].correo;
-      //buscamos los datos de esta orden y llenamos los campos 
-      //this.infoVehiculo.setValue({repuestos: cita[0].repuestos, 
-      //procedimiento:cita[0].procedimiento, diagnostico:cita[0].diagnostico});
+      alert('ya se ha asignado una fecha para esta cita');
+    }
+  }
+
+  async asignar():Promise<void>{
+    if(this.correo){
+      alert('la fecha ha sido asignada, se avisara al cliente')
+      this.carService.modificarFecha(this.fechaForm.get('fechax')?.value, this.registroVehiculoForm.get('placa')?.value);
+      this.registroVehiculoForm.reset();
+      this.fechaForm.reset();
+      this.nombre='';
+    }else{
+      alert('debe encontrar un vehiculo que requiera asignación de cita primero')
     }
   }
 

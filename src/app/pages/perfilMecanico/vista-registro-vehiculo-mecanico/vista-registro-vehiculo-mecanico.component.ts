@@ -75,7 +75,9 @@ export class VistaRegistroVehiculoMecanicoComponent implements OnInit {
       diagnostico:"vacio",
       procedimiento:"vacio",
       repuestos:"vacio",
-      estado:"en revisión"
+      estado:"en revisión",
+      precioRepuestos:"vacio",
+      precioManoDeObra:"vacio"
     }
 
     console.log(newCar);

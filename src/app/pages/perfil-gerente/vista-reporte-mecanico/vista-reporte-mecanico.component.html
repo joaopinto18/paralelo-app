@@ -3,20 +3,18 @@
 
 <div class="wrapper">
     <div class="contenedor">
-        <div class="search">
-            <input type="text" placeholder="  Ingrese placa del vehiculo">
+        <div class="search" [formGroup]="form">
+            <input type="text" placeholder="  Ingrese placa del vehiculo" formControlName="correo">
         </div>
         <div class="btn-search">
-            <button>Buscar</button>
+            <button (click)='search()'>Buscar</button>
         </div>
     </div>
     
     <div class="container">
-        <p>Nombre del Mecánico:</p>
-        <p>Tiempo de trabajo:</p>
-        <p>Cantidad de vehículos atendidos:</p>
-        <p>Servicio hecho por el mecánico:</p>
-        <p>Ordenes atendidas:</p>
+        <p>Nombre del Mecanico: {{nombre}}</p>
+        <p>Servicios hecho por el mecanico: {{servicios}}</p>
+        <p>Ordenes atendidas: {{ordenes}}</p>
     </div>
 </div>
 

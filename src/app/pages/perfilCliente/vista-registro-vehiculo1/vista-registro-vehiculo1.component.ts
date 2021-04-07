@@ -65,8 +65,8 @@ export class VistaRegistroVehiculo1Component implements OnInit {
       modelo: this.form.get('modelo').value,
       anno: this.form.get('anno').value,
       fecha: this.form.get('fecha').value,
-      placa: this.form.get('placa').value
-
+      placa: this.form.get('placa').value,
+      historial_procedimientos: ""
       } 
     this.addedUser.AgregarVehiculoUsuario(datosUsuario);
     console.log(this.filePath)

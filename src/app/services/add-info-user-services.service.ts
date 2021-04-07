@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { AngularFirestore, AngularFirestoreCollection, DocumentReference } from '@angular/fire/firestore';
 import { Router } from '@angular/router';
+import { NavbarDerechoAdminComponent } from '../components/perfilAdmin/navbar-derecho-admin/navbar-derecho-admin.component';
 import { AddUserCarModel } from '../models/add-user-car-model';
 import { GestionCitasModel } from '../models/gestion-citas-model';
 import { ModeloDatosUsuario } from '../models1/modelo-datos-usuario';
@@ -32,14 +33,6 @@ export class AddInfoUserServicesService {
   }
 
   /**
-   * FUNCION PARA CANCELAR UNA ORDEN DE REPARACION
-   */
-
-  cancelarOrdenRepa(){
-
-  }
-
-  /**
    * FUNCION PARA OBTENER LA INFORMACIÓN DE VEHÍCULO
    */
 
@@ -62,6 +55,45 @@ export class AddInfoUserServicesService {
       alert('Se han modificado sus datos personales')
     })
   } 
+
+  /**
+   * FUNCION PARA OBTENER LA PLACA DE UN VEHICULO
+   */
+
+  async obtenerPlaca(iduser: string, nroVehiculo: number): Promise<string>{
+    
+    let respuesta: 'nada';
+    await this.Firestore.collection('VEHICULOS-REGISTRADOS').ref.where('IdDocDueno','==', iduser).
+    get().then((querysnapshot)=>{ //este await hace que primero se tenga que resolver esta promesa antes de proseguir con el codigo
+    querysnapshot.forEach((usuario)=>{
+        //si el documento se encuentra, entonces 
+        if(nroVehiculo == usuario.get('nroVheiculo')){
+          respuesta = usuario.get('placa');
+          console.log(usuario.get('placa'));
+          
+        }
+      })
+    })
+
+    return respuesta;
+  }
+
+  /**
+   * OBTENER ID USUARIO POR SU CORREO
+   */
+
+  async obtenerID(correo:string): Promise<string>{
+    let id='no se ha encontrado'
+    await this.Firestore.collection('DATOS-USUARIOS').ref.where('correo','==', correo).
+    get().then((querysnapshot)=>{ //este await hace que primero se tenga que resolver esta promesa antes de proseguir con el codigo
+    querysnapshot.forEach((usuario)=>{
+        //si el documento se encuentra, entonces 
+        console.log(usuario.id.valueOf().toString());
+        id=usuario.id.valueOf().toString();
+      })
+    })
+    return id;
+  }
 
   /**
    * FUNCION PARA QUE EL ADMIN MODIFIQUE EL USUARIO
@@ -146,7 +178,7 @@ export class AddInfoUserServicesService {
         if(nrovehiculo==cita.get('nroVehiculo')){
           //si el documento se encuentra, entonces 
           this.citasCollection.doc(cita.id.valueOf().toString()).ref.onSnapshot(function(result) {
-          result.ref.update({ estatus:'Cita solicitada', fechaTentativa:'En espera por fecha' })});
+          result.ref.update({ estatus:'cita solicitada'})});
         }
       })
     })

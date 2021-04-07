@@ -3,30 +3,20 @@
 
 <div class="wrapper">
     <div class="contenedor">
-        <div class="selector">
-            <select id = "busqueda">
-                <option value = "Cedula">Cédula</option>
-                <option value = "Correo">Correo</option>
-                <option value = "Nombre">Nombre</option>
-            </select>   
-        </div>
-        <div class="search">
-            <input type="text" placeholder="  Busque a un cliente">
+        <div class="search" [formGroup]="form">
+            <input type="text" placeholder="    ingresa el correo de un cliente"  formControlName="correo">
         </div>
         <div class="btn-search">
-            <button>Buscar</button>
+            <button (click)='search()'>Buscar</button>
         </div>
     </div>
     
     <div class="container">
-        <p>Nombre:</p>
-        <p>Correo:</p>
-        <p>Cédula:</p>
-        <p>Cantidad de citas:</p>
-        <p>Cantidad de vehículos registrados:</p>
-        <p>Vehículo 1:</p>
-        <p>Vehículo 2:</p>
-        <p>Vehículo 3:</p>
-        <p>Dinero gastado por el cliente:</p>
+        <p>Nombre: {{nombre}}</p>
+        <p>Correo: {{correo}}</p>
+        <p>Cedula: {{cedula}}</p>
+        <p>Vehiculo 1: {{vehiculo1}}</p>
+        <p>Vehiculo 2: {{vehiculo2}}</p>
+        <p>Vehiculo 3: {{vehiculo3}}</p>
     </div>
 </div>

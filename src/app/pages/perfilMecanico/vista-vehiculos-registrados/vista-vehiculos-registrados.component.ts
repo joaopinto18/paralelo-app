@@ -63,6 +63,12 @@ export class VistaVehiculosRegistradosComponent implements OnInit {
   if(this.placa==undefined){
     alert('no se encontró la orden')
   }else{
+    const repuestos = this.infoVehiculo.get('repuestos').value
+    const diagnostico = this.infoVehiculo.get('diagnostico').value
+    const procedimiento = this.infoVehiculo.get('procedimiento').value
+    this.carService.modificarInfoVehiculo(repuestos,procedimiento,diagnostico,this.placa);
+    this.carService.modificarHistorialVehiculosRegistrados(this.placa,procedimiento);
+    this.carService.modificarHistorialMecanico(procedimiento, this.placa);
     this.carService.cerrarOrdenRepa(this.placa);
     this.placa=undefined;
     this.registroVehiculoForm.reset();

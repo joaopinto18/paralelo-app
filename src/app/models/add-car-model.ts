@@ -18,4 +18,6 @@ export interface AddCarModel {
     procedimiento?:String;
     repuestos?:String;
     estado:String;
+    precioRepuestos?:string,
+    precioManoDeObra?:string
 }

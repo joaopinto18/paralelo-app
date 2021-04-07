@@ -8,12 +8,12 @@
         </div>
     </div>
     <div class='input-section'>
-        <form  class='input-form'>
+        <form  class='input-form' [formGroup]="registroVehiculoForm">
             <div class='input'>
-                <input type="text" formControlName="correo" required placeholder="AB008JIK"><span class='bar'></span>
+                <input type="text" formControlName="placa" required><span class='bar'></span>
                 <span>INGRESE LA PLACA DEL VEHÍCULO</span>
             </div>
-            <button class='input-button' type="submit">BUSCAR</button>
+            <button class='input-button' (click)="search()">BUSCAR</button>
         </form>
     </div>
   
@@ -22,9 +22,10 @@
     <div class='form-square'>
         <div class='form-square-background'>
               <div class='identificador'>
-                  <span >VEHÍCULO DE PLACA X ENCONTRADO</span>
+                <span *ngIf="!placa">SIN RESULTADOS</span>
+                <span *ngIf="placa">ENCONTRADO USUARIO DE CORREO {{placa}}</span>
               </div>
-            <form  class='fechaForm'>
+            <form  class='fechaForm' [formGroup]="formPrecios">
               <div class='columnas'>
                 <div class="cajas">
                   <div class="identificador1">
@@ -32,8 +33,8 @@
                         <label>Repuestos utilizados: </label>
                       </div>
                       <div class="float">
-                        <textarea name="repuestos"cols="30" rows="10"></textarea>
-                        <input class= "precio" placeholder="Costo total: 600$" type="text">
+                        <textarea name="repuestos"cols="30" rows="10">{{repuestos}}</textarea>
+                        <input class= "precio" placeholder="Costo total: 600$" type="text" formControlName="precio1">
                       </div>
                   </div>
                   <div class="identificador2">
@@ -41,12 +42,12 @@
                       <p>Procedimientos aplicados:</p>
                     </div>
                     <div class="float">
-                      <textarea name="repuestos"cols="30" rows="10"></textarea>
-                      <input class= "precio" placeholder="Costo total: 600$" type="text">
+                      <textarea name="repuestos"cols="30" rows="10">{{procedimiento}}</textarea>
+                      <input class= "precio" placeholder="Costo total: 600$" type="text" formControlName="precio2">
                     </div>
                 </div>
                   <div class="btn-asignar">
-                      <button class="asignar">ASIGNAR</button>
+                      <button class="asignar" (click)="asignar()">ASIGNAR</button>
                   </div>
                 </div>
               </div>
