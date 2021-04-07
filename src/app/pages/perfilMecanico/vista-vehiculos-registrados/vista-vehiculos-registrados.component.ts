@@ -2,6 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { AddCarServiceService } from 'src/app/services/add-car-service.service';
 import { take } from 'rxjs/operators';
+import { AddInfoUserServicesService } from 'src/app/services/add-info-user-services.service';
 
 @Component({
   selector: 'app-vista-vehiculos-registrados',
@@ -16,7 +17,7 @@ export class VistaVehiculosRegistradosComponent implements OnInit {
   vehiculoBuscadoCambiar:any;
   placa:any;
 
-  constructor(private fb: FormBuilder, private carService:AddCarServiceService) { }
+  constructor(private infoUser: AddInfoUserServicesService, private fb: FormBuilder, private carService:AddCarServiceService) { }
 
   ngOnInit(): void {
     this.createInputForm1();
@@ -51,6 +52,7 @@ export class VistaVehiculosRegistradosComponent implements OnInit {
       const diagnostico = this.infoVehiculo.get('diagnostico').value
       const procedimiento = this.infoVehiculo.get('procedimiento').value
       this.carService.modificarInfoVehiculo(repuestos,procedimiento,diagnostico,this.placa);
+      this.infoUser.cambiarEstadoCita(this.placa, 'reparacion en proceso');
       alert('Se ha modificado la información del vehiculo');
     }
   }

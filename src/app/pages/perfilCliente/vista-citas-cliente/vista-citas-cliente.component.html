@@ -13,11 +13,11 @@
     </div>
     <div class="estatus">
         <div class="cajas">
-            <div class="caja1" *ngIf="estado1!='cita solicitada'">
+            <div class="caja1" *ngIf="estado1!='cita solicitada' && estado1!='En espera de confirmación'">
                 <p>1.CITA SOLICITADA</p>
             </div>
 
-            <div class="caja1" *ngIf="estado1=='cita solicitada'" style="background-color:  greenyellow">
+            <div class="caja1" *ngIf="estado1=='cita solicitada' || estado1=='En espera de confirmación'" style="background-color:  greenyellow">
                 <p>1.CITA SOLICITADA</p>
             </div>
             <div class="triangulo">
@@ -63,10 +63,10 @@
             <p>VEHÍCULO 2</p>
         </div>
         <div class="cajas">
-            <div class="caja1" *ngIf="estado2!='cita solicitada'">
+            <div class="caja1" *ngIf="estado2!='cita solicitada' && estado2!='En espera de confirmación'">
                 <p>1.CITA SOLICITADA</p>
             </div>
-            <div class="caja1" *ngIf="estado2=='cita solicitada'" style="background-color:  greenyellow">
+            <div class="caja1" *ngIf="estado2=='cita solicitada' && estado2=='En espera de confirmación'" style="background-color:  greenyellow">
                 <p>1.CITA SOLICITADA</p>
             </div>
             <div class="triangulo">
@@ -146,10 +146,10 @@
             <div class="triangulo">
             </div>
             <!---------------------------------------------->
-            <div class="caja5" *ngIf="estado3!='reparacion en proceso'">
+            <div class="caja5" *ngIf="estado3!='reparacion finalizada'">
                 <p>5.REPARACIÓN FINALIZADA</p>
             </div>
-            <div class="caja5" *ngIf="estado3=='reparacion en proceso'" style="background-color:  greenyellow">
+            <div class="caja5" *ngIf="estado3=='reparacion finalizada'" style="background-color:  greenyellow">
                 <p>5.REPARACIÓN FINALIZADA</p>
             </div>
         </div>

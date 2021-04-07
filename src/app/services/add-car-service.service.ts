@@ -52,13 +52,12 @@ export class AddCarServiceService {
   }  
 
   /**
-   * FUNCION PARA OBTENER LA INFORMACIÓN DEL VEHICULO DE UN USUARIO
+   * FUNCION PARA OBTENER LA INFORMACIÓN DEL VEHICULO DE UN USUARIO CON ID
    */
 
-   BuscarVehiculox(placa: string): any{
+   BuscarVehiculoxId(id: string, nroVehiculo:string): any{
 
-    return this.firestore.collection('VEHICULOS-REGISTRADOS' ,  ref => (
-      ref.where('placa', '==', placa)))
+    return this.firestore.collection('VEHICULOS-REGISTRADOS')
   } 
 
   /**
@@ -80,7 +79,33 @@ export class AddCarServiceService {
       querySnapshot.forEach((doc) => {
           // doc.data() is never undefined for query doc snapshots
           //console.log(doc.get('fechaTentativa'));
-          arr.push(doc.get('fechaTentativa'))
+          if(doc.get('estatus')=='confirmada'){
+            arr.push(doc.get('fechaTentativa'))
+          }
+      });
+  });
+  return arr;
+  }
+
+  /**
+   * FUNCION DE OBTENER DATOS DE VEHICULOS
+   */
+
+   BuscarVehiculoIdxx(idDuenno: string, nroVehiculo: number): any{
+
+    return this.firestore.collection('VEHICULOS-REGISTRADOS' ,  ref => (
+      ref.where('IdDocDueno', '==', idDuenno) && ref.where('nroVheiculo', '==', nroVehiculo)))
+  }
+
+  async obtenerHoraCitas(arr:Array<any>): Promise<any>{
+    
+    await this.firestore.collection("GESTION-CITAS").get().toPromise().then((querySnapshot) => {
+      querySnapshot.forEach((doc) => {
+          // doc.data() is never undefined for query doc snapshots
+          //console.log(doc.get('fechaTentativa'));
+          if(doc.get('estatus')=='confirmada'){
+            arr.push(doc.get('HoraTentativa'))
+          }
       });
   });
   return arr;
@@ -103,13 +128,33 @@ export class AddCarServiceService {
           })
         })
       })
-  }
+    }
 
   /**
    * OBTENER INFO DE UN VEHICULO
    */
 
     async buscarVehiculoRegistrado(id: string, nroVehiculo:number): Promise<string>{
+      
+    let respuesta: 'nada';
+    await this.firestore.collection('VEHICULOS-REGISTRADOS').ref.where('IdDocDueno','==', id).
+    get().then((querysnapshot)=>{ //este await hace que primero se tenga que resolver esta promesa antes de proseguir con el codigo
+    querysnapshot.forEach((usuario)=>{
+        //si el documento se encuentra, entonces 
+        if(nroVehiculo == usuario.get('nroVheiculo')){
+          respuesta = usuario.get('modelo');
+        }
+      })
+    })
+
+    return respuesta;
+    }
+
+  /**
+   * FUNCION PARA BUSCAR INFO DE VEHICULO
+   */
+
+   async buscarVehiculoId(id: string, nroVehiculo:number): Promise<string>{
       
     let respuesta: 'nada';
     await this.firestore.collection('VEHICULOS-REGISTRADOS').ref.where('IdDocDueno','==', id).
@@ -148,7 +193,7 @@ export class AddCarServiceService {
    * MODIFICAR FECHA DE LA CITA
    */
 
-  modificarFecha(fecha: any, placa: string){
+  modificarFecha(fecha: any, placa: string, hora:any){
     this.firestore.collection('GESTION-CITAS').ref.where('placa','==',placa).
       get().then((querysnapshot)=>{
         querysnapshot.forEach((carro)=>{
@@ -156,7 +201,7 @@ export class AddCarServiceService {
           let id = carro.id;
           //utilizamos el id para buscar el documento y hacer los cambios
           this.citasCollection.doc(id).ref.onSnapshot(function(result) {
-            result.ref.update({fechaTentativa:fecha, estatus:'En espera de confirmación'});
+            result.ref.update({fechaTentativa:fecha, estatus:'En espera de confirmación', HoraTentativa: hora});
           })
         })
       })

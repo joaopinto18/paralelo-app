@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, TestabilityRegistry } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import { take } from 'rxjs/operators';
 import { AddCarServiceService } from 'src/app/services/add-car-service.service';
+import { AddInfoUserServicesService } from 'src/app/services/add-info-user-services.service';
 
 @Component({
   selector: 'app-vista-registro-vehiculo-mecanico',
@@ -13,7 +14,7 @@ export class VistaRegistroVehiculoMecanicoComponent implements OnInit {
 
   public registroVehiculoForm!: FormGroup;
 
-  constructor(private fb: FormBuilder, private addCarService: AddCarServiceService, private router: Router) { }
+  constructor(private infoUser: AddInfoUserServicesService, private fb: FormBuilder, private addCarService: AddCarServiceService, private router: Router) { }
 
   async ngOnInit(): Promise<void> {
     this.createForm();
@@ -85,7 +86,7 @@ export class VistaRegistroVehiculoMecanicoComponent implements OnInit {
      //una vez recogida la información la enviamos 
 
      this.addCarService.RegistrarNuevoVehiculo(newCar);
-      
+     this.infoUser.cambiarEstadoCita(newCar.placa, 'incio de reparacion');
      alert('Se ha registrado el vehiculo');
   }
 

@@ -33,7 +33,8 @@ export class VistaCitasAsignadasComponent implements OnInit {
 
   createInputForm2(): void{
     this.fechaForm=this.fb.group({
-      fechax:''
+      fechax:'',
+      horax:''
     })
   }
 
@@ -43,7 +44,7 @@ export class VistaCitasAsignadasComponent implements OnInit {
     }
 
     console.log(citaUser.placa);
-    
+
     const cita = await this.carService.buscarCita(citaUser.placa).valueChanges().pipe( take(1) ).toPromise();
     if(cita[0]==undefined){
       alert('sin resultados para esta búsqueda')
@@ -63,7 +64,8 @@ export class VistaCitasAsignadasComponent implements OnInit {
   async asignar():Promise<void>{
     if(this.correo){
       alert('la fecha ha sido asignada, se avisara al cliente')
-      this.carService.modificarFecha(this.fechaForm.get('fechax')?.value, this.registroVehiculoForm.get('placa')?.value);
+      
+      this.carService.modificarFecha(this.fechaForm.get('fechax')?.value, this.registroVehiculoForm.get('placa')?.value, this.fechaForm.get('horax')?.value);
       this.registroVehiculoForm.reset();
       this.fechaForm.reset();
       this.nombre='';
