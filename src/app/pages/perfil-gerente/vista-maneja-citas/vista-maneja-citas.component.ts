@@ -8,28 +8,29 @@ import { AddCarServiceService } from 'src/app/services/add-car-service.service';
   styleUrls: ['./vista-maneja-citas.component.scss']
 })
 export class VistaManejaCitasComponent implements OnInit {
-
-  private op: any;
-  private arr: Array<string>=[]
-  private calendarevent: Array<any>=[];
-  
+  arr:Array<any>=[]
+  ArrayEventos:Array<any>=[]
   constructor(private addCarService: AddCarServiceService) { }
 
   async ngOnInit(): Promise<void> {
-    const array=this.addCarService.obtenerFechaCitas().then((querySnapshot) => {
-      querySnapshot.forEach(async (doc) => {
-          // doc.data() is never undefined for query doc snapshots
-          this.calendarevent.push(await doc.get('placa'))
-          console.log(await this.calendarevent[0]);
-          console.log(await this.calendarevent[1]);
-          console.log(await this.calendarevent[2]);
-      });
+
+    await this.addCarService.obtenerFechaCitas(this.arr).then(arr1=>{
+
+      for (let index = 0; index < arr1.length; index++) {
+        
+        this.ArrayEventos.push({
+          title:'cita cualquiera',
+          date: arr1[index]
+        });
+        
+      }
     })
+
+    this.calendarOptions.events = this.ArrayEventos;
+    console.log(this.calendarOptions.events);
+
+
   }
-
-
-  
-
 
   calendarOptions: CalendarOptions = {
     initialView: 'dayGridMonth',
@@ -37,6 +38,7 @@ export class VistaManejaCitasComponent implements OnInit {
     eventClick: function(info){
       alert(info.event.title)
     },
+    
     contentHeight: 4000,
     aspectRatio: 1.8,
     handleWindowResize:true,

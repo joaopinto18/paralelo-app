@@ -1,6 +1,7 @@
 import { dashCaseToCamelCase } from '@angular/compiler/src/util';
 import { Injectable } from '@angular/core';
 import { AngularFirestore, AngularFirestoreCollection, docChanges, DocumentData, DocumentReference } from '@angular/fire/firestore';
+import { BitArray } from '@zxing/library';
 import * as firebase from 'firebase';
 import { Observable } from 'rxjs';
 import { take } from 'rxjs/operators';
@@ -73,10 +74,16 @@ export class AddCarServiceService {
    * OBTENER TODOS LOS DOCUMENTOS DE GESTION DE CITAS
    */
 
-  async obtenerFechaCitas(): Promise<any>{
+  async obtenerFechaCitas(arr:Array<any>): Promise<any>{
     
-    
-    return await this.firestore.collection("GESTION-CITAS").get().toPromise()
+    await this.firestore.collection("GESTION-CITAS").get().toPromise().then((querySnapshot) => {
+      querySnapshot.forEach((doc) => {
+          // doc.data() is never undefined for query doc snapshots
+          //console.log(doc.get('fechaTentativa'));
+          arr.push(doc.get('fechaTentativa'))
+      });
+  });
+  return arr;
   }
 
   /**
