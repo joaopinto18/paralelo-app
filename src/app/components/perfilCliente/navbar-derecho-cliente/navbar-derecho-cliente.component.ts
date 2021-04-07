@@ -9,11 +9,15 @@ import { ServicioService } from 'src/app/services/servicio.service';
 })
 export class NavbarDerechoClienteComponent implements OnInit {
   user: any;
+  correo: any;
   constructor(private authService: ServicioService,private router: Router) { }
 
   ngOnInit(): void {
     this.user = this.authService.getCurrentUser();
+    this.correo = localStorage.getItem('correouser');
   }
+  
+
 
   handleLogout(){
     this.authService.logout().then(()=>{

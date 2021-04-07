@@ -75,6 +75,7 @@ import { VistaReporteExtrasComponent } from './pages/perfil-gerente/vista-report
 import { FullCalendarModule } from '@fullcalendar/angular';
 import dayGridPlugin from '@fullcalendar/daygrid'; // a plugin
 import interactionPlugin from '@fullcalendar/interaction'; // a plugin
+
 //scanner
 import { ZXingScannerModule } from '@zxing/ngx-scanner';
 import { VistaCitasAsignadasComponent } from './pages/perfil-gerente/vista-citas-asignadas/vista-citas-asignadas.component';

@@ -5,7 +5,7 @@
 <div class="wrapper">
     <div class="caja">
         <div class="titulo">
-            <label>VEHICULO 1</label>
+            <label>VEHÍCULO 1</label>
         </div>
         <div class="boton">
             <button [disabled]="clicked" (click)="clickedx()" class="btn-cita">SOLICITAR CITA</button>
@@ -14,7 +14,7 @@
 
     <div class="caja">
         <div class="titulo">
-            <label>VEHICULO 2</label>
+            <label>VEHÍCULO 2</label>
         </div>
         <div class="boton">
             <button [disabled]="clicked2" (click)="clickedx2()" class="btn-cita">SOLICITAR CITA</button>
@@ -22,7 +22,7 @@
     </div>
     <div class="caja">
         <div class="titulo">
-            <label>VEHICULO 3</label>
+            <label>VEHÍCULO 3</label>
         </div>
         <div class="boton">
             <button [disabled]="clicked3" (click)="clickedx3()" class="btn-cita">SOLICITAR CITA</button>
@@ -33,11 +33,11 @@
     </div>
     <div class="caja" *ngIf="clicked">
         <div class="titulo">
-            <label>VEHICULO 1</label>
+            <label>VEHÍCULO 1</label>
         </div>
         <div class="parte-derecha">
             <div class="fecha">
-                <label *ngIf="confirmada1!='confirmada'">Fecha: {{fecha1}}</label>
+                <label *ngIf="confirmada1!='confirmada'" class="fechas">Fecha: {{fecha1}}</label>
                 <label *ngIf="confirmada1=='confirmada'">Cita en progreso, para ver estado revisa "Reparaciones"</label>
             </div>
             <div class="iconos" *ngIf="confirmada1=='En espera de confirmación'">
@@ -54,11 +54,11 @@
     </div>
     <div class="caja" *ngIf="clicked2">
         <div class="titulo">
-            <label>VEHICULO 2</label>
+            <label>VEHÍCULO 2</label>
         </div>
         <div class="parte-derecha">
             <div class="fecha">
-                <label *ngIf="confirmada2!='confirmada'">Fecha: {{fecha2}}</label>
+                <label *ngIf="confirmada2!='confirmada'" class="fechas">Fecha: {{fecha2}}</label>
                 <label *ngIf="confirmada2=='confirmada'">Cita en progreso, para ver estado revisa "Reparaciones"</label>
             </div>
             <div class="iconos" *ngIf="confirmada2=='En espera de confirmación'">
@@ -75,11 +75,11 @@
     </div>
     <div class="caja" *ngIf="clicked3">
         <div class="titulo">
-            <label>VEHICULO 3</label>
+            <label>VEHÍCULO 3</label>
         </div>
         <div class="parte-derecha">
             <div class="fecha">
-                <label *ngIf="confirmada3!='confirmada'">Fecha: {{fecha3}}</label>
+                <label *ngIf="confirmada3!='confirmada'" class="fechas">Fecha: {{fecha3}}</label>
                 <label *ngIf="confirmada3=='confirmada'">Cita en progreso, para ver estado revisa "Reparaciones"</label>
                 <ngx-qrcode type='file' name='file' (change)="onSelectFile($event)" 
                 (change)="upload($event)" [elementType]="elementType" [errorCorrectionLevel]="correctionLevel" 
