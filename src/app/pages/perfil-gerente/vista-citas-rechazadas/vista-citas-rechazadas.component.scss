@@ -196,16 +196,19 @@ label{
 
 
 .fecha{
+    display: flex;
     float: left;
     margin-top: 55px;
     height: 30px;
 }
+
 .fechi{
-    width: 200px;
     height: 15px;
+    width: 120px;
+    height: 20px;
     border-color: black;
-    margin-top: -30px;
-    margin-left: 125px;
+    margin-top: 10px;
+    margin-left: 20px;
 }
 
 label{
@@ -240,6 +243,6 @@ p{
 }
 
 .fecha-nueva{
-    margin-top: 20px;
+    margin-top: 7px;
     height: 100px;
 }
