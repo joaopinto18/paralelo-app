@@ -74,6 +74,7 @@ import { VistaReporteExtrasComponent } from './pages/perfil-gerente/vista-report
 //FULL CALENDAR
 import { FullCalendarModule } from '@fullcalendar/angular';
 import dayGridPlugin from '@fullcalendar/daygrid'; // a plugin
+import interactionPlugin from '@fullcalendar/interaction'; // a plugin
 //scanner
 import { ZXingScannerModule } from '@zxing/ngx-scanner';
 import { VistaCitasAsignadasComponent } from './pages/perfil-gerente/vista-citas-asignadas/vista-citas-asignadas.component';
@@ -86,6 +87,7 @@ import { CuadritoComponent } from './components/cuadrito/cuadrito.component';
 
 FullCalendarModule.registerPlugins([ // register FullCalendar plugins
   dayGridPlugin,
+  interactionPlugin
 ]);
 
 @NgModule({
