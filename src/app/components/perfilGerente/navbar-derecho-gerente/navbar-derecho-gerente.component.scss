@@ -1,5 +1,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Athiti:wght@700&display=swap');
 
+$tablet: 768px;
+$phone: 520px;
+
+@media(max-width:$tablet){
+    .right-navbar{
+        display:none;
+    }
+    
+}
+
 .right-navbar{
     float: right;
     width: 25%;

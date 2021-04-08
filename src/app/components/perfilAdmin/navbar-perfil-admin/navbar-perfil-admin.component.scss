@@ -10,9 +10,12 @@ $tablet: 768px;
 
 
 .navbar{
-    width: 100%;
+    width: 75%;
     height: 20%;
     background-color: rgb(66, 66, 66);
+    @media(max-width:$tablet){
+        width:100%;
+    }
 }
 
 .left-column{

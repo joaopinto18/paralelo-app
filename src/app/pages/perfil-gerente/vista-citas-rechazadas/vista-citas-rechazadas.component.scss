@@ -1,9 +1,18 @@
 @import url('https://fonts.googleapis.com/css2?family=Athiti:wght@700&display=swap');
 
+$tablet: 768px;
+$phone: 375px;
+
 .wrapper{
-    height: 80%;
+    height: 75%;
     width: 75%;
     background-color: rgb(66, 66, 66);
+    justify-content: center;
+    align-items: center;
+    @media(max-width:$tablet){
+        width: 100%;
+        height: 100%;
+    }
 }
 
 .wrapper .title-box{
@@ -37,13 +46,13 @@
 
 .wrapper .input-section .input{
     height: 65%;
-    width: 55%;
-    margin-left: 13px;
+    width: 65%;
     font-family: 'Athiti', sans-serif ;
-    font-size: 12px; 
+    font-size: 13px; 
     font-weight: bold;
-    margin-top: 20px;
     color: white;
+    border-radius: 36px 12px;
+    margin: 3%;
 }
 
 .wrapper .input-section .input-button{
@@ -102,14 +111,19 @@
 }
 
 input{
-    width: 500px;
-    height: 10px;
-    border-radius: 36px 12px;                     
+    width: 100%;
+    height: 30px;
+    border-radius: 5px;                      
     font-size: 15px;            
-    margin: 10px 10px 10px 5px; 
-    padding: 10px 10px 10px 5px;
-    display: block;             
+    // margin: 10px 10px 10px 5px; 
+    // padding: 10px 10px 10px 5px;
+    display: flex;             
     border: none;
+    border-radius: 36px 12px;
+    @media(max-width: $tablet){
+        height: 20px;
+        // height: 100%;
+    }
 }
 
 label{
@@ -124,10 +138,15 @@ label{
 @import "node_modules/font-awesome/scss/font-awesome.scss";
 
 .wrapper{
-    height: 80%;
+    height: 75%;
     width: 75%;
     background-color: rgb(66, 66, 66);
-    float: left;
+    justify-content: center;
+    align-items: center;
+    @media(max-width:$tablet){
+        width: 100%;
+        height: 100%;
+    }
 }
 
 .contenedor{
@@ -198,17 +217,26 @@ label{
 .fecha{
     display: flex;
     float: left;
-    margin-top: 55px;
-    height: 30px;
-}
-
-.fechi{
-    height: 15px;
-    width: 160px;
+    width: 100%;
     height: 20px;
     border-color: black;
     margin-top: 10px;
     margin-left: 20px;
+    @media(max-width:703px){
+        width: 80%;
+        display: block;
+    }
+}
+
+.fechi{
+    width: 100%;
+    height: 20px;
+    border-color: black;
+    margin-top: 10px;
+    margin-left: 20px;
+    @media(max-width:$tablet){
+        // width: 100px;
+    }
 }
 
 label{
@@ -225,11 +253,20 @@ label{
 }
 
 .asignar{
+    position: relative;
+    left: 35%;
+    top: 30px;
     font-family: "Athiti",sans-serif;
     border-color: black;
     background-color: white;
     cursor: pointer;
     width: 150px;
+    position: relative;
+    height: 50px;
+    @media(max-width:703px){
+        top: -30px;
+        width: 100px;
+    }
 }
 
 .asignar:hover{
