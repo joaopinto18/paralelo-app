@@ -22,12 +22,10 @@ export class GuardAdminService implements CanActivate{
       else if (localStorage.getItem('accesouser')=='mecanico'){
         this.router.navigate(['/vista-perfil-mecanico']);
         return false
-      }
-      else{
-        this.router.navigate(['/vista-citas']);
+      }else if(localStorage.getItem('accesouser')=='gerente'){
+        this.router.navigate(['/citas-gerente']);
         return false
-      }
      
-    }
+        }    }
   }
 }

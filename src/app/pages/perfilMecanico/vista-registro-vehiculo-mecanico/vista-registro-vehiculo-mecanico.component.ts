@@ -84,7 +84,7 @@ export class VistaRegistroVehiculoMecanicoComponent implements OnInit {
     console.log(newCar);
 
      //una vez recogida la información la enviamos 
-
+    this.registroVehiculoForm.reset();
      this.addCarService.RegistrarNuevoVehiculo(newCar);
      this.infoUser.cambiarEstadoCita(newCar.placa, 'incio de reparacion');
      alert('Se ha registrado el vehículo');
