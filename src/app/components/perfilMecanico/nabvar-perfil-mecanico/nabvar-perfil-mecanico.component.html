@@ -1,12 +1,41 @@
-<div class='navbar'>
-    <div class='logo-menu'>
-        <div class='contenedor'>
-            <img class='logo' src='./assets/PARALELO2.png'>
+<nav class='navbar navbar-expand-lg navbar-light'>
+    <div class='container-fluid'>
+        <div class='row'>
+            <a class="navbar-brand" [routerLink]="['/vista-perfil-cliente']">
+                <img class='logo' src='./assets/PARALELO2.png'>
+              </a>
         </div>
+        <button
+         class="navbar-toggler"
+         type="button"
+         data-toggle="collapse" 
+         data-target="#navbarSupportedContent"
+         aria-controls="navbarSupportedContent" 
+         aria-expanded="false"
+         aria-label="Togle navigation"
+         >
+            <span class="navbar-toggler-icon"></span>
+        </button>
+    <div class='collapse navbar-collapse' id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+               <li class="nav-item">
+                    <a [routerLink]="['/']" class="nav-link">INICIO</a>
+                </li> 
+                <li class="nav-item">
+                    <a [routerLink]="['/vista-registrar-vehiculo-mecanico']" class="nav-link">REGISTRO DE VEHÍCULOS</a>
+                
+
+                </li>
+                <li class="nav-item">
+                    <a [routerLink]="['/vista-vehiculos-rehistrados-mecanicos']" class="nav-link">VEHÍCULOS REGISTRADOS</a>
+                </li>
+                <li class="esconde">
+                    <a [routerLink]="['/inicio-sesion']" class="nav-link">INICIAR SESION</a>
+                </li>
+                <li class="esconde">
+                    <a [routerLink]="['/registro']" class=" nav-link">REGISTRARSE</a>
+                </li>
+        </ul>
     </div>
-    <div class='options-menu'>
-        <div class='about-button'>
-            <span><a [routerLink]="['/vista-vehiculos-rehistrados-mecanicos']" style="color: black; text-decoration: none;">VEHÍCULOS REGISTRADOS</a></span>
-        </div>
     </div>
-</div>
+</nav>

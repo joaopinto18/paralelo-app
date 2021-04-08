@@ -22,9 +22,8 @@ export class GuardMecanicoService implements CanActivate{
       else if (localStorage.getItem('accesouser')=='admin'){
         this.router.navigate(['/vista-admin-roles']);
         return false
-      }
-      else{
-        this.router.navigate(['/vista-citas']);
+      }else if(localStorage.getItem('accesouser')=='gerente'){
+        this.router.navigate(['/citas-gerente']);
         return false
       }
     }

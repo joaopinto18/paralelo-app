@@ -1,93 +1,73 @@
 @import url('https://fonts.googleapis.com/css2?family=Athiti:wght@700&display=swap');
-
 .navbar{
-    width: 75%;
     height: 20%;
-    background-color: rgb(66, 66, 66);
+    margin-top: 0;
+    padding-top: 0%;
+    padding-right: 0%;
+    padding-left: 0%;
+    padding-bottom: 0%;
+}
+.navbar-light{
+    background-color: #494949;
 }
 
-.navbar .logo-menu{
-    width: 30%;
-    height: 75%;
-    padding-top: 10px;
-    padding-left: 20px;
-    padding-right: 20px;
-}
-
-.navbar .logo-menu .logo{
+.container-fluid{
+    margin: 0;
     width: 100%;
     height: 100%;
-    object-fit: cover;
-}
 
-.navbar .options-menu{
-    height: 50%;
-    width: 100%;
+}
+.container-fluid .row{
+    width: 30%;
+    height: 75%;
+    margin: 2%;
     display: flex;
+    flex-direction: column;
+    
+}
+.container-fluid .row .logo{
+    width: 100%;
+    height: 100%;
+}
+.container-fluid .collapse{
+    height: 50%;
+    width: 100%; 
+
+}
+.container-fluid .collapse .navbar-nav{
+    display: flex;
+    flex-direction: row;
     justify-content: space-between;
     font-family: 'Athiti', sans-serif;
     font-style: normal;
     font-size: 15px;
     font-weight: bold;
+    width: 100%;
+    height: 100%;
 }
-
-.navbar .options-menu .incio-button{
-    background-color: rgb(255, 201, 51);
-    height: 20px;
-    padding-top: 2px;
-    padding-bottom: 2px;
-    width: 30%;
-    display: flex;
-    justify-content: center;
-    margin-left: 20px;
+.container-fluid .collapse .navbar-nav .nav-item{
+   background-color: #FFC933;
+   width: 24%;
+   height: 60%;
+   text-align: center;
+   color: black;
 }
-.navbar .options-menu .incio-button a{
-    color: black;
-    text-decoration: none;
-}
-.navbar .options-menu .incio-button a:hover{
-    color: black;
+.container-fluid .collapse .navbar-nav .nav-item:hover{
+    background-color:cadetblue;
     text-decoration: underline;
-}
+ }
+ .container-fluid .collapse .navbar-nav .nav-item a:hover{
+   color: white;
+ }
+ .container-fluid .collapse .esconde{
+    display: none;
+  }
 
-.navbar .options-menu .contacto-button{
-    background-color: rgb(255, 201, 51);
-    height: 20px;
-    padding-top: 2px;
-    padding-bottom: 2px;
-    width: 30%;
-    display: flex;
-    justify-content: center;
-}
-.navbar .options-menu .contacto-button a{
-    color: black;
-    text-decoration: none;
-}
-.navbar .options-menu .contacto-button a:hover{
-    color: black;
-    text-decoration: underline;
-}
-
-.navbar .options-menu .about-button{
-    background-color: rgb(255, 201, 51);
-    height: 20px;
-    padding-top: 2px;
-    padding-bottom: 2px;
-    width: 30%;
-    display: flex;
-    justify-content: center;
-    margin-right: 20px;
-}
-.navbar .options-menu .about-button a{
-    color: black;
-    text-decoration: none;
-}
-.navbar .options-menu .about-button a:hover{
-    color: black;
-    text-decoration: underline;
-}
-
-
-
-
-
+  @media screen and (max-width: 1024px) {
+    
+    .container-fluid .collapse .navbar-nav .nav-item{
+        width: 30%;
+        font-size: 11px;
+        
+    }
+    }

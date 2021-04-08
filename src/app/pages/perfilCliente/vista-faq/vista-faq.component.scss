@@ -2,26 +2,21 @@
 @import "node_modules/font-awesome/scss/font-awesome.scss";
 
 
-$tablet: 800px;
-$phone: 480px;
+.container-fluid{
 
-
-.wrapper{
     height: 80%;
-    width: 75%;
+    width: 100%;
     background-color: rgb(66, 66, 66);
-    float: left;
-    @media(max-width: $phone){
-      width: 80%;
-  }
+
 }
 
-.cajas{
+.container-fluid .row{
+  background-color: aqua;
   height: 0px;
 }
 
-.caja{
-  height: 50px;
+.container-fluid .row .container-fluid{
+  height: 55px;
   display: flex;
   justify-content: space-evenly;
   background-color: rgb(255, 201, 51);
@@ -32,12 +27,6 @@ $phone: 480px;
   margin-bottom: 0%;
   cursor: pointer;
   transition: ease .5s;
-  @media(max-width: $phone){
-    width: 90%;
-    font-size: 3vw;
-    margin-left: 15px;
-    margin-top: 15%;
-  }
 }
 
 .btn{
@@ -52,25 +41,23 @@ label{
   color: white;
   padding-left: 7px;
   cursor: pointer;
-   @media(max-width: $phone){
-        width: 80%;
-    }
 }
-
-.content{
-  height: 50px;
-  background-color: white;
+.caja1{
   width: 45%;
+  height: 30px;
   margin-top: 7px;
-  margin-left: 25%;
   border-radius: 6px;
-  margin-bottom: -5px;
-  @media(max-width: $phone){
-    width: 90%;
-    font-size: 11px;
-    margin-left: 15px;
-    margin-top: 1%;
-  }
+
+  margin-left: 25%;
+}
+.content{
+  height: 45px;
+  background-color: white;
+  width: 100%;
+  margin-top: 7px;
+  border-radius: 6px;
+
+
 }
 
 i{
@@ -99,3 +86,55 @@ button{
   cursor: pointer;
   border-radius: 2px;
 }
+
+@media screen and (max-width: 600px) {
+  .container-fluid{
+      padding-bottom: 0;
+      margin-bottom: 0;
+      background-color: #494949;
+      height: 100%;
+  }
+
+
+  .container-fluid .row .container-fluid{
+    width: 80%;
+    margin: auto;
+    margin-bottom: 5%;
+  }
+  .caja1{
+    margin-top: 1%;
+    width: 80%;
+  }
+  .content{
+    margin-top: 1%;
+    width: 80%;
+    margin-bottom: 5%;
+  }
+
+  }
+
+  @media screen and (max-width: 1024px) {
+    .container-fluid{
+      padding-bottom: 0;
+      margin-bottom: 0;
+      background-color: #494949;
+      height: 100%;
+  }
+
+
+  .container-fluid .row .container-fluid{
+    width: 80%;
+    margin: auto;
+    margin-top: 5%;
+  }
+  .caja1{
+    margin-top: 1%;
+    width: 80%;
+  }
+  .content{
+    margin-top: 1%;
+    width: 80%;
+    margin-bottom: 5%;
+  }
+
+    }

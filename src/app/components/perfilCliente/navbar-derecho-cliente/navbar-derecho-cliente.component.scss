@@ -13,7 +13,11 @@ $phone: 480px;
         background-color: rgb(255, 201, 51);
     }
 }
-
+@media screen and (max-width: 1024px) {
+    .right-navbar{
+    display:none;
+    }
+    }
 .right-navbar .buttons{
     width: 100%;
     height: 24.8%;

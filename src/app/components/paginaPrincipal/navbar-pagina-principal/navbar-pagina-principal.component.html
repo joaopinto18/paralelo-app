@@ -1,16 +1,42 @@
-<div class='navbar'>
-    <div class='logo-menu'>
-        <img class='logo' src='./assets/PARALELO2.png'>
+<nav class='navbar navbar-expand-lg navbar-light'>
+    <div class="container-fluid"> 
+        <div class="row">
+            <a class="navbar-brand" [routerLink]="['']">
+              <img class='logo' src='./assets/PARALELO2.png'>
+            </a>
+        </div>
+        <button
+         class="navbar-toggler"
+         type="button"
+         data-toggle="collapse" 
+         data-target="#navbarSupportedContent"
+         aria-controls="navbarSupportedContent" 
+         aria-expanded="false"
+         aria-label="Togle navigation"
+         >
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        
+        <div class='collapse navbar-collapse' id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                   <li class="nav-item">
+                        <a [routerLink]="['']" class="nav-link">INICIO </a>
+                    </li> 
+                    <li class="nav-item">
+                        <a [routerLink]="['/contactanos']" class="nav-link">CONTACTO</a>
+                    
+
+                    </li>
+                    <li class="nav-item">
+                        <a [routerLink]="['/about-us']" class="nav-link">ACERCA DE NOSOTROS</a>
+                    </li>
+                    <li class="esconde">
+                        <a [routerLink]="['/inicio-sesion']" class="nav-link">INICIAR SESION</a>
+                    </li>
+                    <li class="esconde">
+                        <a [routerLink]="['/registro']" class=" nav-link">REGISTRARSE</a>
+                    </li>
+            </ul>
+        </div>
     </div>
-    <div class='options-menu'>
-        <div class='incio-button'>
-            <span><a [routerLink]="['']">INICIO</a></span>
-        </div>
-        <div class='contacto-button'>
-            <span><a [routerLink]="['/contactanos']">CONTACTO</a></span>
-        </div>
-        <div class='about-button'>
-            <span><a [routerLink]="['/about-us']" >ACERCA DE NOSOTROS</a></span>
-        </div>
-    </div>
-</div>
+</nav>

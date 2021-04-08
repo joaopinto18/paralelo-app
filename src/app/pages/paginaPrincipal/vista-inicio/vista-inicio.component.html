@@ -1,15 +1,18 @@
 <app-navbar-derecho-pagina-principal></app-navbar-derecho-pagina-principal>
-
-<div class="ventana">
-    <div class="logo">
+<div class="container-fluid">
+    <div class="container-fluid">
         <img src="./assets/PARALELO2.png" class="imagen">
     </div>
     
-    <div class="contenedor">
-        <a [routerLink]="['']"><div class="botones">INICIO</div></a>
-        <a [routerLink]="['/about-us']"><div class="botones">ACERCA DE NOSOTROS</div></a>
-        <a [routerLink]="['/contactanos']"><div class="botones">CONTACTO</div></a>
-        <a [routerLink]="['/contactanos']"><div class="botones">UBICACIÓN</div></a>
+ <div class="row">
+        <div class="col-md-12">
+        <a [routerLink]="['']"><button type="button" class="btn btn-primary">INICIO</button></a>
+        <a [routerLink]="['/about-us']"><button type="button" class="btn btn-primary">ACERCA DE NOSOTROS</button></a>
+        <a [routerLink]="['/contactanos']"><button type="button" class="btn btn-primary">CONTACTO</button></a>
+        <a [routerLink]="['/contactanos']"><button type="button" class="btn btn-primary">UBICACIÓN</button></a>
+        <a [routerLink]="['/inicio-sesion']"><button type="button" class="btn btn-default">INICIAR SESION</button></a>
+        <a [routerLink]="['/registro']"><button type="button" class="btn btn-default">REGISTRARSE</button></a>
+        </div>
     </div>
 </div>
 

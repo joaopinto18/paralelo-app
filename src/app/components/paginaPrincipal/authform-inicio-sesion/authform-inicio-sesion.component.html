@@ -1,35 +1,34 @@
 <app-navbar-derecho-pagina-principal></app-navbar-derecho-pagina-principal>
 <app-navbar-pagina-principal></app-navbar-pagina-principal>
 
-<div class='wrapper'>
-    <div class='title-box'>
-        <div class='title'>
+<div class='container-fluid'>
+        <div class='container'>
             <span>INICIAR SESIÓN</span>
         </div>
-    </div>
-    <div class='form-square'>
-            <div class='form-square-background'>
+    <div class='row'>
+            <div class='col-md-12'>
                 <form class='form' [formGroup]="authForm">
-                    <div class='group1'>
+                    <div class='form-group'>
                         <input type="email"
+                        class="form-control"
                         id="email"
                         formControlName="email"
                         placeholder="   Ingrese su correo"
                         required><span class='bar'></span>
                         <label for=''>EMAIL</label>
                     </div>
-                    <div class='group2'>
-                        <input type="password" 
+                    <div class='form-group'>
+                        <input type="password"
+                        class="form-control" 
                         id="password"
                         formControlName="password"
                         placeholder="   Ingrese su contraseña"
                         required><span class='bar'></span>
                         <label for=''>PASSWORD</label>
                     </div>
-                    <div>
-                        <button (click)='iniciarSinGoogle()'>SEND</button>
-                        <button (click)="handleGoogleLogin()">SIGN UP WITH GOOGLE</button>
-                    </div> 
+                        <button type="submit" class="btn btn-primary" (click)='iniciarSinGoogle()'>SEND</button>
+                        <button type="submit" class="btn btn-primary" (click)="handleGoogleLogin()">SIGN UP WITH GOOGLE</button>
+                  
                 </form>
             </div>
 </div></div>

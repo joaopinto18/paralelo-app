@@ -5,6 +5,18 @@
     width: 25%;
     height: 100%;
 }
+/*}
+@media screen and (min-width: 767px) {
+    .right-navbar{
+        display:none;
+        }
+}*/
+@media screen and (max-width: 1024px) {
+    .right-navbar{
+    display:none;
+    }
+    }
+    
 
 .right-navbar .buttons{
     width: 100%;

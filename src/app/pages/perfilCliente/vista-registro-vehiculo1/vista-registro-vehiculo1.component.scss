@@ -17,6 +17,7 @@
     font-family: 'Athiti', sans-serif;
     font-size: 25px;
     color: rgb(255, 201, 51);
+    
 }
 
 .wrapper .title-box .title2{
@@ -26,6 +27,7 @@
     margin-left: -550px;
     margin-top: 20px;
     position: static;
+
 }
 
 .space{
@@ -101,6 +103,10 @@ button{
 }
 
 .citas{
+<<<<<<< HEAD
+    height: 0px;
+ 
+=======
     height: 400px;
     width: 300px;
     margin-right: 120px;
@@ -111,6 +117,7 @@ button{
     font-family: 'Athiti', sans-serif ;
     color: white;
     text-align: center;
+>>>>>>> 8b9474494d7031c8e124656fac41db171dcf4d47
 }
 
 img{
@@ -133,7 +140,62 @@ img{
     height: 40px;
 }
 
+<<<<<<< HEAD
+.wrapper .space .citas .btn2{
+    position: static;
+    margin-top: 350px;
+    margin-left: -350px;
+}
+@media screen and (max-width: 600px) {
+    .wrapper{
+        width: 100%;
+        height: 150%;
+        padding-bottom: 0;
+        margin-bottom: 0;
+    }
+    .wrapper .title-box .title{
+        margin: auto;
+    }
+    .form-square{
+        margin-top: 25%;
+        width: 100%;
+        height: 65%
+    }
+    
+    .citas{
+        height: 35%;
+    }
+    .wrapper .space .citas .btn2{
+        margin-top: 60px;
+       
+    }
+}
+@media screen and (max-width: 1024px) {
+    .wrapper{
+        width: 100%;
+        height: 150%;
+        padding-bottom: 0;
+        margin-bottom: 0;
+    }
+    .wrapper .title-box .title{
+        margin: auto;
+    }
+    .form-square{
+        margin-top: 25%;
+        width: 100%;
+        height: 65%
+    }
+    
+    .citas{
+        height: 35%;
+    }
+    .wrapper .space .citas .btn2{
+        margin-top: 60px;
+       
+    }
+=======
 .btn2{
     height: 50px;
     //background-color: green;
+>>>>>>> 8b9474494d7031c8e124656fac41db171dcf4d47
 }

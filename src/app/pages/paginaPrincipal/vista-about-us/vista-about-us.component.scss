@@ -1,83 +1,104 @@
 @import url('https://fonts.googleapis.com/css2?family=Athiti:wght@700&display=swap');
-
-.ventana{
+.container-fluid{
     width: 100%;
     height: 80%;
-    background-color: rgb(66, 66, 66);
-}
-.ventana .espacio{
-    width: 100%;
-    height: 5%;
-}
-.ventana .contenedor{
-    width: 70%;
-    height: 90%;
-    margin-left: 2.5% ;
-}
-
-.ventana .inicio{
-    float: left;
-    width: 50%;
-    height: 100%;
-    text-align: center;
-    font-weight: bold;
-    margin: auto;
-    display: flex;
-    justify-content: center;
-    background-image: url("https://static.straitstimes.com.sg/s3fs-public/styles/article_pictrure_780x520_/public/articles/2020/12/08/ST_20201208_VNCAR_6174629.jpg?itok=NBJ_ss3A&timestamp=1607366678");
-}
-
-.ventana .cuadros{
-    float: right;
-    width: 50%;
-    height: 100%;
-   
-    
-}
-.ventana .cuadros .titulo{
-    width: 100%;
-    height: 20%;
-    text-align: center;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    
-}
-.ventana .cuadros .titulo span{
-    margin-top: 7%;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    color: #F2CA63;
-    font-size: 24px;
-    font-weight: bold;
-    font-size: 24px;
-    font-family: 'Athiti', sans-serif;
-    
-   
-}
-.ventana .cuadros .titulo img{
-    width: 90%;
-    height: 90%;
-    margin: auto;
-    
-   
-}
-
-.ventana .cuadros .info{
-    width: 100%;
-    height: 80%;
-    color: white;
-    text-align: left;
+    background-color: #494949;
  
 }
-.ventana .cuadros .info p{
-    font-size: 16px;
-    margin-left: 5%;
-    padding-top: 1%;
-    font-family: 'Athiti', sans-serif;
-    font-style: normal;
-    line-height: 20px;
-    text-align: justify;
+.container-fluid .container-fluid{
+    width: 75%;
+    height: 5%;
+    margin: 0;
 }
 
+.container-fluid .row{
+    width: 75%;
+    height: 90%;
+    margin: 0;
+    padding: 0;
+}
+.container-fluid .row .col-md-6{
+  
+    text-align: center;
+    font-weight: bold;
+    background-color: #494949;
+    
+}
+.container-fluid .row .col-md-6 .container-fluid{
+    width: 100%;
+    height: 100%;
+    
+    
+}
+.container-fluid .row .col-md-6 .row{
+    width: 100%;
+    height: 55%;
+    
+    
+}
+.container-fluid .row .col-md-6 .row .col-md-12 h1{
+    width: 100%;
+    height: 10%;
+    text-align: center;
+    font-size: 24px;
+    color: #F2CA63;
+    margin-top: 1%;
+}
+.container-fluid .row .col-md-6 .row .col-md-12 p{
+    width: 100%;
+    text-align: center;
+    font-size: 13px;
+    font-weight: bold;
+    font-family: 'Athiti', sans-serif;
+    color: white;
+    line-height: 30px;
+}
+@media screen and (max-width: 600px) {
+    .container-fluid{
+        padding-left: 0;
+        padding-right: 0;
+        padding-bottom: 0;
+        margin-bottom: 0;
+        height: 110%;
+        background-color: #494949;
+    }
+
+
+    .container-fluid .row{
+        width: 100%;
+        background-color: #494949;
+        height: 100%;
+        margin-bottom: 0;
+    }
+
+    .container-fluid .row .col-md-6 .row{
+        width: 100%;
+        padding-bottom: 0;
+       
+    }
+    
+    }
+    @media screen and (max-width: 1024px) {
+        .container-fluid{
+            padding-left: 0;
+            padding-right: 0;
+            padding-bottom: 0;
+            margin-bottom: 0;
+            height: 110%;
+            background-color: #494949;
+        }
+    
+    
+        .container-fluid .row{
+            width: 100%;
+            background-color: #494949;
+            height: 100%;
+            margin-bottom: 0;
+        }
+    
+        .container-fluid .row .col-md-6 .row{
+            width: 100%;
+            padding-bottom: 0;
+           
+        }
+    }

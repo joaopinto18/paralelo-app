@@ -10,7 +10,7 @@
     <div class='input-section'>
         <form [formGroup]="registroVehiculoForm" (ngSubmit)='search()' class='input-form'>
             <div class='input'>
-                <input type="text" formControlName="placa" required><span class='bar'></span>
+                <input type="text" formControlName="placa" required class="busca"><span class='bar'></span>
                 <span>INGRESA LA PLACA DEL VEHICULO</span>
             </div>
             <button class='input-button' type="submit">BUSCAR</button>
@@ -23,7 +23,7 @@
         <div class='form-square-background'>
             <form [formGroup]="infoVehiculo" class='cahnges-form' >  <!--este es el form-->
                 <div class='identificador'>
-                    <span *ngIf="placa">VEHICULO ENCONTRADO DE PLACA {{placa}} ENCONTRADO</span>
+                    <span *ngIf="placa">VEHÍCULO DE PLACA {{placa}} ENCONTRADO</span>
                     <span *ngIf="!placa">SIN RESULTADOS</span>
                 </div>
                 <div class='columnas'>
