@@ -11,7 +11,7 @@
       <form [formGroup]="registroVehiculoForm"  class='input-form'>
           <div class='input'>
               <input type="text" formControlName="placa" required><span class='bar'></span>
-              <span>INGRESA LA PLACA DEL USUARIO AL QUE ASIGNAR UNA CITA</span>
+              <span>INGRESA LA PLACA DEL VEHÍCULO AL QUE ASIGNAR UNA CITA</span>
           </div>
           <button class='input-button' (click)='search()'>BUSCAR</button>
       </form>
@@ -23,7 +23,7 @@
       <div class='form-square-background'>
             <div class='identificador'>
                 <span *ngIf="!correo">SIN RESULTADOS</span>
-                <span *ngIf="correo">ENCONTRADO USUARIO DE CORREO {{correo}}</span>
+                <span *ngIf="correo">ENCONTRADO VEHÍCULO DE PLACA  {{correo}}</span>
             </div>
           <form [formGroup]="fechaForm" class='fechaForm'>
             <div class='columnas'>

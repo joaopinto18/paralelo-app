@@ -67,7 +67,12 @@ export class VistaCitasRechazadasComponent implements OnInit {
   async asignar():Promise<void>{
     if(this.correo){
       alert('la fecha ha sido asignada, se avisara al cliente')
-      this.carService.modificarFecha(this.fechaForm.get('fechax')?.value, this.registroVehiculoForm.get('placa')?.value, this.registroVehiculoForm.get('horax')?.value);
+      console.log('------------->');
+      
+      console.log(this.fechaForm.get('fechax')?.value);
+      this.registroVehiculoForm.get('horax')?.value
+      
+      this.carService.modificarFecha(this.fechaForm.get('fechax')?.value, this.registroVehiculoForm.get('placa')?.value, this.fechaForm.get('horax')?.value);
       this.registroVehiculoForm.reset();
       this.fechaForm.reset();
       this.nombre='';
