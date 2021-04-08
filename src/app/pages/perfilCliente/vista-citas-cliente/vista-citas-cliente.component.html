@@ -66,7 +66,7 @@
             <div class="caja1" *ngIf="estado2!='cita solicitada' && estado2!='En espera de confirmación'">
                 <p>1.CITA SOLICITADA</p>
             </div>
-            <div class="caja1" *ngIf="estado2=='cita solicitada' && estado2=='En espera de confirmación'" style="background-color:  greenyellow">
+            <div class="caja1" *ngIf="estado2=='cita solicitada' || estado2=='En espera de confirmación'" style="background-color:  greenyellow">
                 <p>1.CITA SOLICITADA</p>
             </div>
             <div class="triangulo">
@@ -110,10 +110,10 @@
             <p>VEHÍCULO 3</p>
         </div>
         <div class="cajas">
-            <div class="caja1" *ngIf="estado3!='cita solicitada'">
+            <div class="caja1" *ngIf="estado3!='cita solicitada' && estado3!='En espera de confirmación'">
                 <p>1.CITA SOLICITADA</p>
             </div>
-            <div class="caja1" *ngIf="estado3=='cita solicitada'" style="background-color: greenyellow">
+            <div class="caja1" *ngIf="estado3=='cita solicitada' || estado3=='En espera de confirmación'" style="background-color: greenyellow">
                 <p>1.CITA SOLICITADA</p>
             </div>
             <div class="triangulo">
