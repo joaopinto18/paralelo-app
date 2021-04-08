@@ -148,13 +148,13 @@ FullCalendarModule.registerPlugins([ // register FullCalendar plugins
   imports: [
     BrowserModule,
     AppRoutingModule,
-    insertado de modulos de firebase
+    //insertado de modulos de firebase
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFireStorageModule,
     AngularFireAuthModule,
     AngularFirestoreModule,
     AngularFireFunctionsModule,
-    modulos para crear formularios
+    //modulos para crear formularios
     FormsModule,
     ReactiveFormsModule,
     NgxQRCodeModule,

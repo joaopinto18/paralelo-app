@@ -1,41 +1,57 @@
 @import url('https://fonts.googleapis.com/css2?family=Athiti:wght@700&display=swap');
 
+// $small-phone: 320px;
+$phone: 375px;
+// $big-phone: 414px;
+// $small-tablet: 540px;
+$tablet: 768px;
+// $big-tablet: 1024px;
+// $small-laptop: 1256px;
 
 .space{
-    height: 75%;
+    height: 70%;
     width: 100%;
     display: flex;
     justify-content: center;
+    @media(max-width: $phone){
+        width: 100%;
+    }
 }
 
 .form-square{
-    height: 70%;
+    height: fit-content;
     width: 70%;
-    margin-top: -20px;
+    // margin-top: -20px;
     display: flex;
     justify-content: left;
-    margin-left: 30px;
+    // margin-left: 30px;
 }
 
 .form-square .form-square-background{
-    margin-top: 97px;
+    // margin-top: 97px;
     display: flex;
     justify-content: center;
-    height: 87%;
-    width: 90%;
-    padding: 35px;
+    // height: 87%;
+    width: 100%;
+    // padding: 35px;
     background-color: rgb(255, 201, 51);
 }
 
 .form-square .form-square-background .form{
+    width: 90%;
     display: flex;
     flex-direction: column;
     justify-content: center;
 }
 
 .form-square .form-square-background .form .columns{
+    width: 100%;
     display: flex;
+    margin-top: 5%;
     justify-content: center;
+    @media(max-width: $tablet){
+        display: block;
+    }
 }
 
 
@@ -43,6 +59,7 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
+    margin-right: 5%;
 }
 
 .form-square .form-square-background .form .column2{
@@ -57,31 +74,42 @@
     font-size: 40px;
     color: black;
     font-weight: bold;
-    margin-bottom: 20px;
-    margin-left: 40px;
+    // margin-bottom: 20px;
+    // margin-left: 40px;
 }
 
 input{
-    width: 300px;
-    height: 10px;
-    border-radius: 36px 12px;                      
+    width: 100%;
+    height: 50%;
+    border-radius: 5px;                      
     font-size: 15px;            
-    margin: 5px 10px 10px 1px; 
-    margin-left: 10px;
-    padding: 10px 10px 10px 5px;
-    display: block;             
+    // margin: 10px 10px 10px 5px; 
+    // padding: 10px 10px 10px 5px;
+    display: flex;             
     border: none;
+    border-radius: 36px 12px;
+    @media(max-width: $tablet){
+        height: 100%;
+    }
 }
 
 select{
-    width: 300px;
-    height: 30px;
+    width: 100%;
+    height: 50%;
+    border-radius: 5px;                      
+    font-size: 15px;            
+    // margin: 10px 10px 10px 5px; 
+    // padding: 10px 10px 10px 5px;            
+    border: none;
+    @media(max-width: $tablet){
+        height: 100%;
+    }
+    // width: 300px;
+    // height: 30px;
     border-radius: 36px 12px;                                
     margin: 5px 10px 10px 1px; 
     margin-left: 10px;
     display: block;             
-    border: none;
-    font-size: 15px;  
 }
 
 label{
@@ -89,6 +117,10 @@ label{
     font-size: 14px; 
     font-weight: bold;
     margin-left: 20px;
+    @media(max-width:$tablet){
+        font-size: 10px; 
+
+    }
 }
 
 .btn{
@@ -100,6 +132,10 @@ label{
     font-family: 'Athiti', sans-serif ;
     font-size: 15px;
     text-align: center;
+    @media(max-width:$tablet){
+        font-size: 10px; 
+
+    }
 }
 
 .submit-btn{
@@ -125,9 +161,14 @@ label{
     text-align: center;
     margin: 5px 0px 0px 0px;
     margin-left: 35%;
+    margin-bottom: 5%;
     padding: 0;
     display: block;             
     border: none;
+    @media(max-width:$tablet){
+        font-size: 10px; 
+
+    }
 }
 
 
