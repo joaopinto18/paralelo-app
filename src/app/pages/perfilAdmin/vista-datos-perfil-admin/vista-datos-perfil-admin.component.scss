@@ -1,25 +1,35 @@
 @import url('https://fonts.googleapis.com/css2?family=Athiti:wght@700&display=swap');
 
-$small-phone: 320px;
+// $small-phone: 320px;
 $phone: 375px;
-$big-phone: 414px;
-$small-tablet: 540px;
+// $big-phone: 414px;
+// $small-tablet: 540px;
 $tablet: 768px;
-$big-tablet: 1024px;
-$small-laptop: 1256px;
+// $big-tablet: 1024px;
+// $small-laptop: 1256px;
 
 .wrapper{
-    height: 80%;
+    height: 79%;
     width: 75%;
     background-color: rgb(66, 66, 66);
+    justify-content: center;
+    align-items: center;
+    @media(max-width:$tablet){
+        width: 100%;
+        height: 100%;
+    }
 }
 
 .space{
+    height: 65%;
+    width: 100%;
     display: flex;
-    justify-content: space-between;
-    padding: 0px;
-    height: 95%;
+    justify-content: center;
+    @media(max-width: $phone){
+        width: 100%;
+    }
 }
+
 
 .wrapper .title-box{
     height: 5%;
@@ -31,28 +41,34 @@ $small-laptop: 1256px;
     font-family: 'Athiti', sans-serif ;
     font-size: 25px;
     color: rgb(255, 201, 51);
+    @media(max-width:$tablet){
+        margin-top: 10px;
+        font-size: 15px;
+    }
 }
 
 .form-square{
-    height: 85%;
+    height: fit-content;
     width: 70%;
-    margin-top: 10px;
+    // margin-top: -20px;
     display: flex;
     justify-content: left;
-    margin-left: 140px;
+    margin-left: 15%;
 }
 
 .form-square .form-square-background{
-    margin-top: 20px;
+    margin-top: 5%;
     display: flex;
     justify-content: center;
-    height: 80%;
-    width: 85%;
-    padding: 35px;
+    // height: 87%;
+    width: 100%;
+    padding: 2%;
     background-color: rgb(255, 201, 51);
 }
 
+
 .form-square .form-square-background .form{
+    width: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -66,18 +82,22 @@ $small-laptop: 1256px;
     font-weight: bold;
     margin-bottom: 20px;
     margin-left: 40px;
+   
 }
 
 input{
-    height: 10px;
-    border-radius: 36px 12px;                      
+    width: 100%;
+    height: 50%;
+    border-radius: 5px;                      
     font-size: 15px;            
-    margin: 5px 10px 10px 1px; 
-    margin-left: 10px;
-    padding: 10px 10px 10px 5px;
-    display: block;             
+    // margin: 10px 10px 10px 5px; 
+    // padding: 10px 10px 10px 5px;
+    display: flex;             
     border: none;
-    width: 530px;
+    border-radius: 36px 12px;
+    @media(max-width: $tablet){
+        height: 100%;
+    }
 }
 
 label{
@@ -85,6 +105,10 @@ label{
     font-size: 14px; 
     font-weight: bold;
     margin-left: 20px;
+    @media(max-width:$tablet){
+        font-size: 10px; 
+
+    }
 }
 
 .texto1{
@@ -112,12 +136,24 @@ label{
 }
 
 button{
-    width: 150px;
-    height: 30px;
-    border: 0ch;
-    font-family: 'Athiti', sans-serif ;
-    font-size: 15px;
-    text-align: center;
-    margin: 5px;
-    margin-left: 200px;
+    
+        position: relative;
+        width: 35%;
+        height: 30px;
+        border: 0ch;
+        border-radius: 0; 
+        font-family: 'Athiti', sans-serif ;
+        font-size: 15px;
+        text-align: center;
+        margin: 5px 0px 0px 0px;
+        margin-left: 35%;
+        margin-bottom: 5%;
+        padding: 0;
+        display: block;             
+        border: none;
+        @media(max-width:$tablet){
+            font-size: 10px; 
+    
+        }
+    
 }
